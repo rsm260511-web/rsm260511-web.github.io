@@ -53,6 +53,7 @@
     #searchInput {
       padding: 6px;
       font-size: 14px;
+      color: #000;
     }
     #searchResults {
       position: absolute;
@@ -162,17 +163,21 @@
 
 <script>
   const ADMIN_PASSWORD = 'vjFDd2kH';
-  let articles = JSON.parse(localStorage.getItem('articles')) || [];
-  let description = localStorage.getItem('siteDescription') || '';
+  let articles = [];
 
-  document.getElementById('siteDescription').value = description;
-  document.getElementById('publicDescription').innerText = description;
+  // Carica i dati da GitHub
+  fetch('https://raw.githubusercontent.com/TUO-USERNAME/NOME-REPOSITORY/main/data.json')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('publicDescription').innerText = data.description;
+      document.getElementById('siteDescription').value = data.description;
+      articles = data.articles;
+      renderArticles();
+    })
+    .catch(error => console.error('Errore nel caricamento dei dati:', error));
 
   function saveDescription() {
-    const text = document.getElementById('siteDescription').value;
-    localStorage.setItem('siteDescription', text);
-    document.getElementById('publicDescription').innerText = text;
-    alert('Descrizione salvata');
+    alert('Per aggiornare la descrizione devi modificare il file data.json su GitHub');
   }
 
   function askPassword() {
@@ -193,55 +198,29 @@
       // Home display
       const card = document.createElement('div');
       card.className = 'card';
-      card.innerHTML = `<h2>${a.title}</h2>`;
+      card.innerHTML = `<h2 style='margin-bottom:8px'>${a.title}</h2>`;
       card.onclick = () => openArticle(i);
       container.appendChild(card);
 
       const link = document.createElement('a');
       link.textContent = a.title;
+      link.style.marginRight = '10px';
       link.onclick = () => openArticle(i);
       titles.appendChild(link);
 
-      // Admin display
+      // Admin display (solo lettura)
       const adminCard = document.createElement('div');
       adminCard.className = 'admin-article';
       adminCard.innerHTML = `
-        <input type='text' value='${a.title}' id='adminTitle${i}'>
-        <textarea rows='5' id='adminContent${i}'>${a.content.replace(/<br>/g,'\n')}</textarea>
-        <div class='admin-controls'>
-          <button onclick='saveArticle(${i})'>Salva</button>
-          <span onclick='deleteArticle(${i})'>🗑</span>
-        </div>
+        <strong>${a.title}</strong>
+        <p>${a.content.replace(/<br>/g,'\n')}</p>
       `;
       adminContainer.appendChild(adminCard);
     });
   }
 
   function addArticle() {
-    const title = document.getElementById('title').value;
-    let content = document.getElementById('content').value.replace(/\n/g, '<br>');
-    if (!title || !content) return alert('Compila tutto');
-    articles.unshift({ title, content });
-    localStorage.setItem('articles', JSON.stringify(articles));
-    document.getElementById('title').value = '';
-    document.getElementById('content').value = '';
-    renderArticles();
-    showAdmin();
-  }
-
-  function saveArticle(i) {
-    const newTitle = document.getElementById(`adminTitle${i}`).value;
-    const newContent = document.getElementById(`adminContent${i}`).value.replace(/\n/g,'<br>');
-    articles[i] = { title: newTitle, content: newContent };
-    localStorage.setItem('articles', JSON.stringify(articles));
-    renderArticles();
-  }
-
-  function deleteArticle(index) {
-    if (!confirm('Vuoi eliminare questo contenuto?')) return;
-    articles.splice(index, 1);
-    localStorage.setItem('articles', JSON.stringify(articles));
-    renderArticles();
+    alert('Per aggiungere articoli devi modificare il file data.json su GitHub');
   }
 
   function openArticle(i) {
@@ -278,8 +257,6 @@
       box.appendChild(d);
     });
   }
-
-  renderArticles();
 </script>
 
 </body>
