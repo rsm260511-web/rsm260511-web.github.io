@@ -178,19 +178,18 @@
 <script>
   const ADMIN_PASSWORD = 'vjFDd2kH';
   let articles = [];
+  let currentArticleIndex = null;
 
-  // Carica i dati da GitHub
+  // Carica dati da data.json
   fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/refs/heads/main/data.json')
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
       document.getElementById('publicDescription').innerText = data.description;
       document.getElementById('siteDescription').value = data.description;
       articles = data.articles;
-      // Inizializza like, dislike e commenti
-      articles.forEach(() => { likes.push(0); dislikes.push(0); comments.push([]); });
       renderArticles();
     })
-    .catch(error => console.error('Errore nel caricamento dei dati:', error));
+    .catch(err => console.error('Errore caricamento dati:', err));
 
   function saveDescription() {
     alert('Per aggiornare la descrizione devi modificare il file data.json su GitHub');
@@ -220,17 +219,13 @@
 
       const link = document.createElement('a');
       link.textContent = a.title;
-      link.style.marginRight = '10px';
       link.onclick = () => openArticle(i);
       titles.appendChild(link);
 
-      // Admin display (solo lettura)
+      // Admin display
       const adminCard = document.createElement('div');
       adminCard.className = 'admin-article';
-      adminCard.innerHTML = `
-        <strong>${a.title}</strong>
-        <p>${a.content.replace(/<br>/g,'\n')}</p>
-      `;
+      adminCard.innerHTML = `<strong>${a.title}</strong><p>${a.content.replace(/<br>/g,'\n')}</p>`;
       adminContainer.appendChild(adminCard);
     });
   }
@@ -239,52 +234,51 @@
     alert('Per aggiungere articoli devi modificare il file data.json su GitHub');
   }
 
-  let currentArticleIndex = null;
-  const likes = [];
-  const dislikes = [];
-  const comments = [];
-
   function openArticle(i) {
     currentArticleIndex = i;
     document.getElementById('home').style.display = 'none';
     document.getElementById('admin').style.display = 'none';
     document.getElementById('singleArticle').style.display = 'block';
     document.getElementById('singleTitle').innerText = articles[i].title;
-    document.getElementById('singleContent').innerHTML = articles[i].content;
+    document.getElementById('singleContent').innerText = articles[i].content;
 
-    document.getElementById('likeCount').innerText = likes[i];
-    document.getElementById('dislikeCount').innerText = dislikes[i];
+    document.getElementById('likeCount').innerText = articles[i].likes || 0;
+    document.getElementById('dislikeCount').innerText = articles[i].dislikes || 0;
 
     renderComments(i);
   }
 
   document.getElementById('likeBtn').onclick = () => {
     if (currentArticleIndex !== null) {
-      likes[currentArticleIndex]++;
-      document.getElementById('likeCount').innerText = likes[currentArticleIndex];
+      articles[currentArticleIndex].likes = (articles[currentArticleIndex].likes || 0) + 1;
+      document.getElementById('likeCount').innerText = articles[currentArticleIndex].likes;
+      // qui puoi aggiungere chiamata API per salvare su GitHub
     }
   };
 
   document.getElementById('dislikeBtn').onclick = () => {
     if (currentArticleIndex !== null) {
-      dislikes[currentArticleIndex]++;
-      document.getElementById('dislikeCount').innerText = dislikes[currentArticleIndex];
+      articles[currentArticleIndex].dislikes = (articles[currentArticleIndex].dislikes || 0) + 1;
+      document.getElementById('dislikeCount').innerText = articles[currentArticleIndex].dislikes;
+      // qui puoi aggiungere chiamata API per salvare su GitHub
     }
   };
 
   function addComment() {
     const input = document.getElementById('commentInput');
     if (currentArticleIndex !== null && input.value.trim() !== '') {
-      comments[currentArticleIndex].push(input.value.trim());
+      if (!articles[currentArticleIndex].comments) articles[currentArticleIndex].comments = [];
+      articles[currentArticleIndex].comments.push(input.value.trim());
       input.value = '';
       renderComments(currentArticleIndex);
+      // qui puoi aggiungere chiamata API per salvare su GitHub
     }
   }
 
   function renderComments(i) {
     const list = document.getElementById('commentsList');
     list.innerHTML = '';
-    comments[i].forEach(c => {
+    (articles[i].comments || []).forEach(c => {
       const div = document.createElement('div');
       div.style.padding = '6px';
       div.style.borderBottom = '1px solid #2a2a35';
@@ -324,3 +318,7 @@
 </body>
 </html>
 
+     
+   
+    
+ 
