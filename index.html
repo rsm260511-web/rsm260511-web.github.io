@@ -166,7 +166,7 @@
   let articles = [];
 
   // Carica i dati da GitHub
-  fetch('https://raw.githubusercontent.com/TUO-USERNAME/NOME-REPOSITORY/main/data.json')
+  fetch('https://github.com/rsm260511-web/RSM/blob/main/data.json')
     .then(response => response.json())
     .then(data => {
       document.getElementById('publicDescription').innerText = data.description;
@@ -261,3 +261,4 @@
 
 </body>
 </html>
+
