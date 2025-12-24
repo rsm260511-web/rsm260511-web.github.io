@@ -27,13 +27,14 @@ header h1{
   font-size:52px;
   margin:0;
 }
+
 nav{
   background:#15151c;
   padding:12px;
   display:flex;
   align-items:center;
   gap:12px;
-  flex-wrap:wrap;
+  position:relative;
 }
 nav a{
   cursor:pointer;
@@ -44,11 +45,36 @@ nav a{
   opacity:.8;
 }
 #titlesContainer a:hover{opacity:1}
-#searchInput{
+
+/* SEARCH */
+#searchBox{
   margin-left:auto;
-  padding:6px;
-  border-radius:6px;
+  position:relative;
+}
+#searchInput{
+  padding:8px 10px;
+  border-radius:20px;
   border:none;
+  outline:none;
+  width:220px;
+}
+#searchResults{
+  position:absolute;
+  top:38px;
+  left:0;
+  right:0;
+  background:#1c1c25;
+  border-radius:10px;
+  overflow:hidden;
+  display:none;
+  z-index:1000;
+}
+.search-item{
+  padding:10px;
+  cursor:pointer;
+}
+.search-item:hover{
+  background:#2a2a35;
 }
 
 main{
@@ -90,22 +116,23 @@ button:hover{background:#5a66e0}
 <nav>
   <a onclick="showHome()">Home</a>
   <span id="titlesContainer"></span>
-  <input id="searchInput" placeholder="Cerca..." oninput="searchArticles()">
+
+  <div id="searchBox">
+    <input id="searchInput" placeholder="Cerca..." oninput="searchArticles()">
+    <div id="searchResults"></div>
+  </div>
 </nav>
 
 <main>
 
-<!-- HOME -->
 <section id="home">
   <div class="card">
     <h2>Chi siamo?</h2>
     <p id="publicDescription"></p>
   </div>
-
   <div id="articles"></div>
 </section>
 
-<!-- ARTICOLO SINGOLO -->
 <section id="singleArticle" class="card">
   <h2 id="singleTitle"></h2>
   <div id="singleContent" style="line-height:1.6"></div>
@@ -128,7 +155,7 @@ button:hover{background:#5a66e0}
 let articles=[];
 let current=null;
 
-// CARICA DATA.JSON
+// LOAD JSON
 fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
 .then(r=>r.json())
 .then(data=>{
@@ -172,6 +199,7 @@ function openArticle(i){
   document.getElementById('dislikeCount').innerText=a.dislikes;
 
   renderComments();
+  hideSearch();
 }
 
 function showHome(){
@@ -179,12 +207,10 @@ function showHome(){
   document.getElementById('singleArticle').style.display='none';
 }
 
-function like(){
-  articles[current].likes++;
+function like(){ articles[current].likes++; updateCounts(); }
+function dislike(){ articles[current].dislikes++; updateCounts(); }
+function updateCounts(){
   document.getElementById('likeCount').innerText=articles[current].likes;
-}
-function dislike(){
-  articles[current].dislikes++;
   document.getElementById('dislikeCount').innerText=articles[current].dislikes;
 }
 
@@ -207,20 +233,29 @@ function renderComments(){
   });
 }
 
+/* SEARCH GOOGLE-LIKE */
 function searchArticles(){
   const q=document.getElementById('searchInput').value.toLowerCase();
-  if(!q)return renderArticles();
-  const c=document.getElementById('articles');
-  c.innerHTML='';
+  const box=document.getElementById('searchResults');
+  box.innerHTML='';
+  if(!q){ hideSearch(); return; }
+
   articles.forEach((a,i)=>{
     if(a.title.toLowerCase().includes(q)||a.content.toLowerCase().includes(q)){
       const d=document.createElement('div');
-      d.className='card';
-      d.innerHTML=`<h2>${a.title}</h2>`;
+      d.className='search-item';
+      d.innerText=a.title;
       d.onclick=()=>openArticle(i);
-      c.appendChild(d);
+      box.appendChild(d);
     }
   });
+
+  box.style.display=box.children.length?'block':'none';
+}
+
+function hideSearch(){
+  document.getElementById('searchResults').style.display='none';
+  document.getElementById('searchInput').value='';
 }
 </script>
 
