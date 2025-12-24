@@ -1,4 +1,13 @@
 {
   "description": "",
-  "articles": []
+  "articles": [
+    {
+      "title": "Articolo di prova",
+      "content": "Questo è un articolo di prova.",
+      "likes": 0,
+      "dislikes": 0,
+      "comments": []
+    }
+  ]
 }
+
