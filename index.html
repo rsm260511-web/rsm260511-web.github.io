@@ -5,32 +5,52 @@
 <title>RSM</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
 body{
   margin:0;
-  font-family:Montserrat,sans-serif;
+  font-family:'Montserrat',sans-serif;
   background:#0e0e11;
   color:#eaeaea;
 }
 header{
-  padding:60px 20px;
+  background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
+  url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+  background-size:cover;
+  background-position:center;
+  padding:90px 20px;
   text-align:center;
 }
 header h1{
   font-family:'Playfair Display',serif;
-  font-size:48px;
+  font-size:52px;
+  margin:0;
 }
 nav{
   background:#15151c;
-  padding:10px;
+  padding:12px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
 }
 nav a{
-  margin-right:12px;
   cursor:pointer;
   font-weight:600;
 }
+#titlesContainer a{
+  margin-right:10px;
+  opacity:.8;
+}
+#titlesContainer a:hover{opacity:1}
+#searchInput{
+  margin-left:auto;
+  padding:6px;
+  border-radius:6px;
+  border:none;
+}
+
 main{
   max-width:900px;
   margin:auto;
@@ -43,20 +63,19 @@ main{
   margin-bottom:20px;
 }
 button{
-  padding:8px 12px;
-  margin-right:10px;
+  padding:10px;
+  margin-top:10px;
+  background:#6f7cff;
   border:none;
   border-radius:6px;
+  color:white;
   cursor:pointer;
 }
-textarea{
-  width:100%;
-  margin-top:10px;
-  padding:10px;
-}
+button:hover{background:#5a66e0}
+
 #singleArticle{display:none}
 .comment{
-  border-bottom:1px solid #333;
+  border-bottom:1px solid #2a2a35;
   padding:6px 0;
 }
 </style>
@@ -71,31 +90,36 @@ textarea{
 <nav>
   <a onclick="showHome()">Home</a>
   <span id="titlesContainer"></span>
+  <input id="searchInput" placeholder="Cerca..." oninput="searchArticles()">
 </nav>
 
 <main>
 
+<!-- HOME -->
 <section id="home">
   <div class="card">
-    <p id="siteDescription"></p>
+    <h2>Chi siamo?</h2>
+    <p id="publicDescription"></p>
   </div>
+
   <div id="articles"></div>
 </section>
 
+<!-- ARTICOLO SINGOLO -->
 <section id="singleArticle" class="card">
-  <h2 id="articleTitle"></h2>
-  <p id="articleContent"></p>
+  <h2 id="singleTitle"></h2>
+  <div id="singleContent" style="line-height:1.6"></div>
 
-  <div style="margin-top:20px">
-    <button onclick="like()">👍 Like (<span id="likeCount">0</span>)</button>
-    <button onclick="dislike()">👎 Dislike (<span id="dislikeCount">0</span>)</button>
+  <div style="margin-top:25px">
+    <button onclick="like()">👍 Mi piace (<span id="likeCount">0</span>)</button>
+    <button onclick="dislike()">👎 Non mi piace (<span id="dislikeCount">0</span>)</button>
+
+    <h3 style="margin-top:25px">Commenti</h3>
+    <div id="comments"></div>
+
+    <textarea id="commentText" placeholder="Scrivi un commento"></textarea>
+    <button onclick="addComment()">Invia commento</button>
   </div>
-
-  <h3 style="margin-top:20px">Commenti</h3>
-  <div id="comments"></div>
-
-  <textarea id="commentText" placeholder="Scrivi un commento"></textarea>
-  <button onclick="addComment()">Invia</button>
 </section>
 
 </main>
@@ -104,31 +128,31 @@ textarea{
 let articles=[];
 let current=null;
 
+// CARICA DATA.JSON
 fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
 .then(r=>r.json())
 .then(data=>{
-  document.getElementById('siteDescription').innerText=data.description||'';
-  articles=data.articles||[];
+  document.getElementById('publicDescription').innerText=data.description;
+  articles=data.articles;
   renderArticles();
 });
 
 function renderArticles(){
-  const a=document.getElementById('articles');
+  const c=document.getElementById('articles');
   const t=document.getElementById('titlesContainer');
-  a.innerHTML='';
+  c.innerHTML='';
   t.innerHTML='';
+  articles.forEach((a,i)=>{
+    const d=document.createElement('div');
+    d.className='card';
+    d.innerHTML=`<h2>${a.title}</h2>`;
+    d.onclick=()=>openArticle(i);
+    c.appendChild(d);
 
-  articles.forEach((art,i)=>{
-    const c=document.createElement('div');
-    c.className='card';
-    c.innerHTML=`<h2>${art.title}</h2>`;
-    c.onclick=()=>openArticle(i);
-    a.appendChild(c);
-
-    const link=document.createElement('a');
-    link.textContent=art.title;
-    link.onclick=()=>openArticle(i);
-    t.appendChild(link);
+    const l=document.createElement('a');
+    l.innerText=a.title;
+    l.onclick=()=>openArticle(i);
+    t.appendChild(l);
   });
 }
 
@@ -137,12 +161,15 @@ function openArticle(i){
   document.getElementById('home').style.display='none';
   document.getElementById('singleArticle').style.display='block';
 
-  const art=articles[i];
-  document.getElementById('articleTitle').innerText=art.title;
-  document.getElementById('articleContent').innerText=art.content;
+  const a=articles[i];
+  a.likes ??=0;
+  a.dislikes ??=0;
+  a.comments ??=[];
 
-  document.getElementById('likeCount').innerText=art.likes||0;
-  document.getElementById('dislikeCount').innerText=art.dislikes||0;
+  document.getElementById('singleTitle').innerText=a.title;
+  document.getElementById('singleContent').innerText=a.content;
+  document.getElementById('likeCount').innerText=a.likes;
+  document.getElementById('dislikeCount').innerText=a.dislikes;
 
   renderComments();
 }
@@ -153,36 +180,49 @@ function showHome(){
 }
 
 function like(){
-  articles[current].likes=(articles[current].likes||0)+1;
+  articles[current].likes++;
   document.getElementById('likeCount').innerText=articles[current].likes;
 }
-
 function dislike(){
-  articles[current].dislikes=(articles[current].dislikes||0)+1;
+  articles[current].dislikes++;
   document.getElementById('dislikeCount').innerText=articles[current].dislikes;
 }
 
 function addComment(){
-  const txt=document.getElementById('commentText');
-  if(!txt.value.trim())return;
-  if(!articles[current].comments)articles[current].comments=[];
-  articles[current].comments.push(txt.value.trim());
-  txt.value='';
+  const t=document.getElementById('commentText');
+  if(!t.value.trim())return;
+  articles[current].comments.push(t.value.trim());
+  t.value='';
   renderComments();
 }
 
 function renderComments(){
   const c=document.getElementById('comments');
   c.innerHTML='';
-  (articles[current].comments||[]).forEach(com=>{
+  articles[current].comments.forEach(x=>{
     const d=document.createElement('div');
     d.className='comment';
-    d.innerText=com;
+    d.innerText=x;
     c.appendChild(d);
+  });
+}
+
+function searchArticles(){
+  const q=document.getElementById('searchInput').value.toLowerCase();
+  if(!q)return renderArticles();
+  const c=document.getElementById('articles');
+  c.innerHTML='';
+  articles.forEach((a,i)=>{
+    if(a.title.toLowerCase().includes(q)||a.content.toLowerCase().includes(q)){
+      const d=document.createElement('div');
+      d.className='card';
+      d.innerHTML=`<h2>${a.title}</h2>`;
+      d.onclick=()=>openArticle(i);
+      c.appendChild(d);
+    }
   });
 }
 </script>
 
 </body>
 </html>
-
