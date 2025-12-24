@@ -129,7 +129,7 @@ let articles=[];
 let current=null;
 
 // LOAD JSON
-fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
+fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/refs/heads/main/data.json')
 .then(r=>r.json())
 .then(data=>{
   document.getElementById('publicDescription').innerText=data.description;
@@ -200,3 +200,4 @@ function hideSearch(){
 
 </body>
 </html>
+
