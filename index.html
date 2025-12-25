@@ -5,6 +5,9 @@
 <title>RSM</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="rsm-header.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -118,7 +121,7 @@ main{
   <div id="articles"></div>
 </section>
 
-<section id="singleArticle" class="card">
+<section id="singleArticle" class="card" style="display:none">
   <h2 id="singleTitle"></h2>
   <div id="singleContent" style="line-height:1.6"></div>
 </section>
@@ -173,7 +176,7 @@ function showHome(){
   document.getElementById('singleArticle').style.display='none';
 }
 
-/* SEARCH GOOGLE-LIKE */
+/* SEARCH */
 function searchArticles(){
   const q=document.getElementById('searchInput').value.toLowerCase();
   const box=document.getElementById('searchResults');
@@ -201,8 +204,4 @@ function hideSearch(){
 
 </body>
 </html>
-
-
-
-
 
