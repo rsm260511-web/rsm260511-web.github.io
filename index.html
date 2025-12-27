@@ -15,68 +15,35 @@ body{
   background:#0e0e11;
   color:#eaeaea;
 }
-header {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
-              url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
-  background-size: cover;
-  background-position: center;
-  padding: 80px 20px;
-  text-align: center;
+header{
+  background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
+  url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+  background-size:cover;
+  padding:80px 20px;
+  text-align:center;
 }
 header h1{
   font-family:'Playfair Display',serif;
   font-size:52px;
-  margin:0;
 }
 nav{
   background:#15151c;
   padding:12px;
   display:flex;
-  align-items:center;
   gap:12px;
+  align-items:center;
 }
-nav a{
-  cursor:pointer;
-  font-weight:600;
-}
-#searchBox{
-  margin-left:auto;
-  position:relative;
-}
-#searchInput{
-  padding:8px 10px;
-  border-radius:20px;
-  border:none;
-  width:220px;
-}
+nav a{cursor:pointer;font-weight:600;}
+#searchBox{margin-left:auto;position:relative;}
+#searchInput{padding:8px 12px;border-radius:20px;border:none;}
 #searchResults{
-  position:absolute;
-  top:38px;
-  left:0;
-  right:0;
-  background:#1c1c25;
-  border-radius:10px;
-  display:none;
-  z-index:1000;
+  position:absolute;top:38px;left:0;right:0;
+  background:#1c1c25;border-radius:10px;display:none;
 }
-.search-item{
-  padding:10px;
-  cursor:pointer;
-}
-.search-item:hover{
-  background:#2a2a35;
-}
-main{
-  max-width:900px;
-  margin:auto;
-  padding:20px;
-}
-.card{
-  background:#1c1c25;
-  padding:20px;
-  border-radius:10px;
-  margin-bottom:20px;
-}
+.search-item{padding:10px;cursor:pointer;}
+.search-item:hover{background:#2a2a35;}
+main{max-width:900px;margin:auto;padding:20px;}
+.card{background:#1c1c25;padding:20px;border-radius:10px;margin-bottom:20px;}
 </style>
 </head>
 
@@ -105,20 +72,12 @@ main{
 <section id="home">
   <div class="card">
     <h2>Benvenuto su RSM</h2>
-    <p>Esplora articoli, notizie e misteri.</p>
+    <p>Esplora articoli, notizie e storie misteriose.</p>
   </div>
 </section>
 
 <section id="articoli" style="display:none"></section>
-
-<section id="notizie" style="display:none">
-  <div class="card">
-    <h2>Notizie</h2>
-    <p>Aggiornamenti e informazioni recenti.</p>
-  </div>
-  <div id="newsContainer"></div>
-</section>
-
+<section id="notizie" style="display:none"></section>
 <section id="categorie" style="display:none"></section>
 
 <section id="chi" style="display:none">
@@ -137,24 +96,24 @@ main{
 </section>
 
 <section id="single" class="card" style="display:none">
-  <h2 id="st"></h2>
-  <div id="sc"></div>
+  <h2 id="singleTitle"></h2>
+  <div id="singleContent"></div>
 </section>
 
 </main>
 
 <script>
-let articles=[];
-let news=[];
+let articles=[], news=[];
 
 fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/refs/heads/main/data.json')
 .then(r=>r.json())
 .then(d=>{
-  articles=d.articles || [];
-  news=d.news || [];
-  document.getElementById('desc').innerText=d.description || '';
+  articles=d.articles;
+  news=d.news;
+  document.getElementById('desc').innerText=d.description;
   renderArticles();
   renderNews();
+  renderCategories();
 });
 
 function show(id){
@@ -164,52 +123,53 @@ function show(id){
 
 function renderArticles(){
   const a=document.getElementById('articoli');
-  const c=document.getElementById('categorie');
   a.innerHTML='';
-  c.innerHTML='';
-  const cats={};
-
   articles.forEach((x,i)=>{
     const d=document.createElement('div');
     d.className='card';
-    d.innerHTML=`<h2>${x.title}</h2><small>${x.category || ''}</small>`;
-    d.onclick=()=>openArticle(i);
+    d.innerHTML=`<h2>${x.title}</h2><small>${x.category}</small>`;
+    d.onclick=()=>openContent(x);
     a.appendChild(d);
-
-    if(x.category){
-      cats[x.category]=(cats[x.category]||[]).concat(i);
-    }
   });
+}
 
+function renderNews(){
+  const n=document.getElementById('notizie');
+  n.innerHTML='';
+  news.forEach(x=>{
+    const d=document.createElement('div');
+    d.className='card';
+    d.innerHTML=`<h2>${x.title}</h2>`;
+    d.onclick=()=>openContent(x);
+    n.appendChild(d);
+  });
+}
+
+function renderCategories(){
+  const c=document.getElementById('categorie');
+  const cats={};
+  articles.forEach(a=>{
+    cats[a.category]=(cats[a.category]||[]).concat(a);
+  });
+  c.innerHTML='';
   for(let k in cats){
     const d=document.createElement('div');
     d.className='card';
     d.innerHTML=`<h2>${k}</h2>`;
-    cats[k].forEach(i=>{
+    cats[k].forEach(a=>{
       const p=document.createElement('p');
-      p.innerText=articles[i].title;
-      p.onclick=()=>openArticle(i);
+      p.innerText=a.title;
+      p.onclick=()=>openContent(a);
       d.appendChild(p);
     });
     c.appendChild(d);
   }
 }
 
-function renderNews(){
-  const n=document.getElementById('newsContainer');
-  n.innerHTML='';
-  news.forEach(x=>{
-    const d=document.createElement('div');
-    d.className='card';
-    d.innerHTML=`<h3>${x.title}</h3><p>${x.content}</p>`;
-    n.appendChild(d);
-  });
-}
-
-function openArticle(i){
+function openContent(x){
   show('single');
-  st.innerText=articles[i].title;
-  sc.innerText=articles[i].content;
+  singleTitle.innerText=x.title;
+  singleContent.innerText=x.content;
 }
 
 function searchAll(){
@@ -217,31 +177,19 @@ function searchAll(){
   searchResults.innerHTML='';
   if(!q){searchResults.style.display='none';return;}
 
-  articles.forEach((a,i)=>{
-    if(
-      a.title.toLowerCase().includes(q) ||
-      a.content.toLowerCase().includes(q) ||
-      (a.category && a.category.toLowerCase().includes(q))
-    ){
+  [...articles,...news].forEach(x=>{
+    if(x.title.toLowerCase().includes(q)||x.content.toLowerCase().includes(q)){
       const d=document.createElement('div');
       d.className='search-item';
-      d.innerText=a.title;
-      d.onclick=()=>openArticle(i);
+      d.innerText=x.title;
+      d.onclick=()=>openContent(x);
       searchResults.appendChild(d);
     }
   });
-
-  if("notizie".includes(q)){
-    const d=document.createElement('div');
-    d.className='search-item';
-    d.innerText='Notizie';
-    d.onclick=()=>show('notizie');
-    searchResults.appendChild(d);
-  }
-
   searchResults.style.display='block';
 }
 </script>
 
 </body>
 </html>
+
