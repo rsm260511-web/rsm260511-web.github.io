@@ -1,13 +1,21 @@
 {
-  "description": "RSM è uno spazio dedicato all’esplorazione di misteri del mondo. Qui troverai storie documentate, eventi storici poco conosciuti e dati raccolti da fonti diverse, per stimolare curiosità e approfondimento.",
+  "description": "RSM è uno spazio dedicato a misteri e storie nascoste.",
   "articles": [
     {
-      "title": "Le catacombe di Parigi",
-      "content": "Sotto le strade di Parigi si estende una rete di tunnel lunga oltre 300 km, originariamente cave di pietra utilizzate fin dall’epoca romana per l’estrazione del calcare necessario alla costruzione della città. Nel XVIII secolo, a causa della sovrappopolazione dei cimiteri cittadini e dei problemi sanitari derivanti dalle sepolture, le autorità decisero di trasferire milioni di resti umani nelle gallerie sotterranee. Tra il 1786 e il 1814, ossa provenienti da vari cimiteri vennero spostate e organizzate nelle catacombe.\n\nOggi solo circa 1,5 km di questo vasto sistema è aperto al pubblico. Le sezioni visitabili includono corridoi ordinati con ossa disposte in modo strutturato, iscrizioni commemorative e targhe che indicano l’origine dei resti. Oltre alle aree ufficiali, esistono numerosi tunnel non accessibili, chiusi per motivi di sicurezza. Ispezioni tecniche hanno individuato zone instabili, crolli parziali e passaggi allagati.\n\nLa gestione delle catacombe è affidata al Museo dei Monumenti Francesi, che monitora costantemente la stabilità delle gallerie. Nonostante i controlli, esplorazioni urbane non autorizzate hanno documentato l’esistenza di stanze secondarie, vecchi impianti idrici, incisioni risalenti a diversi periodi storici e tracce di utilizzo militare durante la Seconda Guerra Mondiale. Molte parti del sistema rimangono non mappate ufficialmente."
+      "title": "La stanza segreta sotto il Vaticano",
+      "category": "Vaticano",
+      "content": "Contenuto lungo..."
     },
     {
-      "title": "Il manoscritto Voynich",
-      "content": "Il manoscritto Voynich è un codice illustrato risalente al XV secolo, conservato presso la Beinecke Rare Book & Manuscript Library dell’Università di Yale. Il manoscritto è composto da circa 240 pagine in pergamena, anche se si ritiene che alcune siano andate perdute. Il testo è scritto in un alfabeto sconosciuto, con una struttura che sembra seguire regole linguistiche coerenti.\n\nIl manoscritto è suddiviso in diverse sezioni tematiche. Una parte contiene illustrazioni di piante che non corrispondono a specie botaniche note, mentre un’altra mostra diagrammi astronomici con simboli zodiacali. Sono presenti anche pagine con figure umane immerse in strutture simili a vasche, collegate da tubi o canali, e una sezione con ricette o istruzioni brevi accompagnate da simboli.\n\nIl nome del manoscritto deriva da Wilfrid Voynich, un antiquario che lo acquistò nel 1912. Analisi al radiocarbonio effettuate nel 2009 hanno datato la pergamena tra il 1404 e il 1438. Studi successivi hanno escluso l’ipotesi di un falso moderno. Nel corso del tempo, crittografi militari, linguisti e informatici hanno tentato di decifrare il testo utilizzando metodi statistici e algoritmi di intelligenza artificiale.\n\nNonostante questi tentativi, non è stato possibile stabilire con certezza il significato del testo. Alcune ipotesi suggeriscono che possa trattarsi di una lingua artificiale, di un cifrario complesso o di un sistema simbolico usato per trasmettere conoscenze riservate. Altre teorie indicano che il manoscritto possa essere un trattato medico o erboristico scritto in codice per proteggere le informazioni."
+      "title": "Esperimenti segreti durante la Guerra Fredda",
+      "category": "Storia",
+      "content": "Contenuto..."
+    }
+  ],
+  "news": [
+    {
+      "title": "Nuova scoperta misteriosa",
+      "content": "Testo notizia..."
     }
   ]
 }
