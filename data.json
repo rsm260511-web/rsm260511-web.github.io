@@ -1,30 +1,27 @@
 {
-  "description": "RSM è un progetto indipendente nato per esplorare misteri, eventi poco conosciuti e storie che spesso rimangono ai margini dell’informazione tradizionale. Attraverso analisi approfondite e ricostruzioni dettagliate, RSM invita a osservare la realtà da prospettive diverse, stimolando curiosità e riflessione.",
+  "description": "RSM è uno spazio dedicato all’esplorazione di misteri irrisolti, notizie recenti e storie poco conosciute che si muovono tra realtà e ipotesi. L’obiettivo è stimolare curiosità e spirito critico, andando oltre ciò che appare in superficie.",
+
   "articles": [
     {
+      "title": "Avvistamento misterioso nei cieli europei",
+      "content": "Nelle ultime settimane numerose segnalazioni parlano di luci anomale avvistate nei cieli di diversi paesi europei. Le autorità non hanno rilasciato dichiarazioni ufficiali.",
+      "category": "Notizie",
+      "type": "news",
+      "date": "2025-01-22"
+    },
+    {
+      "title": "Il manoscritto perduto del Medioevo",
+      "content": "Secondo alcuni studiosi esisterebbe un manoscritto medievale mai reso pubblico che conterrebbe conoscenze avanzate per l’epoca.",
+      "category": "Misteri",
+      "type": "article",
+      "date": "2024-12-10"
+    },
+    {
       "title": "La stanza segreta sotto il Vaticano",
-      "category": "Vaticano",
-      "content": "Da decenni circolano voci sull’esistenza di ambienti nascosti sotto la Città del Vaticano. Secondo alcune testimonianze, esisterebbero stanze sigillate che custodirebbero documenti e oggetti mai resi pubblici.\n\nL’assenza di conferme ufficiali ha alimentato ipotesi e racconti che continuano ad affascinare studiosi e appassionati."
-    },
-    {
-      "title": "Archivi proibiti: cosa nasconde davvero il Vaticano?",
-      "category": "Vaticano",
-      "content": "Gli archivi vaticani sono considerati tra i più vasti e misteriosi al mondo. Alcuni ricercatori ipotizzano che al loro interno siano conservati testi antichi e informazioni in grado di riscrivere parti della storia.\n\nIl segreto che li avvolge alimenta interrogativi e speculazioni ancora oggi."
-    },
-    {
-      "title": "Esperimenti segreti del Novecento",
-      "category": "Storia Segreta",
-      "content": "Durante il Novecento diversi governi condussero programmi riservati, spesso giustificati da esigenze militari.\n\nDocumenti emersi anni dopo mostrano quanto poco si sappia realmente di alcuni di questi esperimenti."
-    }
-  ],
-  "news": [
-    {
-      "title": "Nuove rivelazioni riaccendono l’interesse su un antico mistero",
-      "content": "Recenti analisi di documenti storici hanno riportato l’attenzione su un mistero rimasto irrisolto per decenni. Sebbene non vi siano conferme ufficiali, l’argomento sta generando dibattito tra ricercatori e appassionati."
-    },
-    {
-      "title": "Scoperta inattesa durante un restauro storico",
-      "content": "Durante lavori di restauro in un edificio antico sono emersi dettagli architettonici che potrebbero cambiare la lettura storica del luogo. Gli studiosi stanno approfondendo."
+      "content": "Da decenni circolano voci su una stanza nascosta sotto il Vaticano, accessibile solo a pochissime persone.",
+      "category": "Misteri",
+      "type": "article",
+      "date": "2024-11-18"
     }
   ]
 }
