@@ -15,59 +15,55 @@ body{
   background:#0e0e11;
   color:#eaeaea;
 }
+
+/* HEADER GRANDE CON IMMAGINE */
 header{
   background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
   url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
   background-size:cover;
   background-position:center;
-  padding:90px 20px;
+  padding:80px 20px;
   text-align:center;
 }
 header h1{
   font-family:'Playfair Display',serif;
-  font-size:54px;
+  font-size:52px;
   margin:0;
 }
 
+/* NAV */
 nav{
   background:#15151c;
   padding:12px;
   display:flex;
-  gap:14px;
+  gap:15px;
   align-items:center;
+  flex-wrap:wrap;
 }
-nav a{
-  cursor:pointer;
-  font-weight:600;
-}
+nav a{cursor:pointer;font-weight:600}
 
-#searchBox{
-  margin-left:auto;
-  position:relative;
-}
+/* SEARCH */
+#searchBox{margin-left:auto;position:relative}
 #searchInput{
-  padding:8px 12px;
+  padding:8px 10px;
   border-radius:20px;
   border:none;
-  outline:none;
+  width:220px;
 }
 #searchResults{
   position:absolute;
   top:38px;
-  left:0;
-  right:0;
   background:#1c1c25;
+  width:100%;
   border-radius:10px;
   display:none;
-  z-index:1000;
+  z-index:10;
 }
 .search-item{
   padding:10px;
   cursor:pointer;
 }
-.search-item:hover{
-  background:#2a2a35;
-}
+.search-item:hover{background:#2a2a35}
 
 main{
   max-width:900px;
@@ -80,9 +76,7 @@ main{
   border-radius:10px;
   margin-bottom:20px;
 }
-small{
-  opacity:.7;
-}
+.hidden{display:none}
 </style>
 </head>
 
@@ -93,12 +87,11 @@ small{
 </header>
 
 <nav>
-  <a onclick="show('home')">Home</a>
-  <a onclick="show('articoli')">Articoli</a>
-  <a onclick="show('notizie')">Notizie</a>
-  <a onclick="show('categorie')">Categorie</a>
-  <a onclick="show('chi')">Chi siamo?</a>
-  <a onclick="show('contatti')">Contatti</a>
+  <a onclick="showSection('home')">Home</a>
+  <a onclick="showSection('articles')">Articoli</a>
+  <a onclick="showSection('categories')">Categorie</a>
+  <a onclick="showSection('about')">Chi siamo?</a>
+  <a onclick="showSection('contacts')">Contatti</a>
 
   <div id="searchBox">
     <input id="searchInput" placeholder="Cerca..." oninput="searchAll()">
@@ -108,25 +101,31 @@ small{
 
 <main>
 
+<!-- HOME -->
 <section id="home">
-  <div class="card">
-    <h2>Benvenuto su RSM</h2>
-    <p>Esplora articoli, notizie e misteri che spesso restano nascosti.</p>
+  <div id="latestNews" class="card" style="border-left:5px solid #ff4d4d">
+    <h2>🟥 Ultima notizia</h2>
+    <h3 id="latestTitle"></h3>
+    <p id="latestPreview"></p>
   </div>
 </section>
 
-<section id="articoli" style="display:none"></section>
-<section id="notizie" style="display:none"></section>
-<section id="categorie" style="display:none"></section>
+<!-- ARTICOLI -->
+<section id="articles" class="hidden"></section>
 
-<section id="chi" style="display:none">
+<!-- CATEGORIE -->
+<section id="categories" class="hidden"></section>
+
+<!-- CHI SIAMO -->
+<section id="about" class="hidden">
   <div class="card">
     <h2>Chi siamo?</h2>
-    <p id="desc"></p>
+    <p id="publicDescription"></p>
   </div>
 </section>
 
-<section id="contatti" style="display:none">
+<!-- CONTATTI -->
+<section id="contacts" class="hidden">
   <div class="card">
     <h2>Contatti</h2>
     <p>📞 +39 351 093 3272</p>
@@ -134,99 +133,102 @@ small{
   </div>
 </section>
 
-<section id="single" class="card" style="display:none">
+<!-- ARTICOLO SINGOLO -->
+<section id="single" class="hidden card">
   <h2 id="singleTitle"></h2>
-  <div id="singleContent" style="line-height:1.6"></div>
+  <p id="singleContent"></p>
 </section>
 
 </main>
 
 <script>
-let articles=[], news=[];
+let articles=[];
 
-fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/refs/heads/main/data.json')
+/* LOAD JSON */
+fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
 .then(r=>r.json())
-.then(d=>{
-  articles=d.articles;
-  news=d.news;
-  document.getElementById('desc').innerText=d.description;
+.then(data=>{
+  document.getElementById('publicDescription').innerText=data.description;
+  articles=data.articles;
   renderArticles();
-  renderNews();
   renderCategories();
+  renderLatestNews();
 });
 
-function show(id){
-  document.querySelectorAll('main section').forEach(s=>s.style.display='none');
-  document.getElementById(id).style.display='block';
+/* SEZIONI */
+function showSection(id){
+  document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
 }
 
+/* ARTICOLI */
 function renderArticles(){
-  const a=document.getElementById('articoli');
-  a.innerHTML='';
-  articles.forEach(x=>{
-    const d=document.createElement('div');
-    d.className='card';
-    d.innerHTML=`<h2>${x.title}</h2><small>${x.category}</small>`;
-    d.onclick=()=>openContent(x);
-    a.appendChild(d);
-  });
-}
-
-function renderNews(){
-  const n=document.getElementById('notizie');
-  n.innerHTML='';
-  news.forEach(x=>{
-    const d=document.createElement('div');
-    d.className='card';
-    d.innerHTML=`<h2>${x.title}</h2>`;
-    d.onclick=()=>openContent(x);
-    n.appendChild(d);
-  });
-}
-
-function renderCategories(){
-  const c=document.getElementById('categorie');
-  const cats={};
-  articles.forEach(a=>{
-    cats[a.category]=(cats[a.category]||[]).concat(a);
-  });
+  const c=document.getElementById('articles');
   c.innerHTML='';
-  for(let k in cats){
+  articles.filter(a=>a.type==="article").forEach((a,i)=>{
     const d=document.createElement('div');
     d.className='card';
-    d.innerHTML=`<h2>${k}</h2>`;
-    cats[k].forEach(a=>{
-      const p=document.createElement('p');
-      p.innerText=a.title;
-      p.style.cursor='pointer';
-      p.onclick=()=>openContent(a);
-      d.appendChild(p);
-    });
+    d.innerHTML=`<h2>${a.title}</h2>`;
+    d.onclick=()=>openArticle(i);
     c.appendChild(d);
-  }
+  });
 }
 
-function openContent(x){
-  show('single');
-  singleTitle.innerText=x.title;
-  singleContent.innerText=x.content;
+/* CATEGORIE */
+function renderCategories(){
+  const c=document.getElementById('categories');
+  c.innerHTML='';
+  const cats=[...new Set(articles.map(a=>a.category))];
+  cats.forEach(cat=>{
+    const box=document.createElement('div');
+    box.className='card';
+    box.innerHTML=`<h2>${cat}</h2>`;
+    articles.filter(a=>a.category===cat).forEach((a,i)=>{
+      const p=document.createElement('p');
+      p.innerText="• "+a.title;
+      p.style.cursor='pointer';
+      p.onclick=()=>openArticle(i);
+      box.appendChild(p);
+    });
+    c.appendChild(box);
+  });
 }
 
+/* NEWS */
+function renderLatestNews(){
+  const news=articles.filter(a=>a.type==="news")
+  .sort((a,b)=>new Date(b.date)-new Date(a.date));
+  if(!news.length)return;
+  const n=news[0];
+  document.getElementById('latestTitle').innerText=n.title;
+  document.getElementById('latestPreview').innerText=n.content.slice(0,150)+"...";
+  document.getElementById('latestNews').onclick=()=>openArticle(articles.indexOf(n));
+}
+
+/* ARTICOLO SINGOLO */
+function openArticle(i){
+  const a=articles[i];
+  showSection('single');
+  document.getElementById('singleTitle').innerText=a.title;
+  document.getElementById('singleContent').innerText=a.content;
+}
+
+/* SEARCH */
 function searchAll(){
-  const q=searchInput.value.toLowerCase();
-  searchResults.innerHTML='';
-  if(!q){searchResults.style.display='none';return;}
-
-  [...articles,...news].forEach(x=>{
-    if(x.title.toLowerCase().includes(q)||x.content.toLowerCase().includes(q)){
+  const q=document.getElementById('searchInput').value.toLowerCase();
+  const box=document.getElementById('searchResults');
+  box.innerHTML='';
+  if(!q){box.style.display='none';return;}
+  articles.forEach((a,i)=>{
+    if(a.title.toLowerCase().includes(q)||a.content.toLowerCase().includes(q)){
       const d=document.createElement('div');
       d.className='search-item';
-      d.innerText=x.title;
-      d.onclick=()=>openContent(x);
-      searchResults.appendChild(d);
+      d.innerText=a.title;
+      d.onclick=()=>openArticle(i);
+      box.appendChild(d);
     }
   });
-  searchResults.style.display='block';
+  box.style.display=box.children.length?'block':'none';
 }
 </script>
 
