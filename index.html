@@ -19,31 +19,70 @@ header{
   background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
   url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
   background-size:cover;
-  padding:80px 20px;
+  background-position:center;
+  padding:90px 20px;
   text-align:center;
 }
 header h1{
   font-family:'Playfair Display',serif;
-  font-size:52px;
+  font-size:54px;
+  margin:0;
 }
+
 nav{
   background:#15151c;
   padding:12px;
   display:flex;
-  gap:12px;
+  gap:14px;
   align-items:center;
 }
-nav a{cursor:pointer;font-weight:600;}
-#searchBox{margin-left:auto;position:relative;}
-#searchInput{padding:8px 12px;border-radius:20px;border:none;}
-#searchResults{
-  position:absolute;top:38px;left:0;right:0;
-  background:#1c1c25;border-radius:10px;display:none;
+nav a{
+  cursor:pointer;
+  font-weight:600;
 }
-.search-item{padding:10px;cursor:pointer;}
-.search-item:hover{background:#2a2a35;}
-main{max-width:900px;margin:auto;padding:20px;}
-.card{background:#1c1c25;padding:20px;border-radius:10px;margin-bottom:20px;}
+
+#searchBox{
+  margin-left:auto;
+  position:relative;
+}
+#searchInput{
+  padding:8px 12px;
+  border-radius:20px;
+  border:none;
+  outline:none;
+}
+#searchResults{
+  position:absolute;
+  top:38px;
+  left:0;
+  right:0;
+  background:#1c1c25;
+  border-radius:10px;
+  display:none;
+  z-index:1000;
+}
+.search-item{
+  padding:10px;
+  cursor:pointer;
+}
+.search-item:hover{
+  background:#2a2a35;
+}
+
+main{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+.card{
+  background:#1c1c25;
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:20px;
+}
+small{
+  opacity:.7;
+}
 </style>
 </head>
 
@@ -72,7 +111,7 @@ main{max-width:900px;margin:auto;padding:20px;}
 <section id="home">
   <div class="card">
     <h2>Benvenuto su RSM</h2>
-    <p>Esplora articoli, notizie e storie misteriose.</p>
+    <p>Esplora articoli, notizie e misteri che spesso restano nascosti.</p>
   </div>
 </section>
 
@@ -97,7 +136,7 @@ main{max-width:900px;margin:auto;padding:20px;}
 
 <section id="single" class="card" style="display:none">
   <h2 id="singleTitle"></h2>
-  <div id="singleContent"></div>
+  <div id="singleContent" style="line-height:1.6"></div>
 </section>
 
 </main>
@@ -124,7 +163,7 @@ function show(id){
 function renderArticles(){
   const a=document.getElementById('articoli');
   a.innerHTML='';
-  articles.forEach((x,i)=>{
+  articles.forEach(x=>{
     const d=document.createElement('div');
     d.className='card';
     d.innerHTML=`<h2>${x.title}</h2><small>${x.category}</small>`;
@@ -159,6 +198,7 @@ function renderCategories(){
     cats[k].forEach(a=>{
       const p=document.createElement('p');
       p.innerText=a.title;
+      p.style.cursor='pointer';
       p.onclick=()=>openContent(a);
       d.appendChild(p);
     });
@@ -192,4 +232,3 @@ function searchAll(){
 
 </body>
 </html>
-
