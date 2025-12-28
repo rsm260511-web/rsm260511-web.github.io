@@ -16,7 +16,7 @@ body{
   color:#eaeaea;
 }
 
-/* HEADER GRANDE CON IMMAGINE */
+/* HEADER CON IMMAGINE GRANDE */
 header{
   background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
   url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
@@ -40,7 +40,10 @@ nav{
   align-items:center;
   flex-wrap:wrap;
 }
-nav a{cursor:pointer;font-weight:600}
+nav a{
+  cursor:pointer;
+  font-weight:600;
+}
 
 /* SEARCH */
 #searchBox{margin-left:auto;position:relative}
@@ -89,6 +92,7 @@ main{
 <nav>
   <a onclick="showSection('home')">Home</a>
   <a onclick="showSection('articles')">Articoli</a>
+  <a onclick="showSection('news')">News</a>
   <a onclick="showSection('categories')">Categorie</a>
   <a onclick="showSection('about')">Chi siamo?</a>
   <a onclick="showSection('contacts')">Contatti</a>
@@ -106,12 +110,15 @@ main{
   <div id="latestNews" class="card" style="border-left:5px solid #ff4d4d">
     <h2>🟥 Ultima notizia</h2>
     <h3 id="latestTitle"></h3>
-    <p id="latestPreview"></p>
+    <p style="opacity:.8">Clicca per leggere la notizia completa</p>
   </div>
 </section>
 
 <!-- ARTICOLI -->
 <section id="articles" class="hidden"></section>
+
+<!-- NEWS -->
+<section id="news" class="hidden"></section>
 
 <!-- CATEGORIE -->
 <section id="categories" class="hidden"></section>
@@ -151,6 +158,7 @@ fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
   document.getElementById('publicDescription').innerText=data.description;
   articles=data.articles;
   renderArticles();
+  renderNews();
   renderCategories();
   renderLatestNews();
 });
@@ -166,6 +174,19 @@ function renderArticles(){
   const c=document.getElementById('articles');
   c.innerHTML='';
   articles.filter(a=>a.type==="article").forEach((a,i)=>{
+    const d=document.createElement('div');
+    d.className='card';
+    d.innerHTML=`<h2>${a.title}</h2>`;
+    d.onclick=()=>openArticle(i);
+    c.appendChild(d);
+  });
+}
+
+/* NEWS */
+function renderNews(){
+  const c=document.getElementById('news');
+  c.innerHTML='';
+  articles.filter(a=>a.type==="news").forEach((a,i)=>{
     const d=document.createElement('div');
     d.className='card';
     d.innerHTML=`<h2>${a.title}</h2>`;
@@ -194,23 +215,23 @@ function renderCategories(){
   });
 }
 
-/* NEWS */
+/* ULTIMA NEWS */
 function renderLatestNews(){
-  const news=articles.filter(a=>a.type==="news")
-  .sort((a,b)=>new Date(b.date)-new Date(a.date));
+  const news=articles
+    .filter(a=>a.type==="news")
+    .sort((a,b)=>new Date(b.date)-new Date(a.date));
   if(!news.length)return;
   const n=news[0];
   document.getElementById('latestTitle').innerText=n.title;
-  document.getElementById('latestPreview').innerText=n.content.slice(0,150)+"...";
-  document.getElementById('latestNews').onclick=()=>openArticle(articles.indexOf(n));
+  document.getElementById('latestNews').onclick=
+    ()=>openArticle(articles.indexOf(n));
 }
 
 /* ARTICOLO SINGOLO */
 function openArticle(i){
-  const a=articles[i];
   showSection('single');
-  document.getElementById('singleTitle').innerText=a.title;
-  document.getElementById('singleContent').innerText=a.content;
+  document.getElementById('singleTitle').innerText=articles[i].title;
+  document.getElementById('singleContent').innerText=articles[i].content;
 }
 
 /* SEARCH */
