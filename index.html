@@ -71,6 +71,15 @@ main{
 }
 .hidden{display:none}
 </style>
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "5f662e86-6c78-47e0-9244-66056229da0c",
+    });
+  });
+</script>
 </head>
 
 <body>
@@ -240,3 +249,4 @@ function searchAll(){
 
 </body>
 </html>
+
