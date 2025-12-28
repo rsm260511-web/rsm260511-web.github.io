@@ -1,24 +1,31 @@
 {
-  "description": "RSM è uno spazio dedicato all’esplorazione di misteri irrisolti, notizie recenti e storie poco conosciute che si muovono tra realtà e ipotesi. L’obiettivo è stimolare curiosità e spirito critico, andando oltre ciò che appare in superficie.",
+  "description": "RSM è uno spazio dedicato all’esplorazione di misteri, notizie attuali e storie poco conosciute. L’obiettivo è informare, incuriosire e stimolare il pensiero critico su eventi che spesso restano ai margini dell’informazione tradizionale.",
 
   "articles": [
     {
-      "title": "Avvistamento misterioso nei cieli europei",
-      "content": "Nelle ultime settimane numerose segnalazioni parlano di luci anomale avvistate nei cieli di diversi paesi europei. Le autorità non hanno rilasciato dichiarazioni ufficiali.",
-      "category": "Notizie",
+      "title": "Nuove segnalazioni anomale nei cieli europei",
+      "content": "Negli ultimi giorni numerose persone hanno segnalato la presenza di luci insolite nel cielo notturno. Le autorità non hanno ancora fornito spiegazioni ufficiali.",
+      "category": "Attualità",
       "type": "news",
-      "date": "2025-01-22"
+      "date": "2025-01-23"
     },
     {
-      "title": "Il manoscritto perduto del Medioevo",
-      "content": "Secondo alcuni studiosi esisterebbe un manoscritto medievale mai reso pubblico che conterrebbe conoscenze avanzate per l’epoca.",
+      "title": "Documento riservato trapelato online",
+      "content": "Un documento classificato come riservato sarebbe apparso su forum anonimi, sollevando interrogativi sulla sicurezza delle informazioni sensibili.",
+      "category": "Attualità",
+      "type": "news",
+      "date": "2025-01-15"
+    },
+    {
+      "title": "La stanza segreta sotto il Vaticano",
+      "content": "Da decenni circolano voci sull’esistenza di una stanza nascosta sotto il Vaticano che custodirebbe documenti mai resi pubblici.",
       "category": "Misteri",
       "type": "article",
       "date": "2024-12-10"
     },
     {
-      "title": "La stanza segreta sotto il Vaticano",
-      "content": "Da decenni circolano voci su una stanza nascosta sotto il Vaticano, accessibile solo a pochissime persone.",
+      "title": "Il manoscritto perduto del Medioevo",
+      "content": "Secondo alcuni studiosi, un manoscritto medievale potrebbe contenere conoscenze avanzate per l’epoca, ma la sua esistenza non è mai stata confermata ufficialmente.",
       "category": "Misteri",
       "type": "article",
       "date": "2024-11-18"
