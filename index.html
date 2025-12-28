@@ -15,8 +15,6 @@ body{
   background:#0e0e11;
   color:#eaeaea;
 }
-
-/* HEADER CON IMMAGINE GRANDE */
 header{
   background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
   url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
@@ -30,8 +28,6 @@ header h1{
   font-size:52px;
   margin:0;
 }
-
-/* NAV */
 nav{
   background:#15151c;
   padding:12px;
@@ -40,12 +36,7 @@ nav{
   align-items:center;
   flex-wrap:wrap;
 }
-nav a{
-  cursor:pointer;
-  font-weight:600;
-}
-
-/* SEARCH */
+nav a{cursor:pointer;font-weight:600}
 #searchBox{margin-left:auto;position:relative}
 #searchInput{
   padding:8px 10px;
@@ -67,7 +58,6 @@ nav a{
   cursor:pointer;
 }
 .search-item:hover{background:#2a2a35}
-
 main{
   max-width:900px;
   margin:auto;
@@ -105,25 +95,18 @@ main{
 
 <main>
 
-<!-- HOME -->
 <section id="home">
   <div id="latestNews" class="card" style="border-left:5px solid #ff4d4d">
     <h2>🟥 Ultima notizia</h2>
     <h3 id="latestTitle"></h3>
-    <p style="opacity:.8">Clicca per leggere la notizia completa</p>
+    <p style="opacity:.7">Clicca per leggere la notizia completa</p>
   </div>
 </section>
 
-<!-- ARTICOLI -->
 <section id="articles" class="hidden"></section>
-
-<!-- NEWS -->
 <section id="news" class="hidden"></section>
-
-<!-- CATEGORIE -->
 <section id="categories" class="hidden"></section>
 
-<!-- CHI SIAMO -->
 <section id="about" class="hidden">
   <div class="card">
     <h2>Chi siamo?</h2>
@@ -131,7 +114,6 @@ main{
   </div>
 </section>
 
-<!-- CONTATTI -->
 <section id="contacts" class="hidden">
   <div class="card">
     <h2>Contatti</h2>
@@ -140,7 +122,6 @@ main{
   </div>
 </section>
 
-<!-- ARTICOLO SINGOLO -->
 <section id="single" class="hidden card">
   <h2 id="singleTitle"></h2>
   <p id="singleContent"></p>
@@ -163,7 +144,6 @@ fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
   renderLatestNews();
 });
 
-/* SEZIONI */
 function showSection(id){
   document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
@@ -173,11 +153,12 @@ function showSection(id){
 function renderArticles(){
   const c=document.getElementById('articles');
   c.innerHTML='';
-  articles.filter(a=>a.type==="article").forEach((a,i)=>{
+  articles.filter(a=>a.type==="article").forEach(a=>{
+    const index=articles.indexOf(a);
     const d=document.createElement('div');
     d.className='card';
     d.innerHTML=`<h2>${a.title}</h2>`;
-    d.onclick=()=>openArticle(i);
+    d.onclick=()=>openArticle(index);
     c.appendChild(d);
   });
 }
@@ -186,11 +167,12 @@ function renderArticles(){
 function renderNews(){
   const c=document.getElementById('news');
   c.innerHTML='';
-  articles.filter(a=>a.type==="news").forEach((a,i)=>{
+  articles.filter(a=>a.type==="news").forEach(a=>{
+    const index=articles.indexOf(a);
     const d=document.createElement('div');
     d.className='card';
     d.innerHTML=`<h2>${a.title}</h2>`;
-    d.onclick=()=>openArticle(i);
+    d.onclick=()=>openArticle(index);
     c.appendChild(d);
   });
 }
@@ -204,11 +186,12 @@ function renderCategories(){
     const box=document.createElement('div');
     box.className='card';
     box.innerHTML=`<h2>${cat}</h2>`;
-    articles.filter(a=>a.category===cat).forEach((a,i)=>{
+    articles.filter(a=>a.category===cat).forEach(a=>{
+      const index=articles.indexOf(a);
       const p=document.createElement('p');
       p.innerText="• "+a.title;
       p.style.cursor='pointer';
-      p.onclick=()=>openArticle(i);
+      p.onclick=()=>openArticle(index);
       box.appendChild(p);
     });
     c.appendChild(box);
@@ -241,7 +224,9 @@ function searchAll(){
   box.innerHTML='';
   if(!q){box.style.display='none';return;}
   articles.forEach((a,i)=>{
-    if(a.title.toLowerCase().includes(q)||a.content.toLowerCase().includes(q)){
+    if(a.title.toLowerCase().includes(q)||
+       a.content.toLowerCase().includes(q)||
+       a.category.toLowerCase().includes(q)){
       const d=document.createElement('div');
       d.className='search-item';
       d.innerText=a.title;
