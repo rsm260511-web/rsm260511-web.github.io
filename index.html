@@ -77,6 +77,9 @@ main{
   OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
       appId: "5f662e86-6c78-47e0-9244-66056229da0c",
+      serviceWorkerPath: "/RSM/OneSignalSDKWorker.js",
+      serviceWorkerUpdaterPath: "/RSM/OneSignalSDKWorker.js",
+      serviceWorkerParam: { scope: "/RSM/" }
     });
   });
 </script>
@@ -249,6 +252,7 @@ function searchAll(){
 
 </body>
 </html>
+
 
 
 
