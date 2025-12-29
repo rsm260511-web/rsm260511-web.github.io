@@ -71,7 +71,8 @@ main{
 }
 .hidden{display:none}
 </style>
-  <!-- start webpushr code -->
+
+<!-- start webpushr code -->
 <script>
 (function(w,d,s,id){
     if(typeof(w.webpushr)!=='undefined') return;
@@ -81,18 +82,21 @@ main{
     js.id=id;
     js.async=1;
     js.src="https://cdn.webpushr.com/app.min.js";
+
+    // Quando lo script è caricato, esegui il setup
+    js.onload = function(){
+        webpushr('setup', {
+            'key':'BPDoKwUvUhFFgXBJYQ1GL5OmNqoOj4J0bLORlAYlfmBbr6xIhHqkz0mAUFnS2XIZu44TF8Op6XlrmCwOCR4tlMQ',
+            'serviceWorkerPath':'/RSM/webpushr-sw.js'
+        });
+    };
+
     fjs.parentNode.appendChild(js);
 }(window,document,'script','webpushr-jssdk'));
-
-// Setup Webpushr con percorso corretto del service worker
-webpushr('setup', {
-    'key':'BPDoKwUvUhFFgXBJYQ1GL5OmNqoOj4J0bLORlAYlfmBbr6xIhHqkz0mAUFnS2XIZu44TF8Op6XlrmCwOCR4tlMQ',
-    'serviceWorkerPath':'/RSM/webpushr-sw.js'
-});
 </script>
 <!-- end webpushr code -->
-</head>
 
+</head>
 <body>
 
 <header>
@@ -260,10 +264,3 @@ function searchAll(){
 
 </body>
 </html>
-
-
-
-
-
-
-
