@@ -3,6 +3,34 @@
 
   "articles": [
     {
+      "title": "Tempesta magnetica colpisce la Terra: effetti sulle comunicazioni satellitari",
+      "content": "Oggi gli osservatori scientifici hanno registrato un'intensa tempesta magnetica causata da un'espulsione di massa coronale del Sole. Gli esperti prevedono che le comunicazioni satellitari e le reti GPS possano subire interruzioni temporanee nelle prossime 48 ore. Alcuni voli aerei nelle regioni polari sono già stati deviati per evitare problemi di navigazione e possibili interferenze elettromagnetiche. Gli scienziati monitorano attentamente la situazione, avvertendo che simili fenomeni potrebbero diventare più frequenti con l’aumento dell’attività solare nel ciclo attuale.",
+      "category": "Attualità",
+      "type": "news",
+      "date": "2025-12-29"
+    },
+    {
+      "title": "Scoperta nuova specie sottomarina nelle profondità dell’oceano Pacifico",
+      "content": "Un team internazionale di biologi marini ha scoperto una nuova specie di cefalopode a oltre 4.000 metri di profondità. L'animale presenta caratteristiche uniche, tra cui tentacoli luminescenti e un comportamento sociale mai osservato prima in specie simili. La scoperta apre nuovi scenari sullo studio degli ecosistemi profondi e sulla biodiversità marina ancora largamente inesplorata. Gli scienziati stanno preparando studi genetici e comportamentali per capire come questa specie si adatti alle condizioni estreme di pressione e oscurità degli abissi oceanici.",
+      "category": "Attualità",
+      "type": "news",
+      "date": "2025-12-29"
+    },
+    {
+      "title": "La città perduta sotto la giungla amazzonica",
+      "content": "Recenti studi con droni e immagini satellitari hanno rivelato tracce di una civiltà antica nascosta sotto la fitta vegetazione della giungla amazzonica. I ricercatori hanno identificato strutture complesse, strade e possibili templi che potrebbero appartenere a una cultura finora sconosciuta. Le analisi preliminari suggeriscono che questa civiltà abbia sviluppato tecniche avanzate di irrigazione e agricoltura, sfidando le precedenti teorie sulla densità della popolazione amazzonica precolombiana. Il ritrovamento potrebbe riscrivere la storia delle civiltà antiche e della colonizzazione del continente sudamericano.",
+      "category": "Misteri",
+      "type": "article",
+      "date": "2025-12-29"
+    },
+    {
+      "title": "Enigma dei monoliti scomparsi nel deserto del Gobi",
+      "content": "Nel deserto del Gobi, archeologi e geologi hanno riportato la misteriosa scomparsa di una serie di monoliti in pietra risalenti a centinaia di anni fa. Fonti locali parlano di eventi inspiegabili e leggende legate a fenomeni naturali e forse anche a interventi umani antichi. Studi recenti stanno analizzando l’erosione, i cambiamenti climatici e possibili attività sismiche per spiegare la sparizione, ma al momento rimane un mistero aperto. Alcuni ipotizzano che queste strutture possano aver avuto funzioni rituali o astronomiche, rendendo la loro sparizione ancora più enigmatica.",
+      "category": "Misteri",
+      "type": "article",
+      "date": "2025-12-29"
+    },
+    {
       "title": "Nuove segnalazioni anomale nei cieli europei",
       "content": "Negli ultimi giorni numerose persone hanno segnalato la presenza di luci insolite nel cielo notturno. Le autorità non hanno ancora fornito spiegazioni ufficiali.",
       "category": "Attualità",
