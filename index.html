@@ -72,29 +72,11 @@ main{
 .hidden{display:none}
 </style>
 
-<!-- start webpushr code -->
-<script>
-(function(w,d,s,id){
-    if(typeof(w.webpushr)!=='undefined') return;
-    w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};
-    var js,fjs=d.getElementsByTagName(s)[0];
-    js=d.createElement(s);
-    js.id=id;
-    js.async=1;
-    js.src="https://cdn.webpushr.com/app.min.js";
-
-    // Usa "onload" per fare il setup dopo che lo script è pronto
-    js.onload = function(){
-        webpushr('setup', {
-            'key':'BPDoKwUvUhFFgXBJYQ1GL5OmNqoOj4J0bLORlAYlfmBbr6xIhHqkz0mAUFnS2XIZu44TF8Op6XlrmCwOCR4tlMQ',
-            'serviceWorkerPath':'/RSM/webpushr-sw.js'
-        });
-    };
-
-    fjs.parentNode.appendChild(js);
-}(window,document,'script','webpushr-jssdk'));
-</script>
-<!-- end webpushr code -->
+<!-- start webpushr tracking code --> 
+<script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";
+fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));
+webpushr('setup',{'key':'BPDoKwUvUhFFgXBJYQ1GL5OmNqoOj4J0bLORlAYlfmBbr6xIhHqkz0mAUFnS2XIZu44TF8Op6XlrmCwOCR4tlMQ' });</script>
+<!-- end webpushr tracking code -->
 </head>
 <body>
 
@@ -263,4 +245,5 @@ function searchAll(){
 
 </body>
 </html>
+
 
