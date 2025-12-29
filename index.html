@@ -71,6 +71,28 @@ main{
 }
 .hidden{display:none}
 </style>
+  <!-- start webpushr code -->
+<script>
+(function(w,d,s,id){
+    if(typeof(w.webpushr)!=='undefined') return;
+    w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};
+    var js, fjs = d.getElementsByTagName(s)[0];
+    js = d.createElement(s);
+    js.id = id;
+    js.async = 1;
+    js.src = "https://cdn.webpushr.com/app.min.js";
+
+    // Setup Webpushr dopo che lo script è caricato
+    js.onload = function(){
+        webpushr('setup', {
+            'key':'BKdp3zSvl_w5aJH_c9naFADnGMJxh9khCwh0THm4hfU-PGhMZN8V5XpQt0nAqFULqVBjWSUk6lWblBhDYRbhWt4'
+        });
+    };
+
+    fjs.parentNode.appendChild(js);
+}(window,document,'script','webpushr-jssdk'));
+</script>
+<!-- end webpushr code -->
 </head>
 
 <body>
@@ -240,6 +262,7 @@ function searchAll(){
 
 </body>
 </html>
+
 
 
 
