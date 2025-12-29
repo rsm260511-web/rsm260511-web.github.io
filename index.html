@@ -83,7 +83,7 @@ main{
     js.async=1;
     js.src="https://cdn.webpushr.com/app.min.js";
 
-    // Quando lo script è caricato, esegui il setup
+    // Usa "onload" per fare il setup dopo che lo script è pronto
     js.onload = function(){
         webpushr('setup', {
             'key':'BPDoKwUvUhFFgXBJYQ1GL5OmNqoOj4J0bLORlAYlfmBbr6xIhHqkz0mAUFnS2XIZu44TF8Op6XlrmCwOCR4tlMQ',
@@ -95,7 +95,6 @@ main{
 }(window,document,'script','webpushr-jssdk'));
 </script>
 <!-- end webpushr code -->
-
 </head>
 <body>
 
@@ -264,3 +263,4 @@ function searchAll(){
 
 </body>
 </html>
+
