@@ -4,59 +4,74 @@
   "articles": [
     {
       "title": "Tempesta magnetica colpisce la Terra: effetti sulle comunicazioni satellitari",
-      "content": "Oggi gli osservatori scientifici hanno registrato un'intensa tempesta magnetica causata da un'espulsione di massa coronale del Sole. Gli esperti prevedono che le comunicazioni satellitari e le reti GPS possano subire interruzioni temporanee nelle prossime 48 ore. Alcuni voli aerei nelle regioni polari sono già stati deviati per evitare problemi di navigazione e possibili interferenze elettromagnetiche. Gli scienziati monitorano attentamente la situazione, avvertendo che simili fenomeni potrebbero diventare più frequenti con l’aumento dell’attività solare nel ciclo attuale.",
+      "content": "Oggi gli osservatori scientifici hanno registrato un'intensa tempesta magnetica causata da un'espulsione di massa coronale del Sole...",
       "category": "Attualità",
       "type": "news",
-      "date": "2025-12-29"
+      "date": "2025-12-29",
+      "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa"
     },
+
     {
       "title": "Scoperta nuova specie sottomarina nelle profondità dell’oceano Pacifico",
-      "content": "Un team internazionale di biologi marini ha scoperto una nuova specie di cefalopode a oltre 4.000 metri di profondità. L'animale presenta caratteristiche uniche, tra cui tentacoli luminescenti e un comportamento sociale mai osservato prima in specie simili. La scoperta apre nuovi scenari sullo studio degli ecosistemi profondi e sulla biodiversità marina ancora largamente inesplorata. Gli scienziati stanno preparando studi genetici e comportamentali per capire come questa specie si adatti alle condizioni estreme di pressione e oscurità degli abissi oceanici.",
+      "content": "Un team internazionale di biologi marini ha scoperto una nuova specie di cefalopode a oltre 4.000 metri di profondità...",
       "category": "Attualità",
       "type": "news",
-      "date": "2025-12-29"
+      "date": "2025-12-29",
+      "image": "https://images.unsplash.com/photo-1558980664-10ea0f63b6b7"
     },
+
     {
       "title": "La città perduta sotto la giungla amazzonica",
-      "content": "Recenti studi con droni e immagini satellitari hanno rivelato tracce di una civiltà antica nascosta sotto la fitta vegetazione della giungla amazzonica. I ricercatori hanno identificato strutture complesse, strade e possibili templi che potrebbero appartenere a una cultura finora sconosciuta. Le analisi preliminari suggeriscono che questa civiltà abbia sviluppato tecniche avanzate di irrigazione e agricoltura, sfidando le precedenti teorie sulla densità della popolazione amazzonica precolombiana. Il ritrovamento potrebbe riscrivere la storia delle civiltà antiche e della colonizzazione del continente sudamericano.",
+      "content": "Recenti studi con droni e immagini satellitari hanno rivelato tracce di una civiltà antica nascosta sotto la fitta vegetazione...",
       "category": "Misteri",
       "type": "article",
-      "date": "2025-12-29"
+      "date": "2025-12-29",
+      "image": "https://images.unsplash.com/photo-1593642634443-44adaa06623a"
     },
+
     {
       "title": "Enigma dei monoliti scomparsi nel deserto del Gobi",
-      "content": "Nel deserto del Gobi, archeologi e geologi hanno riportato la misteriosa scomparsa di una serie di monoliti in pietra risalenti a centinaia di anni fa. Fonti locali parlano di eventi inspiegabili e leggende legate a fenomeni naturali e forse anche a interventi umani antichi. Studi recenti stanno analizzando l’erosione, i cambiamenti climatici e possibili attività sismiche per spiegare la sparizione, ma al momento rimane un mistero aperto. Alcuni ipotizzano che queste strutture possano aver avuto funzioni rituali o astronomiche, rendendo la loro sparizione ancora più enigmatica.",
+      "content": "Nel deserto del Gobi, archeologi e geologi hanno riportato la misteriosa scomparsa di una serie di monoliti in pietra...",
       "category": "Misteri",
       "type": "article",
-      "date": "2025-12-29"
+      "date": "2025-12-29",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470"
     },
+
     {
       "title": "Nuove segnalazioni anomale nei cieli europei",
-      "content": "Negli ultimi giorni numerose persone hanno segnalato la presenza di luci insolite nel cielo notturno. Le autorità non hanno ancora fornito spiegazioni ufficiali.",
+      "content": "Negli ultimi giorni numerose persone hanno segnalato la presenza di luci insolite nel cielo notturno...",
       "category": "Attualità",
       "type": "news",
-      "date": "2025-01-23"
+      "date": "2025-01-23",
+      "image": "https://images.unsplash.com/photo-1500534314209-a26db0f5e3d9"
     },
+
     {
       "title": "Documento riservato trapelato online",
-      "content": "Un documento classificato come riservato sarebbe apparso su forum anonimi, sollevando interrogativi sulla sicurezza delle informazioni sensibili.",
+      "content": "Un documento classificato come riservato sarebbe apparso su forum anonimi...",
       "category": "Attualità",
       "type": "news",
-      "date": "2025-01-15"
+      "date": "2025-01-15",
+      "image": "https://images.unsplash.com/photo-1516542076529-1ea3854896f2"
     },
+
     {
       "title": "La stanza segreta sotto il Vaticano",
-      "content": "Da decenni circolano voci sull’esistenza di una stanza nascosta sotto il Vaticano che custodirebbe documenti mai resi pubblici.",
+      "content": "Da decenni circolano voci sull’esistenza di una stanza nascosta sotto il Vaticano...",
       "category": "Misteri",
       "type": "article",
-      "date": "2024-12-10"
+      "date": "2024-12-10",
+      "image": "https://images.unsplash.com/photo-1529655683826-aba9b3e77383"
     },
+
     {
       "title": "Il manoscritto perduto del Medioevo",
-      "content": "Secondo alcuni studiosi, un manoscritto medievale potrebbe contenere conoscenze avanzate per l’epoca, ma la sua esistenza non è mai stata confermata ufficialmente.",
+      "content": "Secondo alcuni studiosi, un manoscritto medievale potrebbe contenere conoscenze avanzate per l’epoca...",
       "category": "Misteri",
       "type": "article",
-      "date": "2024-11-18"
+      "date": "2024-11-18",
+      "image": "https://images.unsplash.com/photo-1505666287802-931dc83948e9"
     }
   ]
 }
