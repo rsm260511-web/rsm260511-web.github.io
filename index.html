@@ -71,12 +71,17 @@ main{
 }
 .hidden{display:none}
 
+/* 🔹 ARTICOLO */
 .article-image{
   width:100%;
-  max-height:360px;
+  max-height:380px;
   object-fit:cover;
   border-radius:10px;
   margin:15px 0;
+}
+#singleContent{
+  line-height:1.75;
+  font-size:16px;
 }
 </style>
 </head>
@@ -130,6 +135,7 @@ main{
   </div>
 </section>
 
+<!-- 🔹 ARTICOLO SINGOLO -->
 <section id="single" class="hidden card">
   <h2 id="singleTitle"></h2>
   <img id="singleImage" class="article-image" style="display:none;">
@@ -141,6 +147,7 @@ main{
 <script>
 let articles=[];
 
+/* LOAD JSON */
 fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
 .then(r=>r.json())
 .then(data=>{
@@ -155,6 +162,7 @@ fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
 function showSection(id){
   document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
+  window.scrollTo(0,0);
 }
 
 /* ARTICOLI */
@@ -208,7 +216,8 @@ function renderCategories(){
 
 /* ULTIMA NEWS */
 function renderLatestNews(){
-  const news=articles.filter(a=>a.type==="news")
+  const news=articles
+    .filter(a=>a.type==="news")
     .sort((a,b)=>new Date(b.date)-new Date(a.date));
   if(!news.length)return;
   const n=news[0];
@@ -219,20 +228,21 @@ function renderLatestNews(){
 
 /* ARTICOLO SINGOLO */
 function openArticle(i){
+  const a=articles[i];
   showSection('single');
-  const a = articles[i];
 
-  document.getElementById('singleTitle').innerText = a.title;
+  document.getElementById('singleTitle').innerText=a.title;
 
-  const img = document.getElementById('singleImage');
+  const img=document.getElementById('singleImage');
   if(a.image){
-    img.src = a.image;
-    img.style.display = 'block';
+    img.src=a.image;
+    img.style.display='block';
   }else{
-    img.style.display = 'none';
+    img.style.display='none';
   }
 
-  document.getElementById('singleContent').innerText = a.content;
+  document.getElementById('singleContent').innerHTML =
+    `<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;
 }
 
 /* SEARCH */
@@ -242,8 +252,8 @@ function searchAll(){
   box.innerHTML='';
   if(!q){box.style.display='none';return;}
   articles.forEach((a,i)=>{
-    if(a.title.toLowerCase().includes(q) ||
-       a.content.toLowerCase().includes(q) ||
+    if(a.title.toLowerCase().includes(q)||
+       a.content.toLowerCase().includes(q)||
        a.category.toLowerCase().includes(q)){
       const d=document.createElement('div');
       d.className='search-item';
@@ -262,6 +272,8 @@ function searchAll(){
 
 </body>
 </html>
+
+
 
 
 
