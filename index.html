@@ -80,7 +80,7 @@ main{
 .hidden{display:none}
 
 /* ARTICOLO SINGOLO */
-#single img, #single iframe{
+#single img{
   max-width:100%;
   max-height:420px;
   object-fit:cover;
@@ -143,6 +143,7 @@ main{
   <div id="latestVideo" class="card" style="border-left:5px solid #4da6ff">
     <h2>🎬 Ultimo video</h2>
     <h3 id="latestVideoTitle"></h3>
+    <img id="latestVideoThumb" style="width:100%;border-radius:10px;margin-top:10px;">
     <p style="opacity:.7">Clicca per guardare il video completo</p>
   </div>
 </section>
@@ -219,7 +220,8 @@ function renderVideos(){
     const i=articles.indexOf(a);
     const d=document.createElement('div');
     d.className='card';
-    d.innerHTML=`<h2>${a.title}</h2>`;
+    d.innerHTML=`<h2>${a.title}</h2>
+                   <img src="${a.thumbnail}" style="width:100%;border-radius:10px;margin-top:10px;">`;
     d.onclick=()=>openVideo(i);
     c.appendChild(d);
   });
@@ -242,14 +244,12 @@ function openVideo(i){
   imgBox.innerHTML='';
 
   if(a.video){
-    const iframe = document.createElement('iframe');
-    iframe.src = a.video.replace("watch?v=", "embed/");
-    iframe.width = "100%";
-    iframe.height = "420";
-    iframe.frameBorder = "0";
-    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    iframe.allowFullscreen = true;
-    imgBox.appendChild(iframe);
+    let videoId = a.video.split("v=")[1];
+    const ampIndex = videoId.indexOf("&");
+    if(ampIndex != -1) videoId = videoId.substring(0, ampIndex);
+    imgBox.innerHTML = `<iframe width="100%" height="420" 
+      src="https://www.youtube.com/embed/${videoId}" 
+      frameborder="0" allowfullscreen></iframe>`;
   } else if(a.images && Array.isArray(a.images)){
     a.images.forEach(src=>{
       const img=document.createElement('img');
@@ -307,6 +307,7 @@ function renderLatestVideo(){
     .sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
   if(!v) return;
   document.getElementById('latestVideoTitle').innerText=v.title;
+  document.getElementById('latestVideoThumb').src = v.thumbnail;
   document.getElementById('latestVideo').onclick=()=>openVideo(articles.indexOf(v));
 }
 
