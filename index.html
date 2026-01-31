@@ -36,8 +36,14 @@ nav{
   align-items:center;
   flex-wrap:wrap;
 }
-nav a{cursor:pointer;font-weight:600}
-#searchBox{margin-left:auto;position:relative}
+nav a{
+  cursor:pointer;
+  font-weight:600;
+}
+#searchBox{
+  margin-left:auto;
+  position:relative;
+}
 #searchInput{
   padding:8px 10px;
   border-radius:20px;
@@ -53,63 +59,87 @@ nav a{cursor:pointer;font-weight:600}
   display:none;
   z-index:10;
 }
-.search-item{padding:10px;cursor:pointer}
-.search-item:hover{background:#2a2a35}
-
-main{max-width:900px;margin:auto;padding:20px}
-
+.search-item{
+  padding:10px;
+  cursor:pointer;
+}
+.search-item:hover{
+  background:#2a2a35;
+}
+main{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
 .card{
   background:#1c1c25;
   padding:20px;
   border-radius:10px;
   margin-bottom:20px;
 }
-.card h2{margin-top:0}
-
 .hidden{display:none}
 
 /* ARTICOLO SINGOLO */
 #single img{
   max-width:100%;
-  height:auto;
+  max-height:420px;
+  object-fit:cover;
   border-radius:10px;
-  margin:20px 0;
+  margin:15px 0;
 }
-#single p{
+#singleContent{
   line-height:1.7;
-  white-space:pre-wrap;
 }
 </style>
+
+<!-- WEBPUSHR -->
+<script>
+(function(w,d,s,id){
+  if(typeof(w.webpushr)!=='undefined') return;
+  w.webpushr=w.webpushr||function(){
+    (w.webpushr.q=w.webpushr.q||[]).push(arguments)
+  };
+  var js,fjs=d.getElementsByTagName(s)[0];
+  js=d.createElement(s);js.id=id;js.async=1;
+  js.src="https://cdn.webpushr.com/app.min.js";
+  js.onload=function(){
+    webpushr('setup',{
+      'key':'BKdp3zSvl_w5aJH_c9naFADnGMJxh9khCwh0THm4hfU-PGhMZN8V5XpQt0nAqFULqVBjWSUk6lWblBhDYRbhWt4'
+    });
+  };
+  fjs.parentNode.appendChild(js);
+}(window,document,'script','webpushr-jssdk'));
+</script>
 </head>
 
 <body>
 
 <header>
-<h1>RSM</h1>
+  <h1>RSM</h1>
 </header>
 
 <nav>
-<a onclick="showSection('home')">Home</a>
-<a onclick="showSection('articles')">Articoli</a>
-<a onclick="showSection('news')">News</a>
-<a onclick="showSection('categories')">Categorie</a>
-<a onclick="showSection('about')">Chi siamo?</a>
-<a onclick="showSection('contacts')">Contatti</a>
+  <a onclick="showSection('home')">Home</a>
+  <a onclick="showSection('articles')">Articoli</a>
+  <a onclick="showSection('news')">News</a>
+  <a onclick="showSection('categories')">Categorie</a>
+  <a onclick="showSection('about')">Chi siamo?</a>
+  <a onclick="showSection('contacts')">Contatti</a>
 
-<div id="searchBox">
-<input id="searchInput" placeholder="Cerca..." oninput="searchAll()">
-<div id="searchResults"></div>
-</div>
+  <div id="searchBox">
+    <input id="searchInput" placeholder="Cerca..." oninput="searchAll()">
+    <div id="searchResults"></div>
+  </div>
 </nav>
 
 <main>
 
 <section id="home">
-<div id="latestNews" class="card" style="border-left:5px solid #ff4d4d">
-<h2>🟥 Ultima notizia</h2>
-<h3 id="latestTitle"></h3>
-<p style="opacity:.7">Clicca per leggere la notizia completa</p>
-</div>
+  <div id="latestNews" class="card" style="border-left:5px solid #ff4d4d">
+    <h2>🟥 Ultima notizia</h2>
+    <h3 id="latestTitle"></h3>
+    <p style="opacity:.7">Clicca per leggere la notizia completa</p>
+  </div>
 </section>
 
 <section id="articles" class="hidden"></section>
@@ -117,24 +147,24 @@ main{max-width:900px;margin:auto;padding:20px}
 <section id="categories" class="hidden"></section>
 
 <section id="about" class="hidden">
-<div class="card">
-<h2>Chi siamo?</h2>
-<p id="publicDescription"></p>
-</div>
+  <div class="card">
+    <h2>Chi siamo?</h2>
+    <p id="publicDescription"></p>
+  </div>
 </section>
 
 <section id="contacts" class="hidden">
-<div class="card">
-<h2>Contatti</h2>
-<p>📞 +39 351 093 3272</p>
-<p>📧 rsm260511@gmail.com</p>
-</div>
+  <div class="card">
+    <h2>Contatti</h2>
+    <p>📞 +39 351 093 3272</p>
+    <p>📧 rsm260511@gmail.com</p>
+  </div>
 </section>
 
 <section id="single" class="hidden card">
-<h2 id="singleTitle"></h2>
-<img id="singleImage" class="hidden">
-<p id="singleContent"></p>
+  <h2 id="singleTitle"></h2>
+  <div id="singleImage"></div>
+  <div id="singleContent"></div>
 </section>
 
 </main>
@@ -142,7 +172,6 @@ main{max-width:900px;margin:auto;padding:20px}
 <script>
 let articles=[];
 
-/* LOAD JSON */
 fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
 .then(r=>r.json())
 .then(data=>{
@@ -155,12 +184,11 @@ fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
 });
 
 function showSection(id){
-  document.querySelectorAll('main section')
-  .forEach(s=>s.classList.add('hidden'));
+  document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
+  window.scrollTo(0,0);
 }
 
-/* ARTICOLI */
 function renderArticles(){
   const c=document.getElementById('articles');
   c.innerHTML='';
@@ -174,7 +202,6 @@ function renderArticles(){
   });
 }
 
-/* NEWS */
 function renderNews(){
   const c=document.getElementById('news');
   c.innerHTML='';
@@ -188,20 +215,18 @@ function renderNews(){
   });
 }
 
-/* CATEGORIE */
 function renderCategories(){
   const c=document.getElementById('categories');
   c.innerHTML='';
-  const cats=[...new Set(articles.map(a=>a.category))];
-  cats.forEach(cat=>{
+  [...new Set(articles.map(a=>a.category))].forEach(cat=>{
     const box=document.createElement('div');
     box.className='card';
     box.innerHTML=`<h2>${cat}</h2>`;
     articles.filter(a=>a.category===cat).forEach(a=>{
       const i=articles.indexOf(a);
       const p=document.createElement('p');
-      p.innerText="• "+a.title;
       p.style.cursor='pointer';
+      p.innerText="• "+a.title;
       p.onclick=()=>openArticle(i);
       box.appendChild(p);
     });
@@ -209,45 +234,33 @@ function renderCategories(){
   });
 }
 
-/* ULTIMA NEWS */
 function renderLatestNews(){
-  const news=articles.filter(a=>a.type==="news")
-  .sort((a,b)=>new Date(b.date)-new Date(a.date));
-  if(!news.length)return;
-  const n=news[0];
+  const n=articles.filter(a=>a.type==="news")
+    .sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
+  if(!n) return;
   document.getElementById('latestTitle').innerText=n.title;
-  document.getElementById('latestNews').onclick=
-  ()=>openArticle(articles.indexOf(n));
+  document.getElementById('latestNews').onclick=()=>openArticle(articles.indexOf(n));
 }
 
-/* ARTICOLO SINGOLO */
 function openArticle(i){
-  showSection('single');
   const a=articles[i];
+  showSection('single');
   document.getElementById('singleTitle').innerText=a.title;
-  document.getElementById('singleContent').innerText=a.content;
 
-  const img=document.getElementById('singleImage');
-  if(a.image){
-    img.src=a.image;
-    img.classList.remove('hidden');
-  }else{
-    img.classList.add('hidden');
-  }
+  document.getElementById('singleImage').innerHTML =
+    a.image ? `<img src="${a.image}">` : '';
+
+  document.getElementById('singleContent').innerHTML =
+    `<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;
 }
 
-/* SEARCH */
 function searchAll(){
-  const q=document.getElementById('searchInput').value.toLowerCase();
-  const box=document.getElementById('searchResults');
+  const q=searchInput.value.toLowerCase();
+  const box=searchResults;
   box.innerHTML='';
   if(!q){box.style.display='none';return;}
   articles.forEach((a,i)=>{
-    if(
-      a.title.toLowerCase().includes(q) ||
-      a.content.toLowerCase().includes(q) ||
-      a.category.toLowerCase().includes(q)
-    ){
+    if(a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)){
       const d=document.createElement('div');
       d.className='search-item';
       d.innerText=a.title;
@@ -259,7 +272,7 @@ function searchAll(){
 }
 </script>
 
-<footer style="text-align:center;padding:20px;font-size:14px;opacity:0.6;">
+<footer style="text-align:center;padding:20px;font-size:14px;opacity:.6">
 © 2025 – RSM | Tutti i diritti riservati
 </footer>
 
