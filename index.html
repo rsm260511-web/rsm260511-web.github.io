@@ -92,7 +92,6 @@ main{
 }
 </style>
 
-<!-- WEBPUSHR -->
 <script>
 (function(w,d,s,id){
   if(typeof(w.webpushr)!=='undefined') return;
@@ -247,10 +246,20 @@ function openArticle(i){
   showSection('single');
   document.getElementById('singleTitle').innerText=a.title;
 
-  document.getElementById('singleImage').innerHTML =
-    a.image ? `<img src="${a.image}">` : '';
+  const imgBox=document.getElementById('singleImage');
+  imgBox.innerHTML='';
 
-  document.getElementById('singleContent').innerHTML =
+  if(a.images && Array.isArray(a.images)){
+    a.images.forEach(src=>{
+      const img=document.createElement('img');
+      img.src=src;
+      imgBox.appendChild(img);
+    });
+  }else if(a.image){
+    imgBox.innerHTML=`<img src="${a.image}">`;
+  }
+
+  document.getElementById('singleContent').innerHTML=
     `<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;
 }
 
