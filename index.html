@@ -135,15 +135,15 @@ main{
 <main>
 
 <section id="home">
-  <div id="latestNews" class="card" style="border-left:5px solid #ff4d4d">
+  <div id="latestNews" class="card" style="border-left:5px solid #ff4d4d; cursor:pointer;">
     <h2>🟥 Ultima notizia</h2>
     <h3 id="latestTitle"></h3>
     <p style="opacity:.7">Clicca per leggere la notizia completa</p>
   </div>
-  <div id="latestVideo" class="card" style="border-left:5px solid #4da6ff">
+
+  <div id="latestVideo" class="card" style="border-left:5px solid #4da6ff; cursor:pointer;">
     <h2>🎬 Ultimo video</h2>
     <h3 id="latestVideoTitle"></h3>
-    <img id="latestVideoThumb" style="width:100%;border-radius:10px;margin-top:10px;">
     <p style="opacity:.7">Clicca per guardare il video completo</p>
   </div>
 </section>
@@ -170,7 +170,6 @@ main{
 
 <section id="single" class="hidden card">
   <h2 id="singleTitle"></h2>
-  <!-- DATA DI PUBBLICAZIONE -->
   <p id="singleDate" style="opacity:.6;font-size:14px;margin-top:-10px"></p>
   <div id="singleImage"></div>
   <div id="singleContent"></div>
@@ -220,8 +219,7 @@ function renderVideos(){
     const i=articles.indexOf(a);
     const d=document.createElement('div');
     d.className='card';
-    d.innerHTML=`<h2>${a.title}</h2>
-                   <img src="${a.thumbnail}" style="width:100%;border-radius:10px;margin-top:10px;">`;
+    d.innerHTML=`<h2>${a.title}</h2>`;
     d.onclick=()=>openVideo(i);
     c.appendChild(d);
   });
@@ -243,13 +241,8 @@ function openVideo(i){
   const imgBox=document.getElementById('singleImage');
   imgBox.innerHTML='';
 
-  if(a.video){
-    let videoId = a.video.split("v=")[1];
-    const ampIndex = videoId.indexOf("&");
-    if(ampIndex != -1) videoId = videoId.substring(0, ampIndex);
-    imgBox.innerHTML = `<iframe width="100%" height="420" 
-      src="https://www.youtube.com/embed/${videoId}" 
-      frameborder="0" allowfullscreen></iframe>`;
+  if(a.videoUrl){
+    imgBox.innerHTML = `<iframe width="100%" height="420" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`;
   } else if(a.images && Array.isArray(a.images)){
     a.images.forEach(src=>{
       const img=document.createElement('img');
@@ -307,7 +300,6 @@ function renderLatestVideo(){
     .sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
   if(!v) return;
   document.getElementById('latestVideoTitle').innerText=v.title;
-  document.getElementById('latestVideoThumb').src = v.thumbnail;
   document.getElementById('latestVideo').onclick=()=>openVideo(articles.indexOf(v));
 }
 
