@@ -241,6 +241,7 @@ function openVideo(i){
   const imgBox=document.getElementById('singleImage');
   imgBox.innerHTML='';
 
+  // Qui il video YouTube compare nel singolo
   if(a.videoUrl){
     imgBox.innerHTML = `<iframe width="100%" height="420" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`;
   } else if(a.images && Array.isArray(a.images)){
