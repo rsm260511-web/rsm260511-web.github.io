@@ -2,55 +2,53 @@
   "description": "RSM è uno spazio dedicato all’esplorazione di misteri, notizie attuali e storie poco conosciute. L’obiettivo è informare, incuriosire e stimolare il pensiero critico su eventi che spesso restano ai margini dell’informazione tradizionale.",
   "articles": [
     {
-      "title": "Le piramidi d’Egitto: un’opera che non dovrebbe esistere",
-      "content": "Le piramidi d’Egitto, in particolare la Grande Piramide di Giza, rappresentano una delle più grandi anomalie della storia umana. Costruite ufficialmente oltre 4.500 anni fa, mostrano un livello di precisione ingegneristica che ancora oggi fatica a essere replicato. I blocchi di pietra, alcuni dei quali superano le 70 tonnellate, sono posizionati con tolleranze millimetriche. L’intera struttura è allineata ai punti cardinali con un margine di errore inferiore a quello ottenibile con strumenti moderni.\n\nNon esistono documenti contemporanei che descrivano il processo di costruzione, né strumenti rinvenuti che possano giustificare le tecniche attribuite ufficialmente agli egizi. Inoltre, l’assenza di geroglifici all’interno della Grande Piramide la distingue da tutte le altre strutture funerarie note. Recenti scansioni muoniche hanno rivelato vuoti e camere sconosciute, riaccendendo il dibattito su possibili funzioni alternative: osservatorio astronomico, centro rituale o struttura con scopi ancora ignoti.\n\nSempre più ricercatori mettono in discussione la cronologia tradizionale, ipotizzando che le piramidi possano essere il risultato di una conoscenza precedente, ereditata e non sviluppata dagli egizi stessi. Le piramidi, più che risposte, continuano a porre domande fondamentali sulla reale origine della civiltà.",
+      "title": "Le piramidi d’Egitto: il mistero ingegneristico che sfida la storia ufficiale",
+      "content": "Le piramidi d’Egitto, in particolare la Grande Piramide di Giza, rappresentano una delle più grandi anomalie della storia umana. Costruite ufficialmente intorno al 2500 a.C., mostrano un livello di precisione geometrica e ingegneristica che ancora oggi solleva interrogativi profondi. I blocchi di pietra, alcuni dei quali superano le 70 tonnellate, sono stati posizionati con tolleranze millimetriche, senza l’uso apparente di malta e con un allineamento ai punti cardinali quasi perfetto.\n\nNon esistono documenti contemporanei che descrivano il metodo di costruzione delle grandi piramidi. Gli strumenti ritrovati nei siti egizi non sembrano compatibili con la lavorazione del granito duro utilizzato nelle camere interne. Inoltre, la Grande Piramide è priva di geroglifici e decorazioni, un fatto anomalo rispetto alle tombe reali dell’epoca.\n\nStudi moderni basati su scansioni muoniche hanno rivelato la presenza di cavità e strutture interne sconosciute, alimentando l’ipotesi che la piramide potesse avere funzioni diverse da quelle funerarie. Alcuni ricercatori ipotizzano un ruolo astronomico, rituale o simbolico, mentre altri suggeriscono che possa essere il risultato di una conoscenza ereditata da una civiltà precedente. Le piramidi continuano a sfidare la narrazione storica tradizionale e a porre domande fondamentali sulle reali capacità delle civiltà antiche.",
       "category": "Misteri",
       "type": "article",
       "date": "2026-01-31",
       "images": [
-        "https://images.unsplash.com/photo-1600520611035-84157ad4084d?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop"
       ]
     },
     {
-      "title": "Vajont: quando la tragedia fu ignorata",
-      "content": "Il disastro del Vajont, avvenuto il 9 ottobre 1963, non fu una catastrofe naturale imprevedibile, ma una tragedia annunciata. La diga, una delle più alte al mondo all’epoca, era stata costruita in un contesto geologico estremamente instabile. Geologi e tecnici avevano segnalato ripetutamente il rischio di una frana del Monte Toc, ma le loro preoccupazioni furono minimizzate o ignorate.\n\nNei mesi precedenti al disastro, il terreno mostrava segni evidenti di movimento. Piccole frane, rumori sotterranei e variazioni nel livello dell’acqua erano chiari segnali di un imminente collasso. Nonostante ciò, le autorità decisero di continuare le operazioni, confidando in modelli teorici che sottovalutavano la reale portata del rischio.\n\nQuando una massa enorme di roccia precipitò nel bacino artificiale, l’onda che ne derivò superò la diga e si abbatté sui paesi sottostanti, distruggendo Longarone e altre località in pochi minuti. Morirono quasi duemila persone. Il Vajont rimane uno dei casi più emblematici di come l’arroganza tecnica e la pressione economica possano portare a conseguenze irreversibili.",
+      "title": "Vajont: la tragedia annunciata che nessuno volle fermare",
+      "content": "Il disastro del Vajont, avvenuto il 9 ottobre 1963, è considerato una delle più grandi tragedie evitabili della storia italiana. La diga del Vajont, all’epoca una delle più alte al mondo, era stata costruita in un’area geologicamente fragile, ai piedi del Monte Toc, noto per la sua instabilità.\n\nGià durante la fase di progettazione, diversi geologi avevano segnalato il rischio di una frana di grandi dimensioni. Nei mesi precedenti al disastro, il versante della montagna mostrava segni evidenti di movimento: fratture nel terreno, piccoli smottamenti e rumori sotterranei. Nonostante questi segnali, le operazioni continuarono senza evacuare le popolazioni a valle.\n\nQuando una massa di circa 270 milioni di metri cubi di roccia precipitò nel bacino artificiale, l’acqua generò un’onda gigantesca che superò la diga e si abbatté sui paesi sottostanti, distruggendo Longarone e causando quasi duemila vittime. Il Vajont non fu un fallimento tecnico della diga, ma un fallimento umano, politico e industriale, diventando il simbolo delle conseguenze della negligenza e dell’arroganza del progresso.",
       "category": "Storia",
       "type": "article",
       "date": "2026-01-31",
       "images": [
-        "https://media.istockphoto.com/id/1213547474/it/foto/vajont-dam-in-longarone.webp?a=1&b=1&s=612x612&w=0&k=20&c=ILRHHc21otTwWRMujDz0wuCn9boAv5joJegpclUSw2k="
+        "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?q=80&w=1200&auto=format&fit=crop"
       ]
     },
     {
-      "title": "MH370: il buco nero dell’aviazione moderna",
-      "content": "L’8 marzo 2014 il volo MH370 della Malaysia Airlines scomparve dai radar con 239 persone a bordo. Da quel momento, una delle più grandi operazioni di ricerca della storia non è riuscita a fornire una spiegazione definitiva. Le comunicazioni si interruppero improvvisamente, il transponder fu disattivato e l’aereo cambiò rotta senza alcuna spiegazione ufficiale.\n\nLe analisi satellitari indicarono una possibile traiettoria verso l’Oceano Indiano, ma le aree di ricerca si rivelarono enormi e in gran parte inesplorate. I pochi frammenti rinvenuti negli anni successivi non permisero di ricostruire una dinamica chiara. Le ipotesi spaziano dal guasto tecnico al gesto deliberato, fino a scenari più controversi mai completamente esclusi.\n\nIl caso MH370 evidenzia i limiti dei sistemi di controllo aereo globali e solleva interrogativi inquietanti sulla sicurezza e sulla trasparenza delle indagini internazionali. A distanza di anni, il mistero rimane irrisolto.",
+      "title": "MH370: il mistero irrisolto dell’aviazione moderna",
+      "content": "L’8 marzo 2014 il volo MH370 della Malaysia Airlines scomparve dai radar con 239 persone a bordo, dando origine a uno dei più grandi misteri dell’aviazione civile. Dopo il decollo da Kuala Lumpur verso Pechino, le comunicazioni si interruppero improvvisamente e il transponder venne disattivato, mentre l’aereo cambiava rotta senza alcuna spiegazione ufficiale.\n\nLe indagini internazionali coinvolsero decine di paesi e portarono a una delle operazioni di ricerca più costose della storia. Le analisi dei segnali satellitari suggerirono una possibile rotta verso l’Oceano Indiano, ma le ricerche non riuscirono mai a individuare il relitto principale. Solo alcuni frammenti compatibili con il Boeing 777 furono ritrovati anni dopo sulle coste dell’Africa.\n\nLe ipotesi avanzate spaziano dal guasto tecnico all’atto deliberato, fino a scenari mai completamente chiariti. L’assenza di risposte definitive ha lasciato famiglie, investigatori e opinione pubblica senza una verità certa. Il caso MH370 evidenzia i limiti dei sistemi di controllo aereo globali e rimane una ferita aperta nella storia dell’aviazione.",
       "category": "Misteri",
       "type": "article",
       "date": "2026-01-31",
       "images": [
-        "https://images.unsplash.com/photo-1551010786-14eca273a8fc?q=80&w=745&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      ]
-    }
-  ],
-  "news": [
-    {
-      "title": "Guerra in Palestina: una popolazione intrappolata",
-      "content": "Il conflitto in Palestina continua a colpire in modo sproporzionato la popolazione civile. Bombardamenti su aree densamente abitate, blocchi prolungati e la distruzione sistematica di infrastrutture essenziali hanno creato una crisi umanitaria senza precedenti. Ospedali sovraffollati, carenza di acqua potabile ed elettricità e l’impossibilità di evacuare rendono la situazione sempre più drammatica.\n\nOrganizzazioni umanitarie e osservatori internazionali denunciano violazioni ripetute del diritto internazionale, sottolineando come il prezzo della guerra venga pagato quasi esclusivamente dai civili palestinesi. Nonostante le richieste di cessate il fuoco e l’apertura di corridoi umanitari, le operazioni militari proseguono.\n\nLa guerra in Palestina non è solo un conflitto armato, ma una crisi politica, umanitaria e morale che continua a essere raccontata in modo frammentato e spesso distorto.",
-      "category": "Attualità",
-      "type": "news",
-      "date": "2026-01-31",
-      "images": [
-        "https://images.unsplash.com/photo-1644670711376-be4df8383d46?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGFsZXN0aW5hfGVufDB8fDB8fHww"
+        "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200&auto=format&fit=crop"
       ]
     },
     {
-      "title": "Dopo la Venezuela, Trump torna a parlare di Groenlandia",
-      "content": "Dopo la Venezuela, Donald Trump ha nuovamente acceso il dibattito geopolitico con dichiarazioni che coinvolgono la Groenlandia. Le sue parole hanno riaperto una questione già sollevata durante la sua presidenza, quando aveva espresso interesse per l’acquisizione strategica dell’isola.\n\nAnalisti internazionali leggono queste dichiarazioni come parte di una visione geopolitica aggressiva, legata al controllo delle rotte artiche e delle risorse naturali emergenti a causa dello scioglimento dei ghiacci. Le reazioni di Danimarca e Groenlandia non si sono fatte attendere, ribadendo l’inviolabilità della sovranità territoriale.\n\nLe uscite di Trump sollevano interrogativi sul futuro degli equilibri internazionali e mostrano come la competizione globale stia progressivamente spostandosi verso regioni un tempo considerate marginali.",
+      "title": "Guerra in Palestina: civili sotto assedio e crisi umanitaria crescente",
+      "content": "La guerra in Palestina continua a colpire in modo devastante la popolazione civile. Bombardamenti su aree densamente abitate, distruzione di infrastrutture essenziali e restrizioni ai movimenti stanno creando una crisi umanitaria di proporzioni drammatiche. Ospedali al collasso, mancanza di elettricità, acqua potabile e medicinali rendono la vita quotidiana una lotta per la sopravvivenza.\n\nOrganizzazioni umanitarie internazionali denunciano l’uso sproporzionato della forza e violazioni sistematiche del diritto internazionale. La popolazione palestinese, in particolare donne e bambini, continua a pagare il prezzo più alto del conflitto. Nonostante gli appelli al cessate il fuoco e all’apertura di corridoi umanitari, la situazione resta critica.\n\nLa narrazione del conflitto appare spesso frammentata e incompleta, mentre sul campo si consuma una tragedia umana che rischia di diventare permanente. La guerra in Palestina non è solo un conflitto militare, ma una crisi morale e politica che interroga la comunità internazionale.",
       "category": "Attualità",
       "type": "news",
       "date": "2026-01-31",
       "images": [
-        "https://media.istockphoto.com/id/157382407/it/foto/mappa-globale-groenlandia-islanda.webp?a=1&b=1&s=612x612&w=0&k=20&c=AnS85HpUpwLxnrURwXfnLyR51cvB11S-nHgdKAUhdzw="
+        "https://images.unsplash.com/photo-1580136607993-fd6b4a9c8d0b?q=80&w=1200&auto=format&fit=crop"
+      ]
+    },
+    {
+      "title": "Dopo la Venezuela, Trump torna a far discutere: nuove dichiarazioni sulla Groenlandia",
+      "content": "Dopo la Venezuela, Donald Trump è tornato a far parlare di sé con nuove dichiarazioni riguardanti la Groenlandia, riaccendendo un dibattito geopolitico già sollevato durante la sua presidenza. Le sue parole hanno suscitato reazioni immediate da parte della Danimarca e delle autorità groenlandesi, che hanno ribadito la propria sovranità territoriale.\n\nAnalisti internazionali interpretano queste dichiarazioni come parte di una visione strategica legata al controllo delle rotte artiche e delle risorse naturali emergenti, sempre più accessibili a causa dello scioglimento dei ghiacci. La Groenlandia è infatti considerata un punto chiave negli equilibri geopolitici futuri.\n\nLe uscite di Trump evidenziano come l’Artico stia diventando una nuova area di competizione globale, sollevando interrogativi sul futuro delle relazioni internazionali e sulle tensioni che potrebbero emergere nei prossimi anni.",
+      "category": "Attualità",
+      "type": "news",
+      "date": "2026-01-31",
+      "images": [
+        "https://images.unsplash.com/photo-1555848962-6e79363ec58f?q=80&w=1200&auto=format&fit=crop"
       ]
     }
   ]
