@@ -80,7 +80,7 @@ main{
 .hidden{display:none}
 
 /* ARTICOLO SINGOLO */
-#single img{
+#single img, #single iframe{
   max-width:100%;
   max-height:420px;
   object-fit:cover;
@@ -135,13 +135,12 @@ main{
 <main>
 
 <section id="home">
-  <div id="latestNews" class="card" style="border-left:5px solid #ff4d4d; cursor:pointer;">
+  <div id="latestNews" class="card" style="border-left:5px solid #ff4d4d">
     <h2>🟥 Ultima notizia</h2>
     <h3 id="latestTitle"></h3>
     <p style="opacity:.7">Clicca per leggere la notizia completa</p>
   </div>
-
-  <div id="latestVideo" class="card" style="border-left:5px solid #4da6ff; cursor:pointer;">
+  <div id="latestVideo" class="card" style="border-left:5px solid #4da6ff">
     <h2>🎬 Ultimo video</h2>
     <h3 id="latestVideoTitle"></h3>
     <p style="opacity:.7">Clicca per guardare il video completo</p>
@@ -241,7 +240,6 @@ function openVideo(i){
   const imgBox=document.getElementById('singleImage');
   imgBox.innerHTML='';
 
-  // Qui il video YouTube compare nel singolo
   if(a.videoUrl){
     imgBox.innerHTML = `<iframe width="100%" height="420" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`;
   } else if(a.images && Array.isArray(a.images)){
