@@ -1,274 +1,266 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>RSM</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="rsm-header.png">
+<meta charset="UTF-8">
+<title>RSM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="rsm-header.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
-  <style>
-    body{
-      margin:0;
-      font-family:'Montserrat',sans-serif;
-      background:#0e0e11;
-      color:#eaeaea;
-    }
-    header{
-      background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
-      url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
-      background-size:cover;
-      background-position:center;
-      padding:80px 20px;
-      text-align:center;
-    }
-    header h1{
-      font-family:'Playfair Display',serif;
-      font-size:52px;
-      margin:0;
-    }
-    nav{
-      background:#15151c;
-      padding:12px;
-      display:flex;
-      gap:15px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-    nav a{
-      cursor:pointer;
-      font-weight:600
-    }
-    #searchBox{
-      margin-left:auto;
-      position:relative
-    }
-    #searchInput{
-      padding:8px 10px;
-      border-radius:20px;
-      border:none;
-      width:220px;
-    }
-    #searchResults{
-      position:absolute;
-      top:38px;
-      background:#1c1c25;
-      width:100%;
-      border-radius:10px;
-      display:none;
-      z-index:10;
-    }
-    .search-item{
-      padding:10px;
-      cursor:pointer;
-    }
-    .search-item:hover{
-      background:#2a2a35
-    }
-    main{
-      max-width:900px;
-      margin:auto;
-      padding:20px;
-    }
-    .card{
-      background:#1c1c25;
-      padding:20px;
-      border-radius:10px;
-      margin-bottom:20px;
-    }
-    .hidden{
-      display:none
-    }
-  </style>
+<style>
+body{
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  background:#0e0e11;
+  color:#eaeaea;
+}
+header{
+  background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
+  url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+  background-size:cover;
+  background-position:center;
+  padding:80px 20px;
+  text-align:center;
+}
+header h1{
+  font-family:'Playfair Display',serif;
+  font-size:52px;
+  margin:0;
+}
+nav{
+  background:#15151c;
+  padding:12px;
+  display:flex;
+  gap:15px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+nav a{cursor:pointer;font-weight:600}
+#searchBox{margin-left:auto;position:relative}
+#searchInput{
+  padding:8px 10px;
+  border-radius:20px;
+  border:none;
+  width:220px;
+}
+#searchResults{
+  position:absolute;
+  top:38px;
+  background:#1c1c25;
+  width:100%;
+  border-radius:10px;
+  display:none;
+  z-index:10;
+}
+.search-item{padding:10px;cursor:pointer}
+.search-item:hover{background:#2a2a35}
 
-  <!-- start webpushr code -->
-  <script>
-    (function(w,d,s,id){
-      if(typeof(w.webpushr)!=='undefined') return;
-      w.webpushr=w.webpushr||function(){
-        (w.webpushr.q=w.webpushr.q||[]).push(arguments)
-      };
-      var js, fjs = d.getElementsByTagName(s)[0];
-      js = d.createElement(s);
-      js.id = id;
-      js.async = 1;
-      js.src = "https://cdn.webpushr.com/app.min.js";
+main{max-width:900px;margin:auto;padding:20px}
 
-      js.onload = function(){
-        webpushr('setup', {
-          'key':'BKdp3zSvl_w5aJH_c9naFADnGMJxh9khCwh0THm4hfU-PGhMZN8V5XpQt0nAqFULqVBjWSUk6lWblBhDYRbhWt4'
-        });
-      };
-      fjs.parentNode.appendChild(js);
-    }(window,document,'script','webpushr-jssdk'));
-  </script>
-  <!-- end webpushr code -->
+.card{
+  background:#1c1c25;
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:20px;
+}
+.card h2{margin-top:0}
+
+.hidden{display:none}
+
+/* ARTICOLO SINGOLO */
+#single img{
+  max-width:100%;
+  height:auto;
+  border-radius:10px;
+  margin:20px 0;
+}
+#single p{
+  line-height:1.7;
+  white-space:pre-wrap;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>RSM</h1>
+<h1>RSM</h1>
 </header>
 
 <nav>
-  <a onclick="showSection('home')">Home</a>
-  <a onclick="showSection('articles')">Articoli</a>
-  <a onclick="showSection('news')">News</a>
-  <a onclick="showSection('categories')">Categorie</a>
-  <a onclick="showSection('about')">Chi siamo?</a>
-  <a onclick="showSection('contacts')">Contatti</a>
+<a onclick="showSection('home')">Home</a>
+<a onclick="showSection('articles')">Articoli</a>
+<a onclick="showSection('news')">News</a>
+<a onclick="showSection('categories')">Categorie</a>
+<a onclick="showSection('about')">Chi siamo?</a>
+<a onclick="showSection('contacts')">Contatti</a>
 
-  <div id="searchBox">
-    <input id="searchInput" placeholder="Cerca..." oninput="searchAll()">
-    <div id="searchResults"></div>
-  </div>
+<div id="searchBox">
+<input id="searchInput" placeholder="Cerca..." oninput="searchAll()">
+<div id="searchResults"></div>
+</div>
 </nav>
 
 <main>
-  <section id="home">
-    <div id="latestNews" class="card" style="border-left:5px solid #ff4d4d">
-      <h2>🟥 Ultima notizia</h2>
-      <h3 id="latestTitle"></h3>
-      <p style="opacity:.7">Clicca per leggere la notizia completa</p>
-    </div>
-  </section>
 
-  <section id="articles" class="hidden"></section>
-  <section id="news" class="hidden"></section>
-  <section id="categories" class="hidden"></section>
+<section id="home">
+<div id="latestNews" class="card" style="border-left:5px solid #ff4d4d">
+<h2>🟥 Ultima notizia</h2>
+<h3 id="latestTitle"></h3>
+<p style="opacity:.7">Clicca per leggere la notizia completa</p>
+</div>
+</section>
 
-  <section id="about" class="hidden">
-    <div class="card">
-      <h2>Chi siamo?</h2>
-      <p id="publicDescription"></p>
-    </div>
-  </section>
+<section id="articles" class="hidden"></section>
+<section id="news" class="hidden"></section>
+<section id="categories" class="hidden"></section>
 
-  <section id="contacts" class="hidden">
-    <div class="card">
-      <h2>Contatti</h2>
-      <p>📞 +39 351 093 3272</p>
-      <p>📧 rsm260511@gmail.com</p>
-    </div>
-  </section>
+<section id="about" class="hidden">
+<div class="card">
+<h2>Chi siamo?</h2>
+<p id="publicDescription"></p>
+</div>
+</section>
 
-  <section id="single" class="hidden card">
-    <h2 id="singleTitle"></h2>
-    <p id="singleContent"></p>
-  </section>
+<section id="contacts" class="hidden">
+<div class="card">
+<h2>Contatti</h2>
+<p>📞 +39 351 093 3272</p>
+<p>📧 rsm260511@gmail.com</p>
+</div>
+</section>
+
+<section id="single" class="hidden card">
+<h2 id="singleTitle"></h2>
+<img id="singleImage" class="hidden">
+<p id="singleContent"></p>
+</section>
+
 </main>
 
 <script>
-  let articles=[];
+let articles=[];
 
-  fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
-    .then(r=>r.json())
-    .then(data=>{
-      document.getElementById('publicDescription').innerText=data.description;
-      articles=data.articles;
-      renderArticles();
-      renderNews();
-      renderCategories();
-      renderLatestNews();
+/* LOAD JSON */
+fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
+.then(r=>r.json())
+.then(data=>{
+  document.getElementById('publicDescription').innerText=data.description;
+  articles=data.articles;
+  renderArticles();
+  renderNews();
+  renderCategories();
+  renderLatestNews();
+});
+
+function showSection(id){
+  document.querySelectorAll('main section')
+  .forEach(s=>s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+}
+
+/* ARTICOLI */
+function renderArticles(){
+  const c=document.getElementById('articles');
+  c.innerHTML='';
+  articles.filter(a=>a.type==="article").forEach(a=>{
+    const i=articles.indexOf(a);
+    const d=document.createElement('div');
+    d.className='card';
+    d.innerHTML=`<h2>${a.title}</h2>`;
+    d.onclick=()=>openArticle(i);
+    c.appendChild(d);
+  });
+}
+
+/* NEWS */
+function renderNews(){
+  const c=document.getElementById('news');
+  c.innerHTML='';
+  articles.filter(a=>a.type==="news").forEach(a=>{
+    const i=articles.indexOf(a);
+    const d=document.createElement('div');
+    d.className='card';
+    d.innerHTML=`<h2>${a.title}</h2>`;
+    d.onclick=()=>openArticle(i);
+    c.appendChild(d);
+  });
+}
+
+/* CATEGORIE */
+function renderCategories(){
+  const c=document.getElementById('categories');
+  c.innerHTML='';
+  const cats=[...new Set(articles.map(a=>a.category))];
+  cats.forEach(cat=>{
+    const box=document.createElement('div');
+    box.className='card';
+    box.innerHTML=`<h2>${cat}</h2>`;
+    articles.filter(a=>a.category===cat).forEach(a=>{
+      const i=articles.indexOf(a);
+      const p=document.createElement('p');
+      p.innerText="• "+a.title;
+      p.style.cursor='pointer';
+      p.onclick=()=>openArticle(i);
+      box.appendChild(p);
     });
+    c.appendChild(box);
+  });
+}
 
-  function showSection(id){
-    document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
-    document.getElementById(id).classList.remove('hidden');
+/* ULTIMA NEWS */
+function renderLatestNews(){
+  const news=articles.filter(a=>a.type==="news")
+  .sort((a,b)=>new Date(b.date)-new Date(a.date));
+  if(!news.length)return;
+  const n=news[0];
+  document.getElementById('latestTitle').innerText=n.title;
+  document.getElementById('latestNews').onclick=
+  ()=>openArticle(articles.indexOf(n));
+}
+
+/* ARTICOLO SINGOLO */
+function openArticle(i){
+  showSection('single');
+  const a=articles[i];
+  document.getElementById('singleTitle').innerText=a.title;
+  document.getElementById('singleContent').innerText=a.content;
+
+  const img=document.getElementById('singleImage');
+  if(a.image){
+    img.src=a.image;
+    img.classList.remove('hidden');
+  }else{
+    img.classList.add('hidden');
   }
+}
 
-  function renderArticles(){
-    const c=document.getElementById('articles');
-    c.innerHTML='';
-    articles.filter(a=>a.type==="article").forEach(a=>{
-      const index=articles.indexOf(a);
+/* SEARCH */
+function searchAll(){
+  const q=document.getElementById('searchInput').value.toLowerCase();
+  const box=document.getElementById('searchResults');
+  box.innerHTML='';
+  if(!q){box.style.display='none';return;}
+  articles.forEach((a,i)=>{
+    if(
+      a.title.toLowerCase().includes(q) ||
+      a.content.toLowerCase().includes(q) ||
+      a.category.toLowerCase().includes(q)
+    ){
       const d=document.createElement('div');
-      d.className='card';
-      d.innerHTML=<h2>${a.title}</h2>;
-      d.onclick=()=>openArticle(index);
-      c.appendChild(d);
-    });
-  }
-
-  function renderNews(){
-    const c=document.getElementById('news');
-    c.innerHTML='';
-    articles.filter(a=>a.type==="news").forEach(a=>{
-      const index=articles.indexOf(a);
-      const d=document.createElement('div');
-      d.className='card';
-      d.innerHTML=<h2>${a.title}</h2>;
-      d.onclick=()=>openArticle(index);
-      c.appendChild(d);
-    });
-  }
-
-  function renderCategories(){
-    const c=document.getElementById('categories');
-    c.innerHTML='';
-    const cats=[...new Set(articles.map(a=>a.category))];
-    cats.forEach(cat=>{
-      const box=document.createElement('div');
-      box.className='card';
-      box.innerHTML=<h2>${cat}</h2>;
-      articles.filter(a=>a.category===cat).forEach(a=>{
-        const index=articles.indexOf(a);
-        const p=document.createElement('p');
-        p.innerText="• "+a.title;
-        p.style.cursor='pointer';
-        p.onclick=()=>openArticle(index);
-        box.appendChild(p);
-      });
-      c.appendChild(box);
-    });
-  }
-
-  function renderLatestNews(){
-    const news=articles
-      .filter(a=>a.type==="news")
-      .sort((a,b)=>new Date(b.date)-new Date(a.date));
-
-    if(!news.length)return;
-    const n=news[0];
-    document.getElementById('latestTitle').innerText=n.title;
-    document.getElementById('latestNews').onclick=()=>openArticle(articles.indexOf(n));
-  }
-
-  function openArticle(i){
-    showSection('single');
-    document.getElementById('singleTitle').innerText=articles[i].title;
-    document.getElementById('singleContent').innerText=articles[i].content;
-  }
-
-  function searchAll(){
-    const q=document.getElementById('searchInput').value.toLowerCase();
-    const box=document.getElementById('searchResults');
-    box.innerHTML='';
-    if(!q){
-      box.style.display='none';
-      return;
+      d.className='search-item';
+      d.innerText=a.title;
+      d.onclick=()=>openArticle(i);
+      box.appendChild(d);
     }
-    articles.forEach((a,i)=>{
-      if(
-        a.title.toLowerCase().includes(q) ||
-        a.content.toLowerCase().includes(q) ||
-        a.category.toLowerCase().includes(q)
-      ){
-        const d=document.createElement('div');
-        d.className='search-item';
-        d.innerText=a.title;
-        d.onclick=()=>openArticle(i);
-        box.appendChild(d);
-      }
-    });
-    box.style.display=box.children.length?'block':'none';
-  }
+  });
+  box.style.display=box.children.length?'block':'none';
+}
 </script>
 
-<footer style="text-align:center; padding:20px; font-size:14px; opacity:0.6;">
-  © 2025 – RSM | Tutti i diritti riservati
+<footer style="text-align:center;padding:20px;font-size:14px;opacity:0.6;">
+© 2025 – RSM | Tutti i diritti riservati
 </footer>
 
 </body>
