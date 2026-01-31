@@ -162,6 +162,8 @@ main{
 
 <section id="single" class="hidden card">
   <h2 id="singleTitle"></h2>
+  <!-- DATA DI PUBBLICAZIONE (AGGIUNTA) -->
+  <p id="singleDate" style="opacity:.6;font-size:14px;margin-top:-10px"></p>
   <div id="singleImage"></div>
   <div id="singleContent"></div>
 </section>
@@ -245,6 +247,15 @@ function openArticle(i){
   const a=articles[i];
   showSection('single');
   document.getElementById('singleTitle').innerText=a.title;
+
+  /* DATA (AGGIUNTA) */
+  if(a.date){
+    const d=new Date(a.date);
+    document.getElementById('singleDate').innerText =
+      "📅 Pubblicato il " + d.toLocaleDateString('it-IT');
+  }else{
+    document.getElementById('singleDate').innerText="";
+  }
 
   const imgBox=document.getElementById('singleImage');
   imgBox.innerHTML='';
