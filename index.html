@@ -157,20 +157,110 @@ function showSection(id){
   window.scrollTo(0,0);
 }
 
-// RENDERING
-function renderArticles(){const c=document.getElementById('articles');c.innerHTML='';articles.filter(a=>a.type==="article").forEach((a,i)=>{const d=document.createElement('div');d.className='card';d.innerHTML=`<h2>${a.title}</h2>`;d.onclick=()=>openArticle(i);c.appendChild(d);});}
-function renderVideos(){const c=document.getElementById('videos');c.innerHTML='';articles.filter(a=>a.type==="video").forEach((a,i)=>{const d=document.createElement('div');d.className='card';d.innerHTML=`<h2>${a.title}</h2>`;d.onclick=()=>openVideo(i);c.appendChild(d);});}
-function renderNews(){const c=document.getElementById('news');c.innerHTML='';articles.filter(a=>a.type==="news").forEach((a,i)=>{const d=document.createElement('div');d.className='card';d.innerHTML=`<h2>${a.title}</h2>`;d.onclick=()=>openArticle(i);c.appendChild(d);});}
-function renderCategories(){const c=document.getElementById('categories');c.innerHTML='';[...new Set(articles.map(a=>a.category))].forEach(cat=>{const box=document.createElement('div');box.className='card';box.innerHTML=`<h2>${cat}</h2>`;articles.filter(a=>a.category===cat).forEach((a,i)=>{const p=document.createElement('p');p.style.cursor='pointer';p.innerText="• "+a.title;p.onclick=()=>openArticle(i);box.appendChild(p);});c.appendChild(box);});}
-function renderLatestNews(){const n=articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0];if(!n)return;document.getElementById('latestTitle').innerText=n.title;document.getElementById('latestNews').onclick=()=>openArticle(articles.indexOf(n));}
-function renderLatestVideo(){const v=articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0];if(!v)return;document.getElementById('latestVideoTitle').innerText=v.title;document.getElementById('latestVideo').onclick=()=>openVideo(articles.indexOf(v));}
-function openArticle(i){const a=articles[i];showSection('single');document.getElementById('singleTitle').innerText=a.title;document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):"";const imgBox=document.getElementById('singleImage');imgBox.innerHTML='';if(a.images && Array.isArray(a.images)){a.images.forEach(src=>{const img=document.createElement('img');img.src=src;imgBox.appendChild(img);});} else if(a.image){imgBox.innerHTML=`<img src="${a.image}">`; } document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;}
-function openVideo(i){const a=articles[i];showSection('single');document.getElementById('singleTitle').innerText=a.title;document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):"";const imgBox=document.getElementById('singleImage');imgBox.innerHTML='';if(a.videoUrl){imgBox.innerHTML=`<iframe width="100%" height="420" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`;}else if(a.images && Array.isArray(a.images)){a.images.forEach(src=>{const img=document.createElement('img');img.src=src;imgBox.appendChild(img);});}document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;}
+// RENDERING CON INDICE REALE
+function renderArticles(){
+  const c=document.getElementById('articles');
+  c.innerHTML='';
+  articles.filter(a=>a.type==="article").forEach(a=>{
+    const i = articles.indexOf(a);
+    const d=document.createElement('div');
+    d.className='card';
+    d.innerHTML=`<h2>${a.title}</h2>`;
+    d.onclick=()=>openArticle(i);
+    c.appendChild(d);
+  });
+}
+
+function renderVideos(){
+  const c=document.getElementById('videos');
+  c.innerHTML='';
+  articles.filter(a=>a.type==="video").forEach(a=>{
+    const i = articles.indexOf(a);
+    const d=document.createElement('div');
+    d.className='card';
+    d.innerHTML=`<h2>${a.title}</h2>`;
+    d.onclick=()=>openVideo(i);
+    c.appendChild(d);
+  });
+}
+
+function renderNews(){
+  const c=document.getElementById('news');
+  c.innerHTML='';
+  articles.filter(a=>a.type==="news").forEach(a=>{
+    const i = articles.indexOf(a);
+    const d=document.createElement('div');
+    d.className='card';
+    d.innerHTML=`<h2>${a.title}</h2>`;
+    d.onclick=()=>openArticle(i);
+    c.appendChild(d);
+  });
+}
+
+function renderCategories(){
+  const c=document.getElementById('categories');
+  c.innerHTML='';
+  [...new Set(articles.map(a=>a.category))].forEach(cat=>{
+    const box=document.createElement('div');
+    box.className='card';
+    box.innerHTML=`<h2>${cat}</h2>`;
+    articles.filter(a=>a.category===cat).forEach(a=>{
+      const i = articles.indexOf(a);
+      const p=document.createElement('p');
+      p.style.cursor='pointer';
+      p.innerText="• "+a.title;
+      p.onclick=()=>openArticle(i);
+      box.appendChild(p);
+    });
+    c.appendChild(box);
+  });
+}
+
+// OPEN ARTICLE / VIDEO
+function openArticle(i){
+  const a=articles[i];
+  showSection('single');
+  document.getElementById('singleTitle').innerText=a.title;
+  document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):"";
+  const imgBox=document.getElementById('singleImage');
+  imgBox.innerHTML='';
+  if(a.images && Array.isArray(a.images)){
+    a.images.forEach(src=>{const img=document.createElement('img');img.src=src;imgBox.appendChild(img);});
+  } else if(a.image){imgBox.innerHTML=`<img src="${a.image}">`;}
+  document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;
+}
+
+function openVideo(i){
+  const a=articles[i];
+  showSection('single');
+  document.getElementById('singleTitle').innerText=a.title;
+  document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):"";
+  const imgBox=document.getElementById('singleImage');
+  imgBox.innerHTML='';
+  if(a.videoUrl){imgBox.innerHTML=`<iframe width="100%" height="420" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`;}
+  else if(a.images && Array.isArray(a.images)){a.images.forEach(src=>{const img=document.createElement('img');img.src=src;imgBox.appendChild(img);});}
+  document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;
+}
 
 // RICERCA
-function searchAll(){const q=searchInput.value.toLowerCase();const box=searchResults;box.innerHTML='';if(!q){box.style.display='none';return;}articles.forEach((a,i)=>{if(a.title.toLowerCase().includes(q)||a.content.toLowerCase().includes(q)){const d=document.createElement('div');d.className='search-item';d.innerText=a.title;d.onclick=()=>openArticle(i);box.appendChild(d);}});box.style.display=box.children.length?'block':'none';}
+function searchAll(){
+  const q=searchInput.value.toLowerCase();
+  const box=searchResults;
+  box.innerHTML='';
+  if(!q){box.style.display='none';return;}
+  articles.forEach((a,i)=>{
+    if(a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)){
+      const d=document.createElement('div');
+      d.className='search-item';
+      d.innerText=a.title;
+      d.onclick=()=>openArticle(i);
+      box.appendChild(d);
+    }
+  });
+  box.style.display=box.children.length?'block':'none';
+}
 
-// CHATBOT AI PRO MAX
+// CHATBOT AI AVANZATA
 const chatToggle=document.getElementById('chatToggle');
 const chatBox=document.getElementById('chatBox');
 const chatMessages=document.getElementById('chatMessages');
@@ -206,44 +296,28 @@ function summarizeText(text,maxSentences=3){
 
 function botResponse(msg){
   const m=msg.toLowerCase();
-
-  // SALUTI
   if(m.match(/ciao|salve|buongiorno|buonasera/)) return 'Ciao! 👋 Come va? Posso rispondere a domande sui contatti, chi siamo o altre informazioni del sito.';
-  // RINGRAZIAMENTI
   if(m.match(/grazie|ok|perfetto/)) return 'Di nulla! 😄 Chiedimi pure qualsiasi informazione.';
-  // AIUTO
   if(m.match(/aiuto|supporto|assistenza|problema/)) return 'Certo! 😊 Puoi chiedermi informazioni su Contatti, Chi siamo o su Articoli, Video e News.';
-  // CHI SIAMO
-  if(m.match(/chi siete|informazioni su di voi|about/)) return document.getElementById('publicDescription').innerText||'Siamo RSM! Qui trovi articoli, video e notizie su vari argomenti.';
-  // CONTATTI
+  if(m.match(/chi siete|informazioni su di voi|about/)) return document.getElementById('publicDescription').innerText||'Siamo RSM!';
   if(m.match(/come vi contatto|dove posso contattarvi|contatti|telefono|email|scrivere/)) return '📞 Telefono: +39 351 093 3272\n📧 Email: rsm260511@gmail.com';
-  // ARTICOLI
   if(m.match(/articolo|articoli|blog/)) return '📝 Puoi vedere tutti gli articoli nella sezione Articoli.';
-  // VIDEO
   if(m.match(/video|filmato|clip/)) return '🎬 I video più recenti si trovano nella sezione Video.';
-  // NEWS
   if(m.match(/news|notizia|notizie|aggiornamenti/)) return '📢 Le ultime notizie le trovi nella sezione News.';
-  // CATEGORIE
   if(m.match(/categorie|tipologia|argomenti/)) return 'Puoi esplorare tutti i contenuti raggruppati per categoria nella sezione Categorie.';
-  // COMANDI DIRETTI PER APRIRE SEZIONI
   if(m.match(/mostrami gli articoli|apri articoli/)){showSection('articles');return 'Ho aperto la sezione Articoli per te 📝';}
   if(m.match(/mostrami i video|apri video/)){showSection('videos');return 'Ho aperto la sezione Video per te 🎬';}
   if(m.match(/mostrami le news|apri news/)){showSection('news');return 'Ho aperto la sezione News per te 🟥';}
-  // DOMANDE GENERICHE
-  if(m.match(/come funziona|cosa posso fare|istruzioni|come usare/)) return 'Puoi navigare le varie sezioni: Home, Articoli, Video, News, Categorie, Chi siamo, Contatti.';
-  if(m.match(/consiglio|suggerimento|mi puoi consigliare/)) return 'Ti consiglio di iniziare dalla Home e poi esplorare le sezioni che ti interessano di più!';
-  if(m.match(/mostrami qualcosa|fammi vedere/)) return 'Ok! 😎 Prova a cliccare su Articoli, Video o News per scoprire i contenuti più recenti.';
-  // RIASSUNTO DA ARTICOLO O NEWS
   if(m.includes('riassumi') || m.includes('fai un riassunto')){
-    let titleMatch = articles.find(a=>m.includes(a.title.toLowerCase()));
+    const cleaned = m.replace(/riassumi|fai un riassunto/gi,'').trim();
+    let titleMatch = articles.find(a => a.title.toLowerCase() === cleaned.toLowerCase());
     if(titleMatch) return summarizeText(titleMatch.content);
     if(!document.getElementById('single').classList.contains('hidden')){
       let text = document.getElementById('singleContent').innerText;
       return summarizeText(text);
     }
-    return "Non ho trovato quell'articolo/news. Apri l'articolo o scrivi il testo da riassumere.";
+    return "Non ho trovato quell'articolo/news. Apri l'articolo o scrivi il titolo esatto da riassumere.";
   }
-  // FALLBACK AVANZATO
   return 'Hmm… 🤔 Non sono sicuro di aver capito, ma puoi chiedermi informazioni sui Contatti, Chi siamo, Articoli, Video o News.';
 }
 
@@ -262,4 +336,3 @@ chatInput.addEventListener('keypress',e=>{if(e.key==='Enter') sendMessage();});
 </script>
 </body>
 </html>
-
