@@ -363,7 +363,7 @@ function searchAll(){
   box.style.display=box.children.length?'block':'none';
 }
 
-// Chatbot AI
+// Chatbot AI super completo
 const chatToggle = document.getElementById('chatToggle');
 const chatBox = document.getElementById('chatBox');
 const chatMessages = document.getElementById('chatMessages');
@@ -396,10 +396,63 @@ function appendMessage(sender,text){
 
 function botResponse(msg){
   const m = msg.toLowerCase();
-  if(m.includes('ciao')) return 'Ciao! Come posso aiutarti oggi?';
-  if(m.includes('progetti')) return 'Ho diversi progetti, vuoi vedere il portfolio?';
-  if(m.includes('aiuto')) return 'Certo! Dimmi pure di cosa hai bisogno.';
-  return 'Non ho capito bene, puoi riformulare?';
+
+  // Saluti
+  if(m.includes('ciao') || m.includes('salve') || m.includes('buongiorno') || m.includes('buonasera')) 
+    return 'Ciao! 👋 Come va? Posso aiutarti a navigare il sito o rispondere a domande sulle sezioni.';
+
+  // Aiuto / Supporto
+  if(m.includes('aiuto') || m.includes('supporto') || m.includes('assistenza') || m.includes('problema'))
+    return 'Certo! 😊 Puoi chiedermi di mostrarti Articoli, Video, News, Categorie o Contatti.';
+
+  // Articoli
+  if(m.includes('articolo') || m.includes('articoli') || m.includes('blog'))
+    return 'Ecco! 📝 Gli articoli si trovano nella sezione Articoli, clicca sul menu in alto per accedervi.';
+
+  // Video
+  if(m.includes('video') || m.includes('filmato') || m.includes('clip'))
+    return 'Perfetto! 🎬 I video più recenti li trovi nella sezione Video.';
+
+  // News / Notizie
+  if(m.includes('news') || m.includes('notizia') || m.includes('notizie') || m.includes('aggiornamenti'))
+    return 'Le ultime notizie 📢 sono nella sezione News. Dai un’occhiata!';
+
+  // Categorie
+  if(m.includes('categoria') || m.includes('categorie') || m.includes('tipologia'))
+    return 'Puoi esplorare tutti i contenuti raggruppati per categoria nella sezione Categorie.';
+
+  // Contatti
+  if(m.includes('contatto') || m.includes('contatti') || m.includes('telefono') || m.includes('email') || m.includes('scrivere'))
+    return 'Vuoi contattarci? 📧 La sezione Contatti contiene email e numero di telefono.';
+
+  // Chi siamo
+  if(m.includes('chi siete') || m.includes('informazioni su di voi') || m.includes('about'))
+    return 'Nella sezione Chi siamo trovi informazioni su RSM e la nostra mission.';
+
+  // Ultima notizia
+  if(m.includes('ultima notizia') || m.includes('ultime news') || m.includes('ultimissime'))
+    return 'L’ultima notizia 🟥 è mostrata nella home, puoi cliccarci per leggerla tutta.';
+
+  // Ultimo video
+  if(m.includes('ultimo video') || m.includes('ultimo filmato'))
+    return 'L’ultimo video 🎬 è nella home, dai un’occhiata!';
+
+  // Ringraziamenti
+  if(m.includes('grazie') || m.includes('ok') || m.includes('perfetto'))
+    return 'Di nulla! 😄 Se vuoi, puoi chiedermi di qualsiasi sezione del sito.';
+
+  // Domande generiche
+  if(m.includes('come funziona') || m.includes('cosa posso fare'))
+    return 'Puoi navigare le varie sezioni del sito: Home, Articoli, Video, News, Categorie, Chi siamo, Contatti.';
+
+  if(m.includes('consiglio') || m.includes('suggerimento'))
+    return 'Ti consiglio di iniziare dalla Home e poi esplorare le sezioni che ti interessano di più!';
+
+  if(m.includes('mostrami qualcosa') || m.includes('fammi vedere'))
+    return 'Ok! 😎 Prova a cliccare su Articoli, Video o News per scoprire i contenuti più recenti.';
+
+  // Risposta di fallback
+  return 'Hmm… 🤔 Non sono sicuro di aver capito, ma puoi chiedermi info su Articoli, Video, News, Categorie o Contatti!';
 }
 
 function sendMessage(){
