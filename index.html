@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>RSM</title>
+<title>RSM - AI Super Avanzata</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="rsm-header.png">
 
@@ -150,19 +150,19 @@ fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
   renderLatestVideo();
 });
 
-// FUNZIONI SEZIONI
+// SEZIONI
 function showSection(id){
   document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
   window.scrollTo(0,0);
 }
 
-// RENDERING CON INDICE REALE
+// RENDER CON INDICI REALI
 function renderArticles(){
   const c=document.getElementById('articles');
   c.innerHTML='';
   articles.filter(a=>a.type==="article").forEach(a=>{
-    const i = articles.indexOf(a);
+    const i=articles.indexOf(a);
     const d=document.createElement('div');
     d.className='card';
     d.innerHTML=`<h2>${a.title}</h2>`;
@@ -175,7 +175,7 @@ function renderVideos(){
   const c=document.getElementById('videos');
   c.innerHTML='';
   articles.filter(a=>a.type==="video").forEach(a=>{
-    const i = articles.indexOf(a);
+    const i=articles.indexOf(a);
     const d=document.createElement('div');
     d.className='card';
     d.innerHTML=`<h2>${a.title}</h2>`;
@@ -188,7 +188,7 @@ function renderNews(){
   const c=document.getElementById('news');
   c.innerHTML='';
   articles.filter(a=>a.type==="news").forEach(a=>{
-    const i = articles.indexOf(a);
+    const i=articles.indexOf(a);
     const d=document.createElement('div');
     d.className='card';
     d.innerHTML=`<h2>${a.title}</h2>`;
@@ -260,7 +260,24 @@ function searchAll(){
   box.style.display=box.children.length?'block':'none';
 }
 
-// CHATBOT AI AVANZATA
+// ULTIMA NEWS / ULTIMO VIDEO FIX
+function renderLatestNews(){
+  const news = articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
+  if(!news) return;
+  document.getElementById('latestTitle').innerText = news.title;
+  const i = articles.findIndex(a => a.title === news.title);
+  document.getElementById('latestNews').onclick = ()=>openArticle(i);
+}
+
+function renderLatestVideo(){
+  const video = articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
+  if(!video) return;
+  document.getElementById('latestVideoTitle').innerText = video.title;
+  const i = articles.findIndex(a => a.title === video.title);
+  document.getElementById('latestVideo').onclick = ()=>openVideo(i);
+}
+
+// CHATBOT AI
 const chatToggle=document.getElementById('chatToggle');
 const chatBox=document.getElementById('chatBox');
 const chatMessages=document.getElementById('chatMessages');
@@ -332,10 +349,6 @@ function sendMessage(){
 
 chatSend.addEventListener('click',sendMessage);
 chatInput.addEventListener('keypress',e=>{if(e.key==='Enter') sendMessage();});
-
 </script>
 </body>
 </html>
-
-
-
