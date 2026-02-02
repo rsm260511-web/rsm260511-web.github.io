@@ -78,6 +78,7 @@ main{
   margin-bottom:20px;
 }
 .hidden{display:none}
+
 #single img, #single iframe{
   max-width:100%;
   max-height:420px;
@@ -85,10 +86,10 @@ main{
   border-radius:10px;
   margin:15px 0;
 }
-#singleContent{line-height:1.7;}
+#singleContent{line-height:1.7}
 </style>
 
-<!-- Webpushr (NON TOCCATO) -->
+<!-- WEBPUSHR – NON TOCCATO -->
 <script>
 (function(w,d,s,id){
   if(typeof(w.webpushr)!=='undefined') return;
@@ -110,9 +111,7 @@ main{
 
 <body>
 
-<header>
-  <h1>RSM</h1>
-</header>
+<header><h1>RSM</h1></header>
 
 <nav>
   <a onclick="showSection('home')">Home</a>
@@ -132,11 +131,12 @@ main{
 <main>
 
 <section id="home">
-  <div id="latestNews" class="card" style="border-left:5px solid #ff4d4d">
+  <div id="latestNews" class="card">
     <h2>🟥 Ultima notizia</h2>
-    <h3 id="latestTitle"></h3>
+    <h3 id="latestNewsTitle"></h3>
   </div>
-  <div id="latestVideo" class="card" style="border-left:5px solid #4da6ff">
+
+  <div id="latestVideo" class="card">
     <h2>🎬 Ultimo video</h2>
     <h3 id="latestVideoTitle"></h3>
   </div>
@@ -164,28 +164,34 @@ main{
 
 <section id="single" class="hidden card">
   <h2 id="singleTitle"></h2>
-  <p id="singleDate" style="opacity:.6;font-size:14px"></p>
+  <p id="singleDate" style="opacity:.6"></p>
   <div id="singleImage"></div>
   <div id="singleContent"></div>
 </section>
 
 </main>
 
-<footer style="text-align:center;padding:20px;font-size:14px;opacity:.6">
-© 2025 – RSM | Tutti i diritti riservati
-</footer>
-
 <script>
-let articles = [];
+let articles=[];
 
-/* NAV */
+fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
+.then(r=>r.json())
+.then(data=>{
+  articles=data.articles;
+  document.getElementById('publicDescription').innerText=data.description;
+  renderArticles();
+  renderVideos();
+  renderNews();
+  renderCategories();
+  renderLatest();
+});
+
 function showSection(id){
   document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
   window.scrollTo(0,0);
 }
 
-/* RENDER */
 function renderArticles(){
   const c=document.getElementById('articles');
   c.innerHTML='';
@@ -235,8 +241,8 @@ function renderCategories(){
     articles.filter(a=>a.category===cat).forEach(a=>{
       const i=articles.indexOf(a);
       const p=document.createElement('p');
-      p.style.cursor='pointer';
       p.innerText="• "+a.title;
+      p.style.cursor="pointer";
       p.onclick=()=>openArticle(i);
       box.appendChild(p);
     });
@@ -244,31 +250,47 @@ function renderCategories(){
   });
 }
 
-/* OPEN */
+function renderLatest(){
+  const news=articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
+  if(news){
+    latestNewsTitle.innerText=news.title;
+    latestNews.onclick=()=>openArticle(articles.indexOf(news));
+  }
+
+  const video=articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
+  if(video){
+    latestVideoTitle.innerText=video.title;
+    latestVideo.onclick=()=>openVideo(articles.indexOf(video));
+  }
+}
+
+/* COMPATIBILITÀ TOTALE */
+function renderLatestNews(){ renderLatest(); }
+
 function openArticle(i){
   const a=articles[i];
   showSection('single');
-  document.getElementById('singleTitle').innerText=a.title;
-  document.getElementById('singleDate').innerText=a.date ? new Date(a.date).toLocaleDateString('it-IT') : '';
-  document.getElementById('singleImage').innerHTML=a.image?`<img src="${a.image}">`:'';
-  document.getElementById('singleContent').innerHTML=a.content.replace(/\n/g,"<br><br>");
+  singleTitle.innerText=a.title;
+  singleDate.innerText=a.date ? "📅 "+new Date(a.date).toLocaleDateString('it-IT') : "";
+  singleImage.innerHTML=a.image?`<img src="${a.image}">`:"";
+  singleContent.innerHTML=a.content.replace(/\n/g,"<br><br>");
 }
 
 function openVideo(i){
   const a=articles[i];
   showSection('single');
-  document.getElementById('singleTitle').innerText=a.title;
-  document.getElementById('singleImage').innerHTML=`<iframe width="100%" height="420" src="${a.videoUrl}" allowfullscreen></iframe>`;
-  document.getElementById('singleContent').innerHTML=a.content.replace(/\n/g,"<br><br>");
+  singleTitle.innerText=a.title;
+  singleDate.innerText="";
+  singleImage.innerHTML=`<iframe width="100%" height="420" src="${a.videoUrl}" allowfullscreen></iframe>`;
+  singleContent.innerHTML=a.content.replace(/\n/g,"<br><br>");
 }
 
-/* SEARCH */
 function searchAll(){
   const q=searchInput.value.toLowerCase();
   searchResults.innerHTML='';
   if(!q){searchResults.style.display='none';return;}
   articles.forEach((a,i)=>{
-    if((a.title||'').toLowerCase().includes(q)||(a.content||'').toLowerCase().includes(q)){
+    if(a.title.toLowerCase().includes(q)){
       const d=document.createElement('div');
       d.className='search-item';
       d.innerText=a.title;
@@ -276,36 +298,13 @@ function searchAll(){
       searchResults.appendChild(d);
     }
   });
-  searchResults.style.display=searchResults.children.length?'block':'none';
+  searchResults.style.display='block';
 }
-
-/* LATEST */
-function renderLatest(){
-  const news=articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
-  const video=articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
-  if(news){
-    latestTitle.innerText=news.title;
-    latestNews.onclick=()=>openArticle(articles.indexOf(news));
-  }
-  if(video){
-    latestVideoTitle.innerText=video.title;
-    latestVideo.onclick=()=>openVideo(articles.indexOf(video));
-  }
-}
-
-/* FETCH */
-fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
-.then(r=>r.json())
-.then(data=>{
-  articles=data.articles;
-  publicDescription.innerText=data.description;
-  renderArticles();
-  renderVideos();
-  renderNews();
-  renderCategories();
-  renderLatest();
-});
 </script>
+
+<footer style="text-align:center;padding:20px;opacity:.6">
+© 2025 – RSM
+</footer>
 
 </body>
 </html>
