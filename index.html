@@ -130,6 +130,20 @@ main{
     <input id="searchInput" placeholder="Cerca..." oninput="searchAll()">
     <div id="searchResults"></div>
   </div>
+
+  <!-- Chatbot AI aggiunto -->
+  <div id="chatBotContainer" style="position:relative;margin-left:15px;">
+    <button id="chatToggle" style="padding:8px 12px;border:none;border-radius:20px;background:#ff4d4d;color:#fff;cursor:pointer;">
+      Chat AI
+    </button>
+    <div id="chatBox" style="display:none;position:absolute;top:40px;right:0;width:300px;height:400px;background:#1c1c25;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.3);overflow:hidden;flex-direction:column;display:flex;z-index:1000;">
+      <div id="chatMessages" style="flex-grow:1;padding:10px;overflow-y:auto;"></div>
+      <div style="display:flex;border-top:1px solid #333;">
+        <input id="chatInput" type="text" placeholder="Scrivi..." style="flex-grow:1;padding:8px;border:none;background:#0e0e11;color:#fff;outline:none;">
+        <button id="chatSend" style="padding:0 15px;border:none;background:#ff4d4d;color:#fff;cursor:pointer;">Invia</button>
+      </div>
+    </div>
+  </div>
 </nav>
 
 <main>
@@ -348,6 +362,58 @@ function searchAll(){
   });
   box.style.display=box.children.length?'block':'none';
 }
+
+// Chatbot AI
+const chatToggle = document.getElementById('chatToggle');
+const chatBox = document.getElementById('chatBox');
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const chatSend = document.getElementById('chatSend');
+
+chatToggle.addEventListener('click', ()=> {
+  chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
+});
+
+function appendMessage(sender,text){
+  const div = document.createElement('div');
+  div.textContent = text;
+  div.style.margin = '5px';
+  div.style.padding = '8px 12px';
+  div.style.borderRadius = '15px';
+  div.style.maxWidth = '80%';
+  if(sender==='user'){
+    div.style.background='#007bff';
+    div.style.color='#fff';
+    div.style.alignSelf='flex-end';
+  } else {
+    div.style.background='#333';
+    div.style.color='#fff';
+    div.style.alignSelf='flex-start';
+  }
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function botResponse(msg){
+  const m = msg.toLowerCase();
+  if(m.includes('ciao')) return 'Ciao! Come posso aiutarti oggi?';
+  if(m.includes('progetti')) return 'Ho diversi progetti, vuoi vedere il portfolio?';
+  if(m.includes('aiuto')) return 'Certo! Dimmi pure di cosa hai bisogno.';
+  return 'Non ho capito bene, puoi riformulare?';
+}
+
+function sendMessage(){
+  const msg = chatInput.value.trim();
+  if(!msg) return;
+  appendMessage('user',msg);
+  chatInput.value='';
+  setTimeout(()=>appendMessage('bot',botResponse(msg)),300);
+}
+
+chatSend.addEventListener('click',sendMessage);
+chatInput.addEventListener('keypress',(e)=>{
+  if(e.key==='Enter') sendMessage();
+});
 </script>
 
 <footer style="text-align:center;padding:20px;font-size:14px;opacity:.6">
