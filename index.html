@@ -270,86 +270,98 @@ function sendMessage(){
 chatSend.addEventListener('click',sendMessage);
 chatInput.addEventListener('keypress',e=>{if(e.key==='Enter') sendMessage();});
 
-// BOT RESPONSES
-function botResponse(msg){
-  const m=msg.toLowerCase();
-  const responses=[
-    "Ciao! 👋 Come va?",
-    "Di nulla! 😄 Chiedimi pure qualsiasi informazione.",
-    "Certo! 😊 Posso aiutarti con Contatti, Chi siamo o Articoli.",
-    "Vuoi vedere gli ultimi articoli?",
-    "Vuoi vedere l'ultimo video?",
-    "Vuoi leggere l'ultima news?",
-    "Puoi chiedere informazioni sui contenuti.",
-    "Ecco alcune info sul sito.",
-    "Posso aiutarti a navigare il sito.",
-    "Vuoi sapere chi siamo?",
-    "Ecco i nostri contatti.",
-    "Puoi chiedere info sugli articoli.",
-    "Puoi chiedere info sui video.",
-    "Puoi chiedere info sulle news.",
-    "Vuoi un consiglio su cosa leggere?",
-    "Vuoi un consiglio su cosa guardare?",
-    "Ecco un suggerimento per te.",
-    "Puoi riassumere un articolo o una news.",
-    "Se vuoi, posso aprire un articolo per te.",
-    "Vuoi esplorare le categorie?",
-    "Questa categoria contiene molti articoli.",
-    "Posso aiutarti a trovare contenuti.",
-    "Vuoi vedere contenuti recenti?",
-    "Vuoi vedere contenuti popolari?",
-    "Vuoi aprire un video specifico?",
-    "Vuoi aprire un articolo specifico?",
-    "Vuoi aprire una news specifica?",
-    "Puoi chiedere info su una data news.",
-    "Puoi chiedere info su un video recente.",
-    "Puoi chiedere info su un articolo recente.",
-    "Vuoi sapere di più su di noi?",
-    "Vuoi sapere i contatti e email?",
-    "Vuoi sapere il numero di telefono?",
-    "Ecco il numero di telefono: +39 351 093 3272",
-    "Ecco l'email: rsm260511@gmail.com",
-    "Vuoi aprire la sezione Articoli?",
-    "Vuoi aprire la sezione Video?",
-    "Vuoi aprire la sezione News?",
-    "Vuoi aprire la sezione Categorie?",
-    "Vuoi aprire la sezione Chi siamo?",
-    "Vuoi aprire la sezione Contatti?",
-    "Puoi cercare articoli con la barra di ricerca.",
-    "Puoi cercare video con la barra di ricerca.",
-    "Puoi cercare news con la barra di ricerca.",
-    "Se vuoi, posso darti suggerimenti su cosa leggere."
+// BOT RESPONSES ESTESA
+function botResponse(msg) {
+  const m = msg.toLowerCase();
+
+  // Lista di insulti e parolacce (anche pesanti)
+  const insults = [
+    "stupido","idiota","cretino","scemo","imbecille","stronzo","cazzo","merda",
+    "bastardo","figlio di puttana","fottuto","coglione","vaffanculo","testa di cazzo",
+    "buffone","frocio","negro","zozzo","schifoso","troia","porco","minchia"
   ];
 
-  // GESTIONE CONTESTO SÌ/NO
+  if(insults.some(i=>m.includes(i))){
+    return "Attenzione! Il sito non tollera comportamenti offensivi o linguaggio volgare. Mantieni il rispetto per continuare a usare la chat.";
+  }
+
+  // Gestione Sì/No contestuale
   if(lastQuestion){
     if(m.includes("sì") || m.includes("si") || m.includes("yes")){
-      let ans = "";
-      switch(lastQuestion){
-        case "Vuoi vedere gli ultimi articoli?": ans="Ecco gli ultimi articoli!"; break;
-        case "Vuoi vedere l'ultimo video?": ans="Ecco l'ultimo video!"; break;
-        case "Vuoi leggere l'ultima news?": ans="Ecco l'ultima news!"; break;
-        case "Vuoi aprire la sezione Articoli?": ans="Apro la sezione Articoli."; break;
-        case "Vuoi aprire la sezione Video?": ans="Apro la sezione Video."; break;
-        case "Vuoi aprire la sezione News?": ans="Apro la sezione News."; break;
-        case "Vuoi esplorare le categorie?": ans="Apro le categorie."; break;
-        case "Vuoi un riassunto veloce di un articolo o news?":
-          if(!document.getElementById('single').classList.contains('hidden')){
-            ans = summarizeText(document.getElementById('singleContent').innerText);
-          } else {
-            ans = "Apri prima l'articolo o scrivi il titolo esatto da riassumere.";
-          }
-          break;
-        default: ans="Perfetto! 😊"; break;
-      }
-      lastQuestion=null;
+      const ans = handleYes(lastQuestion);
+      lastQuestion = null;
       return ans;
     }
     if(m.includes("no") || m.includes("non") || m.includes("nope")){
-      lastQuestion=null;
-      return "Va bene, non c'è problema.";
+      lastQuestion = null;
+      return "Va bene, niente da fare allora.";
     }
   }
+
+  // DOMANDE PRINCIPALI E PAROLE CHIAVE
+  const questionSet = [
+    // Chi siamo
+    {keywords:["chi siete","chi siete?","di cosa parla","cos'è questo sito","chi gestisce"], question:"Vuoi aprire la sezione Chi siamo?"},
+    // Contatti
+    {keywords:["contatti","telefono","email","mail","numero","come contattarvi"], question:"Vuoi aprire la sezione Contatti?"},
+    // Articoli
+    {keywords:["articoli","article","leggere articoli","ultimi articoli","notizie lunghe"], question:"Vuoi aprire la sezione Articoli?"},
+    // Video
+    {keywords:["video","vedere video","filmati","clip","guarda video"], question:"Vuoi aprire la sezione Video?"},
+    // News
+    {keywords:["news","notizie","ultima news","ultime notizie","aggiornamenti"], question:"Vuoi aprire la sezione News?"},
+    // Categorie
+    {keywords:["categorie","argomenti","temi","topics","classificazioni"], question:"Vuoi aprire la sezione Categorie?"},
+    // Suggerimenti generali
+    {keywords:["consiglio","cosa leggere","cosa guardare","cosa fare"], question:"Vuoi vedere suggerimenti su cosa leggere o guardare?"},
+    // Privacy e sicurezza
+    {keywords:["privacy","sicurezza","dati personali","informazioni sensibili"], question:"Vuoi leggere la sezione Chi siamo per info sulla privacy?"},
+    // FAQ generali
+    {keywords:["come funziona","come usare","istruzioni","aiuto"], question:"Vuoi aprire la sezione Chi siamo o Articoli per capire meglio?"},
+    // Altro generico
+    {keywords:["dove","come","quando","perché","perché","perchè","perche","spiegami","mostrami"], question:"Prova a chiedere Articoli, Video, News o Contatti per navigare."}
+  ];
+
+  // Cerca se il messaggio contiene una keyword
+  for(const q of questionSet){
+    if(q.keywords.some(k=>m.includes(k))){
+      lastQuestion = q.question;
+      return randomChoice([
+        "Per questo puoi aprire la sezione corrispondente.",
+        "Vuoi che apra la sezione per te?",
+        "Trovi tutto nella sezione indicata."
+      ]);
+    }
+  }
+
+  // Risposte generiche se non riconosce nulla
+  const genericResponses = [
+    "Non sono sicuro di aver capito. Puoi provare a chiedere Chi siamo, Contatti, Articoli, Video, News o Categorie.",
+    "Prova a usare parole chiave come Articoli, Video, News o Contatti per navigare.",
+    "Per favore, chiedi una sezione specifica e ti guiderò.",
+    "Se vuoi esplorare il sito, digita Articoli, Video, News, Categorie o Contatti."
+  ];
+
+  return randomChoice(genericResponses);
+}
+
+// Gestione SÌ
+function handleYes(question){
+  switch(question){
+    case "Vuoi aprire la sezione Chi siamo?": showSection('about'); return "Ecco la sezione Chi siamo!";
+    case "Vuoi aprire la sezione Contatti?": showSection('contacts'); return "Ti porto nella sezione Contatti.";
+    case "Vuoi aprire la sezione Articoli?": showSection('articles'); return "Apro la sezione Articoli per te!";
+    case "Vuoi aprire la sezione Video?": showSection('videos'); return "Ecco la sezione Video!";
+    case "Vuoi aprire la sezione News?": showSection('news'); return "Ti mostro la sezione News.";
+    case "Vuoi aprire la sezione Categorie?": showSection('categories'); return "Aprendo la sezione Categorie.";
+    default: return "Perfetto, eseguo la tua richiesta.";
+  }
+}
+
+// Funzione per risposte casuali da array
+function randomChoice(arr){
+  return arr[Math.floor(Math.random()*arr.length)];
+}
 
   // FRASI CHIAVE E RIASSUNTO
   if(m.includes('riassumi') || m.includes('fai un riassunto')){
@@ -386,6 +398,7 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
   </html>
+
 
 
 
