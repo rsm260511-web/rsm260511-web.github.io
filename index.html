@@ -279,7 +279,14 @@ function randomChoice(arr){
 function botResponse(msg) {
   const m = msg.toLowerCase();
 
-  // Lista di insulti e parolacce (anche pesanti)
+    // SALUTI INIZIALI
+  const saluti = ["ciao", "buongiorno", "buon giorno", "buonasera", "buona sera", "buon pomeriggio", "buonpomeriggio", "hi", "hello", "salve", "hey"];
+  
+  if (saluti.some(saluto => m === saluto || m.includes(saluto + " "))) {
+    return "Ciao! Come posso assisterti oggi?";
+  }
+
+   // Lista di insulti e parolacce (anche pesanti)
   const insults = [
     "stupido","idiota","cretino","scemo","imbecille","stronzo","cazzo","merda",
     "bastardo","figlio di puttana","fottuto","coglione","vaffanculo","testa di cazzo",
@@ -445,4 +452,5 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
 </html>
+
 
