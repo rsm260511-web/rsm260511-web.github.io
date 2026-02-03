@@ -152,11 +152,70 @@ function showSection(id){
 }
 
 // RENDER ARTICOLI, VIDEO, NEWS, CATEGORIE
-function renderArticles(){const c=document.getElementById('articles'); c.innerHTML=''; articles.filter(a=>a.type==="article").forEach(a=>{const i=articles.indexOf(a); const d=document.createElement('div'); d.className='card'; d.innerHTML=`<h2>${a.title}</h2>`; d.onclick=()=>openArticle(i); c.appendChild(d);});}
-function renderVideos(){const c=document.getElementById('videos'); c.innerHTML=''; articles.filter(a=>a.type==="video").forEach(a=>{const i=articles.indexOf(a); const d=document.createElement('div'); d.className='card'; d.innerHTML=`<h2>${a.title}</h2>`; d.onclick=()=>openVideo(i); c.appendChild(d);});}
-function renderNews(){const c=document.getElementById('news'); c.innerHTML=''; articles.filter(a=>a.type==="news").forEach(a=>{const i=articles.indexOf(a); const d=document.createElement('div'); d.className='card'; d.innerHTML=`<h2>${a.title}</h2>`; d.onclick=()=>openArticle(i); c.appendChild(d);});}
-function renderCategories(){const c=document.getElementById('categories'); c.innerHTML=''; [...new Set(articles.map(a=>a.category))].forEach(cat=>{const box=document.createElement('div'); box.className='card'; box.innerHTML=`<h2>${cat}</h2>`; articles.filter(a=>a.category===cat).forEach(a=>{const i=articles.indexOf(a); const p=document.createElement('p'); p.style.cursor='pointer'; p.innerText="• "+a.title; p.onclick=()=>openArticle(i); box.appendChild(p);}); c.appendChild(box);});}
+function renderArticles() {
+    const c = document.getElementById('articles');
+    c.innerHTML = '';
+    articles.filter(a => a.type === "article").forEach(a => {
+        const i = articles.indexOf(a);
+        const d = document.createElement('div');
+        d.className = 'card';
+        d.innerHTML = `<h2>${a.title}</h2>`;
+        d.onclick = () => openArticle(i);
+        c.appendChild(d);
+    });
+}
 
+function renderVideos() {
+    const c = document.getElementById('videos');
+    c.innerHTML = '';
+    articles.filter(a => a.type === "video").forEach(a => {
+        const i = articles.indexOf(a);
+        const d = document.createElement('div');
+        d.className = 'card';
+        d.innerHTML = `<h2>${a.title}</h2>`;
+        d.onclick = () => openVideo(i);
+        c.appendChild(d);
+    });
+}
+
+function renderNews() {
+    const c = document.getElementById('news');
+    c.innerHTML = '';
+    articles.filter(a => a.type === "news").forEach(a => {
+        const i = articles.indexOf(a);
+        const d = document.createElement('div');
+        d.className = 'card';
+        d.innerHTML = `<h2>${a.title}</h2>`;
+        d.onclick = () => openArticle(i);
+        c.appendChild(d);
+    });
+}
+
+function renderCategories() {
+    const c = document.getElementById('categories');
+    c.innerHTML = '';
+    [...new Set(articles.map(a => a.category))].forEach(cat => {
+        const box = document.createElement('div');
+        box.className = 'card';
+        box.innerHTML = `<h2>${cat}</h2>`;
+        articles.filter(a => a.category === cat).forEach(a => {
+            const i = articles.indexOf(a);
+            const p = document.createElement('p');
+            p.style.cursor = 'pointer';
+            p.innerText = "• " + a.title;
+            // ✅ apertura corretta per articoli o video
+            p.onclick = () => {
+                if (a.type === "video") {
+                    openVideo(i);
+                } else {
+                    openArticle(i);
+                }
+            };
+            box.appendChild(p);
+        });
+        c.appendChild(box);
+    });
+  }
 // OPEN ARTICOLI/VIDEO
 function openArticle(i){const a=articles[i]; showSection('single'); document.getElementById('singleTitle').innerText=a.title; document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):""; const imgBox=document.getElementById('singleImage'); imgBox.innerHTML=''; if(a.images && Array.isArray(a.images)){ a.images.forEach(src=>{const img=document.createElement('img'); img.src=src; imgBox.appendChild(img);}); } else if(a.image){imgBox.innerHTML=`<img src="${a.image}">`; } document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;}
 function openVideo(i){const a=articles[i]; showSection('single'); document.getElementById('singleTitle').innerText=a.title; document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):""; const imgBox=document.getElementById('singleImage'); imgBox.innerHTML=''; if(a.videoUrl){ imgBox.innerHTML=`<iframe width="100%" height="420" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`;} else if(a.images && Array.isArray(a.images)){ a.images.forEach(src=>{const img=document.createElement('img'); img.src=src; imgBox.appendChild(img);}); } document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;}
@@ -327,5 +386,6 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
   </html>
+
 
 
