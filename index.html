@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>RSM</title>
+<title>RSM - AI Super Avanzata</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="rsm-header.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
@@ -22,20 +22,7 @@ main{max-width:900px;margin:auto;padding:20px;}
 .hidden{display:none}
 #single img, #single iframe{max-width:100%;height:auto;object-fit:cover;border-radius:10px;margin:15px 0;}
 #singleContent{line-height:1.7;}
-#chatBox{
-  display:none;
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:350px;
-  height:500px;
-  background:#1c1c25;
-  border-radius:10px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
-  overflow:hidden;
-  flex-direction:column;
-  z-index:1000;
-}
+#chatBox{display:none;position:fixed;bottom:20px;right:20px;width:350px;height:500px;background:#1c1c25;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,0.4);overflow:hidden;flex-direction:column;z-index:1000;}
 #chatMessages{flex-grow:1;padding:10px;overflow-y:auto;}
 #chatInput{flex-grow:1;padding:10px;border:none;background:#0e0e11;color:#fff;outline:none;}
 #chatSend{padding:0 15px;border:none;background:#ff4d4d;color:#fff;cursor:pointer;font-weight:600;}
@@ -62,7 +49,6 @@ main{max-width:900px;margin:auto;padding:20px;}
 </head>
 
 <body>
-
 <header>
   <h1>RSM</h1>
 </header>
@@ -86,47 +72,253 @@ main{max-width:900px;margin:auto;padding:20px;}
     <button id="chatToggle" style="padding:8px 12px;border:none;border-radius:20px;background:#ff4d4d;color:#fff;cursor:pointer;">
       Chat AI
     </button>
-
     <div id="chatBox">
-
-      <!-- ✅ BOTTONE CHIUDI AI (AGGIUNTO, NON RIMUOVE NULLA) -->
-      <button id="chatClose" style="
-        border:none;
-        background:#333;
-        color:#fff;
-        padding:6px 10px;
-        cursor:pointer;
-        font-weight:600;
-      ">Chiudi AI</button>
-
       <div id="chatMessages"></div>
-
       <div style="display:flex;border-top:1px solid #333;">
         <input id="chatInput" type="text" placeholder="Scrivi qui..." autocomplete="off">
         <button id="chatSend">Invia</button>
       </div>
-
     </div>
   </div>
 </nav>
 
-<!-- 🔴 TUTTO IL RESTO DEL TUO HTML È IDENTICO E NON TOCCATO 🔴 -->
-<!-- main, sezioni, script dati, chatbot, risposte, sì/no, riassunti -->
-<!-- (non lo ripeto qui perché NON ho tolto né cambiato nulla) -->
+<main>
+<section id="home">
+  <div id="latestNews" class="card" style="border-left:5px solid #ff4d4d">
+    <h2>🟥 Ultima notizia</h2>
+    <h3 id="latestTitle"></h3>
+    <p style="opacity:.7">Clicca per leggere la notizia completa</p>
+  </div>
+  <div id="latestVideo" class="card" style="border-left:5px solid #4da6ff">
+    <h2>🎬 Ultimo video</h2>
+    <h3 id="latestVideoTitle"></h3>
+    <p style="opacity:.7">Clicca per guardare il video completo</p>
+  </div>
+</section>
 
+<section id="articles" class="hidden"></section>
+<section id="videos" class="hidden"></section>
+<section id="news" class="hidden"></section>
+<section id="categories" class="hidden"></section>
+
+<section id="about" class="hidden">
+  <div class="card">
+    <h2>Chi siamo?</h2>
+    <p id="publicDescription"></p>
+  </div>
+</section>
+
+<section id="contacts" class="hidden">
+  <div class="card">
+    <h2>Contatti</h2>
+    <p>📞 +39 351 093 3272</p>
+    <p>📧 rsm260511@gmail.com</p>
+  </div>
+</section>
+
+<section id="single" class="hidden card">
+  <h2 id="singleTitle"></h2>
+  <p id="singleDate" style="opacity:.6;font-size:14px;margin-top:-10px"></p>
+  <div id="singleImage"></div>
+  <div id="singleContent"></div>
+</section>
+</main>
+
+<footer style="text-align:center;padding:20px;font-size:14px;opacity:.6">
+© 2025 – RSM | Tutti i diritti riservati
+</footer>
 <script>
+// DATI
+let articles=[];
+fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
+.then(r=>r.json())
+.then(data=>{
+  document.getElementById('publicDescription').innerText=data.description;
+  articles = data.articles;
+  renderArticles();
+  renderVideos();
+  renderNews();
+  renderCategories();
+  renderLatestNews();
+  renderLatestVideo();
+});
+
+// SEZIONI
+function showSection(id){
+  document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+
+// RENDER ARTICOLI, VIDEO, NEWS, CATEGORIE
+function renderArticles(){const c=document.getElementById('articles'); c.innerHTML=''; articles.filter(a=>a.type==="article").forEach(a=>{const i=articles.indexOf(a); const d=document.createElement('div'); d.className='card'; d.innerHTML=`<h2>${a.title}</h2>`; d.onclick=()=>openArticle(i); c.appendChild(d);});}
+function renderVideos(){const c=document.getElementById('videos'); c.innerHTML=''; articles.filter(a=>a.type==="video").forEach(a=>{const i=articles.indexOf(a); const d=document.createElement('div'); d.className='card'; d.innerHTML=`<h2>${a.title}</h2>`; d.onclick=()=>openVideo(i); c.appendChild(d);});}
+function renderNews(){const c=document.getElementById('news'); c.innerHTML=''; articles.filter(a=>a.type==="news").forEach(a=>{const i=articles.indexOf(a); const d=document.createElement('div'); d.className='card'; d.innerHTML=`<h2>${a.title}</h2>`; d.onclick=()=>openArticle(i); c.appendChild(d);});}
+function renderCategories(){const c=document.getElementById('categories'); c.innerHTML=''; [...new Set(articles.map(a=>a.category))].forEach(cat=>{const box=document.createElement('div'); box.className='card'; box.innerHTML=`<h2>${cat}</h2>`; articles.filter(a=>a.category===cat).forEach(a=>{const i=articles.indexOf(a); const p=document.createElement('p'); p.style.cursor='pointer'; p.innerText="• "+a.title; p.onclick=()=>openArticle(i); box.appendChild(p);}); c.appendChild(box);});}
+
+// OPEN ARTICOLI/VIDEO
+function openArticle(i){const a=articles[i]; showSection('single'); document.getElementById('singleTitle').innerText=a.title; document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):""; const imgBox=document.getElementById('singleImage'); imgBox.innerHTML=''; if(a.images && Array.isArray(a.images)){ a.images.forEach(src=>{const img=document.createElement('img'); img.src=src; imgBox.appendChild(img);}); } else if(a.image){imgBox.innerHTML=`<img src="${a.image}">`; } document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;}
+function openVideo(i){const a=articles[i]; showSection('single'); document.getElementById('singleTitle').innerText=a.title; document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):""; const imgBox=document.getElementById('singleImage'); imgBox.innerHTML=''; if(a.videoUrl){ imgBox.innerHTML=`<iframe width="100%" height="420" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`;} else if(a.images && Array.isArray(a.images)){ a.images.forEach(src=>{const img=document.createElement('img'); img.src=src; imgBox.appendChild(img);}); } document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;}
+
+// SEARCH
+function searchAll(){const q=searchInput.value.toLowerCase(); const box=searchResults; box.innerHTML=''; if(!q){box.style.display='none'; return;} articles.forEach((a,i)=>{if(a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)){const d=document.createElement('div'); d.className='search-item'; d.innerText=a.title; d.onclick=()=>openArticle(i); box.appendChild(d);}}); box.style.display=box.children.length?'block':'none';}
+
+// LATEST NEWS & VIDEO
+function renderLatestNews(){const news=articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; if(!news) return; document.getElementById('latestTitle').innerText=news.title; const i=articles.findIndex(a=>a.title===news.title); document.getElementById('latestNews').onclick=()=>openArticle(i);}
+function renderLatestVideo(){const video=articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; if(!video) return; document.getElementById('latestVideoTitle').innerText=video.title; const i=articles.findIndex(a=>a.title===video.title); document.getElementById('latestVideo').onclick=()=>openVideo(i);}
+
+// CHATBOT AI
 const chatToggle=document.getElementById('chatToggle');
 const chatBox=document.getElementById('chatBox');
-const chatClose=document.getElementById('chatClose');
+const chatMessages=document.getElementById('chatMessages');
+const chatInput=document.getElementById('chatInput');
+const chatSend=document.getElementById('chatSend');
 
-chatToggle.addEventListener('click',()=>{
-  chatBox.style.display='flex';
-});
+let lastQuestion = null; // traccia domanda per SÌ/NO
 
-chatClose.addEventListener('click',()=>{
-  chatBox.style.display='none';
-});
+// Apri/Chiudi chat
+chatToggle.addEventListener('click',()=>{chatBox.style.display=chatBox.style.display==='flex'?'none':'flex';});
+
+// Aggiungi messaggio
+function appendMessage(sender,text){
+  const div=document.createElement('div');
+  div.textContent=text;
+  div.style.margin='5px';
+  div.style.padding='8px 12px';
+  div.style.borderRadius='15px';
+  div.style.maxWidth='80%';
+  div.style.wordWrap='break-word';
+  div.style.alignSelf=sender==='user'?'flex-end':'flex-start';
+  div.style.background=sender==='user'?'#007bff':'#333';
+  div.style.color='#fff';
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop=chatMessages.scrollHeight;
+}
+
+// Invio messaggio
+function sendMessage(){
+  const msg=chatInput.value.trim();
+  if(!msg) return;
+  appendMessage('user',msg);
+  appendMessage('bot',botResponse(msg));
+  chatInput.value='';
+}
+chatSend.addEventListener('click',sendMessage);
+chatInput.addEventListener('keypress',e=>{if(e.key==='Enter') sendMessage();});
+
+// BOT RESPONSES
+function botResponse(msg){
+  const m=msg.toLowerCase();
+  const responses=[
+    "Ciao! 👋 Come va?",
+    "Di nulla! 😄 Chiedimi pure qualsiasi informazione.",
+    "Certo! 😊 Posso aiutarti con Contatti, Chi siamo o Articoli.",
+    "Vuoi vedere gli ultimi articoli?",
+    "Vuoi vedere l'ultimo video?",
+    "Vuoi leggere l'ultima news?",
+    "Puoi chiedere informazioni sui contenuti.",
+    "Ecco alcune info sul sito.",
+    "Posso aiutarti a navigare il sito.",
+    "Vuoi sapere chi siamo?",
+    "Ecco i nostri contatti.",
+    "Puoi chiedere info sugli articoli.",
+    "Puoi chiedere info sui video.",
+    "Puoi chiedere info sulle news.",
+    "Vuoi un consiglio su cosa leggere?",
+    "Vuoi un consiglio su cosa guardare?",
+    "Ecco un suggerimento per te.",
+    "Puoi riassumere un articolo o una news.",
+    "Se vuoi, posso aprire un articolo per te.",
+    "Vuoi esplorare le categorie?",
+    "Questa categoria contiene molti articoli.",
+    "Posso aiutarti a trovare contenuti.",
+    "Vuoi vedere contenuti recenti?",
+    "Vuoi vedere contenuti popolari?",
+    "Vuoi aprire un video specifico?",
+    "Vuoi aprire un articolo specifico?",
+    "Vuoi aprire una news specifica?",
+    "Puoi chiedere info su una data news.",
+    "Puoi chiedere info su un video recente.",
+    "Puoi chiedere info su un articolo recente.",
+    "Vuoi sapere di più su di noi?",
+    "Vuoi sapere i contatti e email?",
+    "Vuoi sapere il numero di telefono?",
+    "Ecco il numero di telefono: +39 351 093 3272",
+    "Ecco l'email: rsm260511@gmail.com",
+    "Vuoi aprire la sezione Articoli?",
+    "Vuoi aprire la sezione Video?",
+    "Vuoi aprire la sezione News?",
+    "Vuoi aprire la sezione Categorie?",
+    "Vuoi aprire la sezione Chi siamo?",
+    "Vuoi aprire la sezione Contatti?",
+    "Puoi cercare articoli con la barra di ricerca.",
+    "Puoi cercare video con la barra di ricerca.",
+    "Puoi cercare news con la barra di ricerca.",
+    "Se vuoi, posso darti suggerimenti su cosa leggere."
+  ];
+
+  // GESTIONE CONTESTO SÌ/NO
+  if(lastQuestion){
+    if(m.includes("sì") || m.includes("si") || m.includes("yes")){
+      let ans = "";
+      switch(lastQuestion){
+        case "Vuoi vedere gli ultimi articoli?": ans="Ecco gli ultimi articoli!"; break;
+        case "Vuoi vedere l'ultimo video?": ans="Ecco l'ultimo video!"; break;
+        case "Vuoi leggere l'ultima news?": ans="Ecco l'ultima news!"; break;
+        case "Vuoi aprire la sezione Articoli?": ans="Apro la sezione Articoli."; break;
+        case "Vuoi aprire la sezione Video?": ans="Apro la sezione Video."; break;
+        case "Vuoi aprire la sezione News?": ans="Apro la sezione News."; break;
+        case "Vuoi esplorare le categorie?": ans="Apro le categorie."; break;
+        case "Vuoi un riassunto veloce di un articolo o news?":
+          if(!document.getElementById('single').classList.contains('hidden')){
+            ans = summarizeText(document.getElementById('singleContent').innerText);
+          } else {
+            ans = "Apri prima l'articolo o scrivi il titolo esatto da riassumere.";
+          }
+          break;
+        default: ans="Perfetto! 😊"; break;
+      }
+      lastQuestion=null;
+      return ans;
+    }
+    if(m.includes("no") || m.includes("non") || m.includes("nope")){
+      lastQuestion=null;
+      return "Va bene, non c'è problema.";
+    }
+  }
+
+  // FRASI CHIAVE E RIASSUNTO
+  if(m.includes('riassumi') || m.includes('fai un riassunto')){
+    let titleMatch = articles.find(a => a.title.toLowerCase() === m.replace(/riassumi|fai un riassunto/gi,'').trim());
+    if(titleMatch) return summarizeText(titleMatch.content);
+    if(!document.getElementById('single').classList.contains('hidden')){
+      return summarizeText(document.getElementById('singleContent').innerText);
+    }
+    return "Non ho trovato quell'articolo/news. Apri l'articolo o scrivi il titolo esatto da riassumere.";
+  }
+
+  // Aggancio domande principali al contesto
+  if(m.includes("articolo")||m.includes("articoli")){ lastQuestion="Vuoi vedere gli ultimi articoli?"; return lastQuestion; }
+  if(m.includes("video")){ lastQuestion="Vuoi vedere l'ultimo video?"; return lastQuestion; }
+  if(m.includes("news")){ lastQuestion="Vuoi leggere l'ultima news?"; return lastQuestion; }
+  if(m.includes("categorie")||m.includes("argomento")){ lastQuestion="Vuoi esplorare le categorie?"; return lastQuestion; }
+
+  // Risposte casuali
+  return responses[Math.floor(Math.random()*responses.length)];
+}
+
+// Riassunto testuale semplice
+function summarizeText(text,maxSentences=3){
+  if(!text) return "Non c'è testo da riassumere.";
+  const sentences=text.split(/(?<=\.|\?|!)/);
+  const wordCounts={};
+  const words=text.toLowerCase().replace(/[^a-zàèéìòù\s]/g,'').split(/\s+/);
+  words.forEach(w=>{if(w.length>3) wordCounts[w]=(wordCounts[w]||0)+1;});
+  const sentenceScores=sentences.map(s=>{const sWords=s.toLowerCase().split(/\s+/);let score=0;sWords.forEach(w=>{if(wordCounts[w]) score+=wordCounts[w];});return {sentence:s,score};});
+  sentenceScores.sort((a,b)=>b.score-a.score);
+  const topSentences=sentenceScores.slice(0,maxSentences).map(s=>s.sentence.trim());
+  return topSentences.join(' ');
+}
 </script>
-
 </body>
-</html>
+  </html>
