@@ -275,24 +275,6 @@ function randomChoice(arr){
   return arr[Math.floor(Math.random()*arr.length)];
 }
 
-  function normalizzaTesto(t){
-  return t.toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9\s]/g, "")
-    .trim();
-}
-
-function similar(a, b) {
-  a = normalizzaTesto(a);
-  b = normalizzaTesto(b);
-  if (a.length < 3 || b.length < 3) return false;
-  let matches = 0;
-  for (let i = 0; i < a.length; i++) {
-    if (b.includes(a[i])) matches++;
-  }
-  return matches / Math.max(a.length, b.length) > 0.6;
-}
-
 // BOT RESPONSES ESTESA (VERSIONE NUOVA CORRETTA)
 function botResponse(msg) {
   const m = msg.toLowerCase();
@@ -617,15 +599,13 @@ function botResponse(msg) {
   ];
 
   // Controlla prima le domande IA frequenti
- for(const domanda of domandeIA) {
-  if(domanda.q.some(keyword => 
-    m.includes(normalizzaTesto(keyword)) || similar(m, keyword)
-  )) {
-    return domanda.r;
+  for(const domanda of domandeIA) {
+    if(domanda.q.some(keyword => m.includes(keyword))) {
+      return domanda.r;
+    }
   }
-}
 
-  // Lista di insulti e parolacce (anche pesanti)
+   // Lista di insulti e parolacce (anche pesanti)
   const insults = [
     "stupido","idiota","cretino","scemo","imbecille","stronzo","cazzo","merda",
     "bastardo","figlio di puttana","fottuto","coglione","vaffanculo","testa di cazzo",
@@ -677,9 +657,7 @@ function botResponse(msg) {
 
   // Cerca se il messaggio contiene una keyword
   for(const q of questionSet){
-    if(q.keywords.some(k =>
-  m.includes(normalizzaTesto(k)) || similar(m, k)
-)){
+    if(q.keywords.some(k=>m.includes(k))){
       lastQuestion = q.question;
       return randomChoice([
         "Per questo puoi aprire la sezione corrispondente.",
@@ -793,4 +771,3 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
 </html>
-
