@@ -364,12 +364,8 @@ function botResponse(msg) {
     
     {q: ["addio", "arrivederci", "ciao ciao", "a presto", "bye", "goodbye"], 
      r: "Arrivederci! Torna quando vuoi se hai bisogno di assistenza con RSM. Buona navigazione! 👋"}
-  // DOMANDE COMPLETE SU STORIA, SCIENZA, CULTURA
-  const domandeComplete = [
-    // STORIA - DATE IMPORTANTI
-    {q: ["quando è scoppiata la seconda guerra mondiale", "inizio seconda guerra mondiale", "data seconda guerra mondiale"], 
-     r: "⚔️ La Seconda Guerra Mondiale è scoppiata il **1 settembre 1939** con l'invasione tedesca della Polonia."},
     
+const domandeIA = [
     {q: ["quando è finita la seconda guerra mondiale", "fine seconda guerra mondiale", "data fine seconda guerra"], 
      r: "🕊️ La Seconda Guerra Mondiale è terminata ufficialmente il **2 settembre 1945** con la resa del Giappone."},
     
@@ -776,6 +772,7 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
 </html>
+
 
 
 
