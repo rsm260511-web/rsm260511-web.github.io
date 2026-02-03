@@ -5,12 +5,11 @@
 <title>RSM</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="rsm-header.png">
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
 body{margin:0;font-family:'Montserrat',sans-serif;background:#0e0e11;color:#eaeaea;}
-header{background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');background-size:cover;padding:80px 20px;text-align:center;}
+header{background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');background-size:cover;background-position:center;padding:80px 20px;text-align:center;}
 header h1{font-family:'Playfair Display',serif;font-size:52px;margin:0;}
 nav{background:#15151c;padding:12px;display:flex;gap:15px;align-items:center;flex-wrap:wrap;}
 nav a{cursor:pointer;font-weight:600;}
@@ -22,69 +21,82 @@ nav a{cursor:pointer;font-weight:600;}
 main{max-width:900px;margin:auto;padding:20px;}
 .card{background:#1c1c25;padding:20px;border-radius:10px;margin-bottom:20px;}
 .hidden{display:none}
-#single img,#single iframe{max-width:100%;border-radius:10px;margin:15px 0}
+#single img, #single iframe{max-width:100%;max-height:420px;object-fit:cover;border-radius:10px;margin:15px 0;}
+#singleContent{line-height:1.7;}
 
-/* CHAT */
-#chatBox{display:none;position:absolute;top:45px;right:0;width:340px;height:480px;background:#1c1c25;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.4);flex-direction:column;z-index:1000}
-#chatMessages{flex:1;padding:10px;overflow-y:auto}
-#chatInput{flex:1;padding:10px;border:none;background:#0e0e11;color:#fff}
-#chatSend{padding:0 15px;border:none;background:#ff4d4d;color:#fff;font-weight:600}
+/* Chatbot stili avanzati */
+#chatBox{display:none;position:absolute;top:40px;right:0;width:350px;height:500px;background:#1c1c25;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,0.4);overflow:hidden;flex-direction:column;display:flex;z-index:1000;}
+#chatMessages{flex-grow:1;padding:10px;overflow-y:auto;}
+#chatInput{flex-grow:1;padding:10px;border:none;background:#0e0e11;color:#fff;outline:none;}
+#chatSend{padding:0 15px;border:none;background:#ff4d4d;color:#fff;cursor:pointer;font-weight:600;}
 </style>
 
 <!-- Webpushr -->
 <script>
 (function(w,d,s,id){
- if(typeof(w.webpushr)!=='undefined')return;
- w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};
- var js,fjs=d.getElementsByTagName(s)[0];
- js=d.createElement(s);js.id=id;js.async=1;
- js.src="https://cdn.webpushr.com/app.min.js";
- js.onload=function(){
-  webpushr('setup',{key:'BKdp3zSvl_w5aJH_c9naFADnGMJxh9khCwh0THm4hfU-PGhMZN8V5XpQt0nAqFULqVBjWSUk6lWblBhDYRbhWt4'});
- };
- fjs.parentNode.appendChild(js);
+  if(typeof(w.webpushr)!=='undefined') return;
+  w.webpushr=w.webpushr||function(){
+    (w.webpushr.q=w.webpushr.q||[]).push(arguments)
+  };
+  var js,fjs=d.getElementsByTagName(s)[0];
+  js=d.createElement(s);js.id=id;js.async=1;
+  js.src="https://cdn.webpushr.com/app.min.js";
+  js.onload=function(){
+    webpushr('setup',{
+      'key':'BKdp3zSvl_w5aJH_c9naFADnGMJxh9khCwh0THm4hfU-PGhMZN8V5XpQt0nAqFULqVBjWSUk6lWblBhDYRbhWt4'
+    });
+  };
+  fjs.parentNode.appendChild(js);
 }(window,document,'script','webpushr-jssdk'));
 </script>
 </head>
 
 <body>
-
-<header><h1>RSM</h1></header>
+<header>
+  <h1>RSM</h1>
+</header>
 
 <nav>
-<a onclick="showSection('home')">Home</a>
-<a onclick="showSection('articles')">Articoli</a>
-<a onclick="showSection('videos')">Video</a>
-<a onclick="showSection('news')">News</a>
-<a onclick="showSection('categories')">Categorie</a>
-<a onclick="showSection('about')">Chi siamo?</a>
-<a onclick="showSection('contacts')">Contatti</a>
+  <a onclick="showSection('home')">Home</a>
+  <a onclick="showSection('articles')">Articoli</a>
+  <a onclick="showSection('videos')">Video</a>
+  <a onclick="showSection('news')">News</a>
+  <a onclick="showSection('categories')">Categorie</a>
+  <a onclick="showSection('about')">Chi siamo?</a>
+  <a onclick="showSection('contacts')">Contatti</a>
 
-<div id="searchBox">
-<input id="searchInput" placeholder="Cerca..." oninput="searchAll()">
-<div id="searchResults"></div>
-</div>
+  <div id="searchBox">
+    <input id="searchInput" placeholder="Cerca..." oninput="searchAll()">
+    <div id="searchResults"></div>
+  </div>
 
-<div style="position:relative">
-<button id="chatToggle" style="background:#ff4d4d;color:#fff;border:none;border-radius:20px;padding:8px 12px">Chat AI</button>
-<div id="chatBox">
-<div id="chatMessages"></div>
-<div style="display:flex">
-<input id="chatInput" placeholder="Scrivi...">
-<button id="chatSend">Invia</button>
-</div>
-</div>
-</div>
+  <!-- Chatbot AI Pro Max -->
+  <div id="chatBotContainer" style="position:relative;margin-left:15px;">
+    <button id="chatToggle" style="padding:8px 12px;border:none;border-radius:20px;background:#ff4d4d;color:#fff;cursor:pointer;">
+      Chat AI
+    </button>
+    <div id="chatBox">
+      <div id="chatMessages"></div>
+      <div style="display:flex;border-top:1px solid #333;">
+        <input id="chatInput" type="text" placeholder="Scrivi qui..." autocomplete="off">
+        <button id="chatSend">Invia</button>
+      </div>
+    </div>
+  </div>
 </nav>
 
 <main>
 <section id="home">
-<div id="latestNews" class="card" onclick="openArticle(latestNewsIndex)">
-<h2>🟥 Ultima news</h2><h3 id="latestNewsTitle"></h3>
-</div>
-<div id="latestVideo" class="card" onclick="openVideo(latestVideoIndex)">
-<h2>🎬 Ultimo video</h2><h3 id="latestVideoTitle"></h3>
-</div>
+  <div id="latestNews" class="card" style="border-left:5px solid #ff4d4d">
+    <h2>🟥 Ultima notizia</h2>
+    <h3 id="latestTitle"></h3>
+    <p style="opacity:.7">Clicca per leggere la notizia completa</p>
+  </div>
+  <div id="latestVideo" class="card" style="border-left:5px solid #4da6ff">
+    <h2>🎬 Ultimo video</h2>
+    <h3 id="latestVideoTitle"></h3>
+    <p style="opacity:.7">Clicca per guardare il video completo</p>
+  </div>
 </section>
 
 <section id="articles" class="hidden"></section>
@@ -92,140 +104,227 @@ main{max-width:900px;margin:auto;padding:20px;}
 <section id="news" class="hidden"></section>
 <section id="categories" class="hidden"></section>
 
-<section id="about" class="hidden"><div class="card"><p id="publicDescription"></p></div></section>
-<section id="contacts" class="hidden"><div class="card">
-<p>📞 +39 351 093 3272</p>
-<p>📧 rsm260511@gmail.com</p>
-</div></section>
+<section id="about" class="hidden">
+  <div class="card">
+    <h2>Chi siamo?</h2>
+    <p id="publicDescription"></p>
+  </div>
+</section>
+
+<section id="contacts" class="hidden">
+  <div class="card">
+    <h2>Contatti</h2>
+    <p>📞 +39 351 093 3272</p>
+    <p>📧 rsm260511@gmail.com</p>
+  </div>
+</section>
 
 <section id="single" class="hidden card">
-<h2 id="singleTitle"></h2>
-<p id="singleDate"></p>
-<div id="singleImage"></div>
-<div id="singleContent"></div>
+  <h2 id="singleTitle"></h2>
+  <p id="singleDate" style="opacity:.6;font-size:14px;margin-top:-10px"></p>
+  <div id="singleImage"></div>
+  <div id="singleContent"></div>
 </section>
 </main>
 
-<footer style="text-align:center;opacity:.6;padding:20px">© 2025 RSM</footer>
+<footer style="text-align:center;padding:20px;font-size:14px;opacity:.6">
+© 2025 – RSM | Tutti i diritti riservati
+</footer>
 
 <script>
-let articles=[],latestNewsIndex=0,latestVideoIndex=0;
-
+// --- DATI JSON ---
+let articles=[];
 fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
 .then(r=>r.json())
 .then(data=>{
- document.getElementById('publicDescription').innerText=data.description;
- articles=data.articles;
- renderAll();
+  document.getElementById('publicDescription').innerText=data.description;
+  articles = data.articles;
+  renderArticles();
+  renderVideos();
+  renderNews();
+  renderCategories();
+  renderLatestNews();
+  renderLatestVideo();
 });
 
-function renderAll(){
- renderArticles();renderVideos();renderNews();renderCategories();
- renderLatest();
-}
-
+// --- FUNZIONI SEZIONI ---
 function showSection(id){
- document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
- document.getElementById(id).classList.remove('hidden');
- window.scrollTo(0,0);
+  document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  window.scrollTo(0,0);
 }
 
+// --- RENDER ---
 function renderArticles(){
- const c=document.getElementById('articles');c.innerHTML='';
- articles.filter(a=>a.type==="article").forEach(a=>{
-  const i=articles.indexOf(a);
-  c.innerHTML+=`<div class="card" onclick="openArticle(${i})"><h2>${a.title}</h2></div>`;
- });
+  const c=document.getElementById('articles');
+  c.innerHTML='';
+  articles.filter(a=>a.type==="article").forEach(a=>{
+    const i=articles.indexOf(a);
+    const d=document.createElement('div');
+    d.className='card';
+    d.innerHTML=`<h2>${a.title}</h2>`;
+    d.onclick=()=>openArticle(i);
+    c.appendChild(d);
+  });
 }
 
 function renderVideos(){
- const c=document.getElementById('videos');c.innerHTML='';
- articles.filter(a=>a.type==="video").forEach(a=>{
-  const i=articles.indexOf(a);
-  c.innerHTML+=`<div class="card" onclick="openVideo(${i})"><h2>${a.title}</h2></div>`;
- });
+  const c=document.getElementById('videos');
+  c.innerHTML='';
+  articles.filter(a=>a.type==="video").forEach(a=>{
+    const i=articles.indexOf(a);
+    const d=document.createElement('div');
+    d.className='card';
+    d.innerHTML=`<h2>${a.title}</h2>`;
+    d.onclick=()=>openVideo(i);
+    c.appendChild(d);
+  });
 }
 
 function renderNews(){
- const c=document.getElementById('news');c.innerHTML='';
- articles.filter(a=>a.type==="news").forEach(a=>{
-  const i=articles.indexOf(a);
-  c.innerHTML+=`<div class="card" onclick="openArticle(${i})"><h2>${a.title}</h2></div>`;
- });
+  const c=document.getElementById('news');
+  c.innerHTML='';
+  articles.filter(a=>a.type==="news").forEach(a=>{
+    const i=articles.indexOf(a);
+    const d=document.createElement('div');
+    d.className='card';
+    d.innerHTML=`<h2>${a.title}</h2>`;
+    d.onclick=()=>openArticle(i);
+    c.appendChild(d);
+  });
 }
 
 function renderCategories(){
- const c=document.getElementById('categories');c.innerHTML='';
- [...new Set(articles.map(a=>a.category))].forEach(cat=>{
-  let box=`<div class="card"><h2>${cat}</h2>`;
-  articles.filter(a=>a.category===cat).forEach(a=>{
-   box+=`<p onclick="openArticle(${articles.indexOf(a)})">• ${a.title}</p>`;
+  const c=document.getElementById('categories');
+  c.innerHTML='';
+  [...new Set(articles.map(a=>a.category))].forEach(cat=>{
+    const box=document.createElement('div');
+    box.className='card';
+    box.innerHTML=`<h2>${cat}</h2>`;
+    articles.filter(a=>a.category===cat).forEach(a=>{
+      const i=articles.indexOf(a);
+      const p=document.createElement('p');
+      p.style.cursor='pointer';
+      p.innerText="• "+a.title;
+      p.onclick=()=>openArticle(i);
+      box.appendChild(p);
+    });
+    c.appendChild(box);
   });
-  c.innerHTML+=box+'</div>';
- });
 }
 
-function renderLatest(){
- const news=articles.filter(a=>a.type==="news");
- const videos=articles.filter(a=>a.type==="video");
- if(news.length){latestNewsIndex=articles.indexOf(news[0]);latestNewsTitle.innerText=news[0].title}
- if(videos.length){latestVideoIndex=articles.indexOf(videos[0]);latestVideoTitle.innerText=videos[0].title}
-}
-
+// --- OPEN ---
 function openArticle(i){
- const a=articles[i];
- showSection('single');
- singleTitle.innerText=a.title;
- singleDate.innerText=a.date||'';
- singleImage.innerHTML='';
- (a.images||[a.image]).filter(Boolean).forEach(src=>{
-  singleImage.innerHTML+=`<img src="${src}">`;
- });
- singleContent.innerHTML=a.content.replace(/\n/g,"<br><br>");
+  const a=articles[i];
+  showSection('single');
+  document.getElementById('singleTitle').innerText=a.title;
+  document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):"";
+  const imgBox=document.getElementById('singleImage');
+  imgBox.innerHTML='';
+  if(a.images && Array.isArray(a.images)){
+    a.images.forEach(src=>{const img=document.createElement('img');img.src=src;imgBox.appendChild(img);});
+  } else if(a.image){
+    const img=document.createElement('img');
+    img.src = a.image.startsWith('http') ? a.image : 'https://raw.githubusercontent.com/rsm260511-web/RSM/main/'+a.image;
+    imgBox.appendChild(img);
+  }
+  document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;
 }
 
 function openVideo(i){
- const a=articles[i];
- showSection('single');
- singleTitle.innerText=a.title;
- singleImage.innerHTML=`<iframe width="100%" height="420" src="${a.videoUrl}" allowfullscreen></iframe>`;
- singleContent.innerHTML=a.content.replace(/\n/g,"<br><br>");
+  const a=articles[i];
+  showSection('single');
+  document.getElementById('singleTitle').innerText=a.title;
+  document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):"";
+  const imgBox=document.getElementById('singleImage');
+  imgBox.innerHTML='';
+  if(a.videoUrl){imgBox.innerHTML=`<iframe width="100%" height="420" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`;}
+  else if(a.images && Array.isArray(a.images)){a.images.forEach(src=>{const img=document.createElement('img');img.src=src;imgBox.appendChild(img);});}
+  document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;
 }
 
-/* SEARCH */
+// --- SEARCH ---
 function searchAll(){
- const q=searchInput.value.toLowerCase();
- searchResults.innerHTML='';
- if(!q)return searchResults.style.display='none';
- articles.forEach((a,i)=>{
-  if(a.title.toLowerCase().includes(q)){
-   searchResults.innerHTML+=`<div class="search-item" onclick="openArticle(${i})">${a.title}</div>`;
+  const q=searchInput.value.toLowerCase();
+  const box=searchResults;
+  box.innerHTML='';
+  if(!q){box.style.display='none';return;}
+  articles.forEach((a,i)=>{
+    if(a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)){
+      const d=document.createElement('div');
+      d.className='search-item';
+      d.innerText=a.title;
+      d.onclick=()=>openArticle(i);
+      box.appendChild(d);
+    }
+  });
+  box.style.display=box.children.length?'block':'none';
+}
+
+// --- LATEST NEWS / VIDEO ---
+function renderLatestNews(){
+  const news=articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
+  if(!news) return;
+  document.getElementById('latestTitle').innerText=news.title;
+  const i=articles.findIndex(a=>a.title===news.title);
+  document.getElementById('latestNews').onclick=()=>openArticle(i);
+}
+
+function renderLatestVideo(){
+  const video=articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
+  if(!video) return;
+  document.getElementById('latestVideoTitle').innerText=video.title;
+  const i=articles.findIndex(a=>a.title===video.title);
+  document.getElementById('latestVideo').onclick=()=>openVideo(i);
+}
+
+// --- CHATBOT ---
+const chatToggle=document.getElementById('chatToggle');
+const chatBox=document.getElementById('chatBox');
+const chatMessages=document.getElementById('chatMessages');
+const chatInput=document.getElementById('chatInput');
+const chatSend=document.getElementById('chatSend');
+
+chatToggle.addEventListener('click',()=>{chatBox.style.display=chatBox.style.display==='flex'?'none':'flex';});
+
+function appendMessage(sender,text){
+  const div=document.createElement('div');
+  div.textContent=text;
+  div.style.margin='5px';
+  div.style.padding='8px 12px';
+  div.style.borderRadius='15px';
+  div.style.maxWidth='80%';
+  if(sender==='user'){div.style.background='#007bff';div.style.color='#fff';div.style.alignSelf='flex-end';} 
+  else {div.style.background='#333';div.style.color='#fff';div.style.alignSelf='flex-start';}
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop=chatMessages.scrollHeight;
+}
+
+// --- RIASSUNTO ---
+function summarizeText(text,maxSentences=3){
+  if(!text) return "Non c'è testo da riassumere.";
+  const sentences=text.split(/(?<=\.|\?|!)/);
+  const wordCounts={};
+  const words=text.toLowerCase().replace(/[^a-zàèéìòù\s]/g,'').split(/\s+/);
+  words.forEach(w=>{if(w.length>3) wordCounts[w]=(wordCounts[w]||0)+1;});
+  const sentenceScores=sentences.map(s=>{const sWords=s.toLowerCase().split(/\s+/);let score=0;sWords.forEach(w=>{if(wordCounts[w]) score+=wordCounts[w];});return {sentence:s,score};});
+  sentenceScores.sort((a,b)=>b.score-a.score);
+  const topSentences=sentenceScores.slice(0,maxSentences).map(s=>s.sentence.trim());
+  return topSentences.join(' ');
+}
+
+// --- BOT KNOWLEDGE 100+ RISPOSTE ---
+const BOT_KNOWLEDGE = {
+  saluti: ["Ciao! 👋","Hey! 😄","Eccomi!","Pronto ad aiutarti 🤖","Dimmi pure!","Buongiorno!","Buonasera!","Salve!","Ciao ciao!","Ehilà!","Yo!","Ciao a te!","Benvenuto!","Ciao carissimo!","Ciao bella persona!","Ciao amico!","Ciao utente!","Ciao umano!","Ehi!","Hey hey!"],
+  ringraziamenti: ["Di nulla!","Sempre qui 💪","Felice di aiutarti 😄","Quando vuoi!","Top 🔥","Figurati!","Non c'è di che!","Con piacere!","Sempre a disposizione!","Ok ok!","Super!","Perfetto!","Grazie a te!","Molto bene!","👍","😎","😊","✨","😉","💯","Fantastico!"],
+  fallback: ["🤔 Puoi spiegarti meglio?","Interessante… continua","Posso aiutarti su articoli, video, news e contatti","Non sono sicuro di aver capito","Prova a riformulare 🙂","Hmm…","Non ho capito bene 😅","Puoi ripetere?","Spiegami meglio 🙂","Non comprendo 😕","Ripeti per favore","Hmm… curioso!","Non sono sicuro 🤔","Puoi essere più chiaro?","Non capisco 😅","Puoi riscrivere la frase?","Mi sfugge…","Non ho capito 😶","Non ho afferrato 😐","Non ho idea 😳"],
+  identita: ["Sono l’AI ufficiale di RSM","Sono un assistente virtuale avanzato","Sono un bot AI creato per questo sito","Non sono umano, ma sono intelligente 😎","Sono qui per aiutarti","Posso rispondere a moltissime domande","Sono il tuo assistente digitale","AI pronta all'uso","Bot super avanzato","Assistente virtuale RSM"],
+  contatti: ["📞 +39 351 093 3272\n📧 rsm260511@gmail.com","Puoi contattarci via telefono o email","Ecco i contatti ufficiali di RSM","Telefono: +39 351 093 3272, Email: rsm260511@gmail.com","Contatta RSM tramite email o telefono"],
+  sezioni: {
+    articoli:["📝 Gli articoli sono nella sezione Articoli","Puoi leggere gli articoli nella sezione Articoli","Vai su Articoli per i contenuti scritti","Articoli disponibili nella sezione Articoli","Leggi tutti gli articoli nella sezione Articoli"],
+    video:["🎬 I video sono nella sezione Video","Guarda i filmati nella sezione Video","I video più recenti sono lì","Video disponibili nella sezione Video","Guarda i video nella sezione Video"],
+    news:["🟥 Le news sono nella sezione News","Aggiornamenti disponibili nella sezione News","Le ultime notizie sono lì","News recenti nella sezione News","Novità disponibili nella sezione News"]
   }
- });
- searchResults.style.display='block';
-}
+};
 
-/* CHAT */
-chatToggle.onclick=()=>chatBox.style.display=chatBox.style.display==='flex'?'none':'flex';
-chatSend.onclick=send;
-chatInput.onkeypress=e=>e.key==="Enter"&&send();
-
-function send(){
- if(!chatInput.value)return;
- chatMessages.innerHTML+=`<div style="text-align:right;color:#4da6ff">${chatInput.value}</div>`;
- chatMessages.innerHTML+=`<div>${bot(chatInput.value)}</div>`;
- chatInput.value='';
- chatMessages.scrollTop=9999;
-}
-
-function bot(m){
- m=m.toLowerCase();
- if(m.includes('ciao'))return"Hey! 👋";
- if(m.includes('contatti'))return"📞 +39 351 093 3272<br>📧 rsm260511@gmail.com";
- if(m.includes('articoli'))return"Puoi trovarli nella sezione Articoli.";
- if(m.includes('riassumi'))return singleContent.innerText.split('.').slice(0,3).join('.')+'.';
- return"Posso aiutarti con articoli, news, video o contatti.";
-}
-</script>
-</body>
-</html>
+function pick(arr){return arr[Math.floor(Math.random()*arr
