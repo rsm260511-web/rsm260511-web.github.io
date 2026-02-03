@@ -274,7 +274,55 @@ chatInput.addEventListener('keypress',e=>{if(e.key==='Enter') sendMessage();});
 function randomChoice(arr){
   return arr[Math.floor(Math.random()*arr.length)];
 }
+  
+// === FUNZIONI PER IL MATCHING INTELLIGENTE ===
+function normalizeText(text) {
+    return text.toLowerCase()
+        .replace(/[àáâäãåą]/g, 'a')
+        .replace(/[èéêëę]/g, 'e')
+        .replace(/[ìíîï]/g, 'i')
+        .replace(/[òóôõö]/g, 'o')
+        .replace(/[ùúûü]/g, 'u')
+        .replace(/[^a-z\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
 
+function smartKeywordCheck(message, keywordArray) {
+    const normMsg = normalizeText(message);
+    
+    for (const keyword of keywordArray) {
+        const normKeyword = normalizeText(keyword);
+        
+        if (normMsg.includes(normKeyword)) {
+            return true;
+        }
+        
+        const msgWords = normMsg.split(' ');
+        const keyWords = normKeyword.split(' ');
+        
+        let matchCount = 0;
+        for (const keyWord of keyWords) {
+            if (keyWord.length < 3) continue;
+            
+            for (const msgWord of msgWords) {
+                if (msgWord.includes(keyWord)) {
+                    matchCount++;
+                    break;
+                }
+            }
+        }
+        
+        if (matchCount >= Math.ceil(keyWords.length * 0.6)) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+  
+// === FINE FUNZIONI ===
+  
 // BOT RESPONSES ESTESA (VERSIONE NUOVA CORRETTA)
 function botResponse(msg) {
   const m = msg.toLowerCase();
@@ -285,8 +333,8 @@ function botResponse(msg) {
   if (saluti.some(saluto => m === saluto || m.includes(saluto + " "))) {
     return "Ciao! Come posso assisterti oggi?";
   }
-
-   // DOMANDE FREQUENTI ALLE IA - AGGIUNTE NUOVE
+  
+  // DOMANDE FREQUENTI ALLE IA - AGGIUNTE NUOVE
   const domandeIA = [
     // Informazioni generali sull'IA
     {q: ["cosa sei", "chi sei", "che cosa sei", "tu chi sei", "sei un ai", "sei un'intelligenza artificiale"], 
@@ -600,7 +648,7 @@ function botResponse(msg) {
 
   // Controlla prima le domande IA frequenti
   for(const domanda of domandeIA) {
-    if(domanda.q.some(keyword => m.includes(keyword))) {
+    if(smartKeywordCheck(m, domanda.q)) {
       return domanda.r;
     }
   }
@@ -613,7 +661,7 @@ function botResponse(msg) {
   ];
 
   if(insults.some(i=>m.includes(i))){
-    return "Attenzione! Il sito non tollera comportamenti offensivi o linguaggio volgare. Mantieni il rispetto per continuare a usare la chat.";
+    return "Attenzione! Il sito non tollera comportamenti offensivi o linguaggio volgare. Mantieni la lingua dentro la bocca.";
   }
 
   // Gestione Sì/No contestuale
@@ -657,7 +705,7 @@ function botResponse(msg) {
 
   // Cerca se il messaggio contiene una keyword
   for(const q of questionSet){
-    if(q.keywords.some(k=>m.includes(k))){
+    if(smartKeywordCheck(m, q.keywords)) {
       lastQuestion = q.question;
       return randomChoice([
         "Per questo puoi aprire la sezione corrispondente.",
@@ -771,4 +819,5 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
 </html>
+
 
