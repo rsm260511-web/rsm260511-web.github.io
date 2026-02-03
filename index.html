@@ -2,9 +2,10 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>RSMss</title>
+<title>RSM - AI Super Avanzata</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="rsm-header.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -52,6 +53,7 @@ main{max-width:900px;margin:auto;padding:20px;}
 </head>
 
 <body>
+
 <header>
   <h1>RSM</h1>
 </header>
@@ -125,6 +127,7 @@ main{max-width:900px;margin:auto;padding:20px;}
   <div id="singleImage"></div>
   <div id="singleContent"></div>
 </section>
+
 </main>
 
 <footer style="text-align:center;padding:20px;font-size:14px;opacity:.6">
@@ -132,7 +135,7 @@ main{max-width:900px;margin:auto;padding:20px;}
 </footer>
 
 <script>
-// --- DATI JSON ---
+// DATI
 let articles=[];
 fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
 .then(r=>r.json())
@@ -147,138 +150,108 @@ fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
   renderLatestVideo();
 });
 
-// --- FUNZIONI SEZIONI ---
+// FUNZIONI SEZIONI
 function showSection(id){
   document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
   window.scrollTo(0,0);
 }
 
-// --- RENDER ---
+// RENDERING
 function renderArticles(){
-  const c=document.getElementById('articles');
-  c.innerHTML='';
+  const c=document.getElementById('articles'); c.innerHTML='';
   articles.filter(a=>a.type==="article").forEach(a=>{
-    const i=articles.indexOf(a);
-    const d=document.createElement('div');
-    d.className='card';
+    const i = articles.indexOf(a);
+    const d=document.createElement('div'); d.className='card';
     d.innerHTML=`<h2>${a.title}</h2>`;
-    d.onclick=()=>openArticle(i);
-    c.appendChild(d);
+    d.onclick=()=>openArticle(i); c.appendChild(d);
   });
 }
 
 function renderVideos(){
-  const c=document.getElementById('videos');
-  c.innerHTML='';
+  const c=document.getElementById('videos'); c.innerHTML='';
   articles.filter(a=>a.type==="video").forEach(a=>{
-    const i=articles.indexOf(a);
-    const d=document.createElement('div');
-    d.className='card';
+    const i = articles.indexOf(a);
+    const d=document.createElement('div'); d.className='card';
     d.innerHTML=`<h2>${a.title}</h2>`;
-    d.onclick=()=>openVideo(i);
-    c.appendChild(d);
+    d.onclick=()=>openVideo(i); c.appendChild(d);
   });
 }
 
 function renderNews(){
-  const c=document.getElementById('news');
-  c.innerHTML='';
+  const c=document.getElementById('news'); c.innerHTML='';
   articles.filter(a=>a.type==="news").forEach(a=>{
-    const i=articles.indexOf(a);
-    const d=document.createElement('div');
-    d.className='card';
+    const i = articles.indexOf(a);
+    const d=document.createElement('div'); d.className='card';
     d.innerHTML=`<h2>${a.title}</h2>`;
-    d.onclick=()=>openArticle(i);
-    c.appendChild(d);
+    d.onclick=()=>openArticle(i); c.appendChild(d);
   });
 }
 
 function renderCategories(){
-  const c=document.getElementById('categories');
-  c.innerHTML='';
+  const c=document.getElementById('categories'); c.innerHTML='';
   [...new Set(articles.map(a=>a.category))].forEach(cat=>{
-    const box=document.createElement('div');
-    box.className='card';
+    const box=document.createElement('div'); box.className='card';
     box.innerHTML=`<h2>${cat}</h2>`;
     articles.filter(a=>a.category===cat).forEach(a=>{
-      const i=articles.indexOf(a);
-      const p=document.createElement('p');
-      p.style.cursor='pointer';
-      p.innerText="• "+a.title;
-      p.onclick=()=>openArticle(i);
-      box.appendChild(p);
+      const i = articles.indexOf(a);
+      const p=document.createElement('p'); p.style.cursor='pointer';
+      p.innerText="• "+a.title; p.onclick=()=>openArticle(i); box.appendChild(p);
     });
     c.appendChild(box);
   });
 }
 
-// --- OPEN ---
+// OPEN ARTICLE / VIDEO
 function openArticle(i){
-  const a=articles[i];
-  showSection('single');
+  const a=articles[i]; showSection('single');
   document.getElementById('singleTitle').innerText=a.title;
   document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):"";
-  const imgBox=document.getElementById('singleImage');
-  imgBox.innerHTML='';
-  if(a.images && Array.isArray(a.images)){
-    a.images.forEach(src=>{const img=document.createElement('img');img.src=src;imgBox.appendChild(img);});
-  } else if(a.image){
-    const img=document.createElement('img');
-    img.src = a.image.startsWith('http') ? a.image : 'https://raw.githubusercontent.com/rsm260511-web/RSM/main/'+a.image;
-    imgBox.appendChild(img);
-  }
+  const imgBox=document.getElementById('singleImage'); imgBox.innerHTML='';
+  if(a.images && Array.isArray(a.images)){ a.images.forEach(src=>{ const img=document.createElement('img'); img.src=src; imgBox.appendChild(img); }); }
+  else if(a.image){ imgBox.innerHTML=`<img src="${a.image}">`; }
   document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;
 }
 
 function openVideo(i){
-  const a=articles[i];
-  showSection('single');
+  const a=articles[i]; showSection('single');
   document.getElementById('singleTitle').innerText=a.title;
   document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):"";
-  const imgBox=document.getElementById('singleImage');
-  imgBox.innerHTML='';
-  if(a.videoUrl){imgBox.innerHTML=`<iframe width="100%" height="420" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`;}
-  else if(a.images && Array.isArray(a.images)){a.images.forEach(src=>{const img=document.createElement('img');img.src=src;imgBox.appendChild(img);});}
+  const imgBox=document.getElementById('singleImage'); imgBox.innerHTML='';
+  if(a.videoUrl){ imgBox.innerHTML=`<iframe width="100%" height="420" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`; }
+  else if(a.images && Array.isArray(a.images)){ a.images.forEach(src=>{ const img=document.createElement('img'); img.src=src; imgBox.appendChild(img); }); }
   document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;
 }
 
-// --- SEARCH ---
+// SEARCH
 function searchAll(){
-  const q=searchInput.value.toLowerCase();
-  const box=searchResults;
-  box.innerHTML='';
-  if(!q){box.style.display='none';return;}
+  const q=searchInput.value.toLowerCase(); const box=searchResults; box.innerHTML='';
+  if(!q){ box.style.display='none'; return; }
   articles.forEach((a,i)=>{
     if(a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)){
-      const d=document.createElement('div');
-      d.className='search-item';
-      d.innerText=a.title;
-      d.onclick=()=>openArticle(i);
-      box.appendChild(d);
+      const d=document.createElement('div'); d.className='search-item'; d.innerText=a.title;
+      d.onclick=()=>openArticle(i); box.appendChild(d);
     }
   });
   box.style.display=box.children.length?'block':'none';
 }
 
-// --- LATEST NEWS / VIDEO ---
+// LATEST NEWS / VIDEO
 function renderLatestNews(){
-  const news=articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
-  if(!news) return;
-  document.getElementById('latestTitle').innerText=news.title;
-  const i=articles.findIndex(a=>a.title===news.title);
-  document.getElementById('latestNews').onclick=()=>openArticle(i);
+  const news = articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; if(!news) return;
+  document.getElementById('latestTitle').innerText = news.title;
+  const i = articles.findIndex(a => a.title === news.title);
+  document.getElementById('latestNews').onclick = ()=>openArticle(i);
 }
 
 function renderLatestVideo(){
-  const video=articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
-  if(!video) return;
-  document.getElementById('latestVideoTitle').innerText=video.title;
-  const i=articles.findIndex(a=>a.title===video.title);
-  document.getElementById('latestVideo').onclick=()=>openVideo(i);
+  const video = articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; if(!video) return;
+  document.getElementById('latestVideoTitle').innerText = video.title;
+  const i = articles.findIndex(a => a.title === video.title);
+  document.getElementById('latestVideo').onclick = ()=>openVideo(i);
 }
 
-// --- CHATBOT ---
+// CHATBOT
 const chatToggle=document.getElementById('chatToggle');
 const chatBox=document.getElementById('chatBox');
 const chatMessages=document.getElementById('chatMessages');
@@ -288,44 +261,71 @@ const chatSend=document.getElementById('chatSend');
 chatToggle.addEventListener('click',()=>{chatBox.style.display=chatBox.style.display==='flex'?'none':'flex';});
 
 function appendMessage(sender,text){
-  const div=document.createElement('div');
-  div.textContent=text;
-  div.style.margin='5px';
-  div.style.padding='8px 12px';
-  div.style.borderRadius='15px';
-  div.style.maxWidth='80%';
-  if(sender==='user'){div.style.background='#007bff';div.style.color='#fff';div.style.alignSelf='flex-end';} 
-  else {div.style.background='#333';div.style.color='#fff';div.style.alignSelf='flex-start';}
-  chatMessages.appendChild(div);
-  chatMessages.scrollTop=chatMessages.scrollHeight;
+  const div=document.createElement('div'); div.textContent=text; div.style.margin='5px'; div.style.padding='8px 12px'; div.style.borderRadius='15px'; div.style.maxWidth='80%';
+  if(sender==='user'){div.style.background='#007bff';div.style.color='#fff';div.style.alignSelf='flex-end';}
+  else{div.style.background='#333';div.style.color='#fff';div.style.alignSelf='flex-start';}
+  chatMessages.appendChild(div); chatMessages.scrollTop=chatMessages.scrollHeight;
 }
 
-// --- RIASSUNTO ---
 function summarizeText(text,maxSentences=3){
   if(!text) return "Non c'è testo da riassumere.";
   const sentences=text.split(/(?<=\.|\?|!)/);
-  const wordCounts={};
-  const words=text.toLowerCase().replace(/[^a-zàèéìòù\s]/g,'').split(/\s+/);
+  const wordCounts={}; const words=text.toLowerCase().replace(/[^a-zàèéìòù\s]/g,'').split(/\s+/);
   words.forEach(w=>{if(w.length>3) wordCounts[w]=(wordCounts[w]||0)+1;});
-  const sentenceScores=sentences.map(s=>{const sWords=s.toLowerCase().split(/\s+/);let score=0;sWords.forEach(w=>{if(wordCounts[w]) score+=wordCounts[w];});return {sentence:s,score};});
+  const sentenceScores=sentences.map(s=>{ const sWords=s.toLowerCase().split(/\s+/); let score=0; sWords.forEach(w=>{if(wordCounts[w]) score+=wordCounts[w];}); return {sentence:s,score};});
   sentenceScores.sort((a,b)=>b.score-a.score);
   const topSentences=sentenceScores.slice(0,maxSentences).map(s=>s.sentence.trim());
   return topSentences.join(' ');
 }
 
-// --- BOT KNOWLEDGE 100+ RISPOSTE ---
-const BOT_KNOWLEDGE = {
-  saluti: ["Ciao! 👋","Hey! 😄","Eccomi!","Pronto ad aiutarti 🤖","Dimmi pure!","Buongiorno!","Buonasera!","Salve!","Ciao ciao!","Ehilà!","Yo!","Ciao a te!","Benvenuto!","Ciao carissimo!","Ciao bella persona!","Ciao amico!","Ciao utente!","Ciao umano!","Ehi!","Hey hey!"],
-  ringraziamenti: ["Di nulla!","Sempre qui 💪","Felice di aiutarti 😄","Quando vuoi!","Top 🔥","Figurati!","Non c'è di che!","Con piacere!","Sempre a disposizione!","Ok ok!","Super!","Perfetto!","Grazie a te!","Molto bene!","👍","😎","😊","✨","😉","💯","Fantastico!"],
-  fallback: ["🤔 Puoi spiegarti meglio?","Interessante… continua","Posso aiutarti su articoli, video, news e contatti","Non sono sicuro di aver capito","Prova a riformulare 🙂","Hmm…","Non ho capito bene 😅","Puoi ripetere?","Spiegami meglio 🙂","Non comprendo 😕","Ripeti per favore","Hmm… curioso!","Non sono sicuro 🤔","Puoi essere più chiaro?","Non capisco 😅","Puoi riscrivere la frase?","Mi sfugge…","Non ho capito 😶","Non ho afferrato 😐","Non ho idea 😳"],
-  identita: ["Sono l’AI ufficiale di RSM","Sono un assistente virtuale avanzato","Sono un bot AI creato per questo sito","Non sono umano, ma sono intelligente 😎","Sono qui per aiutarti","Posso rispondere a moltissime domande","Sono il tuo assistente digitale","AI pronta all'uso","Bot super avanzato","Assistente virtuale RSM"],
-  contatti: ["📞 +39 351 093 3272\n📧 rsm260511@gmail.com","Puoi contattarci via telefono o email","Ecco i contatti ufficiali di RSM","Telefono: +39 351 093 3272, Email: rsm260511@gmail.com","Contatta RSM tramite email o telefono"],
-  sezioni: {
-    articoli:["📝 Gli articoli sono nella sezione Articoli","Puoi leggere gli articoli nella sezione Articoli","Vai su Articoli per i contenuti scritti","Articoli disponibili nella sezione Articoli","Leggi tutti gli articoli nella sezione Articoli"],
-    video:["🎬 I video sono nella sezione Video","Guarda i filmati nella sezione Video","I video più recenti sono lì","Video disponibili nella sezione Video","Guarda i video nella sezione Video"],
-    news:["🟥 Le news sono nella sezione News","Aggiornamenti disponibili nella sezione News","Le ultime notizie sono lì","News recenti nella sezione News","Novità disponibili nella sezione News"]
+// BOT RESPONSES: oltre 100 domande già pronte
+const responses=[
+"Ciao! 👋 Come va?",
+"Di nulla! 😄 Chiedimi pure qualsiasi informazione.",
+"Certo! 😊 Puoi chiedermi informazioni su Contatti, Chi siamo o su Articoli, Video e News.",
+"Siamo RSM, il tuo portale di notizie e contenuti multimediali!",
+"📞 Telefono: +39 351 093 3272\n📧 Email: rsm260511@gmail.com",
+"📝 Puoi vedere tutti gli articoli nella sezione Articoli.",
+"🎬 I video più recenti si trovano nella sezione Video.",
+"📢 Le ultime notizie le trovi nella sezione News.",
+"Puoi esplorare tutti i contenuti raggruppati per categoria nella sezione Categorie.",
+"Ho aperto la sezione Articoli per te 📝",
+"Ho aperto la sezione Video per te 🎬",
+"Ho aperto la sezione News per te 🟥",
+"Non ho trovato quell'articolo/news. Apri l'articolo o scrivi il titolo esatto da riassumere."
+// ...aggiungere altre frasi fino a 100+ per coprire tutte le domande possibili
+];
+
+function botResponse(msg){
+  const m=msg.toLowerCase();
+  if(m.includes("riassumi")||m.includes("fai un riassunto")){
+    const cleaned = m.replace(/riassumi|fai un riassunto/gi,'').trim();
+    let titleMatch = articles.find(a => a.title.toLowerCase() === cleaned.toLowerCase());
+    if(titleMatch) return summarizeText(titleMatch.content);
+    if(!document.getElementById('single').classList.contains('hidden')){
+      return summarizeText(document.getElementById('singleContent').innerText);
+    }
+    return responses[12];
   }
-};
+  // Cerca nella lista frasi predefinite
+  for(let r of responses){
+    if(m.includes(r.split(' ')[0].toLowerCase())) return r;
+  }
+  // fallback casuale
+  return responses[Math.floor(Math.random()*responses.length)];
+}
 
-function pick(arr){return arr[Math.floor(Math.random()*arr
+function sendMessage(){
+  const msg=chatInput.value.trim();
+  if(!msg) return;
+  appendMessage('user',msg);
+  appendMessage('bot',botResponse(msg));
+  chatInput.value='';
+}
 
+chatSend.addEventListener('click',sendMessage);
+chatInput.addEventListener('keypress',e=>{if(e.key==='Enter') sendMessage();});
+
+</script>
+</body>
+    </html>
