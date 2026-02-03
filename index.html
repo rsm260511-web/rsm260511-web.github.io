@@ -245,33 +245,20 @@ function openVideo(i){
 
 // --- SEARCH ---
 function searchAll(){
-  const q = searchInput.value.toLowerCase();
-  const box = searchResults;
-  box.innerHTML = '';
-  if (!q) { box.style.display = 'none'; return; }
-
-  const matches = [];
-  articles.forEach((a, i) => {
-    if (a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)) {
-      matches.push({article: a, index: i});
-      const d = document.createElement('div');
-      d.className = 'search-item';
-      d.innerText = a.title;
-      d.onclick = () => openArticle(i);
+  const q=searchInput.value.toLowerCase();
+  const box=searchResults;
+  box.innerHTML='';
+  if(!q){box.style.display='none';return;}
+  articles.forEach((a,i)=>{
+    if(a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)){
+      const d=document.createElement('div');
+      d.className='search-item';
+      d.innerText=a.title;
+      d.onclick=()=>openArticle(i);
       box.appendChild(d);
     }
   });
-
-  box.style.display = matches.length ? 'block' : 'none';
-
-  // Apertura articolo quando premi invio
-  searchInput.onkeypress = function(e) {
-    if (e.key === 'Enter' && matches.length > 0) {
-      openArticle(matches[0].index);
-      box.style.display = 'none';
-      searchInput.value = '';
-    }
-  };
+  box.style.display=box.children.length?'block':'none';
 }
 
 // --- LATEST NEWS / VIDEO ---
@@ -341,4 +328,3 @@ const BOT_KNOWLEDGE = {
 };
 
 function pick(arr){return arr[Math.floor(Math.random()*arr
-
