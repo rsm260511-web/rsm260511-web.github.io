@@ -73,13 +73,17 @@ main{max-width:900px;margin:auto;padding:20px;}
       Chat AI
     </button>
 <div id="chatBox">
-  <button id="chatClose" style="padding:5px 10px;margin:5px;background:#ff4d4d;color:#fff;border:none;border-radius:10px;cursor:pointer;">Chiudi AI</button>
+  <div style="position:sticky; top:0; background:#1c1c25; z-index:100; padding:5px;">
+    <button id="chatClose" style="padding:5px 10px;background:#ff4d4d;color:#fff;border:none;border-radius:10px;cursor:pointer;width:100%;">
+      Chiudi AI
+    </button>
+  </div>
   <div id="chatMessages"></div>
   <div style="display:flex;border-top:1px solid #333;">
     <input id="chatInput" type="text" placeholder="Scrivi qui..." autocomplete="off">
     <button id="chatSend">Invia</button>
-      </div>
-    </div>
+  </div>
+</div>
   </div>
 </nav>
 
@@ -957,6 +961,7 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
 </html>
+
 
 
 
