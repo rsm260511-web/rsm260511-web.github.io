@@ -130,50 +130,50 @@ main{max-width:900px;margin:auto;padding:20px;}
 </footer>
 <script>
 // DATI
-let articles=[];
+let articoli=[];
 fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
 .then(r=>r.json())
-.then(data=>{
-  document.getElementById('publicDescription').innerText=data.description;
-  articles = data.articles;
-  renderArticles();
-  renderVideos();
+.then(dati=>{
+  document.getElementById('publicDescription').innerText=dati.descrizione;
+  articoli = dati.articoli;
+  renderArticoli();
+  renderVideo();
   renderNews();
-  renderCategories();
-  renderLatestNews();
-  renderLatestVideo();
+  renderCategorie();
+  renderUltimaNews();
+  renderUltimoVideo();
 });
 
 // SEZIONI
-function showSection(id){
+function mostraSezione(id){
   document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
   window.scrollTo(0,0);
 }
 
 // RENDER ARTICOLI, VIDEO, NEWS, CATEGORIE
-function renderArticles() {
+function renderArticoli() {
     const c = document.getElementById('articles');
     c.innerHTML = '';
-    articles.filter(a => a.type === "article").forEach(a => {
-        const i = articles.indexOf(a);
+    articoli.filter(a => a.tipo === "articolo").forEach(a => {
+        const i = articoli.indexOf(a);
         const d = document.createElement('div');
         d.className = 'card';
-        d.innerHTML = `<h2>${a.title}</h2>`;
-        d.onclick = () => openArticle(i);
+        d.innerHTML = `<h2>${a.titolo}</h2>`;
+        d.onclick = () => apriArticolo(i);
         c.appendChild(d);
     });
 }
 
-function renderVideos() {
+function renderVideo() {
     const c = document.getElementById('videos');
     c.innerHTML = '';
-    articles.filter(a => a.type === "video").forEach(a => {
-        const i = articles.indexOf(a);
+    articoli.filter(a => a.tipo === "video").forEach(a => {
+        const i = articoli.indexOf(a);
         const d = document.createElement('div');
         d.className = 'card';
-        d.innerHTML = `<h2>${a.title}</h2>`;
-        d.onclick = () => openVideo(i);
+        d.innerHTML = `<h2>${a.titolo}</h2>`;
+        d.onclick = () => apriVideo(i);
         c.appendChild(d);
     });
 }
@@ -181,34 +181,34 @@ function renderVideos() {
 function renderNews() {
     const c = document.getElementById('news');
     c.innerHTML = '';
-    articles.filter(a => a.type === "news").forEach(a => {
-        const i = articles.indexOf(a);
+    articoli.filter(a => a.tipo === "news").forEach(a => {
+        const i = articoli.indexOf(a);
         const d = document.createElement('div');
         d.className = 'card';
-        d.innerHTML = `<h2>${a.title}</h2>`;
-        d.onclick = () => openArticle(i);
+        d.innerHTML = `<h2>${a.titolo}</h2>`;
+        d.onclick = () => apriArticolo(i);
         c.appendChild(d);
     });
 }
 
-function renderCategories() {
+function renderCategorie() {
     const c = document.getElementById('categories');
     c.innerHTML = '';
-    [...new Set(articles.map(a => a.category))].forEach(cat => {
+    [...new Set(articoli.map(a => a.categoria))].forEach(cat => {
         const box = document.createElement('div');
         box.className = 'card';
         box.innerHTML = `<h2>${cat}</h2>`;
-        articles.filter(a => a.category === cat).forEach(a => {
-            const i = articles.indexOf(a);
+        articoli.filter(a => a.categoria === cat).forEach(a => {
+            const i = articoli.indexOf(a);
             const p = document.createElement('p');
             p.style.cursor = 'pointer';
-            p.innerText = "• " + a.title;
+            p.innerText = "• " + a.titolo;
             // ✅ apertura corretta per articoli o video
             p.onclick = () => {
-                if (a.type === "video") {
-                    openVideo(i);
+                if (a.tipo === "video") {
+                    apriVideo(i);
                 } else {
-                    openArticle(i);
+                    apriArticolo(i);
                 }
             };
             box.appendChild(p);
@@ -216,16 +216,16 @@ function renderCategories() {
         c.appendChild(box);
     });
   }
-// OPEN ARTICOLI/VIDEO
-function openArticle(i){const a=articles[i]; showSection('single'); document.getElementById('singleTitle').innerText=a.title; document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):""; const imgBox=document.getElementById('singleImage'); imgBox.innerHTML=''; if(a.images && Array.isArray(a.images)){ a.images.forEach(src=>{const img=document.createElement('img'); img.src=src; imgBox.appendChild(img);}); } else if(a.image){imgBox.innerHTML=`<img src="${a.image}">`; } document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;}
-function openVideo(i){const a=articles[i]; showSection('single'); document.getElementById('singleTitle').innerText=a.title; document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):""; const imgBox=document.getElementById('singleImage'); imgBox.innerHTML=''; if(a.videoUrl){ imgBox.innerHTML=`<iframe width="100%" height="600" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`;} else if(a.images && Array.isArray(a.images)){ a.images.forEach(src=>{const img=document.createElement('img'); img.src=src; imgBox.appendChild(img);}); } document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;}
+// APRI ARTICOLI/VIDEO
+function apriArticolo(i){const a=articoli[i]; mostraSezione('single'); document.getElementById('singleTitle').innerText=a.titolo; document.getElementById('singleDate').innerText=a.data?("📅 Pubblicato il "+new Date(a.data).toLocaleDateString('it-IT')):""; const imgBox=document.getElementById('singleImage'); imgBox.innerHTML=''; if(a.immagini && Array.isArray(a.immagini)){ a.immagini.forEach(src=>{const img=document.createElement('img'); img.src=src; imgBox.appendChild(img);}); } else if(a.immagine){imgBox.innerHTML=`<img src="${a.immagine}">`; } document.getElementById('singleContent').innerHTML=`<p>${a.contenuto.replace(/\n/g,"<br><br>")}</p>`;}
+function apriVideo(i){const a=articoli[i]; mostraSezione('single'); document.getElementById('singleTitle').innerText=a.titolo; document.getElementById('singleDate').innerText=a.data?("📅 Pubblicato il "+new Date(a.data).toLocaleDateString('it-IT')):""; const imgBox=document.getElementById('singleImage'); imgBox.innerHTML=''; if(a.videoUrl){ imgBox.innerHTML=`<iframe width="100%" height="600" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`;} else if(a.immagini && Array.isArray(a.immagini)){ a.immagini.forEach(src=>{const img=document.createElement('img'); img.src=src; imgBox.appendChild(img);}); } document.getElementById('singleContent').innerHTML=`<p>${a.contenuto.replace(/\n/g,"<br><br>")}</p>`;}
 
-// SEARCH
-function searchAll(){const q=searchInput.value.toLowerCase(); const box=searchResults; box.innerHTML=''; if(!q){box.style.display='none'; return;} articles.forEach((a,i)=>{if(a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)){const d=document.createElement('div'); d.className='search-item'; d.innerText=a.title; d.onclick=()=>openArticle(i); box.appendChild(d);}}); box.style.display=box.children.length?'block':'none';}
+// RICERCA
+function searchAll(){const q=searchInput.value.toLowerCase(); const box=searchResults; box.innerHTML=''; if(!q){box.style.display='none'; return;} articoli.forEach((a,i)=>{if(a.titolo.toLowerCase().includes(q) || a.contenuto.toLowerCase().includes(q)){const d=document.createElement('div'); d.className='search-item'; d.innerText=a.titolo; d.onclick=()=>apriArticolo(i); box.appendChild(d);}}); box.style.display=box.children.length?'block':'none';}
 
-// LATEST NEWS & VIDEO
-function renderLatestNews(){const news=articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; if(!news) return; document.getElementById('latestTitle').innerText=news.title; const i=articles.findIndex(a=>a.title===news.title); document.getElementById('latestNews').onclick=()=>openArticle(i);}
-function renderLatestVideo(){const video=articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; if(!video) return; document.getElementById('latestVideoTitle').innerText=video.title; const i=articles.findIndex(a=>a.title===video.title); document.getElementById('latestVideo').onclick=()=>openVideo(i);}
+// ULTIMA NEWS & VIDEO
+function renderUltimaNews(){const news=articoli.filter(a=>a.tipo==="news").sort((a,b)=>new Date(b.data)-new Date(a.data))[0]; if(!news) return; document.getElementById('latestTitle').innerText=news.titolo; const i=articoli.findIndex(a=>a.titolo===news.titolo); document.getElementById('latestNews').onclick=()=>apriArticolo(i);}
+function renderUltimoVideo(){const video=articoli.filter(a=>a.tipo==="video").sort((a,b)=>new Date(b.data)-new Date(a.data))[0]; if(!video) return; document.getElementById('latestVideoTitle').innerText=video.titolo; const i=articoli.findIndex(a=>a.titolo===video.titolo); document.getElementById('latestVideo').onclick=()=>apriVideo(i);}
 
 // CHATBOT AI
 const chatToggle=document.getElementById('chatToggle');
@@ -234,7 +234,7 @@ const chatMessages=document.getElementById('chatMessages');
 const chatInput=document.getElementById('chatInput');
 const chatSend=document.getElementById('chatSend');
 
-let lastQuestion = null; // traccia domanda per SÌ/NO
+let ultimaDomanda = null; // traccia domanda per SÌ/NO
 
 // Apri/Chiudi chat
 chatToggle.addEventListener('click',()=>{chatBox.style.display=chatBox.style.display==='flex'?'none':'flex';});
@@ -286,14 +286,14 @@ function botResponse(msg) {
   }
 
   // Gestione Sì/No contestuale
-  if(lastQuestion){
+  if(ultimaDomanda){
     if(m.includes("sì") || m.includes("si") || m.includes("yes")){
-      const ans = handleYes(lastQuestion);
-      lastQuestion = null;
+      const ans = handleYes(ultimaDomanda);
+      ultimaDomanda = null;
       return ans;
     }
     if(m.includes("no") || m.includes("non") || m.includes("nope")){
-      lastQuestion = null;
+      ultimaDomanda = null;
       return "Va bene, niente da fare allora.";
     }
   }
@@ -325,7 +325,7 @@ function botResponse(msg) {
   // Cerca se il messaggio contiene una keyword
   for(const q of questionSet){
     if(q.keywords.some(k=>m.includes(k))){
-      lastQuestion = q.question;
+      ultimaDomanda = q.question;
       return randomChoice([
         "Per questo puoi aprire la sezione corrispondente.",
         "Vuoi che apra la sezione per te?",
@@ -348,12 +348,12 @@ function botResponse(msg) {
 // Gestione SÌ
 function handleYes(question){
   switch(question){
-    case "Vuoi aprire la sezione Chi siamo?": showSection('about'); return "Ecco la sezione Chi siamo!";
-    case "Vuoi aprire la sezione Contatti?": showSection('contacts'); return "Ti porto nella sezione Contatti.";
-    case "Vuoi aprire la sezione Articoli?": showSection('articles'); return "Apro la sezione Articoli per te!";
-    case "Vuoi aprire la sezione Video?": showSection('videos'); return "Ecco la sezione Video!";
-    case "Vuoi aprire la sezione News?": showSection('news'); return "Ti mostro la sezione News.";
-    case "Vuoi aprire la sezione Categorie?": showSection('categories'); return "Aprendo la sezione Categorie.";
+    case "Vuoi aprire la sezione Chi siamo?": mostraSezione('about'); return "Ecco la sezione Chi siamo!";
+    case "Vuoi aprire la sezione Contatti?": mostraSezione('contacts'); return "Ti porto nella sezione Contatti.";
+    case "Vuoi aprire la sezione Articoli?": mostraSezione('articles'); return "Apro la sezione Articoli per te!";
+    case "Vuoi aprire la sezione Video?": mostraSezione('videos'); return "Ecco la sezione Video!";
+    case "Vuoi aprire la sezione News?": mostraSezione('news'); return "Ti mostro la sezione News.";
+    case "Vuoi aprire la sezione Categorie?": mostraSezione('categories'); return "Aprendo la sezione Categorie.";
     default: return "Perfetto, eseguo la tua richiesta.";
   }
 }
@@ -365,8 +365,8 @@ function randomChoice(arr){
 
   // FRASI CHIAVE E RIASSUNTO
   if(m.includes('riassumi') || m.includes('fai un riassunto')){
-    let titleMatch = articles.find(a => a.title.toLowerCase() === m.replace(/riassumi|fai un riassunto/gi,'').trim());
-    if(titleMatch) return summarizeText(titleMatch.content);
+    let titleMatch = articoli.find(a => a.titolo.toLowerCase() === m.replace(/riassumi|fai un riassunto/gi,'').trim());
+    if(titleMatch) return summarizeText(titleMatch.contenuto);
     if(!document.getElementById('single').classList.contains('hidden')){
       return summarizeText(document.getElementById('singleContent').innerText);
     }
@@ -374,10 +374,10 @@ function randomChoice(arr){
   }
 
   // Aggancio domande principali al contesto
-  if(m.includes("articolo")||m.includes("articoli")){ lastQuestion="Vuoi vedere gli ultimi articoli?"; return lastQuestion; }
-  if(m.includes("video")){ lastQuestion="Vuoi vedere l'ultimo video?"; return lastQuestion; }
-  if(m.includes("news")){ lastQuestion="Vuoi leggere l'ultima news?"; return lastQuestion; }
-  if(m.includes("categorie")||m.includes("argomento")){ lastQuestion="Vuoi esplorare le categorie?"; return lastQuestion; }
+  if(m.includes("articolo")||m.includes("articoli")){ ultimaDomanda="Vuoi vedere gli ultimi articoli?"; return ultimaDomanda; }
+  if(m.includes("video")){ ultimaDomanda="Vuoi vedere l'ultimo video?"; return ultimaDomanda; }
+  if(m.includes("news")){ ultimaDomanda="Vuoi leggere l'ultima news?"; return ultimaDomanda; }
+  if(m.includes("categorie")||m.includes("argomento")){ ultimaDomanda="Vuoi esplorare le categorie?"; return ultimaDomanda; }
 
   // Risposte casuali
   return responses[Math.floor(Math.random()*responses.length)];
@@ -398,8 +398,3 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
   </html>
-
-
-
-
-
