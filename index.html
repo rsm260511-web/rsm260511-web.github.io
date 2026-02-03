@@ -67,33 +67,39 @@ main{max-width:900px;margin:auto;padding:20px;}
     <div id="searchResults"></div>
   </div>
 
-  <!-- Chatbot AI -->
-  <div id="chatBotContainer" style="position:relative;margin-left:15px;">
-    <button id="chatToggle" style="padding:8px 12px;border:none;border-radius:20px;background:#ff4d4d;color:#fff;cursor:pointer;">
-<div id="chatBox">
-  <!-- Header compatto -->
-  <div style="background:#1c1c25; padding:10px 15px; border-bottom:1px solid #333; display:flex; justify-content:space-between; align-items:center;">
-    <span style="color:#fff; font-weight:600;">AI Assistant</span>
-    <button id="chatClose" style="background:none; color:#ff4d4d; border:none; font-size:24px; cursor:pointer; padding:0; width:30px; height:30px; display:flex; align-items:center; justify-content:center;">
-      ×
-    </button>
-  </div>
+ <!-- Chatbot AI - Versione SEMPLICE -->
+<div id="chatBotContainer" style="position:relative; margin-left:15px;">
+  <!-- Bottone per APRIRE la chat -->
+  <button id="chatToggle" style="padding:8px 12px; border:none; border-radius:20px; background:#ff4d4d; color:#fff; cursor:pointer; font-weight:600;">
+    Chat AI
+  </button>
   
-  <!-- Messaggi -->
-  <div id="chatMessages" style="height:350px; overflow-y:auto; padding:15px;"></div>
-  
-  <!-- Input compatto -->
-  <div style="padding:10px 15px; background:#1c1c25; border-top:1px solid #333;">
-    <div style="display:flex; gap:8px;">
-      <input id="chatInput" type="text" placeholder="Messaggio..." autocomplete="off"
-             style="flex:1; padding:10px; background:#0e0e11; color:#fff; border:none; border-radius:6px;">
-      <button id="chatSend" style="padding:0 15px; background:#4da6ff; color:#fff; border:none; border-radius:6px; cursor:pointer;">
-        →
+  <!-- Finestra della chat (INIZIALMENTE NASCOSTA) -->
+  <div id="chatBox" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:500px; background:#1c1c25; border-radius:10px; box-shadow:0 10px 25px rgba(0,0,0,0.4); overflow:hidden; flex-direction:column; z-index:1000;">
+    
+    <!-- Header con bottone CHIUDI a sinistra -->
+    <div style="background:#15151c; padding:12px 15px; display:flex; align-items:center; border-bottom:1px solid #333;">
+      <button id="chatClose" style="background:#ff4d4d; color:white; border:none; width:30px; height:30px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:bold; margin-right:10px;">
+        ×
       </button>
+      <span style="color:#fff; font-weight:600;">Assistente AI</span>
+    </div>
+    
+    <!-- Area messaggi -->
+    <div id="chatMessages" style="flex:1; overflow-y:auto; padding:15px;"></div>
+    
+    <!-- Area input -->
+    <div style="border-top:1px solid #333; padding:12px; background:#15151c;">
+      <div style="display:flex; gap:8px;">
+        <input id="chatInput" type="text" placeholder="Scrivi qui..." autocomplete="off" 
+               style="flex:1; padding:10px; background:#0e0e11; color:#fff; border:none; border-radius:6px; outline:none;">
+        <button id="chatSend" style="padding:0 15px; background:#4da6ff; color:#fff; border:none; border-radius:6px; cursor:pointer; font-weight:600;">
+          Invia
+        </button>
+      </div>
     </div>
   </div>
 </div>
-  </div>
 </nav>
 
 <main>
@@ -970,6 +976,7 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
 </html>
+
 
 
 
