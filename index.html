@@ -364,6 +364,243 @@ function botResponse(msg) {
     
     {q: ["addio", "arrivederci", "ciao ciao", "a presto", "bye", "goodbye"], 
      r: "Arrivederci! Torna quando vuoi se hai bisogno di assistenza con RSM. Buona navigazione! 👋"}
+  // DOMANDE COMPLETE SU STORIA, SCIENZA, CULTURA
+  const domandeComplete = [
+    // STORIA - DATE IMPORTANTI
+    {q: ["quando è scoppiata la seconda guerra mondiale", "inizio seconda guerra mondiale", "data seconda guerra mondiale"], 
+     r: "⚔️ La Seconda Guerra Mondiale è scoppiata il **1 settembre 1939** con l'invasione tedesca della Polonia."},
+    
+    {q: ["quando è finita la seconda guerra mondiale", "fine seconda guerra mondiale", "data fine seconda guerra"], 
+     r: "🕊️ La Seconda Guerra Mondiale è terminata ufficialmente il **2 settembre 1945** con la resa del Giappone."},
+    
+    {q: ["rivoluzione francese quando", "data rivoluzione francese", "quando è iniziata la rivoluzione francese"], 
+     r: "🇫🇷 La Rivoluzione Francese è iniziata il **14 luglio 1789** con la Presa della Bastiglia."},
+    
+    {q: ["caduta muro di berlino quando", "quando è caduto il muro di berlino", "data caduta muro berlino"], 
+     r: "🧱 Il Muro di Berlino è caduto il **9 novembre 1989**."},
+    
+    {q: ["scoperta dell'america quando", "colombo quando scopri l'america", "1492 scoperta america"], 
+     r: "⛵ Cristoforo Colombo scoprì l'America il **12 ottobre 1492**, arrivando sull'isola di Guanahani."},
+    
+    // STORIA - PERSONAGGI
+    {q: ["chi è stato il primo presidente degli usa", "primo presidente stati uniti"], 
+     r: "🇺🇸 Il primo Presidente degli Stati Uniti fu **George Washington** (1789-1797)."},
+    
+    {q: ["chi ha scritto la divina commedia", "autore divina commedia"], 
+     r: "📜 La Divina Commedia è stata scritta da **Dante Alighieri** tra il 1304 e il 1321."},
+    
+    {q: ["chi ha dipinto la monna lisa", "autore gioconda", "chi ha fatto la gioconda"], 
+     r: "🎨 La Monna Lisa (Gioconda) è stata dipinta da **Leonardo da Vinci** tra il 1503 e il 1506."},
+    
+    {q: ["chi ha inventato la lampadina", "inventore lampadina"], 
+     r: "💡 La lampadina elettrica è stata inventata da **Thomas Edison** nel 1879, sebbene precedenti prototipi esistessero."},
+    
+    {q: ["chi è stato il primo uomo sulla luna", "primo uomo sulla luna", "armstrong"], 
+     r: "🌕 Il primo uomo sulla Luna fu **Neil Armstrong** il **20 luglio 1969** con la missione Apollo 11."},
+    
+    // SCIENZA - FISICA E CHIMICA
+    {q: ["chi ha formulato la teoria della relatività", "teoria relatività chi"], 
+     r: "⚛️ La Teoria della Relatività è stata formulata da **Albert Einstein** (Relatività Ristretta 1905, Generale 1915)."},
+    
+    {q: ["chi ha scoperto la penicillina", "scopritore penicillina"], 
+     r: "💊 La penicillina è stata scoperta da **Alexander Fleming** nel 1928."},
+    
+    {q: ["chi ha scoperto i raggi x", "scopritore raggi x"], 
+     r: "🩻 I raggi X sono stati scoperti da **Wilhelm Röntgen** nel 1895."},
+    
+    {q: ["chi ha scoperto la struttura del dna", "scopritori dna", "watson e crick"], 
+     r: "🧬 La struttura a doppia elica del DNA è stata scoperta da **James Watson e Francis Crick** nel 1953."},
+    
+    {q: ["chi ha inventato il telefono", "inventore telefono"], 
+     r: "📞 Il telefono è stato inventato da **Antonio Meucci** (primo prototipo 1854), anche se il brevetto è di Alexander Graham Bell (1876)."},
+    
+    // GEOGRAFIA - CAPITALI
+    {q: ["capitale della francia", "francia capitale"], 
+     r: "🇫🇷 La capitale della Francia è **Parigi**."},
+    
+    {q: ["capitale del giappone", "giappone capitale"], 
+     r: "🇯🇵 La capitale del Giappone è **Tokyo**."},
+    
+    {q: ["capitale dell'australia", "australia capitale"], 
+     r: "🇦🇺 La capitale dell'Australia è **Canberra** (non Sydney!)."},
+    
+    {q: ["capitale del brasile", "brasile capitale"], 
+     r: "🇧🇷 La capitale del Brasile è **Brasilia** (non Rio de Janeiro!)."},
+    
+    {q: ["capitale della cina", "cina capitale"], 
+     r: "🇨🇳 La capitale della Cina è **Pechino**."},
+    
+    // GEOGRAFIA - FIUMI, MONTAGNE
+    {q: ["fiume che attraversa roma", "fiume di roma"], 
+     r: "🏛️ Il fiume che attraversa Roma è il **Tevere**."},
+    
+    {q: ["fiume che attraversa parigi", "fiume di parigi"], 
+     r: "🗼 Il fiume che attraversa Parigi è la **Senna**."},
+    
+    {q: ["fiume che attraversa londra", "fiume di londra"], 
+     r: "🇬🇧 Il fiume che attraversa Londra è il **Tamigi**."},
+    
+    {q: ["vulcano più alto europa", "vulcano più alto in europa"], 
+     r: "🌋 Il vulcano più alto d'Europa è l'**Etna** in Sicilia, Italia (circa 3.350 metri)."},
+    
+    {q: ["vulcano più alto africa", "vulcano più alto in africa"], 
+     r: "🌍 Il vulcano più alto d'Africa è il **Kilimangiaro** in Tanzania (5.895 metri)."},
+    
+    // ASTRONOMIA E SPAZIO
+    {q: ["pianeta più grande sistema solare", "pianeta più grande"], 
+     r: "🪐 Il pianeta più grande del Sistema Solare è **Giove**."},
+    
+    {q: ["pianeta più caldo sistema solare", "pianeta più caldo"], 
+     r: "☀️ Il pianeta più caldo del Sistema Solare è **Venere** (circa 460°C), non Mercurio!"},
+    
+    {q: ["quanti pianeti nel sistema solare", "pianeti sistema solare quanti"], 
+     r: "🌌 Nel Sistema Solare ci sono **8 pianeti**: Mercurio, Venere, Terra, Marte, Giove, Saturno, Urano, Nettuno."},
+    
+    {q: ["quante lune ha saturno", "satelliti saturno"], 
+     r: "🪐 Saturno ha **83 lune confermate** (2023). Le più famose sono Titano ed Encelado."},
+    
+    {q: ["quante lune ha giove", "satelliti giove"], 
+     r: "🪐 Giove ha **95 lune confermate** (2023). Le più famose sono Io, Europa, Ganimede e Callisto."},
+    
+    // ANIMALI E NATURA
+    {q: ["animale più veloce del mondo", "animale più veloce"], 
+     r: "🏃 Il **falco pellegrino** è l'animale più veloce in picchiata (oltre 300 km/h). Sulla terra è il **ghepardo** (110 km/h)."},
+    
+    {q: ["animale più grande del mondo", "animale più grande"], 
+     r: "🐋 L'**animale più grande del mondo** è la **balenottera azzurra** (fino a 33 metri e 180 tonnellate)."},
+    
+    {q: ["uccello più grande del mondo", "uccello più grande"], 
+     r: "🦜 L'**uccello più grande del mondo** è lo **struzzo** (fino a 2,7 metri e 150 kg)."},
+    
+    {q: ["pesce più grande del mondo", "pesce più grande"], 
+     r: "🐟 Il **pesce più grande del mondo** è lo **squalo balena** (fino a 18 metri e 21 tonnellate)."},
+    
+    {q: ["rettile più grande del mondo", "rettile più grande"], 
+     r: "🐊 Il **rettile più grande del mondo** è il **coccodrillo marino** (fino a 7 metri e 1.000 kg)."},
+    
+    // TECNOLOGIA E INVENZIONI
+    {q: ["anno invenzione internet", "quando è stato inventato internet", "internet quando inventato"], 
+     r: "🌐 Internet è nato come **ARPANET** nel **1969**. Il World Wide Web è stato inventato da Tim Berners-Lee nel **1989**."},
+    
+    {q: ["anno primo iphone", "quando è uscito il primo iphone", "primo iphone quando"], 
+     r: "📱 Il primo iPhone è stato presentato da Steve Jobs il **9 gennaio 2007** e rilasciato il **29 giugno 2007**."},
+    
+    {q: ["anno primo computer", "quando è stato inventato il computer", "primo computer quando"], 
+     r: "💻 Il primo computer programmabile fu lo **Z3** di Konrad Zuse nel **1941**. L'ENIAC, primo computer elettronico, è del **1946**."},
+    
+    {q: ["chi ha inventato la radio", "inventore radio"], 
+     r: "📻 La radio è stata inventata da **Guglielmo Marconi** nel 1895."},
+    
+    {q: ["chi ha inventato la televisione", "inventore tv"], 
+     r: "📺 La televisione elettronica è stata inventata da **John Logie Baird** (prima dimostrazione 1926)."},
+    
+    // CULTURA E ARTE
+    {q: ["chi ha scritto l'iliade e l'odissea", "autore iliade odissea"], 
+     r: "🏛️ L'Iliade e l'Odissea sono attribuite al poeta greco **Omero** (VIII secolo a.C.)."},
+    
+    {q: ["chi ha scritto amleto", "autore amleto"], 
+     r: "🎭 L'Amleto è stato scritto da **William Shakespeare** intorno al 1600."},
+    
+    {q: ["chi ha composto la nona sinfonia", "autore nona sinfonia"], 
+     r: "🎼 La Nona Sinfonia è stata composta da **Ludwig van Beethoven** e completata nel 1824."},
+    
+    {q: ["chi ha dipinto la notte stellata", "autore notte stellata"], 
+     r: "🌌 La Notte Stellata è stata dipinta da **Vincent van Gogh** nel 1889."},
+    
+    {q: ["chi ha diretto il padrino", "regista il padrino"], 
+     r: "🎬 Il Padrino è stato diretto da **Francis Ford Coppola** (1972)."},
+    
+    // SPORT
+    {q: ["chi ha vinto i mondiali del 2006", "mondiali 2006 vincitore"], 
+     r: "⚽ I Mondiali 2006 sono stati vinti dall'**Italia**, che ha battuto la Francia ai rigori."},
+    
+    {q: ["chi ha vinto i mondiali del 2010", "mondiali 2010 vincitore"], 
+     r: "⚽ I Mondiali 2010 sono stati vinti dalla **Spagna**, che ha battuto l'Olanda 1-0."},
+    
+    {q: ["chi ha vinto i mondiali del 2014", "mondiali 2014 vincitore"], 
+     r: "⚽ I Mondiali 2014 sono stati vinti dalla **Germania**, che ha battuto l'Argentina 1-0."},
+    
+    {q: ["chi ha vinto i mondiali del 2018", "mondiali 2018 vincitore"], 
+     r: "⚽ I Mondiali 2018 sono stati vinti dalla **Francia**, che ha battuto la Croazia 4-2."},
+    
+    {q: ["chi ha vinto i mondiali del 2022", "mondiali 2022 vincitore", "ultimi mondiali vincitore"], 
+     r: "⚽ I Mondiali 2022 sono stati vinti dall'**Argentina**, che ha battuto la Francia ai rigori."},
+    
+    // ECONOMIA E DEMOGRAFIA
+    {q: ["paese più popoloso del mondo", "nazione più popolosa", "popolazione mondiale più grande"], 
+     r: "👥 Il paese più popoloso del mondo è la **Cina** (circa 1,4 miliardi), seguito dall'**India**."},
+    
+    {q: ["città più popolosa del mondo", "città più abitata"], 
+     r: "🏙️ La città più popolosa del mondo è **Tokyo**, Giappone (circa 37 milioni nell'area metropolitana)."},
+    
+    {q: ["moneta più forte del mondo", "valuta più forte"], 
+     r: "💱 Le valute più forti sono: **Dinaro kuwaitiano (KWD)**, **Dinaro bahreinita (BHD)**, **Rial omanita (OMR)**."},
+    
+    {q: ["paese più ricco del mondo", "nazione più ricca"], 
+     r: "💰 Il paese più ricco per PIL pro capite è il **Lussemburgo**. Per PIL totale sono gli **Stati Uniti**."},
+    
+    {q: ["lingua più parlata al mondo", "lingua più diffusa"], 
+     r: "🗣️ La lingua più parlata al mondo come madrelingua è il **cinese mandarino**. Come seconda lingua è l'**inglese**."},
+    
+    // CURIOSITÀ VARIE
+    {q: ["quanti ossa ha il corpo umano", "ossa corpo umano"], 
+     r: "🦴 Il corpo umano adulto ha **206 ossa**. I neonati ne hanno circa 270."},
+    
+    {q: ["quanti denti ha l'uomo", "denti essere umano"], 
+     r: "🦷 L'uomo adulto ha **32 denti** (inclusi i denti del giudizio)."},
+    
+    {q: ["quanto sangue ha l'uomo", "sangue corpo umano"], 
+     r: "🩸 Un adulto ha circa **5-6 litri di sangue** (7-8% del peso corporeo)."},
+    
+    {q: ["temperatura corporea normale", "temperatura normale uomo"], 
+     r: "🌡️ La temperatura corporea normale è di circa **36,5-37,5°C** (ascellare: 36-37°C)."},
+    
+    {q: ["velocità della luce", "quanto è veloce la luce"], 
+     r: "⚡ La velocità della luce nel vuoto è di **299.792.458 m/s** (circa 300.000 km/s)."},
+    
+    // MITOLOGIA E RELIGIONE
+    {q: ["chi è zeus nella mitologia greca", "zeus chi è"], 
+     r: "⚡ Nella mitologia greca, **Zeus** è il re degli dei, dio del cielo e del tuono."},
+    
+    {q: ["chi è atena nella mitologia greca", "atena chi è"], 
+     r: "🦉 Nella mitologia greca, **Atena** è la dea della saggezza, della guerra strategica e delle arti."},
+    
+    {q: ["chi è poseidone nella mitologia greca", "poseidone chi è"], 
+     r: "🌊 Nella mitologia greca, **Poseidone** è il dio del mare, dei terremoti e dei cavalli."},
+    
+    // LETTERATURA ITALIANA
+    {q: ["chi ha scritto i promessi sposi", "autore promessi sposi"], 
+     r: "📖 I Promessi Sposi sono stati scritti da **Alessandro Manzoni** (pubblicato nel 1827)."},
+    
+    {q: ["chi ha scritto la coscienza di zeno", "autore coscienza di zeno"], 
+     r: "📚 La Coscienza di Zeno è stata scritta da **Italo Svevo** (pubblicato nel 1923)."},
+    
+    {q: ["chi ha scritto il gattopardo", "autore il gattopardo"], 
+     r: "📕 Il Gattopardo è stato scritto da **Giuseppe Tomasi di Lampedusa** (pubblicato postumo nel 1958)."},
+    
+    // MUSICA MODERNA
+    {q: ["chi ha cantato bohemian rhapsody", "autore bohemian rhapsody"], 
+     r: "🎤 Bohemian Rhapsody è stata cantata dai **Queen** (Freddie Mercury come voce principale)."},
+    
+    {q: ["chi ha scritto thriller", "autore thriller michael jackson"], 
+     r: "🕺 Thriller è di **Michael Jackson** (album 1982, canzone scritta da Rod Temperton)."},
+    
+    // FESTE E TRADIZIONI
+    {q: ["quando è natale", "data natale"], 
+     r: "🎄 Il Natale si celebra il **25 dicembre**."},
+    
+    {q: ["quando è pasqua", "data pasqua"], 
+     r: "🐣 La Pasqua è una festa mobile: si celebra la prima domenica dopo la prima luna piena di primavera."},
+    
+    // ULTIME CURIOSITÀ
+    {q: ["quanto è profondo l'oceano", "profondità oceano", "punto più profondo oceano"], 
+     r: "🌊 Il punto più profondo dell'oceano è la **Fossa delle Marianne** (circa 10.994 metri)."},
+    
+    {q: ["quanto è alto l'everest", "altezza everest"], 
+     r: "🏔️ L'Everest è alto **8.848,86 metri** (misura ufficiale 2020)."},
+    
+    {q: ["quanto è lungo il nilo", "lunghezza nilo"], 
+     r: "🌍 Il Nilo è lungo circa **6.650 km** (secondo fiume più lungo dopo il Rio delle Amazzoni)."}
   ];
 
   // Controlla prima le domande IA frequenti
@@ -539,5 +776,6 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
 </html>
+
 
 
