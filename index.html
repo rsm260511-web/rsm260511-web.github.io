@@ -22,7 +22,7 @@ main{max-width:900px;margin:auto;padding:20px;}
 .hidden{display:none}
 #single img, #single iframe{max-width:100%;height:auto;object-fit:cover;border-radius:10px;margin:15px 0;}
 #singleContent{line-height:1.7;}
-#chatBox{display:none;position:fixed;bottom:20px;right:20px;width:350px;height:500px;background:#1c1c25;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,0.4);overflow:hidden;flex-direction:column;z-index:1000;}
+#chatBox{display:none;position:fixed;bottom:20px;right:20px;width:350px;height=500px;background:#1c1c25;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,0.4);overflow:hidden;flex-direction:column;z-index:1000;}
 #chatMessages{flex-grow:1;padding:10px;overflow-y:auto;}
 #chatInput{flex-grow:1;padding:10px;border:none;background:#0e0e11;color:#fff;outline:none;}
 #chatSend{padding:0 15px;border:none;background:#ff4d4d;color:#fff;cursor:pointer;font-weight:600;}
@@ -270,7 +270,12 @@ function sendMessage(){
 chatSend.addEventListener('click',sendMessage);
 chatInput.addEventListener('keypress',e=>{if(e.key==='Enter') sendMessage();});
 
-// BOT RESPONSES ESTESA (VERSIONE NUOVA)
+// Funzione per risposte casuali da array
+function randomChoice(arr){
+  return arr[Math.floor(Math.random()*arr.length)];
+}
+
+// BOT RESPONSES ESTESA (VERSIONE NUOVA CORRETTA)
 function botResponse(msg) {
   const m = msg.toLowerCase();
 
@@ -334,50 +339,94 @@ function botResponse(msg) {
     }
   }
 
+  // FRASI CHIAVE E RIASSUNTO
+  if(m.includes('riassumi') || m.includes('fai un riassunto')){
+    let titleMatch = articles.find(a => a.title.toLowerCase() === m.replace(/riassumi|fai un riassunto/gi,'').trim());
+    if(titleMatch) return summarizeText(titleMatch.content);
+    if(!document.getElementById('single').classList.contains('hidden')){
+      return summarizeText(document.getElementById('singleContent').innerText);
+    }
+    return "Non ho trovato quell'articolo/news. Apri l'articolo o scrivi il titolo esatto da riassumere.";
+  }
+
+  // Aggancio diretto delle sezioni principali (come nel tuo codice funzionante)
+  if(m.includes("articolo")||m.includes("articoli")){ 
+    lastQuestion="Vuoi aprire la sezione Articoli?"; 
+    return lastQuestion; 
+  }
+  if(m.includes("video")){ 
+    lastQuestion="Vuoi aprire la sezione Video?"; 
+    return lastQuestion; 
+  }
+  if(m.includes("news")||m.includes("notizie")){ 
+    lastQuestion="Vuoi aprire la sezione News?"; 
+    return lastQuestion; 
+  }
+  if(m.includes("categorie")||m.includes("argomento")){ 
+    lastQuestion="Vuoi aprire la sezione Categorie?"; 
+    return lastQuestion; 
+  }
+  if(m.includes("chi siamo")||m.includes("chi siete")){ 
+    lastQuestion="Vuoi aprire la sezione Chi siamo?"; 
+    return lastQuestion; 
+  }
+  if(m.includes("contatti")||m.includes("telefono")||m.includes("email")){ 
+    lastQuestion="Vuoi aprire la sezione Contatti?"; 
+    return lastQuestion; 
+  }
+  if(m.includes("home")||m.includes("inizio")){ 
+    showSection('home');
+    return "Ti porto alla Home!";
+  }
+
   // Risposte generiche se non riconosce nulla
   const genericResponses = [
     "Non sono sicuro di aver capito. Puoi provare a chiedere Chi siamo, Contatti, Articoli, Video, News o Categorie.",
-    "Prova a usare parole chiave come Articoli, Video, News o Contatti per navigare.",
+    "Prova a usare parole chiave come Articoli, Video, News, Categorie o Contatti per navigare.",
     "Per favore, chiedi una sezione specifica e ti guiderò.",
-    "Se vuoi esplorare il sito, digita Articoli, Video, News, Categorie o Contatti."
+    "Se vuoi esplorare il sito, digita Articoli, Video, News, Categorie o Contatti.",
+    "Posso aiutarti a navigare nel sito. Chiedimi di aprire una sezione!",
+    "Vuoi vedere gli ultimi articoli, video o news? Basta chiedere!"
   ];
 
   return randomChoice(genericResponses);
 }
 
-// Gestione SÌ
+// Gestione SÌ (funzione per aprire effettivamente le sezioni)
 function handleYes(question){
   switch(question){
-    case "Vuoi aprire la sezione Chi siamo?": showSection('about'); return "Ecco la sezione Chi siamo!";
-    case "Vuoi aprire la sezione Contatti?": showSection('contacts'); return "Ti porto nella sezione Contatti.";
-    case "Vuoi aprire la sezione Articoli?": showSection('articles'); return "Apro la sezione Articoli per te!";
-    case "Vuoi aprire la sezione Video?": showSection('videos'); return "Ecco la sezione Video!";
-    case "Vuoi aprire la sezione News?": showSection('news'); return "Ti mostro la sezione News.";
-    case "Vuoi aprire la sezione Categorie?": showSection('categories'); return "Aprendo la sezione Categorie.";
-    default: return "Perfetto, eseguo la tua richiesta.";
+    case "Vuoi aprire la sezione Chi siamo?": 
+      showSection('about'); 
+      return "Ecco la sezione Chi siamo!";
+    case "Vuoi aprire la sezione Contatti?": 
+      showSection('contacts'); 
+      return "Ti porto nella sezione Contatti.";
+    case "Vuoi aprire la sezione Articoli?": 
+      showSection('articles'); 
+      return "Apro la sezione Articoli per te!";
+    case "Vuoi aprire la sezione Video?": 
+      showSection('videos'); 
+      return "Ecco la sezione Video!";
+    case "Vuoi aprire la sezione News?": 
+      showSection('news'); 
+      return "Ti mostro la sezione News.";
+    case "Vuoi aprire la sezione Categorie?": 
+      showSection('categories'); 
+      return "Aprendo la sezione Categorie.";
+    case "Vuoi vedere suggerimenti su cosa leggere o guardare?":
+      return "Ti consiglio di guardare gli ultimi articoli e video nella Home, oppure esplora le categorie per trovare contenuti che ti interessano!";
+    case "Vuoi leggere la sezione Chi siamo per info sulla privacy?":
+      showSection('about');
+      return "Qui trovi informazioni sulla nostra missione e sulla gestione dei dati!";
+    case "Vuoi aprire la sezione Chi siamo o Articoli per capire meglio?":
+      showSection('about');
+      return "Ti mostro la sezione Chi siamo per capire meglio di cosa ci occupiamo!";
+    case "Prova a chiedere Articoli, Video, News o Contatti per navigare.":
+      return "Perfetto! Quale sezione ti interessa? Articoli, Video, News o Contatti?";
+    default: 
+      return "Perfetto, eseguo la tua richiesta.";
   }
 }
-
-// Funzione per risposte casuali da array
-function randomChoice(arr){
-  return arr[Math.floor(Math.random()*arr.length)];
-}
-
-// FRASI CHIAVE E RIASSUNTO
-if(m.includes('riassumi') || m.includes('fai un riassunto')){
-  let titleMatch = articles.find(a => a.title.toLowerCase() === m.replace(/riassumi|fai un riassunto/gi,'').trim());
-  if(titleMatch) return summarizeText(titleMatch.content);
-  if(!document.getElementById('single').classList.contains('hidden')){
-    return summarizeText(document.getElementById('singleContent').innerText);
-  }
-  return "Non ho trovato quell'articolo/news. Apri l'articolo o scrivi il titolo esatto da riassumere.";
-}
-
-// Aggancio domande principali al contesto
-if(m.includes("articolo")||m.includes("articoli")){ lastQuestion="Vuoi aprire la sezione Articoli?"; return lastQuestion; }
-if(m.includes("video")){ lastQuestion="Vuoi aprire la sezione Video?"; return lastQuestion; }
-if(m.includes("news")){ lastQuestion="Vuoi aprire la sezione News?"; return lastQuestion; }
-if(m.includes("categorie")||m.includes("argomento")){ lastQuestion="Vuoi aprire la sezione Categorie?"; return lastQuestion; }
 
 // Riassunto testuale semplice
 function summarizeText(text,maxSentences=3){
