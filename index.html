@@ -127,7 +127,6 @@ main{max-width:900px;margin:auto;padding:20px;}
 <footer style="text-align:center;padding:20px;font-size:14px;opacity:.6">
 © 2025 – RSM | Tutti i diritti riservati
 </footer>
-
 <script>
 // DATI
 let articles=[];
@@ -175,10 +174,12 @@ const chatMessages=document.getElementById('chatMessages');
 const chatInput=document.getElementById('chatInput');
 const chatSend=document.getElementById('chatSend');
 
+let lastQuestion = null; // traccia domanda per SÌ/NO
+
 // Apri/Chiudi chat
 chatToggle.addEventListener('click',()=>{chatBox.style.display=chatBox.style.display==='flex'?'none':'flex';});
 
-// Aggiungi messaggio nella chat
+// Aggiungi messaggio
 function appendMessage(sender,text){
   const div=document.createElement('div');
   div.textContent=text;
@@ -187,15 +188,9 @@ function appendMessage(sender,text){
   div.style.borderRadius='15px';
   div.style.maxWidth='80%';
   div.style.wordWrap='break-word';
-  if(sender==='user'){
-    div.style.background='#007bff';
-    div.style.color='#fff';
-    div.style.alignSelf='flex-end';
-  } else {
-    div.style.background='#333';
-    div.style.color='#fff';
-    div.style.alignSelf='flex-start';
-  }
+  div.style.alignSelf=sender==='user'?'flex-end':'flex-start';
+  div.style.background=sender==='user'?'#007bff':'#333';
+  div.style.color='#fff';
   chatMessages.appendChild(div);
   chatMessages.scrollTop=chatMessages.scrollHeight;
 }
@@ -208,11 +203,10 @@ function sendMessage(){
   appendMessage('bot',botResponse(msg));
   chatInput.value='';
 }
-
 chatSend.addEventListener('click',sendMessage);
 chatInput.addEventListener('keypress',e=>{if(e.key==='Enter') sendMessage();});
 
-// BOT RESPONSES - circa 80 risposte
+// BOT RESPONSES
 function botResponse(msg){
   const m=msg.toLowerCase();
   const responses=[
@@ -260,48 +254,40 @@ function botResponse(msg){
     "Puoi cercare articoli con la barra di ricerca.",
     "Puoi cercare video con la barra di ricerca.",
     "Puoi cercare news con la barra di ricerca.",
-    "Se vuoi, posso darti suggerimenti su cosa leggere.",
-    "Vuoi un riassunto veloce di un articolo?",
-    "Vuoi un riassunto veloce di una news?",
-    "Vuoi un riassunto veloce di un video?",
-    "Puoi chiedere info su qualsiasi articolo.",
-    "Puoi chiedere info su qualsiasi video.",
-    "Puoi chiedere info su qualsiasi news.",
-    "Vuoi aprire l'ultimo contenuto pubblicato?",
-    "Vuoi leggere l'ultimo articolo pubblicato?",
-    "Vuoi guardare l'ultimo video pubblicato?",
-    "Vuoi leggere l'ultima news pubblicata?",
-    "Puoi chiedere info su categorie specifiche.",
-    "Puoi chiedere info sugli argomenti più popolari.",
-    "Posso aiutarti a capire meglio il sito.",
-    "Vuoi sapere quali contenuti sono disponibili?",
-    "Posso guidarti attraverso il sito.",
-    "Vuoi aprire contenuti correlati a una ricerca?",
-    "Se vuoi, posso consigliarti un contenuto.",
-    "Ecco il contenuto più rilevante per te.",
-    "Vuoi sapere info generali sul sito?",
-    "Puoi chiedere qualsiasi info generale.",
-    "Vuoi sapere come contattarci?",
-    "Vuoi sapere come trovare articoli?",
-    "Vuoi sapere come trovare video?",
-    "Vuoi sapere come trovare news?",
-    "Puoi chiedere info dettagliate su articoli recenti.",
-    "Puoi chiedere info dettagliate sui video recenti.",
-    "Puoi chiedere info dettagliate sulle news recenti.",
-    "Posso aiutarti a trovare ciò che cerchi.",
-    "Vuoi sapere quali categorie sono presenti?",
-    "Vuoi aprire contenuti recenti?",
-    "Vuoi aprire contenuti popolari?",
-    "Vuoi sapere di più sulle news?",
-    "Vuoi sapere di più sui video?",
-    "Vuoi sapere di più sugli articoli?",
-    "Posso aiutarti a filtrare i contenuti.",
-    "Puoi chiedere info su un articolo specifico.",
-    "Puoi chiedere info su un video specifico.",
-    "Puoi chiedere info su una news specifica."
+    "Se vuoi, posso darti suggerimenti su cosa leggere."
   ];
 
-  // Riassunto dinamico
+  // GESTIONE CONTESTO SÌ/NO
+  if(lastQuestion){
+    if(m.includes("sì") || m.includes("si") || m.includes("yes")){
+      let ans = "";
+      switch(lastQuestion){
+        case "Vuoi vedere gli ultimi articoli?": ans="Ecco gli ultimi articoli!"; break;
+        case "Vuoi vedere l'ultimo video?": ans="Ecco l'ultimo video!"; break;
+        case "Vuoi leggere l'ultima news?": ans="Ecco l'ultima news!"; break;
+        case "Vuoi aprire la sezione Articoli?": ans="Apro la sezione Articoli."; break;
+        case "Vuoi aprire la sezione Video?": ans="Apro la sezione Video."; break;
+        case "Vuoi aprire la sezione News?": ans="Apro la sezione News."; break;
+        case "Vuoi esplorare le categorie?": ans="Apro le categorie."; break;
+        case "Vuoi un riassunto veloce di un articolo o news?":
+          if(!document.getElementById('single').classList.contains('hidden')){
+            ans = summarizeText(document.getElementById('singleContent').innerText);
+          } else {
+            ans = "Apri prima l'articolo o scrivi il titolo esatto da riassumere.";
+          }
+          break;
+        default: ans="Perfetto! 😊"; break;
+      }
+      lastQuestion=null;
+      return ans;
+    }
+    if(m.includes("no") || m.includes("non") || m.includes("nope")){
+      lastQuestion=null;
+      return "Va bene, non c'è problema.";
+    }
+  }
+
+  // FRASI CHIAVE E RIASSUNTO
   if(m.includes('riassumi') || m.includes('fai un riassunto')){
     let titleMatch = articles.find(a => a.title.toLowerCase() === m.replace(/riassumi|fai un riassunto/gi,'').trim());
     if(titleMatch) return summarizeText(titleMatch.content);
@@ -311,18 +297,13 @@ function botResponse(msg){
     return "Non ho trovato quell'articolo/news. Apri l'articolo o scrivi il titolo esatto da riassumere.";
   }
 
-  // Frasi chiave comuni
-  if(m.match(/ciao|salve|buongiorno|buonasera/)) return "Ciao! 👋 Come va?";
-  if(m.match(/grazie|ok|perfetto/)) return "Di nulla! 😄 Chiedimi pure qualsiasi informazione.";
-  if(m.match(/aiuto|supporto|assistenza|problema/)) return "Certo! 😊 Posso aiutarti con Contatti, Chi siamo o Articoli, Video e News.";
-  if(m.match(/chi siete|informazioni su di voi|about/)) return document.getElementById('publicDescription').innerText || "Siamo RSM!";
-  if(m.match(/come vi contatto|dove posso contattarvi|contatti|telefono|email|scrivere/)) return "📞 +39 351 093 3272\n📧 rsm260511@gmail.com";
-  if(m.match(/articolo|articoli|blog/)) return "📝 Puoi vedere tutti gli articoli nella sezione Articoli.";
-  if(m.match(/video|filmato|clip/)) return "🎬 I video più recenti si trovano nella sezione Video.";
-  if(m.match(/news|notizia|notizie|aggiornamenti/)) return "📢 Le ultime notizie le trovi nella sezione News.";
-  if(m.match(/categorie|tipologia|argomenti/)) return "Puoi esplorare tutti i contenuti raggruppati per categoria nella sezione Categorie.";
-  
-  // Risposta casuale
+  // Aggancio domande principali al contesto
+  if(m.includes("articolo")||m.includes("articoli")){ lastQuestion="Vuoi vedere gli ultimi articoli?"; return lastQuestion; }
+  if(m.includes("video")){ lastQuestion="Vuoi vedere l'ultimo video?"; return lastQuestion; }
+  if(m.includes("news")){ lastQuestion="Vuoi leggere l'ultima news?"; return lastQuestion; }
+  if(m.includes("categorie")||m.includes("argomento")){ lastQuestion="Vuoi esplorare le categorie?"; return lastQuestion; }
+
+  // Risposte casuali
   return responses[Math.floor(Math.random()*responses.length)];
 }
 
