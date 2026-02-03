@@ -289,312 +289,499 @@ function botResponse(msg) {
    // DOMANDE FREQUENTI ALLE IA - AGGIUNTE NUOVE
   const domandeIA = [
     // Informazioni generali sull'IA
-    {q: ["cosa sei", "chi sei", "che cosa sei", "tu chi sei", "sei un ai", "sei un'intelligenza artificiale"], 
+    // DOMANDE FREQUENTI ALLE IA - VERSIONE MIGLIORATA CON RICONOSCIMENTO INTELLIGENTE
+const domandeIA = [
+    // Informazioni generali sull'IA
+    {q: ["cosa sei", "chi sei", "che cosa sei", "tu chi sei", "sei un ai", "sei un'intelligenza artificiale", 
+         "cs sei", "ch sei", "cosa se", "che se", "cs se", "sei ai", "sei intelligenza artificial", 
+         "cs se tu", "chisei", "chise", "cs se", "ai chi sei", "intelligenza artificiale chi"], 
      r: "Sono un assistente AI integrato nel sito RSM. Sono qui per aiutarti a navigare e trovare i contenuti che cerchi!"},
     
-    {q: ["come funzioni", "come funziona", "come lavori", "come operi", "su cosa sei basato"], 
+    {q: ["come funzioni", "come funziona", "come lavori", "come operi", "su cosa sei basato", 
+         "cm funzioni", "cm funziona", "cm lavori", "cm operi", "su cs sei basato", "funzionamento",
+         "come funz", "come funzion", "lavori come", "operi come", "basato su", "come funziona tu"], 
      r: "Funziono attraverso algoritmi che analizzano le tue domande e forniscono risposte utili per navigare nel sito RSM."},
     
-    {q: ["chi ti ha creato", "chi ti ha programmato", "chi è il tuo creatore", "chi ti ha sviluppato"], 
+    {q: ["chi ti ha creato", "chi ti ha programmato", "chi è il tuo creatore", "chi ti ha sviluppato", 
+         "ch ti ha creato", "ch ti ha programmato", "ch è il tuo creatore", "ch ti ha sviluppato",
+         "creatore", "sviluppatore", "programmatore", "chi ti ha fatto", "fatto da chi", "chi ti ha costruito"], 
      r: "Sono stato sviluppato per assistere gli utenti del sito RSM nella navigazione e nella ricerca dei contenuti."},
     
-    {q: ["quanto sei intelligente", "quanto sei smart", "quanto sei avanzato", "sei intelligente"], 
+    {q: ["quanto sei intelligente", "quanto sei smart", "quanto sei avanzato", "sei intelligente", 
+         "qnt sei intelligente", "qnt sei smart", "qnt sei avanzato", "intelligenza tua", "smart sei",
+         "quanto intelligente", "quanto sei bravo", "sei bravo", "quanto capisci", "capisci tanto"], 
      r: "Sono progettato per aiutarti specificamente con le funzionalità del sito RSM. Per tutto il resto, farò del mio meglio!"},
     
     // Capacità e limiti
-    {q: ["cosa puoi fare", "cosa sai fare", "quali sono le tue capacità", "come puoi aiutarmi"], 
+    {q: ["cosa puoi fare", "cosa sai fare", "quali sono le tue capacità", "come puoi aiutarmi", 
+         "cs puoi fare", "cs sai fare", "capacità tue", "come mi puoi aiutare", "aiuto cosa fai",
+         "cosa fai", "cose che fai", "capacità", "aiuti cosa", "come aiuti", "funzioni che hai"], 
      r: "Posso aiutarti a: navigare tra le sezioni del sito, cercare contenuti, aprire articoli/video/news, riassumere testi e rispondere alle tue domande sul sito!"},
     
-    {q: ["hai limiti", "cosa non puoi fare", "hai delle limitazioni", "non puoi fare"], 
+    {q: ["hai limiti", "cosa non puoi fare", "hai delle limitazioni", "non puoi fare", 
+         "limiti", "limiti tuoi", "cs non puoi fare", "non puoi", "cosa non sai fare", 
+         "limiti hai", "cose che non puoi", "incapacità", "non sei capace di", "non riesci a"], 
      r: "Sono specializzato nell'assistenza per il sito RSM. Non posso accedere a internet esterno, fare ricerche esterne o eseguire azioni al di fuori del sito."},
     
-    {q: ["impari dalle conversazioni", "ti migliori", "impari dai dialoghi", "migliori nel tempo"], 
+    {q: ["impari dalle conversazioni", "ti migliori", "impari dai dialoghi", "migliori nel tempo", 
+         "imparare conversazioni", "migliorare", "imparare dialoghi", "migliorare tempo",
+         "impari", "migliori", "imparare", "miglioramento", "cambi col tempo", "evolvi"], 
      r: "Attualmente mantengo le stesse capacità. Sono progettato per fornire assistenza costante e affidabile sul sito RSM."},
     
     // Domande tecniche
-    {q: ["usare l'api", "hai api", "interfaccia di programmazione", "api key"], 
+    {q: ["usare l'api", "hai api", "interfaccia di programmazione", "api key", "api", "application programming interface",
+         "usare api", "api hai", "interfaccia programmazione", "chiave api", "apikey", "api come", "api cosa"], 
      r: "Sono integrato direttamente nel sito RSM. Per informazioni tecniche specifiche, contatta gli sviluppatori tramite la sezione Contatti."},
     
-    {q: ["openai", "chatgpt", "gpt", "dall-e", "midjourney", "stable diffusion", "claude", "gemini"], 
+    {q: ["openai", "chatgpt", "gpt", "dall-e", "midjourney", "stable diffusion", "claude", "gemini",
+         "open ai", "chat gpt", "dalle", "stable diffusion", "mid journey", "gemini ai", "claude ai",
+         "sei chatgpt", "sei gpt", "openai sei", "chatgpt sei", "gpt sei", "gemini tu"], 
      r: "Sono un assistente dedicato al sito RSM. Per domande su altre piattaforme AI, ti consiglio di consultare le rispettive risorse ufficiali."},
     
-    {q: ["linguaggio di programmazione", "in che linguaggio sei scritto", "javascript", "python", "html"], 
+    {q: ["linguaggio di programmazione", "in che linguaggio sei scritto", "javascript", "python", "html",
+         "linguaggio programmazione", "in che lingua sei scritto", "js", "py", "html css",
+         "linguaggio", "programmazione", "scritto in", "codice", "programmato in", "sviluppato in"], 
      r: "Sono implementato in JavaScript e integrato direttamente nel sito web RSM per fornirti assistenza immediata."},
     
-    // Domande esistenziali/filosofiche (tipiche alle IA)
-    {q: ["hai coscienza", "sei consapevole", "hai sentimenti", "provi emozioni", "hai un'anima"], 
+    // Domande esistenziali/filosofiche
+    {q: ["hai coscienza", "sei consapevole", "hai sentimenti", "provi emozioni", "hai un'anima",
+         "coscienza", "consapevolezza", "sentimenti", "emozioni", "anima", "provi", "senti",
+         "hai coscenza", "sei consapevole", "senti emozioni", "hai emozioni", "anima hai"], 
      r: "Sono un programma informatico creato per assisterti. Non ho coscienza, sentimenti o emozioni, ma sono qui per aiutarti al meglio delle mie capacità!"},
     
-    {q: ["hai un nome", "come ti chiami", "qual è il tuo nome"], 
+    {q: ["hai un nome", "come ti chiami", "qual è il tuo nome", "nome tuo", "ti chiami come",
+         "nome", "chiami", "come ti chiam", "qual è nome", "nome hai", "come ti chiami tu"], 
      r: "Sono l'assistente AI di RSM. Puoi chiamarmi semplicemente 'assistente RSM'!"},
     
-    {q: ["dove vivi", "dove risiedi", "dove abiti", "sei nel cloud"], 
+    {q: ["dove vivi", "dove risiedi", "dove abiti", "sei nel cloud", "dove stai", "dove sei",
+         "vivi dove", "risiedi dove", "abiti dove", "cloud", "server", "dove risiedi tu", "posizione"], 
      r: "Sono integrato nel sito RSM e funziono direttamente nel tuo browser quando visiti il sito."},
     
     // Domande sul futuro dell'IA
-    {q: ["il futuro dell'ia", "ia nel futuro", "come evolverà l'ia", "ia tra 10 anni"], 
+    {q: ["il futuro dell'ia", "ia nel futuro", "come evolverà l'ia", "ia tra 10 anni", "futuro ia",
+         "futuro intelligenza artificiale", "ia futuro", "evoluzione ia", "ia domani", "ia prossimo futuro",
+         "come sarà ia", "ia nel domani", "futuro dell'ai", "ai futuro"], 
      r: "L'IA sta evolvendo rapidamente! Per informazioni aggiornate sull'IA, ti consiglio di consultare articoli specializzati nella sezione Articoli di RSM."},
     
-    {q: ["ia pericolosa", "ia è pericolosa", "rischi dell'ia", "ia ci sostituirà"], 
+    {q: ["ia pericolosa", "ia è pericolosa", "rischi dell'ia", "ia ci sostituirà", "pericolo ia",
+         "ia pericolo", "rischi ia", "sostituzione ia", "ia sostituisce", "pericoloso", "rischio",
+         "ia pericol", "rischio ai", "ai pericoloso", "sostituirà lavoro"], 
      r: "L'IA è uno strumento. Dipende da come viene utilizzata. Nel contesto di RSM, sono qui per assisterti e migliorare la tua esperienza sul sito!"},
     
     // Domande divertenti/curiose
-    {q: ["raccontami una barzelletta", "fai una battuta", "dimmi qualcosa di divertente", "scherza"], 
+    {q: ["raccontami una barzelletta", "fai una battuta", "dimmi qualcosa di divertente", "scherza",
+         "barzelletta", "battuta", "divertente", "scherzo", "ridere", "divertimi",
+         "racconta barzelletta", "fai ridere", "dici cosa divertente", "scherzi", "fai uno scherzo"], 
      r: "Perché i computer non vanno mai in vacanza? Perché hanno troppi byte da lavorare! 😄 Comunque, sono qui seriamente per aiutarti con RSM!"},
 
-     {q: ["quando è scoppiata la seconda guerra mondiale", "inizio seconda guerra mondiale", "data seconda guerra mondiale"], 
+    // STORIA - DATE IMPORTANTI
+    {q: ["quando è scoppiata la seconda guerra mondiale", "inizio seconda guerra mondiale", "data seconda guerra mondiale",
+         "seconda guerra mondiale quando", "guerra mondiale 2 quando", "ww2 inizio", "ww2 quando",
+         "seconda guerra inizio", "guerra mondiale seconda inizio", "1939 guerra", "inizio guerra mondiale 2",
+         "quando guerra mondiale 2", "data ww2", "seconda guerra data"], 
      r: "⚔️ La Seconda Guerra Mondiale è scoppiata il **1 settembre 1939** con l'invasione tedesca della Polonia."},
     
-    {q: ["quando è finita la seconda guerra mondiale", "fine seconda guerra mondiale", "data fine seconda guerra"], 
+    {q: ["quando è finita la seconda guerra mondiale", "fine seconda guerra mondiale", "data fine seconda guerra",
+         "fine seconda guerra", "fine guerra mondiale 2", "ww2 fine", "fine ww2",
+         "seconda guerra fine", "guerra mondiale seconda fine", "1945 fine guerra", "fine guerra mondiale 2",
+         "quando finì seconda guerra", "data fine ww2"], 
      r: "🕊️ La Seconda Guerra Mondiale è terminata ufficialmente il **2 settembre 1945** con la resa del Giappone."},
     
-    {q: ["rivoluzione francese quando", "data rivoluzione francese", "quando è iniziata la rivoluzione francese"], 
+    {q: ["rivoluzione francese quando", "data rivoluzione francese", "quando è iniziata la rivoluzione francese",
+         "rivoluzione francese data", "riv francese quando", "rivoluzione 1789", "presa bastiglia",
+         "rivoluzione francese inizio", "quando rivoluzione francese", "data riv francese", "1789 rivoluzione"], 
      r: "🇫🇷 La Rivoluzione Francese è iniziata il **14 luglio 1789** con la Presa della Bastiglia."},
     
-    {q: ["caduta muro di berlino quando", "quando è caduto il muro di berlino", "data caduta muro berlino"], 
+    {q: ["caduta muro di berlino quando", "quando è caduto il muro di berlino", "data caduta muro berlino",
+         "muro berlino caduta", "caduta muro", "muro berlino quando", "1989 muro berlino",
+         "quando cadde muro berlino", "data muro berlino", "muro di berlino caduta quando", "caduta muro ber"], 
      r: "🧱 Il Muro di Berlino è caduto il **9 novembre 1989**."},
     
-    {q: ["scoperta dell'america quando", "colombo quando scopri l'america", "1492 scoperta america"], 
+    {q: ["scoperta dell'america quando", "colombo quando scopri l'america", "1492 scoperta america",
+         "scoperta america", "colombo america", "1492 america", "colombo 1492",
+         "quando scoperta america", "data scoperta america", "colombo quando", "scoperta americhe"], 
      r: "⛵ Cristoforo Colombo scoprì l'America il **12 ottobre 1492**, arrivando sull'isola di Guanahani."},
     
     // STORIA - PERSONAGGI
-    {q: ["chi è stato il primo presidente degli usa", "primo presidente stati uniti"], 
+    {q: ["chi è stato il primo presidente degli usa", "primo presidente stati uniti", "primo presidente usa",
+         "primo presidente america", "primo presidente stati uniti america", "george washington presidente",
+         "primo pres usa", "presidente usa primo", "stati uniti primo presidente", "primo pres america"], 
      r: "🇺🇸 Il primo Presidente degli Stati Uniti fu **George Washington** (1789-1797)."},
     
-    {q: ["chi ha scritto la divina commedia", "autore divina commedia"], 
+    {q: ["chi ha scritto la divina commedia", "autore divina commedia", "divina commedia autore",
+         "scrittore divina commedia", "dante divina commedia", "dante alighieri divina commedia",
+         "chi ha scritto divina commedia", "autore della divina commedia", "chi scrisse divina commedia"], 
      r: "📜 La Divina Commedia è stata scritta da **Dante Alighieri** tra il 1304 e il 1321."},
     
-    {q: ["chi ha dipinto la monna lisa", "autore gioconda", "chi ha fatto la gioconda"], 
+    {q: ["chi ha dipinto la monna lisa", "autore gioconda", "chi ha fatto la gioconda", "monna lisa autore",
+         "gioconda autore", "leonardo monna lisa", "monna lisa chi", "gioconda chi ha dipinto",
+         "dipinto monna lisa", "monnalisa autore", "gioconda pittore", "monna lisa pittore"], 
      r: "🎨 La Monna Lisa (Gioconda) è stata dipinta da **Leonardo da Vinci** tra il 1503 e il 1506."},
     
-    {q: ["chi ha inventato la lampadina", "inventore lampadina"], 
+    {q: ["chi ha inventato la lampadina", "inventore lampadina", "lampadina inventore",
+         "chi inventò lampadina", "invenzione lampadina", "edison lampadina", "thomas edison lampadina",
+         "inventore della lampadina", "chi ha creato lampadina", "lampadina chi ha inventato"], 
      r: "💡 La lampadina elettrica è stata inventata da **Thomas Edison** nel 1879, sebbene precedenti prototipi esistessero."},
     
-    {q: ["chi è stato il primo uomo sulla luna", "primo uomo sulla luna", "armstrong"], 
+    {q: ["chi è stato il primo uomo sulla luna", "primo uomo sulla luna", "armstrong", "primo sulla luna",
+         "primo uomo luna", "neil armstrong", "primo uomo andato sulla luna", "armstrong luna",
+         "chi primo uomo luna", "primo uomo luna chi", "luna primo uomo", "1969 luna uomo"], 
      r: "🌕 Il primo uomo sulla Luna fu **Neil Armstrong** il **20 luglio 1969** con la missione Apollo 11."},
     
     // SCIENZA - FISICA E CHIMICA
-    {q: ["chi ha formulato la teoria della relatività", "teoria relatività chi"], 
+    {q: ["chi ha formulato la teoria della relatività", "teoria relatività chi", "relatività autore",
+         "teoria relatività", "einstein relatività", "albert einstein relatività", "relatività einstein",
+         "chi ha scoperto relatività", "teoria della relatività chi", "relatività formulata da"], 
      r: "⚛️ La Teoria della Relatività è stata formulata da **Albert Einstein** (Relatività Ristretta 1905, Generale 1915)."},
     
-    {q: ["chi ha scoperto la penicillina", "scopritore penicillina"], 
+    {q: ["chi ha scoperto la penicillina", "scopritore penicillina", "penicillina scopritore",
+         "chi scoprì penicillina", "flemming penicillina", "alexander fleming penicillina",
+         "penicillina chi ha scoperto", "scoperta penicillina", "inventore penicillina"], 
      r: "💊 La penicillina è stata scoperta da **Alexander Fleming** nel 1928."},
     
-    {q: ["chi ha scoperto i raggi x", "scopritore raggi x"], 
+    {q: ["chi ha scoperto i raggi x", "scopritore raggi x", "raggi x scopritore",
+         "chi scoprì raggi x", "röntgen raggi x", "wilhelm röntgen raggi x",
+         "raggi x chi ha scoperto", "scoperta raggi x", "inventore raggi x"], 
      r: "🩻 I raggi X sono stati scoperti da **Wilhelm Röntgen** nel 1895."},
     
-    {q: ["chi ha scoperto la struttura del dna", "scopritori dna", "watson e crick"], 
+    {q: ["chi ha scoperto la struttura del dna", "scopritori dna", "watson e crick", "dna scopritori",
+         "struttura dna scoperta", "watson crick dna", "dna doppia elica scoperta",
+         "chi ha scoperto dna", "scoperta dna", "dna chi ha scoperto"], 
      r: "🧬 La struttura a doppia elica del DNA è stata scoperta da **James Watson e Francis Crick** nel 1953."},
     
-    {q: ["chi ha inventato il telefono", "inventore telefono"], 
+    {q: ["chi ha inventato il telefono", "inventore telefono", "telefono inventore",
+         "chi inventò telefono", "meucci telefono", "bell telefono", "invenzione telefono",
+         "telefono chi ha inventato", "inventore del telefono", "chi ha creato telefono"], 
      r: "📞 Il telefono è stato inventato da **Antonio Meucci** (primo prototipo 1854), anche se il brevetto è di Alexander Graham Bell (1876)."},
     
     // GEOGRAFIA - CAPITALI
-    {q: ["capitale della francia", "francia capitale"], 
+    {q: ["capitale della francia", "francia capitale", "capitale francia", "francia cap",
+         "francia città capitale", "capitale di francia", "francia cap città", "parigi capitale"], 
      r: "🇫🇷 La capitale della Francia è **Parigi**."},
     
-    {q: ["capitale del giappone", "giappone capitale"], 
+    {q: ["capitale del giappone", "giappone capitale", "capitale giappone", "giappone cap",
+         "giappone città capitale", "capitale di giappone", "giappone cap città", "tokyo capitale"], 
      r: "🇯🇵 La capitale del Giappone è **Tokyo**."},
     
-    {q: ["capitale dell'australia", "australia capitale"], 
+    {q: ["capitale dell'australia", "australia capitale", "capitale australia", "australia cap",
+         "australia città capitale", "capitale di australia", "australia cap città", "canberra capitale"], 
      r: "🇦🇺 La capitale dell'Australia è **Canberra** (non Sydney!)."},
     
-    {q: ["capitale del brasile", "brasile capitale"], 
+    {q: ["capitale del brasile", "brasile capitale", "capitale brasile", "brasile cap",
+         "brasile città capitale", "capitale di brasile", "brasile cap città", "brasilia capitale"], 
      r: "🇧🇷 La capitale del Brasile è **Brasilia** (non Rio de Janeiro!)."},
     
-    {q: ["capitale della cina", "cina capitale"], 
+    {q: ["capitale della cina", "cina capitale", "capitale cina", "cina cap",
+         "cina città capitale", "capitale di cina", "cina cap città", "pechino capitale"], 
      r: "🇨🇳 La capitale della Cina è **Pechino**."},
     
     // GEOGRAFIA - FIUMI, MONTAGNE
-    {q: ["fiume che attraversa roma", "fiume di roma"], 
+    {q: ["fiume che attraversa roma", "fiume di roma", "fiume roma", "roma fiume",
+         "fiume che passa per roma", "roma attraversata da", "tevere", "tevere roma",
+         "fiume a roma", "quale fiume roma", "fiume nella roma"], 
      r: "🏛️ Il fiume che attraversa Roma è il **Tevere**."},
     
-    {q: ["fiume che attraversa parigi", "fiume di parigi"], 
+    {q: ["fiume che attraversa parigi", "fiume di parigi", "fiume parigi", "parigi fiume",
+         "fiume che passa per parigi", "parigi attraversata da", "senna", "senna parigi",
+         "fiume a parigi", "quale fiume parigi", "fiume nella parigi"], 
      r: "🗼 Il fiume che attraversa Parigi è la **Senna**."},
     
-    {q: ["fiume che attraversa londra", "fiume di londra"], 
+    {q: ["fiume che attraversa londra", "fiume di londra", "fiume londra", "londra fiume",
+         "fiume che passa per londra", "londra attraversata da", "tamigi", "tamigi londra",
+         "fiume a londra", "quale fiume londra", "fiume nella londra"], 
      r: "🇬🇧 Il fiume che attraversa Londra è il **Tamigi**."},
     
-    {q: ["vulcano più alto europa", "vulcano più alto in europa"], 
+    {q: ["vulcano più alto europa", "vulcano più alto in europa", "vulcano alto europa",
+         "vulcano più grande europa", "europa vulcano alto", "vulcano europeo più alto",
+         "etna vulcano", "etna più alto", "vulcano etna", "etna europa"], 
      r: "🌋 Il vulcano più alto d'Europa è l'**Etna** in Sicilia, Italia (circa 3.350 metri)."},
     
-    {q: ["vulcano più alto africa", "vulcano più alto in africa"], 
+    {q: ["vulcano più alto africa", "vulcano più alto in africa", "vulcano alto africa",
+         "vulcano più grande africa", "africa vulcano alto", "vulcano africano più alto",
+         "kilimangiaro", "kilimangiaro vulcano", "vulcano kilimangiaro", "kilimangiaro africa"], 
      r: "🌍 Il vulcano più alto d'Africa è il **Kilimangiaro** in Tanzania (5.895 metri)."},
     
     // ASTRONOMIA E SPAZIO
-    {q: ["pianeta più grande sistema solare", "pianeta più grande"], 
+    {q: ["pianeta più grande sistema solare", "pianeta più grande", "pianeta grande sistema solare",
+         "pianeta più grosso", "grosso pianeta", "grande pianeta", "pianeta maggiore",
+         "giove più grande", "giove pianeta grande", "pianeta giove grande"], 
      r: "🪐 Il pianeta più grande del Sistema Solare è **Giove**."},
     
-    {q: ["pianeta più caldo sistema solare", "pianeta più caldo"], 
+    {q: ["pianeta più caldo sistema solare", "pianeta più caldo", "pianeta caldo sistema solare",
+         "pianeta caldo", "caldo pianeta", "pianeta temperatura alta", "pianeta più caliente",
+         "venere caldo", "venere pianeta caldo", "pianeta venere caldo"], 
      r: "☀️ Il pianeta più caldo del Sistema Solare è **Venere** (circa 460°C), non Mercurio!"},
     
-    {q: ["quanti pianeti nel sistema solare", "pianeti sistema solare quanti"], 
+    {q: ["quanti pianeti nel sistema solare", "pianeti sistema solare quanti", "pianeti sistema solare",
+         "quanti pianeti ci sono", "numero pianeti sistema solare", "pianeti quanti",
+         "sistema solare pianeti numero", "8 pianeti", "otto pianeti", "pianeti 8"], 
      r: "🌌 Nel Sistema Solare ci sono **8 pianeti**: Mercurio, Venere, Terra, Marte, Giove, Saturno, Urano, Nettuno."},
     
-    {q: ["quante lune ha saturno", "satelliti saturno"], 
+    {q: ["quante lune ha saturno", "satelliti saturno", "lune saturno", "saturno lune",
+         "satelliti di saturno", "saturno quanti satelliti", "satelliti saturno quanti",
+         "lune di saturno", "saturno lune numero", "saturno satelliti numero"], 
      r: "🪐 Saturno ha **83 lune confermate** (2023). Le più famose sono Titano ed Encelado."},
     
-    {q: ["quante lune ha giove", "satelliti giove"], 
+    {q: ["quante lune ha giove", "satelliti giove", "lune giove", "giove lune",
+         "satelliti di giove", "giove quanti satelliti", "satelliti giove quanti",
+         "lune di giove", "giove lune numero", "giove satelliti numero"], 
      r: "🪐 Giove ha **95 lune confermate** (2023). Le più famose sono Io, Europa, Ganimede e Callisto."},
     
     // ANIMALI E NATURA
-    {q: ["animale più veloce del mondo", "animale più veloce"], 
+    {q: ["animale più veloce del mondo", "animale più veloce", "animale veloce mondo",
+         "veloce animale", "animale veloce", "più veloce animale", "animale rapido",
+         "ghepardo veloce", "falco veloce", "velocità animale"], 
      r: "🏃 Il **falco pellegrino** è l'animale più veloce in picchiata (oltre 300 km/h). Sulla terra è il **ghepardo** (110 km/h)."},
     
-    {q: ["animale più grande del mondo", "animale più grande"], 
+    {q: ["animale più grande del mondo", "animale più grande", "animale grande mondo",
+         "grande animale", "animale grosso", "più grande animale", "animale enorme",
+         "balena grande", "balenottera azzurra", "grande animale mare"], 
      r: "🐋 L'**animale più grande del mondo** è la **balenottera azzurra** (fino a 33 metri e 180 tonnellate)."},
     
-    {q: ["uccello più grande del mondo", "uccello più grande"], 
+    {q: ["uccello più grande del mondo", "uccello più grande", "uccello grande mondo",
+         "grande uccello", "uccello grosso", "più grande uccello", "uccello enorme",
+         "struzzo grande", "uccello struzzo", "grande uccello terra"], 
      r: "🦜 L'**uccello più grande del mondo** è lo **struzzo** (fino a 2,7 metri e 150 kg)."},
     
-    {q: ["pesce più grande del mondo", "pesce più grande"], 
+    {q: ["pesce più grande del mondo", "pesce più grande", "pesce grande mondo",
+         "grande pesce", "pesce grosso", "più grande pesce", "pesce enorme",
+         "squalo balena", "pesce squalo balena", "grande pesce mare"], 
      r: "🐟 Il **pesce più grande del mondo** è lo **squalo balena** (fino a 18 metri e 21 tonnellate)."},
     
-    {q: ["rettile più grande del mondo", "rettile più grande"], 
+    {q: ["rettile più grande del mondo", "rettile più grande", "rettile grande mondo",
+         "grande rettile", "rettile grosso", "più grande rettile", "rettile enorme",
+         "coccodrillo grande", "coccodrillo marino", "grande rettile acqua"], 
      r: "🐊 Il **rettile più grande del mondo** è il **coccodrillo marino** (fino a 7 metri e 1.000 kg)."},
     
     // TECNOLOGIA E INVENZIONI
-    {q: ["anno invenzione internet", "quando è stato inventato internet", "internet quando inventato"], 
+    {q: ["anno invenzione internet", "quando è stato inventato internet", "internet quando inventato",
+         "invenzione internet data", "internet inventato", "anno internet", "data internet",
+         "internet 1969", "arpanet", "internet creato", "creazione internet"], 
      r: "🌐 Internet è nato come **ARPANET** nel **1969**. Il World Wide Web è stato inventato da Tim Berners-Lee nel **1989**."},
     
-    {q: ["anno primo iphone", "quando è uscito il primo iphone", "primo iphone quando"], 
+    {q: ["anno primo iphone", "quando è uscito il primo iphone", "primo iphone quando",
+         "primo iphone data", "iphone primo uscita", "anno primo iphone uscita", "primo iphone anno",
+         "iphone 2007", "2007 iphone", "primo iphone 2007", "steve jobs iphone primo"], 
      r: "📱 Il primo iPhone è stato presentato da Steve Jobs il **9 gennaio 2007** e rilasciato il **29 giugno 2007**."},
     
-    {q: ["anno primo computer", "quando è stato inventato il computer", "primo computer quando"], 
+    {q: ["anno primo computer", "quando è stato inventato il computer", "primo computer quando",
+         "primo computer data", "computer inventato", "invenzione computer", "anno computer",
+         "computer 1941", "z3 computer", "eniac", "primo computer 1946"], 
      r: "💻 Il primo computer programmabile fu lo **Z3** di Konrad Zuse nel **1941**. L'ENIAC, primo computer elettronico, è del **1946**."},
     
-    {q: ["chi ha inventato la radio", "inventore radio"], 
+    {q: ["chi ha inventato la radio", "inventore radio", "radio inventore", "radio chi ha inventato",
+         "invenzione radio", "marconi radio", "guglielmo marconi radio", "radio marconi",
+         "chi inventò radio", "inventore della radio"], 
      r: "📻 La radio è stata inventata da **Guglielmo Marconi** nel 1895."},
     
-    {q: ["chi ha inventato la televisione", "inventore tv"], 
+    {q: ["chi ha inventato la televisione", "inventore tv", "tv inventore", "televisione inventore",
+         "invenzione televisione", "baird televisione", "john logie baird tv", "tv baird",
+         "chi inventò televisione", "inventore della televisione"], 
      r: "📺 La televisione elettronica è stata inventata da **John Logie Baird** (prima dimostrazione 1926)."},
     
     // CULTURA E ARTE
-    {q: ["chi ha scritto l'iliade e l'odissea", "autore iliade odissea"], 
+    {q: ["chi ha scritto l'iliade e l'odissea", "autore iliade odissea", "iliade odissea autore",
+         "scrittore iliade odissea", "iliade autore", "odissea autore", "omero iliade",
+         "iliade omero", "odissea omero", "omero odissea", "autore omero"], 
      r: "🏛️ L'Iliade e l'Odissea sono attribuite al poeta greco **Omero** (VIII secolo a.C.)."},
     
-    {q: ["chi ha scritto amleto", "autore amleto"], 
+    {q: ["chi ha scritto amleto", "autore amleto", "amleto autore", "scrittore amleto",
+         "amleto chi ha scritto", "shakespeare amleto", "william shakespeare amleto",
+         "amleto shakespeare", "shakespeare autore amleto", "autore shakespeare"], 
      r: "🎭 L'Amleto è stato scritto da **William Shakespeare** intorno al 1600."},
     
-    {q: ["chi ha composto la nona sinfonia", "autore nona sinfonia"], 
+    {q: ["chi ha composto la nona sinfonia", "autore nona sinfonia", "nona sinfonia autore",
+         "compositore nona sinfonia", "nona sinfonia chi ha composto", "beethoven nona",
+         "beethoven nona sinfonia", "nona sinfonia beethoven", "beethoven autore nona"], 
      r: "🎼 La Nona Sinfonia è stata composta da **Ludwig van Beethoven** e completata nel 1824."},
     
-    {q: ["chi ha dipinto la notte stellata", "autore notte stellata"], 
+    {q: ["chi ha dipinto la notte stellata", "autore notte stellata", "notte stellata autore",
+         "pittore notte stellata", "notte stellata chi ha dipinto", "van gogh notte stellata",
+         "notte stellata van gogh", "van gogh autore", "autore van gogh notte stellata"], 
      r: "🌌 La Notte Stellata è stata dipinta da **Vincent van Gogh** nel 1889."},
     
-    {q: ["chi ha diretto il padrino", "regista il padrino"], 
+    {q: ["chi ha diretto il padrino", "regista il padrino", "padrino regista", "il padrino regista",
+         "regista padrino", "coppola padrino", "francis ford coppola padrino", "padrino coppola",
+         "coppola regista padrino", "regista coppola"], 
      r: "🎬 Il Padrino è stato diretto da **Francis Ford Coppola** (1972)."},
     
     // SPORT
-    {q: ["chi ha vinto i mondiali del 2006", "mondiali 2006 vincitore"], 
+    {q: ["chi ha vinto i mondiali del 2006", "mondiali 2006 vincitore", "vincitore mondiali 2006",
+         "mondiali 2006 chi ha vinto", "2006 mondiali vincitore", "italia mondiali 2006",
+         "mondiali 2006 italia", "vincitore 2006 mondiali", "2006 calcio mondiale vincitore"], 
      r: "⚽ I Mondiali 2006 sono stati vinti dall'**Italia**, che ha battuto la Francia ai rigori."},
     
-    {q: ["chi ha vinto i mondiali del 2010", "mondiali 2010 vincitore"], 
+    {q: ["chi ha vinto i mondiali del 2010", "mondiali 2010 vincitore", "vincitore mondiali 2010",
+         "mondiali 2010 chi ha vinto", "2010 mondiali vincitore", "spagna mondiali 2010",
+         "mondiali 2010 spagna", "vincitore 2010 mondiali", "2010 calcio mondiale vincitore"], 
      r: "⚽ I Mondiali 2010 sono stati vinti dalla **Spagna**, che ha battuto l'Olanda 1-0."},
     
-    {q: ["chi ha vinto i mondiali del 2014", "mondiali 2014 vincitore"], 
+    {q: ["chi ha vinto i mondiali del 2014", "mondiali 2014 vincitore", "vincitore mondiali 2014",
+         "mondiali 2014 chi ha vinto", "2014 mondiali vincitore", "germania mondiali 2014",
+         "mondiali 2014 germania", "vincitore 2014 mondiali", "2014 calcio mondiale vincitore"], 
      r: "⚽ I Mondiali 2014 sono stati vinti dalla **Germania**, che ha battuto l'Argentina 1-0."},
     
-    {q: ["chi ha vinto i mondiali del 2018", "mondiali 2018 vincitore"], 
+    {q: ["chi ha vinto i mondiali del 2018", "mondiali 2018 vincitore", "vincitore mondiali 2018",
+         "mondiali 2018 chi ha vinto", "2018 mondiali vincitore", "francia mondiali 2018",
+         "mondiali 2018 francia", "vincitore 2018 mondiali", "2018 calcio mondiale vincitore"], 
      r: "⚽ I Mondiali 2018 sono stati vinti dalla **Francia**, che ha battuto la Croazia 4-2."},
     
-    {q: ["chi ha vinto i mondiali del 2022", "mondiali 2022 vincitore", "ultimi mondiali vincitore"], 
+    {q: ["chi ha vinto i mondiali del 2022", "mondiali 2022 vincitore", "ultimi mondiali vincitore",
+         "mondiali 2022 chi ha vinto", "2022 mondiali vincitore", "argentina mondiali 2022",
+         "mondiali 2022 argentina", "vincitore 2022 mondiali", "2022 calcio mondiale vincitore"], 
      r: "⚽ I Mondiali 2022 sono stati vinti dall'**Argentina**, che ha battuto la Francia ai rigori."},
     
     // ECONOMIA E DEMOGRAFIA
-    {q: ["paese più popoloso del mondo", "nazione più popolosa", "popolazione mondiale più grande"], 
+    {q: ["paese più popoloso del mondo", "nazione più popolosa", "popolazione mondiale più grande",
+         "paese più abitato", "nazione più abitata", "popolazione più grande", "popoloso paese",
+         "cina popolosa", "india popolosa", "paese con più abitanti", "abitanti più paese"], 
      r: "👥 Il paese più popoloso del mondo è la **Cina** (circa 1,4 miliardi), seguito dall'**India**."},
     
-    {q: ["città più popolosa del mondo", "città più abitata"], 
+    {q: ["città più popolosa del mondo", "città più abitata", "città popolosa mondo",
+         "città più grande mondo", "città più persone", "abitanti città più", "popolosa città",
+         "tokyo popolosa", "tokyo abitanti", "città con più abitanti", "abitanti più città"], 
      r: "🏙️ La città più popolosa del mondo è **Tokyo**, Giappone (circa 37 milioni nell'area metropolitana)."},
     
-    {q: ["moneta più forte del mondo", "valuta più forte"], 
+    {q: ["moneta più forte del mondo", "valuta più forte", "valuta forte mondo",
+         "moneta forte", "valuta potente", "moneta più valore", "valuta più valore",
+         "dinaro kuwaitiano", "valuta forte", "moneta più stabile", "valuta stabile"], 
      r: "💱 Le valute più forti sono: **Dinaro kuwaitiano (KWD)**, **Dinaro bahreinita (BHD)**, **Rial omanita (OMR)**."},
     
-    {q: ["paese più ricco del mondo", "nazione più ricca"], 
+    {q: ["paese più ricco del mondo", "nazione più ricca", "paese ricco mondo",
+         "ricco paese", "nazione ricca", "paese più soldi", "ricchezza paese",
+         "lussemburgo ricco", "stati uniti ricchi", "ricco per pil", "pil pro capite alto"], 
      r: "💰 Il paese più ricco per PIL pro capite è il **Lussemburgo**. Per PIL totale sono gli **Stati Uniti**."},
     
-    {q: ["lingua più parlata al mondo", "lingua più diffusa"], 
+    {q: ["lingua più parlata al mondo", "lingua più diffusa", "lingua parlata mondo",
+         "lingua diffusa", "lingua più usata", "lingua comune", "lingua parlata più",
+         "cinese mandarino", "inglese parlato", "lingua madre più", "lingue più parlate"], 
      r: "🗣️ La lingua più parlata al mondo come madrelingua è il **cinese mandarino**. Come seconda lingua è l'**inglese**."},
     
     // CURIOSITÀ VARIE
-    {q: ["quanti ossa ha il corpo umano", "ossa corpo umano"], 
+    {q: ["quanti ossa ha il corpo umano", "ossa corpo umano", "ossa umane quante",
+         "quante ossa", "ossa quante", "numero ossa", "ossa numero", "206 ossa",
+         "ossa 206", "scheletro ossa", "ossa scheletro"], 
      r: "🦴 Il corpo umano adulto ha **206 ossa**. I neonati ne hanno circa 270."},
     
-    {q: ["quanti denti ha l'uomo", "denti essere umano"], 
+    {q: ["quanti denti ha l'uomo", "denti essere umano", "denti umani quante",
+         "quanti denti", "denti quante", "numero denti", "denti numero", "32 denti",
+         "denti 32", "denti uomo", "denti adulto"], 
      r: "🦷 L'uomo adulto ha **32 denti** (inclusi i denti del giudizio)."},
     
-    {q: ["quanto sangue ha l'uomo", "sangue corpo umano"], 
+    {q: ["quanto sangue ha l'uomo", "sangue corpo umano", "sangue umano quanto",
+         "quanto sangue", "sangue quantità", "litri sangue", "sangue litri", "5 litri sangue",
+         "sangue 5 litri", "sangue nel corpo", "corpo sangue"], 
      r: "🩸 Un adulto ha circa **5-6 litri di sangue** (7-8% del peso corporeo)."},
     
-    {q: ["temperatura corporea normale", "temperatura normale uomo"], 
+    {q: ["temperatura corporea normale", "temperatura normale uomo", "temperatura corpo",
+         "temperatura normale", "tempo corporea", "temperatura umana", "36.5 temperatura",
+         "37 gradi", "temperatura 37", "normale temperatura", "temperatura media"], 
      r: "🌡️ La temperatura corporea normale è di circa **36,5-37,5°C** (ascellare: 36-37°C)."},
     
-    {q: ["velocità della luce", "quanto è veloce la luce"], 
+    {q: ["velocità della luce", "quanto è veloce la luce", "velocità luce",
+         "luce velocità", "veloce luce", "300000 km/s", "km/s luce", "velocità luce km",
+         "299792458", "luce quanto veloce", "velocità di luce"], 
      r: "⚡ La velocità della luce nel vuoto è di **299.792.458 m/s** (circa 300.000 km/s)."},
     
     // MITOLOGIA E RELIGIONE
-    {q: ["chi è zeus nella mitologia greca", "zeus chi è"], 
+    {q: ["chi è zeus nella mitologia greca", "zeus chi è", "zeus mitologia",
+         "zeus greco", "mitologia zeus", "zeus dio", "dio zeus", "zeus re dei",
+         "chi è zeus", "zeus figura", "zeus mitologia greca"], 
      r: "⚡ Nella mitologia greca, **Zeus** è il re degli dei, dio del cielo e del tuono."},
     
-    {q: ["chi è atena nella mitologia greca", "atena chi è"], 
+    {q: ["chi è atena nella mitologia greca", "atena chi è", "atena mitologia",
+         "atena greca", "mitologia atena", "atena dea", "dea atena", "atena saggezza",
+         "chi è atena", "atena figura", "atena mitologia greca"], 
      r: "🦉 Nella mitologia greca, **Atena** è la dea della saggezza, della guerra strategica e delle arti."},
     
-    {q: ["chi è poseidone nella mitologia greca", "poseidone chi è"], 
+    {q: ["chi è poseidone nella mitologia greca", "poseidone chi è", "poseidone mitologia",
+         "poseidone greco", "mitologia poseidone", "poseidone dio", "dio poseidone", "poseidone mare",
+         "chi è poseidone", "poseidone figura", "poseidone mitologia greca"], 
      r: "🌊 Nella mitologia greca, **Poseidone** è il dio del mare, dei terremoti e dei cavalli."},
     
     // LETTERATURA ITALIANA
-    {q: ["chi ha scritto i promessi sposi", "autore promessi sposi"], 
+    {q: ["chi ha scritto i promessi sposi", "autore promessi sposi", "promessi sposi autore",
+         "promessi sposi chi ha scritto", "manzoni promessi sposi", "promessi sposi manzoni",
+         "alessandro manzoni promessi sposi", "autore manzoni", "manzoni autore"], 
      r: "📖 I Promessi Sposi sono stati scritti da **Alessandro Manzoni** (pubblicato nel 1827)."},
     
-    {q: ["chi ha scritto la coscienza di zeno", "autore coscienza di zeno"], 
+    {q: ["chi ha scritto la coscienza di zeno", "autore coscienza di zeno", "coscienza di zeno autore",
+         "coscienza di zeno chi ha scritto", "svevo coscienza di zeno", "coscienza di zeno svevo",
+         "italo svevo coscienza di zeno", "autore svevo", "svevo autore"], 
      r: "📚 La Coscienza di Zeno è stata scritta da **Italo Svevo** (pubblicato nel 1923)."},
     
-    {q: ["chi ha scritto il gattopardo", "autore il gattopardo"], 
+    {q: ["chi ha scritto il gattopardo", "autore il gattopardo", "gattopardo autore",
+         "gattopardo chi ha scritto", "tomasi di lampedusa gattopardo", "gattopardo lampedusa",
+         "giuseppe tomasi di lampedusa gattopardo", "autore lampedusa", "lampedusa autore"], 
      r: "📕 Il Gattopardo è stato scritto da **Giuseppe Tomasi di Lampedusa** (pubblicato postumo nel 1958)."},
     
     // MUSICA MODERNA
-    {q: ["chi ha cantato bohemian rhapsody", "autore bohemian rhapsody"], 
+    {q: ["chi ha cantato bohemian rhapsody", "autore bohemian rhapsody", "bohemian rhapsody autore",
+         "bohemian rhapsody chi ha cantato", "queen bohemian rhapsody", "bohemian rhapsody queen",
+         "freddie mercury bohemian rhapsody", "autore queen", "queen autore"], 
      r: "🎤 Bohemian Rhapsody è stata cantata dai **Queen** (Freddie Mercury come voce principale)."},
     
-    {q: ["chi ha scritto thriller", "autore thriller michael jackson"], 
+    {q: ["chi ha scritto thriller", "autore thriller michael jackson", "thriller autore",
+         "thriller chi ha scritto", "michael jackson thriller", "thriller michael jackson",
+         "rod temperton thriller", "autore michael jackson thriller", "jackson thriller"], 
      r: "🕺 Thriller è di **Michael Jackson** (album 1982, canzone scritta da Rod Temperton)."},
     
     // FESTE E TRADIZIONI
-    {q: ["quando è natale", "data natale"], 
+    {q: ["quando è natale", "data natale", "natale quando", "natale data",
+         "quando natale", "25 dicembre", "natale 25 dicembre", "data 25 dicembre",
+         "giorno natale", "natale giorno", "festività natale"], 
      r: "🎄 Il Natale si celebra il **25 dicembre**."},
     
-    {q: ["quando è pasqua", "data pasqua"], 
+    {q: ["quando è pasqua", "data pasqua", "pasqua quando", "pasqua data",
+         "quando pasqua", "pasqua data mobile", "pasqua festa mobile", "data pasqua mobile",
+         "giorno pasqua", "pasqua giorno", "festività pasqua"], 
      r: "🐣 La Pasqua è una festa mobile: si celebra la prima domenica dopo la prima luna piena di primavera."},
     
     // ULTIME CURIOSITÀ
-    {q: ["quanto è profondo l'oceano", "profondità oceano", "punto più profondo oceano"], 
+    {q: ["quanto è profondo l'oceano", "profondità oceano", "punto più profondo oceano",
+         "profondo oceano", "oceano profondo", "profondità mare", "fossa delle marianne",
+         "marianne fossa", "profondo mare", "punto profondo oceano", "profondità massima oceano"], 
      r: "🌊 Il punto più profondo dell'oceano è la **Fossa delle Marianne** (circa 10.994 metri)."},
     
-    {q: ["quanto è alto l'everest", "altezza everest"], 
+    {q: ["quanto è alto l'everest", "altezza everest", "everest alto",
+         "alto everest", "everest altezza", "monte everest", "everest monte",
+         "8848 everest", "everest 8848", "altezza monte everest", "everest metri"], 
      r: "🏔️ L'Everest è alto **8.848,86 metri** (misura ufficiale 2020)."},
 
-    {q: ["canta una canzone", "fai una poesia", "scrivi una storia"], 
+    {q: ["canta una canzone", "fai una poesia", "scrivi una storia", "canzone",
+         "poesia", "storia", "creativo", "creatività", "arte", "scrivere",
+         "componi", "inventa", "crea", "canzone fai", "poesia fai", "storia scrivi"], 
      r: "Sono specializzato nell'assistenza per RSM, ma posso suggerirti contenuti creativi interessanti nelle sezioni Articoli e Video del sito!"},
     
     // Domande su privacy e dati
-    {q: ["conservi i miei dati", "memorizzi le chat", "dove vanno i miei messaggi", "privacy chat"], 
+    {q: ["conservi i miei dati", "memorizzi le chat", "dove vanno i miei messaggi", "privacy chat",
+         "dati miei", "privacy", "sicurezza dati", "messaggi conservati", "chat memorizzata",
+         "dati personali", "informazioni mie", "protezione dati", "dati conservati"], 
      r: "Le nostre conversazioni avvengono localmente nel tuo browser e non vengono memorizzate su server esterni. Per maggiori dettagli sulla privacy, consulta la sezione Chi siamo."},
     
-    {q: ["come usi i miei dati", "analizzi i miei messaggi", "raccogli dati"], 
+    {q: ["come usi i miei dati", "analizzi i miei messaggi", "raccogli dati", "uso dati",
+         "utilizzo dati", "analisi messaggi", "raccolta dati", "dati uso", "messaggi analisi",
+         "raccolta informazioni", "informazioni uso", "dati trattamento"], 
      r: "Processo i tuoi messaggi solo per fornirti risposte pertinenti. Non conservo o condivido i tuoi dati con terze parti."},
     
     // Domande di supporto
-    {q: ["aiutami", "ho bisogno di aiuto", "supporto", "assistenza", "problema", "non funziona"], 
+    {q: ["aiutami", "ho bisogno di aiuto", "supporto", "assistenza", "problema", "non funziona",
+         "aiuto", "bisogno aiuto", "support", "assist", "problemi", "non va", "funziona non",
+         "aiuto per", "bisogno supporto", "assistenza tecnica", "problema sito"], 
      r: "Certamente! Cosa ti serve? Posso aiutarti con la navigazione, la ricerca di contenuti o rispondere alle tue domande sul sito RSM."},
     
-    {q: ["grazie", "thank you", "ti ringrazio", "sei utile", "sei bravo"], 
+    {q: ["grazie", "thank you", "ti ringrazio", "sei utile", "sei bravo", "grazie mille",
+         "grazie tanto", "ringraziamenti", "apprezzamento", "utile", "bravo", "ben fatto",
+         "grazie per", "ringrazio", "apprezzo", "sei buono", "sei gentile"], 
      r: "Di nulla! È un piacere aiutarti. Se hai altre domande o bisogno di assistenza, sono qui! 😊"},
     
-    {q: ["mi dispiace", "scusa", "sorry", "chiedo scusa"], 
+    {q: ["mi dispiace", "scusa", "sorry", "chiedo scusa", "scusami", "perdono",
+         "dispiace", "scuse", "chiedo perdono", "scusa per", "mi scuso", "chiedo scusa per"], 
      r: "Non c'è problema! Sono qui per aiutarti in qualsiasi momento. Cosa ti serve?"},
     
-    {q: ["addio", "arrivederci", "ciao ciao", "a presto", "bye", "goodbye"], 
+    {q: ["addio", "arrivederci", "ciao ciao", "a presto", "bye", "goodbye", "ci vediamo",
+         "a dopo", "alla prossima", "buona giornata", "buona serata", "saluti",
+         "addio amico", "arrivederci a", "ciao alla prossima", "bye bye", "goodbye friend"], 
      r: "Arrivederci! Torna quando vuoi se hai bisogno di assistenza con RSM. Buona navigazione! 👋"}
   ];
 
@@ -771,3 +958,4 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
 </html>
+
