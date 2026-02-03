@@ -286,8 +286,67 @@ function botResponse(msg) {
     return "Ciao! Come posso assisterti oggi?";
   }
 
-   // DOMANDE FREQUENTI ALLE IA - AGGIUNTE NUOVE
+// === FUNZIONI UTILITY PER IL MATCHING INTELLIGENTE ===
+// AGGIUNGI QUESTE FUNZIONI PRIMA di botResponse
+
+function normalizeText(text) {
+    return text.toLowerCase()
+        .replace(/[^a-zàèéìòù\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function smartKeywordCheck(message, keywordArray) {
+    const normMsg = normalizeText(message);
+    
+    for (const keyword of keywordArray) {
+        const normKeyword = normalizeText(keyword);
+        
+        // Controllo diretto
+        if (normMsg.includes(normKeyword) || normKeyword.includes(normMsg)) {
+            return true;
+        }
+        
+        // Controllo parole singole
+        const msgWords = normMsg.split(' ');
+        const keyWords = normKeyword.split(' ');
+        
+        let matchCount = 0;
+        for (const keyWord of keyWords) {
+            if (keyWord.length < 3) continue;
+            
+            for (const msgWord of msgWords) {
+                if (msgWord.includes(keyWord) || keyWord.includes(msgWord)) {
+                    matchCount++;
+                    break;
+                }
+            }
+        }
+        
+        if (matchCount >= Math.max(2, Math.ceil(keyWords.length * 0.6))) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+// === FINE FUNZIONI UTILITY ===
+
+// BOT RESPONSES ESTESA (VERSIONE NUOVA CORRETTA)
+function botResponse(msg) {
+  const m = msg.toLowerCase();
+
+  // SALUTI INIZIALI
+  const saluti = ["ciao", "buongiorno", "buon giorno", "buonasera", "buona sera", "buon pomeriggio", "buonpomeriggio", "hi", "hello", "salve", "hey"];
+  
+  if (saluti.some(saluto => m === saluto || m.includes(saluto + " "))) {
+    return "Ciao! Come posso assisterti oggi?";
+  }
+
+  // DOMANDE FREQUENTI ALLE IA - AGGIUNTE NUOVE
   const domandeIA = [
+    // ... TUTTE LE TUE DOMANDE ESISTENTI RIMANGONO UGUALI ...
     // Informazioni generali sull'IA
     {q: ["cosa sei", "chi sei", "che cosa sei", "tu chi sei", "sei un ai", "sei un'intelligenza artificiale"], 
      r: "Sono un assistente AI integrato nel sito RSM. Sono qui per aiutarti a navigare e trovare i contenuti che cerchi!"},
@@ -301,6 +360,7 @@ function botResponse(msg) {
     {q: ["quanto sei intelligente", "quanto sei smart", "quanto sei avanzato", "sei intelligente"], 
      r: "Sono progettato per aiutarti specificamente con le funzionalità del sito RSM. Per tutto il resto, farò del mio meglio!"},
     
+    // ... TUTTO IL RESTO DELLE DOMANDE RIMANE ASSOLUTAMENTE IDENTICO ...
     // Capacità e limiti
     {q: ["cosa puoi fare", "cosa sai fare", "quali sono le tue capacità", "come puoi aiutarmi"], 
      r: "Posso aiutarti a: navigare tra le sezioni del sito, cercare contenuti, aprire articoli/video/news, riassumere testi e rispondere alle tue domande sul sito!"},
@@ -598,14 +658,15 @@ function botResponse(msg) {
      r: "Arrivederci! Torna quando vuoi se hai bisogno di assistenza con RSM. Buona navigazione! 👋"}
   ];
 
-  // Controlla prima le domande IA frequenti
+  // === MODIFICA QUESTO CONTROLLO ===
+  // SOSTITUISCI la vecchia verifica con la nuova
   for(const domanda of domandeIA) {
-    if(domanda.q.some(keyword => m.includes(keyword))) {
+    if(smartKeywordCheck(m, domanda.q)) {
       return domanda.r;
     }
   }
 
-   // Lista di insulti e parolacce (anche pesanti)
+  // Lista di insulti e parolacce (anche pesanti)
   const insults = [
     "stupido","idiota","cretino","scemo","imbecille","stronzo","cazzo","merda",
     "bastardo","figlio di puttana","fottuto","coglione","vaffanculo","testa di cazzo",
@@ -655,9 +716,9 @@ function botResponse(msg) {
     {keywords:["dove","come","quando","perché","perché","perchè","perche","spiegami","mostrami"], question:"Prova a chiedere Articoli, Video, News o Contatti per navigare."}
   ];
 
-  // Cerca se il messaggio contiene una keyword
+  // === MODIFICA ANCHE QUESTO CONTROLLO ===
   for(const q of questionSet){
-    if(q.keywords.some(k=>m.includes(k))){
+    if(smartKeywordCheck(m, q.keywords)){
       lastQuestion = q.question;
       return randomChoice([
         "Per questo puoi aprire la sezione corrispondente.",
@@ -678,31 +739,31 @@ function botResponse(msg) {
   }
 
   // Aggancio diretto delle sezioni principali (come nel tuo codice funzionante)
-  if(m.includes("articolo")||m.includes("articoli")){ 
+  if(smartKeywordCheck(m, ["articolo", "articoli"])){ 
     lastQuestion="Vuoi aprire la sezione Articoli?"; 
     return lastQuestion; 
   }
-  if(m.includes("video")){ 
+  if(smartKeywordCheck(m, ["video"])){ 
     lastQuestion="Vuoi aprire la sezione Video?"; 
     return lastQuestion; 
   }
-  if(m.includes("news")||m.includes("notizie")){ 
+  if(smartKeywordCheck(m, ["news", "notizie"])){ 
     lastQuestion="Vuoi aprire la sezione News?"; 
     return lastQuestion; 
   }
-  if(m.includes("categorie")||m.includes("argomento")){ 
+  if(smartKeywordCheck(m, ["categorie", "argomento"])){ 
     lastQuestion="Vuoi aprire la sezione Categorie?"; 
     return lastQuestion; 
   }
-  if(m.includes("chi siamo")||m.includes("chi siete")){ 
+  if(smartKeywordCheck(m, ["chi siamo", "chi siete"])){ 
     lastQuestion="Vuoi aprire la sezione Chi siamo?"; 
     return lastQuestion; 
   }
-  if(m.includes("contatti")||m.includes("telefono")||m.includes("email")){ 
+  if(smartKeywordCheck(m, ["contatti", "telefono", "email"])){ 
     lastQuestion="Vuoi aprire la sezione Contatti?"; 
     return lastQuestion; 
   }
-  if(m.includes("home")||m.includes("inizio")){ 
+  if(smartKeywordCheck(m, ["home", "inizio"])){ 
     showSection('home');
     return "Ti porto alla Home!";
   }
@@ -719,6 +780,8 @@ function botResponse(msg) {
 
   return randomChoice(genericResponses);
 }
+
+// ... IL RESTO DEL TUO CODICE RIMANE ASSOLUTAMENTE IDENTICO ...
 
 // Gestione SÌ (funzione per aprire effettivamente le sezioni)
 function handleYes(question){
@@ -771,5 +834,6 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
 </html>
+
 
 
