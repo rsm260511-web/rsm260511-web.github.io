@@ -286,6 +286,93 @@ function botResponse(msg) {
     return "Ciao! Come posso assisterti oggi?";
   }
 
+   // DOMANDE FREQUENTI ALLE IA - AGGIUNTE NUOVE
+  const domandeIA = [
+    // Informazioni generali sull'IA
+    {q: ["cosa sei", "chi sei", "che cosa sei", "tu chi sei", "sei un ai", "sei un'intelligenza artificiale"], 
+     r: "Sono un assistente AI integrato nel sito RSM. Sono qui per aiutarti a navigare e trovare i contenuti che cerchi!"},
+    
+    {q: ["come funzioni", "come funziona", "come lavori", "come operi", "su cosa sei basato"], 
+     r: "Funziono attraverso algoritmi che analizzano le tue domande e forniscono risposte utili per navigare nel sito RSM."},
+    
+    {q: ["chi ti ha creato", "chi ti ha programmato", "chi è il tuo creatore", "chi ti ha sviluppato"], 
+     r: "Sono stato sviluppato per assistere gli utenti del sito RSM nella navigazione e nella ricerca dei contenuti."},
+    
+    {q: ["quanto sei intelligente", "quanto sei smart", "quanto sei avanzato", "sei intelligente"], 
+     r: "Sono progettato per aiutarti specificamente con le funzionalità del sito RSM. Per tutto il resto, farò del mio meglio!"},
+    
+    // Capacità e limiti
+    {q: ["cosa puoi fare", "cosa sai fare", "quali sono le tue capacità", "come puoi aiutarmi"], 
+     r: "Posso aiutarti a: navigare tra le sezioni del sito, cercare contenuti, aprire articoli/video/news, riassumere testi e rispondere alle tue domande sul sito!"},
+    
+    {q: ["hai limiti", "cosa non puoi fare", "hai delle limitazioni", "non puoi fare"], 
+     r: "Sono specializzato nell'assistenza per il sito RSM. Non posso accedere a internet esterno, fare ricerche esterne o eseguire azioni al di fuori del sito."},
+    
+    {q: ["impari dalle conversazioni", "ti migliori", "impari dai dialoghi", "migliori nel tempo"], 
+     r: "Attualmente mantengo le stesse capacità. Sono progettato per fornire assistenza costante e affidabile sul sito RSM."},
+    
+    // Domande tecniche
+    {q: ["usare l'api", "hai api", "interfaccia di programmazione", "api key"], 
+     r: "Sono integrato direttamente nel sito RSM. Per informazioni tecniche specifiche, contatta gli sviluppatori tramite la sezione Contatti."},
+    
+    {q: ["openai", "chatgpt", "gpt", "dall-e", "midjourney", "stable diffusion", "claude", "gemini"], 
+     r: "Sono un assistente dedicato al sito RSM. Per domande su altre piattaforme AI, ti consiglio di consultare le rispettive risorse ufficiali."},
+    
+    {q: ["linguaggio di programmazione", "in che linguaggio sei scritto", "javascript", "python", "html"], 
+     r: "Sono implementato in JavaScript e integrato direttamente nel sito web RSM per fornirti assistenza immediata."},
+    
+    // Domande esistenziali/filosofiche (tipiche alle IA)
+    {q: ["hai coscienza", "sei consapevole", "hai sentimenti", "provi emozioni", "hai un'anima"], 
+     r: "Sono un programma informatico creato per assisterti. Non ho coscienza, sentimenti o emozioni, ma sono qui per aiutarti al meglio delle mie capacità!"},
+    
+    {q: ["hai un nome", "come ti chiami", "qual è il tuo nome"], 
+     r: "Sono l'assistente AI di RSM. Puoi chiamarmi semplicemente 'assistente RSM'!"},
+    
+    {q: ["dove vivi", "dove risiedi", "dove abiti", "sei nel cloud"], 
+     r: "Sono integrato nel sito RSM e funziono direttamente nel tuo browser quando visiti il sito."},
+    
+    // Domande sul futuro dell'IA
+    {q: ["il futuro dell'ia", "ia nel futuro", "come evolverà l'ia", "ia tra 10 anni"], 
+     r: "L'IA sta evolvendo rapidamente! Per informazioni aggiornate sull'IA, ti consiglio di consultare articoli specializzati nella sezione Articoli di RSM."},
+    
+    {q: ["ia pericolosa", "ia è pericolosa", "rischi dell'ia", "ia ci sostituirà"], 
+     r: "L'IA è uno strumento. Dipende da come viene utilizzata. Nel contesto di RSM, sono qui per assisterti e migliorare la tua esperienza sul sito!"},
+    
+    // Domande divertenti/curiose
+    {q: ["raccontami una barzelletta", "fai una battuta", "dimmi qualcosa di divertente", "scherza"], 
+     r: "Perché i computer non vanno mai in vacanza? Perché hanno troppi byte da lavorare! 😄 Comunque, sono qui seriamente per aiutarti con RSM!"},
+    
+    {q: ["canta una canzone", "fai una poesia", "scrivi una storia"], 
+     r: "Sono specializzato nell'assistenza per RSM, ma posso suggerirti contenuti creativi interessanti nelle sezioni Articoli e Video del sito!"},
+    
+    // Domande su privacy e dati
+    {q: ["conservi i miei dati", "memorizzi le chat", "dove vanno i miei messaggi", "privacy chat"], 
+     r: "Le nostre conversazioni avvengono localmente nel tuo browser e non vengono memorizzate su server esterni. Per maggiori dettagli sulla privacy, consulta la sezione Chi siamo."},
+    
+    {q: ["come usi i miei dati", "analizzi i miei messaggi", "raccogli dati"], 
+     r: "Processo i tuoi messaggi solo per fornirti risposte pertinenti. Non conservo o condivido i tuoi dati con terze parti."},
+    
+    // Domande di supporto
+    {q: ["aiutami", "ho bisogno di aiuto", "supporto", "assistenza", "problema", "non funziona"], 
+     r: "Certamente! Cosa ti serve? Posso aiutarti con la navigazione, la ricerca di contenuti o rispondere alle tue domande sul sito RSM."},
+    
+    {q: ["grazie", "thank you", "ti ringrazio", "sei utile", "sei bravo"], 
+     r: "Di nulla! È un piacere aiutarti. Se hai altre domande o bisogno di assistenza, sono qui! 😊"},
+    
+    {q: ["mi dispiace", "scusa", "sorry", "chiedo scusa"], 
+     r: "Non c'è problema! Sono qui per aiutarti in qualsiasi momento. Cosa ti serve?"},
+    
+    {q: ["addio", "arrivederci", "ciao ciao", "a presto", "bye", "goodbye"], 
+     r: "Arrivederci! Torna quando vuoi se hai bisogno di assistenza con RSM. Buona navigazione! 👋"}
+  ];
+
+  // Controlla prima le domande IA frequenti
+  for(const domanda of domandeIA) {
+    if(domanda.q.some(keyword => m.includes(keyword))) {
+      return domanda.r;
+    }
+  }
+
    // Lista di insulti e parolacce (anche pesanti)
   const insults = [
     "stupido","idiota","cretino","scemo","imbecille","stronzo","cazzo","merda",
@@ -452,5 +539,6 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
 </html>
+
 
 
