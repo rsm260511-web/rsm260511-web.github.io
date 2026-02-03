@@ -71,19 +71,25 @@ main{max-width:900px;margin:auto;padding:20px;}
   <div id="chatBotContainer" style="position:relative;margin-left:15px;">
     <button id="chatToggle" style="padding:8px 12px;border:none;border-radius:20px;background:#ff4d4d;color:#fff;cursor:pointer;">
 <div id="chatBox">
-  <!-- Piccola X a DESTRA in alto -->
-  <button id="chatClose" style="position:absolute; top:10px; right:10px; width:30px; height:30px; background:#ff4d4d; color:white; border:none; border-radius:50%; cursor:pointer; z-index:1000; font-size:16px; font-weight:bold; display:flex; align-items:center; justify-content:center;">
-    ×
-  </button>
+  <!-- Header compatto -->
+  <div style="background:#1c1c25; padding:10px 15px; border-bottom:1px solid #333; display:flex; justify-content:space-between; align-items:center;">
+    <span style="color:#fff; font-weight:600;">AI Assistant</span>
+    <button id="chatClose" style="background:none; color:#ff4d4d; border:none; font-size:24px; cursor:pointer; padding:0; width:30px; height:30px; display:flex; align-items:center; justify-content:center;">
+      ×
+    </button>
+  </div>
   
-  <!-- Area messaggi -->
-  <div id="chatMessages" style="height:calc(100% - 60px); overflow-y:auto; padding:20px 10px 10px 10px;"></div>
+  <!-- Messaggi -->
+  <div id="chatMessages" style="height:350px; overflow-y:auto; padding:15px;"></div>
   
-  <!-- Area input -->
-  <div style="position:absolute; bottom:0; width:100%; border-top:1px solid #333; background:#1c1c25;">
-    <div style="display:flex; padding:10px; gap:5px;">
-      <input id="chatInput" type="text" placeholder="Scrivi qui..." autocomplete="off" style="flex-grow:1; padding:8px; background:#0e0e11; color:white; border:none; border-radius:5px;">
-      <button id="chatSend" style="padding:8px 15px; background:#4da6ff; color:white; border:none; border-radius:5px; cursor:pointer;">Invia</button>
+  <!-- Input compatto -->
+  <div style="padding:10px 15px; background:#1c1c25; border-top:1px solid #333;">
+    <div style="display:flex; gap:8px;">
+      <input id="chatInput" type="text" placeholder="Messaggio..." autocomplete="off"
+             style="flex:1; padding:10px; background:#0e0e11; color:#fff; border:none; border-radius:6px;">
+      <button id="chatSend" style="padding:0 15px; background:#4da6ff; color:#fff; border:none; border-radius:6px; cursor:pointer;">
+        →
+      </button>
     </div>
   </div>
 </div>
@@ -964,6 +970,7 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
 </html>
+
 
 
 
