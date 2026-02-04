@@ -79,7 +79,7 @@ main{max-width:900px;margin:auto;padding:20px;}
       <button id="chatClose" style="background:#ff4d4d; color:white; border:none; width:30px; height:30px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:bold; margin-right:10px;">
         ×
       </button>
-      <span style="color:#fff; font-weight:600;">Assistente RSM</span>
+      <span style="color:#fff; font-weight:600;">🤖 Assistente RSM</span>
     </div>
     
     <div id="chatMessages" style="flex:1; overflow-y:auto; padding:15px;"></div>
@@ -241,7 +241,7 @@ function searchAll(){const q=searchInput.value.toLowerCase(); const box=searchRe
 function renderLatestNews(){const news=articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; if(!news) return; document.getElementById('latestTitle').innerText=news.title; const i=articles.findIndex(a=>a.title===news.title); document.getElementById('latestNews').onclick=()=>openArticle(i);}
 function renderLatestVideo(){const video=articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; if(!video) return; document.getElementById('latestVideoTitle').innerText=video.title; const i=articles.findIndex(a=>a.title===video.title); document.getElementById('latestVideo').onclick=()=>openVideo(i);}
 
-// ============ CHATBOT AI ============
+// ============ CHATBOT AI ULTRA-INTELLIGENTE ============
 const chatToggle = document.getElementById('chatToggle');
 const chatBox = document.getElementById('chatBox');
 const chatMessages = document.getElementById('chatMessages');
@@ -304,20 +304,16 @@ function randomChoice(arr) {
 // ============ WIKIPEDIA SEARCH ============
 async function wikipediaSearch(query) {
   try {
-    // Cerca il termine su Wikipedia
     const searchUrl = `https://it.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*&srlimit=1`;
     
     const searchResponse = await fetch(searchUrl);
     const searchData = await searchResponse.json();
     
     if (!searchData.query?.search?.length) {
-      return "🔍 Non ho trovato informazioni per questa ricerca.";
+      return "🔍 Non ho trovato informazioni su questo argomento.";
     }
     
-    // Prendi il primo risultato
     const pageTitle = searchData.query.search[0].title;
-    
-    // Ottieni il contenuto della pagina
     const contentUrl = `https://it.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&titles=${encodeURIComponent(pageTitle)}&format=json&origin=*`;
     
     const contentResponse = await fetch(contentUrl);
@@ -330,7 +326,6 @@ async function wikipediaSearch(query) {
       return `📚 **${pageTitle}**\n\nInformazioni limitate su questo argomento.`;
     }
     
-    // Formatta la risposta (SENZA FONTE)
     const extract = pages[pageId].extract;
     const shortExtract = extract.length > 400 ? extract.substring(0, 400) + "..." : extract;
     
@@ -341,44 +336,115 @@ async function wikipediaSearch(query) {
   }
 }
 
-// ============ BOT RESPONSE PERFETTO ============
+// ============ RIASSUNTI INTELLIGENTI ============
+function summarizeText(text, maxSentences = 3) {
+  if (!text) return "Non c'è testo da riassumere.";
+  
+  // Pulisci il testo
+  text = text.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  
+  // Dividi in frasi
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+  
+  if (sentences.length <= maxSentences) {
+    return sentences.join('. ') + '.';
+  }
+  
+  // Trova le frasi più importanti (quelle con parole chiave)
+  const words = text.toLowerCase().split(/\s+/).filter(w => w.length > 3);
+  const wordFreq = {};
+  words.forEach(w => wordFreq[w] = (wordFreq[w] || 0) + 1);
+  
+  // Calcola punteggio per ogni frase
+  const scoredSentences = sentences.map(sentence => {
+    const sentenceWords = sentence.toLowerCase().split(/\s+/);
+    let score = 0;
+    sentenceWords.forEach(w => {
+      if (wordFreq[w]) score += wordFreq[w];
+    });
+    return { sentence: sentence.trim(), score: score / sentenceWords.length };
+  });
+  
+  // Ordina per punteggio e prendi le migliori
+  scoredSentences.sort((a, b) => b.score - a.score);
+  const bestSentences = scoredSentences.slice(0, maxSentences);
+  
+  // Rimetti in ordine originale
+  bestSentences.sort((a, b) => 
+    sentences.indexOf(a.sentence) - sentences.indexOf(b.sentence)
+  );
+  
+  return bestSentences.map(s => s.sentence).join('. ') + '.';
+}
+
+// Trova articolo per titolo
+function findArticleByTitle(title) {
+  const searchTitle = title.toLowerCase().trim();
+  return articles.find(a => 
+    a.title.toLowerCase().includes(searchTitle) || 
+    searchTitle.includes(a.title.toLowerCase())
+  );
+}
+
+// ============ BOT RESPONSE ULTRA-INTELLIGENTE ============
 async function botResponse(msg) {
   const m = msg.toLowerCase().trim();
   
-  // 1. CONTROLLO SALUTI
-  const saluti = ["ciao", "buongiorno", "buon giorno", "buonasera", "buona sera", "buon pomeriggio", "hi", "hello", "salve", "hey"];
+  // 1. CONTROLLO SALUTI MIGLIORATO
+  const saluti = ["ciao", "buongiorno", "buon giorno", "buonasera", "buona sera", "buon pomeriggio", "hi", "hello", "salve", "hey", "ehi"];
   
   const words = m.split(/\s+/);
   if (words.length <= 2) {
     for (const saluto of saluti) {
       if (m === saluto || m.startsWith(saluto + " ")) {
-        return "Ciao! Sono l'Assistente RSM. Come posso aiutarti?";
+        return "👋 Ciao! Sono l'Assistente RSM. Posso cercare informazioni, riassumere articoli e aiutarti a navigare!";
       }
     }
   }
   
-  // 2. DOMANDE PERSONALI DELL'AI (PRIMA delle ricerche!)
+  // 2. RIASSUNTI ARTICOLI (MOLTO INTELLIGENTE)
+  if (m.includes('riassumi') || m.includes('sintetizza') || m.includes('fai un riassunto') || m.includes('riassunto di')) {
+    // Se c'è un articolo aperto
+    if (!document.getElementById('single').classList.contains('hidden')) {
+      const articleContent = document.getElementById('singleContent').innerText;
+      if (articleContent) {
+        const summary = summarizeText(articleContent);
+        return `📝 **Riassunto:**\n\n${summary}`;
+      }
+    }
+    
+    // Cerca articolo per titolo
+    const titleMatch = m.replace(/riassumi|sintetizza|fai un riassunto|riassunto di/gi, '').trim();
+    if (titleMatch) {
+      const article = findArticleByTitle(titleMatch);
+      if (article) {
+        const summary = summarizeText(article.content);
+        return `📝 **Riassunto di "${article.title}":**\n\n${summary}`;
+      }
+    }
+    
+    // Se non trova articolo specifico
+    return "Per riassumere un articolo, apri prima l'articolo dalla sezione Articoli o News, oppure scrivi 'riassumi [titolo articolo]'.";
+  }
+  
+  // 3. DOMANDE PERSONALI DELL'AI
   const domandePersonali = [
-    {q: ["come ti chiami", "tu come ti chiami", "qual è il tuo nome", "hai un nome", "ti chiami come", "nome tuo", "chiami", "come ti chiami tu"], 
-     r: "Mi chiamo Assistente RSM! Sono qui per aiutarti con informazioni e navigazione."},
+    {q: ["come ti chiami", "tu come ti chiami", "qual è il tuo nome", "hai un nome", "ti chiami come", "nome tuo"], 
+     r: "🤖 Mi chiamo **Assistente RSM**! Sono l'AI del sito, creato per aiutarti con informazioni e navigazione."},
     
-    {q: ["cosa sei", "chi sei", "sei un ai", "assistente", "ai chi sei", "che cosa sei", "tu chi sei"], 
-     r: "Sono l'Assistente AI di RSM. Posso cercare informazioni su qualsiasi argomento e aiutarti a navigare nel sito!"},
+    {q: ["cosa sei", "chi sei", "sei un ai", "assistente", "ai chi sei", "che cosa sei"], 
+     r: "⚡ Sono un **assistente AI avanzato** integrato in RSM. Posso cercare su Wikipedia, riassumere testi e guidarti nel sito!"},
     
-    {q: ["cosa puoi fare", "capacità", "come aiuti", "funzioni", "cose che sai fare", "cosa sai fare"], 
-     r: "Posso: 1) Cercare informazioni su Wikipedia 2) Aiutarti a navigare tra Articoli, Video, News 3) Rispondere alle tue domande!"},
+    {q: ["cosa puoi fare", "capacità", "come aiuti", "funzioni", "cose che sai fare"], 
+     r: "✨ **Cosa posso fare:**\n• 🔍 Cercare informazioni su qualsiasi argomento\n• 📝 Riassumere articoli e testi\n• 🗺️ Guidarti tra Articoli, Video, News\n• 💬 Rispondere alle tue domande\n• 🚀 E molto altro!"},
     
-    {q: ["chi ti ha creato", "sviluppatore", "creatore", "fatto da chi", "chi ti ha sviluppato", "chi ti ha programmato"], 
-     r: "Sono stato creato dal team RSM per assistere gli utenti del sito."},
+    {q: ["chi ti ha creato", "sviluppatore", "creatore", "fatto da chi"], 
+     r: "👨‍💻 Sono stato sviluppato dal team **RSM** per offrire un'assistenza intelligente agli utenti del sito."},
     
-    {q: ["dove sei", "dove vivi", "dove risiedi", "dove abiti", "dove stai"], 
-     r: "Sono integrato direttamente nel sito RSM e funziono nel tuo browser!"},
-    
-    {q: ["hai sentimenti", "provi emozioni", "hai coscienza", "sei intelligente", "sei consapevole"], 
-     r: "Sono un programma AI progettato per aiutarti. Non ho sentimenti o coscienza, ma sono qui per assisterti!"}
+    {q: ["sei intelligente", "quanto sei smart", "sei bravo", "quanto capisci"], 
+     r: "🧠 Sono progettato per essere molto intelligente! Posso capire il contesto, fare ricerche complesse e adattarmi alle tue esigenze."}
   ];
   
-  // Controlla PRIMA le domande personali
   for (const domanda of domandePersonali) {
     for (const keyword of domanda.q) {
       if (m.includes(keyword)) {
@@ -387,44 +453,33 @@ async function botResponse(msg) {
     }
   }
   
-  // 3. CONTROLLO RICERCHE WIKIPEDIA
-  const searchKeywords = [
-    'cerca', 'cercare', 'ricerca', 'trova', 'trovare', 'informazioni su',
-    'cos\'è', 'che cos\'è', 'chi è', 'cosa sono', 'significato di',
-    'che significa', 'definizione di', 'chi era', 'che cosa è',
-    'parlami di', 'dimmi di', 'notizie su', 'sapere di'
+  // 4. CONTROLLO RICERCHE WIKIPEDIA (INTELLIGENTE)
+  const searchPatterns = [
+    // Ricerche esplicite
+    /^(cerca|trova|ricerca|informazioni su|dimmi di|parlami di)\s+.+/i,
+    // Domande dirette
+    /^(cos'è|che cos'è|chi è|cosa sono|chi era|che cosa è|significato di|definizione di)\s+.+/i,
+    // Domande lunghe (>10 caratteri con parole interrogative)
+    /^.{10,}?(chi|cosa|come|dove|quando|perché|perchè|perche)\s+.+/i
   ];
   
   let shouldSearch = false;
   let searchQuery = m;
   
-  for (const keyword of searchKeywords) {
-    if (m.includes(keyword)) {
+  // Controlla se è una domanda di ricerca
+  for (const pattern of searchPatterns) {
+    if (pattern.test(m)) {
       shouldSearch = true;
-      
-      // Estrai query di ricerca
-      const removeWords = ['cerca', 'cercare', 'ricerca', 'trova', 'trovare', 
-                          'informazioni su', 'cos\'è', 'che cos\'è', 'chi è',
-                          'significato di', 'definizione di', 'chi era', 
-                          'che cosa è', 'parlami di', 'dimmi di', 'notizie su'];
-      
-      for (const word of removeWords) {
-        const regex = new RegExp(`^${word}\\s+`, 'i');
-        searchQuery = searchQuery.replace(regex, '');
-      }
-      searchQuery = searchQuery.replace(/[?.,!;:]/g, '').trim();
+      // Pulisci la query
+      searchQuery = m.replace(/^(cerca|trova|ricerca|informazioni su|dimmi di|parlami di|cos'è|che cos'è|chi è|cosa sono|chi era|che cosa è|significato di|definizione di)\s+/i, '')
+                     .replace(/[?.,!;:]/g, '')
+                     .trim();
       break;
     }
   }
   
-  // Domande che iniziano con parole interrogative
-  if (/^(cos'è|che cos'è|chi è|cosa sono|chi era|che cosa è)\s+.+/i.test(m)) {
-    shouldSearch = true;
-    searchQuery = m.replace(/^(cos'è|che cos'è|chi è|cosa sono|chi era|che cosa è)\s+/i, '').replace(/[?.,!]/g, '').trim();
-  }
-  
-  // Se è una domanda lunga (> 8 parole)
-  if (!shouldSearch && words.length > 8) {
+  // Se è una domanda lunga (>15 parole) probabilmente vuole una ricerca
+  if (!shouldSearch && words.length > 15) {
     shouldSearch = true;
     searchQuery = m.replace(/[?.,!]/g, '').trim();
   }
@@ -433,91 +488,76 @@ async function botResponse(msg) {
     return await wikipediaSearch(searchQuery);
   }
   
-  // 4. NAVIGAZIONE SITO
-  const navigazioneSito = [
-    {q: ["articoli", "article", "leggere", "testi", "post"], 
-     r: "Vuoi aprire la sezione Articoli? Dì 'Sì' per confermare."},
-    
-    {q: ["video", "filmati", "guarda video", "youtube", "clip"], 
-     r: "Vuoi aprire la sezione Video? Dì 'Sì' per confermare."},
-    
-    {q: ["news", "notizie", "ultime notizie", "aggiornamenti", "novità"], 
-     r: "Vuoi aprire la sezione News? Dì 'Sì' per confermare."},
-    
-    {q: ["categorie", "argomenti", "temi", "topics", "tag"], 
-     r: "Vuoi aprire la sezione Categorie? Dì 'Sì' per confermare."},
-    
-    {q: ["chi siamo", "presentazione", "about", "rsm chi è", "chi siete"], 
-     r: "Vuoi aprire la sezione Chi siamo? Dì 'Sì' per confermare."},
-    
-    {q: ["contatti", "telefono", "email", "mail", "numero", "scrivi"], 
-     r: "Vuoi aprire la sezione Contatti? Dì 'Sì' per confermare."},
-    
-    {q: ["home", "inizio", "principale", "homepage"], 
-     r: "Vuoi tornare alla Home? Dì 'Sì' per confermare."}
-  ];
+  // 5. NAVIGAZIONE SITO (MIGLIORATA)
+  const navigazione = {
+    "articoli": {section: 'articles', emoji: '📄'},
+    "video": {section: 'videos', emoji: '🎬'},
+    "news": {section: 'news', emoji: '📰'},
+    "notizie": {section: 'news', emoji: '📰'},
+    "categorie": {section: 'categories', emoji: '🏷️'},
+    "argomenti": {section: 'categories', emoji: '🏷️'},
+    "chi siamo": {section: 'about', emoji: '👥'},
+    "contatti": {section: 'contacts', emoji: '📞'},
+    "home": {section: 'home', emoji: '🏠'},
+    "inizio": {section: 'home', emoji: '🏠'}
+  };
   
-  for (const domanda of navigazioneSito) {
-    for (const keyword of domanda.q) {
-      if (m.includes(keyword)) {
-        lastQuestion = domanda.r;
-        return domanda.r;
-      }
+  for (const [keyword, info] of Object.entries(navigazione)) {
+    if (m.includes(keyword)) {
+      lastQuestion = `Vuoi aprire la sezione ${keyword.charAt(0).toUpperCase() + keyword.slice(1)}?`;
+      return `${info.emoji} ${lastQuestion}\n\nDì **'Sì'** per confermare o **'No'** per annullare.`;
     }
   }
   
-  // 5. GESTIONE SÌ/NO
+  // 6. GESTIONE SÌ/NO INTELLIGENTE
   if (lastQuestion) {
-    if (m.includes("sì") || m.includes("si") || m.includes("yes") || m === "s" || m === "ok" || m === "va bene") {
+    if (m.includes("sì") || m.includes("si") || m.includes("yes") || m === "s" || m === "ok" || m === "va bene" || m === "certo") {
       const question = lastQuestion;
       lastQuestion = null;
       
-      if (question.includes("Articoli")) { showSection('articles'); return "✅ Sezione Articoli aperta!"; }
-      if (question.includes("Video")) { showSection('videos'); return "✅ Sezione Video aperta!"; }
-      if (question.includes("News")) { showSection('news'); return "✅ Sezione News aperta!"; }
-      if (question.includes("Categorie")) { showSection('categories'); return "✅ Sezione Categorie aperta!"; }
-      if (question.includes("Chi siamo")) { showSection('about'); return "✅ Sezione Chi siamo aperta!"; }
-      if (question.includes("Contatti")) { showSection('contacts'); return "✅ Sezione Contatti aperta!"; }
-      if (question.includes("Home")) { showSection('home'); return "✅ Tornato alla Home!"; }
+      for (const [keyword, info] of Object.entries(navigazione)) {
+        if (question.includes(keyword)) {
+          showSection(info.section);
+          return `✅ ${info.emoji} **Sezione ${keyword.charAt(0).toUpperCase() + keyword.slice(1)} aperta!**\n\nOra puoi esplorare i contenuti.`;
+        }
+      }
     }
     
     if (m.includes("no") || m.includes("non") || m.includes("nope") || m === "n") {
       lastQuestion = null;
-      return "Va bene, nessun problema!";
+      return "👌 Va bene, operazione annullata. Cosa posso fare per te?";
     }
   }
   
-  // 6. ALTRE DOMANDE UTILI
+  // 7. COMANDI SPECIALI
   if (m.includes("grazie") || m.includes("thank you") || m.includes("ti ringrazio")) {
-    return "Di nulla! È un piacere aiutarti. 😊";
+    return "🙏 Di nulla! È un piacere aiutarti. Hai bisogno di altro?";
   }
   
-  if (m.includes("aiuto") || m.includes("supporto") || m.includes("assistenza")) {
-    return "Certamente! Posso: 1) Cercare informazioni (es: 'cerca Roma') 2) Aprire sezioni del sito (es: 'articoli') 3) Rispondere alle tue domande!";
+  if (m.includes("aiuto") || m.includes("help") || m.includes("supporto")) {
+    return `🆘 **Come posso aiutarti:**\n\n• 🔍 **Cercare:** 'cerca Roma', 'cos'è l'IA?', 'chi è Einstein'\n• 📝 **Riassumere:** 'riassumi [articolo]' (con articolo aperto)\n• 🗺️ **Navigare:** 'articoli', 'video', 'news', 'categorie'\n• 💬 **Domande:** chiedimi qualsiasi cosa!`;
   }
   
-  // 7. INSULTI
+  // 8. INSULTI (gestione intelligente)
   const insults = ["stupido", "idiota", "cretino", "scemo", "imbecille", "stronzo", "cazzo", "merda", "vaffanculo"];
   if (insults.some(i => m.includes(i))) {
-    return "⚠️ Mantieni un linguaggio rispettoso per continuare a usare la chat.";
+    return "⚠️ Mantieni un tono rispettoso per continuare la conversazione. Posso aiutarti se mi spieghi cosa ti serve.";
   }
   
-  // 8. RISPOSTE GENERICHE
-  const genericResponses = [
-    "Prova a chiedermi di cercare qualcosa (es: 'cerca informazioni su Roma', 'cos'è l'IA?'), oppure chiedimi di aprire una sezione del sito!",
-    "Posso cercare informazioni su qualsiasi argomento! Chiedimi qualcosa come 'chi è Leonardo da Vinci' o 'cos'è la blockchain'.",
-    "Vuoi che cerchi qualcosa per te? Oppure preferisci esplorare Articoli, Video o News del sito RSM?",
-    "Digita: 'cerca [argomento]' per ricerche, o 'articoli'/'video'/'news' per navigare nel sito."
+  // 9. RISPOSTE INTELLIGENTI PER DOMANDE NON RICONOSCIUTE
+  if (m.includes("?")) {
+    return "🤔 È una domanda interessante! Prova a riformularla in modo più specifico, oppure chiedimi di 'cercare informazioni su...' se vuoi una risposta dettagliata.";
+  }
+  
+  // 10. SUGGERIMENTI CONTESTUALI
+  const suggestions = [
+    "💡 **Suggerimento:** Prova a chiedermi 'cerca informazioni su...' per ricerche approfondite, oppure 'riassumi' se hai un articolo aperto!",
+    "🌟 **Prova questo:** 'cos'è la blockchain?' o 'chi è Leonardo da Vinci?' per vedere come funziono le ricerche!",
+    "🚀 **Scopri di più:** Apri la sezione 'Articoli' o 'Video' per contenuti interessanti, oppure chiedimi di riassumere qualcosa!",
+    "🔎 **Esempi utili:**\n• 'cerca storia di Roma'\n• 'articoli' (per navigare)\n• 'riassumi' (con articolo aperto)\n• 'cosa puoi fare?'"
   ];
   
-  return randomChoice(genericResponses);
-}
-
-// Riassunto semplice
-function summarizeText(text, maxSentences = 2) {
-  if (!text) return "Non c'è testo da riassumere.";
-  const sentences = text.split(/(?<=[.!?])\s+/);
-  return sentences.slice(0, maxSentences).join(' ');
+  return randomChoice(suggestions);
 }
 </script>
 </body>
