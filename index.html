@@ -67,28 +67,23 @@ main{max-width:900px;margin:auto;padding:20px;}
     <div id="searchResults"></div>
   </div>
 
- <!-- Chatbot AI - Versione SEMPLICE -->
+ <!-- Chatbot AI -->
 <div id="chatBotContainer" style="position:relative; margin-left:15px;">
-  <!-- Bottone per APRIRE la chat -->
   <button id="chatToggle" style="padding:8px 12px; border:none; border-radius:20px; background:#ff4d4d; color:#fff; cursor:pointer; font-weight:600;">
     Chat AI
   </button>
   
-  <!-- Finestra della chat (INIZIALMENTE NASCOSTA) -->
   <div id="chatBox" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:500px; background:#1c1c25; border-radius:10px; box-shadow:0 10px 25px rgba(0,0,0,0.4); overflow:hidden; flex-direction:column; z-index:1000;">
     
-    <!-- Header con bottone CHIUDI a sinistra -->
     <div style="background:#15151c; padding:12px 15px; display:flex; align-items:center; border-bottom:1px solid #333;">
       <button id="chatClose" style="background:#ff4d4d; color:white; border:none; width:30px; height:30px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:bold; margin-right:10px;">
         ×
       </button>
-      <span style="color:#fff; font-weight:600;">Assistente AI</span>
+      <span style="color:#fff; font-weight:600;">Assistente RSM</span>
     </div>
     
-    <!-- Area messaggi -->
     <div id="chatMessages" style="flex:1; overflow-y:auto; padding:15px;"></div>
     
-    <!-- Area input -->
     <div style="border-top:1px solid #333; padding:12px; background:#15151c;">
       <div style="display:flex; gap:8px;">
         <input id="chatInput" type="text" placeholder="Scrivi qui..." autocomplete="off" 
@@ -222,7 +217,6 @@ function renderCategories() {
             const p = document.createElement('p');
             p.style.cursor = 'pointer';
             p.innerText = "• " + a.title;
-            // ✅ apertura corretta per articoli o video
             p.onclick = () => {
                 if (a.type === "video") {
                     openVideo(i);
@@ -235,6 +229,7 @@ function renderCategories() {
         c.appendChild(box);
     });
   }
+
 // OPEN ARTICOLI/VIDEO
 function openArticle(i){const a=articles[i]; showSection('single'); document.getElementById('singleTitle').innerText=a.title; document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):""; const imgBox=document.getElementById('singleImage'); imgBox.innerHTML=''; if(a.images && Array.isArray(a.images)){ a.images.forEach(src=>{const img=document.createElement('img'); img.src=src; imgBox.appendChild(img);}); } else if(a.image){imgBox.innerHTML=`<img src="${a.image}">`; } document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;}
 function openVideo(i){const a=articles[i]; showSection('single'); document.getElementById('singleTitle').innerText=a.title; document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):""; const imgBox=document.getElementById('singleImage'); imgBox.innerHTML=''; if(a.videoUrl){ imgBox.innerHTML=`<iframe width="100%" height="600" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`;} else if(a.images && Array.isArray(a.images)){ a.images.forEach(src=>{const img=document.createElement('img'); img.src=src; imgBox.appendChild(img);}); } document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;}
@@ -246,7 +241,7 @@ function searchAll(){const q=searchInput.value.toLowerCase(); const box=searchRe
 function renderLatestNews(){const news=articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; if(!news) return; document.getElementById('latestTitle').innerText=news.title; const i=articles.findIndex(a=>a.title===news.title); document.getElementById('latestNews').onclick=()=>openArticle(i);}
 function renderLatestVideo(){const video=articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; if(!video) return; document.getElementById('latestVideoTitle').innerText=video.title; const i=articles.findIndex(a=>a.title===video.title); document.getElementById('latestVideo').onclick=()=>openVideo(i);}
 
-// CHATBOT AI
+// ============ CHATBOT AI ============
 const chatToggle = document.getElementById('chatToggle');
 const chatBox = document.getElementById('chatBox');
 const chatMessages = document.getElementById('chatMessages');
@@ -294,6 +289,7 @@ async function sendMessage() {
   appendMessage('bot', botReply);
   
   chatInput.value = '';
+  chatInput.focus();
 }
 
 chatSend.addEventListener('click', sendMessage);
@@ -308,20 +304,20 @@ function randomChoice(arr) {
 // ============ WIKIPEDIA SEARCH ============
 async function wikipediaSearch(query) {
   try {
-    // 1. Cerca il termine su Wikipedia
+    // Cerca il termine su Wikipedia
     const searchUrl = `https://it.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*&srlimit=1`;
     
     const searchResponse = await fetch(searchUrl);
     const searchData = await searchResponse.json();
     
-    if (!searchData.query || !searchData.query.search || searchData.query.search.length === 0) {
-      return "🔍 Non ho trovato informazioni su Wikipedia per questa ricerca.";
+    if (!searchData.query?.search?.length) {
+      return "🔍 Non ho trovato informazioni per questa ricerca.";
     }
     
-    // 2. Prendi il primo risultato
+    // Prendi il primo risultato
     const pageTitle = searchData.query.search[0].title;
     
-    // 3. Ottieni il contenuto della pagina
+    // Ottieni il contenuto della pagina
     const contentUrl = `https://it.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&titles=${encodeURIComponent(pageTitle)}&format=json&origin=*`;
     
     const contentResponse = await fetch(contentUrl);
@@ -331,22 +327,21 @@ async function wikipediaSearch(query) {
     const pageId = Object.keys(pages)[0];
     
     if (pageId === "-1" || !pages[pageId].extract) {
-      return `📚 **${pageTitle}**\n\nHo trovato la pagina ma non ci sono informazioni introduttive.`;
+      return `📚 **${pageTitle}**\n\nInformazioni limitate su questo argomento.`;
     }
     
-    // 4. Formatta la risposta
+    // Formatta la risposta (SENZA FONTE)
     const extract = pages[pageId].extract;
     const shortExtract = extract.length > 400 ? extract.substring(0, 400) + "..." : extract;
     
-    return `📚 **${pageTitle}**\n\n${shortExtract}\n\n🌐 Fonte: Wikipedia`;
+    return `📚 **${pageTitle}**\n\n${shortExtract}`;
     
   } catch (error) {
-    console.error('Errore Wikipedia:', error);
-    return "⚠️ Impossibile effettuare la ricerca in questo momento. Riprova più tardi.";
+    return "⚠️ Impossibile effettuare la ricerca in questo momento.";
   }
 }
 
-// ============ BOT RESPONSE CON WIKIPEDIA ============
+// ============ BOT RESPONSE PERFETTO ============
 async function botResponse(msg) {
   const m = msg.toLowerCase().trim();
   
@@ -357,17 +352,47 @@ async function botResponse(msg) {
   if (words.length <= 2) {
     for (const saluto of saluti) {
       if (m === saluto || m.startsWith(saluto + " ")) {
-        return "Ciao! Come posso assisterti oggi?";
+        return "Ciao! Sono l'Assistente RSM. Come posso aiutarti?";
       }
     }
   }
   
-  // 2. CONTROLLO RICERCHE WIKIPEDIA
+  // 2. DOMANDE PERSONALI DELL'AI (PRIMA delle ricerche!)
+  const domandePersonali = [
+    {q: ["come ti chiami", "tu come ti chiami", "qual è il tuo nome", "hai un nome", "ti chiami come", "nome tuo", "chiami", "come ti chiami tu"], 
+     r: "Mi chiamo Assistente RSM! Sono qui per aiutarti con informazioni e navigazione."},
+    
+    {q: ["cosa sei", "chi sei", "sei un ai", "assistente", "ai chi sei", "che cosa sei", "tu chi sei"], 
+     r: "Sono l'Assistente AI di RSM. Posso cercare informazioni su qualsiasi argomento e aiutarti a navigare nel sito!"},
+    
+    {q: ["cosa puoi fare", "capacità", "come aiuti", "funzioni", "cose che sai fare", "cosa sai fare"], 
+     r: "Posso: 1) Cercare informazioni su Wikipedia 2) Aiutarti a navigare tra Articoli, Video, News 3) Rispondere alle tue domande!"},
+    
+    {q: ["chi ti ha creato", "sviluppatore", "creatore", "fatto da chi", "chi ti ha sviluppato", "chi ti ha programmato"], 
+     r: "Sono stato creato dal team RSM per assistere gli utenti del sito."},
+    
+    {q: ["dove sei", "dove vivi", "dove risiedi", "dove abiti", "dove stai"], 
+     r: "Sono integrato direttamente nel sito RSM e funziono nel tuo browser!"},
+    
+    {q: ["hai sentimenti", "provi emozioni", "hai coscienza", "sei intelligente", "sei consapevole"], 
+     r: "Sono un programma AI progettato per aiutarti. Non ho sentimenti o coscienza, ma sono qui per assisterti!"}
+  ];
+  
+  // Controlla PRIMA le domande personali
+  for (const domanda of domandePersonali) {
+    for (const keyword of domanda.q) {
+      if (m.includes(keyword)) {
+        return domanda.r;
+      }
+    }
+  }
+  
+  // 3. CONTROLLO RICERCHE WIKIPEDIA
   const searchKeywords = [
     'cerca', 'cercare', 'ricerca', 'trova', 'trovare', 'informazioni su',
     'cos\'è', 'che cos\'è', 'chi è', 'cosa sono', 'significato di',
-    'che significa', 'definizione di', 'wikipedia', 'cerca su',
-    'chi era', 'che cosa è', 'parlami di', 'dimmi di'
+    'che significa', 'definizione di', 'chi era', 'che cosa è',
+    'parlami di', 'dimmi di', 'notizie su', 'sapere di'
   ];
   
   let shouldSearch = false;
@@ -380,8 +405,8 @@ async function botResponse(msg) {
       // Estrai query di ricerca
       const removeWords = ['cerca', 'cercare', 'ricerca', 'trova', 'trovare', 
                           'informazioni su', 'cos\'è', 'che cos\'è', 'chi è',
-                          'significato di', 'definizione di', 'wikipedia',
-                          'chi era', 'che cosa è', 'parlami di', 'dimmi di'];
+                          'significato di', 'definizione di', 'chi era', 
+                          'che cosa è', 'parlami di', 'dimmi di', 'notizie su'];
       
       for (const word of removeWords) {
         const regex = new RegExp(`^${word}\\s+`, 'i');
@@ -398,8 +423,8 @@ async function botResponse(msg) {
     searchQuery = m.replace(/^(cos'è|che cos'è|chi è|cosa sono|chi era|che cosa è)\s+/i, '').replace(/[?.,!]/g, '').trim();
   }
   
-  // Se è una domanda lunga
-  if (!shouldSearch && m.length > 10 && (m.includes('?') || m.includes('chi') || m.includes('cosa') || m.includes('come') || m.includes('dove'))) {
+  // Se è una domanda lunga (> 8 parole)
+  if (!shouldSearch && words.length > 8) {
     shouldSearch = true;
     searchQuery = m.replace(/[?.,!]/g, '').trim();
   }
@@ -408,98 +433,81 @@ async function botResponse(msg) {
     return await wikipediaSearch(searchQuery);
   }
   
-  // 3. DOMANDE FREQUENTI ESSENZIALI
-  const domandeEssenziali = [
-    // Info sul sito RSM
-    {q: ["cosa sei", "chi sei", "sei un ai", "assistente", "ai chi sei"], 
-     r: "Sono l'assistente AI di RSM. Posso cercare informazioni su Wikipedia e aiutarti a navigare nel sito!"},
-    
-    {q: ["cosa puoi fare", "capacità", "come aiuti", "funzioni"], 
-     r: "Posso: 1) Cercare informazioni su Wikipedia 2) Aiutarti a navigare tra Articoli, Video, News 3) Rispondere alle tue domande!"},
-    
-    {q: ["chi ti ha creato", "sviluppatore", "creatore", "fatto da chi"], 
-     r: "Sono stato creato per assistere gli utenti del sito RSM."},
-    
-    // Navigazione sito
-    {q: ["articoli", "article", "leggere", "testi"], 
+  // 4. NAVIGAZIONE SITO
+  const navigazioneSito = [
+    {q: ["articoli", "article", "leggere", "testi", "post"], 
      r: "Vuoi aprire la sezione Articoli? Dì 'Sì' per confermare."},
     
-    {q: ["video", "filmati", "guarda video", "youtube"], 
+    {q: ["video", "filmati", "guarda video", "youtube", "clip"], 
      r: "Vuoi aprire la sezione Video? Dì 'Sì' per confermare."},
     
-    {q: ["news", "notizie", "ultime notizie", "aggiornamenti"], 
+    {q: ["news", "notizie", "ultime notizie", "aggiornamenti", "novità"], 
      r: "Vuoi aprire la sezione News? Dì 'Sì' per confermare."},
     
-    {q: ["categorie", "argomenti", "temi", "topics"], 
+    {q: ["categorie", "argomenti", "temi", "topics", "tag"], 
      r: "Vuoi aprire la sezione Categorie? Dì 'Sì' per confermare."},
     
-    {q: ["chi siamo", "presentazione", "about", "rsm chi è"], 
+    {q: ["chi siamo", "presentazione", "about", "rsm chi è", "chi siete"], 
      r: "Vuoi aprire la sezione Chi siamo? Dì 'Sì' per confermare."},
     
-    {q: ["contatti", "telefono", "email", "mail", "numero"], 
+    {q: ["contatti", "telefono", "email", "mail", "numero", "scrivi"], 
      r: "Vuoi aprire la sezione Contatti? Dì 'Sì' per confermare."},
     
-    {q: ["home", "inizio", "principale"], 
-     r: "Vuoi tornare alla Home? Dì 'Sì' per confermare."},
-    
-    // Supporto
-    {q: ["aiuto", "supporto", "assistenza", "problema", "non funziona"], 
-     r: "Certamente! Cosa ti serve? Posso cercare informazioni o aiutarti con la navigazione."},
-    
-    {q: ["grazie", "thank you", "ti ringrazio", "sei utile"], 
-     r: "Di nulla! È un piacere aiutarti. 😊"},
-    
-    {q: ["addio", "arrivederci", "ciao ciao", "bye", "a presto"], 
-     r: "Arrivederci! Torna quando vuoi. 👋"}
+    {q: ["home", "inizio", "principale", "homepage"], 
+     r: "Vuoi tornare alla Home? Dì 'Sì' per confermare."}
   ];
   
-  for (const domanda of domandeEssenziali) {
+  for (const domanda of navigazioneSito) {
     for (const keyword of domanda.q) {
       if (m.includes(keyword)) {
-        if (domanda.q[0].includes("articoli") || domanda.q[0].includes("video") || 
-            domanda.q[0].includes("news") || domanda.q[0].includes("categorie") ||
-            domanda.q[0].includes("chi siamo") || domanda.q[0].includes("contatti") ||
-            domanda.q[0].includes("home")) {
-          lastQuestion = domanda.r;
-        }
+        lastQuestion = domanda.r;
         return domanda.r;
       }
     }
   }
   
-  // 4. GESTIONE SÌ/NO
+  // 5. GESTIONE SÌ/NO
   if (lastQuestion) {
-    if (m.includes("sì") || m.includes("si") || m.includes("yes") || m === "s" || m === "ok") {
+    if (m.includes("sì") || m.includes("si") || m.includes("yes") || m === "s" || m === "ok" || m === "va bene") {
       const question = lastQuestion;
       lastQuestion = null;
       
-      if (question.includes("Articoli")) { showSection('articles'); return "✅ Aperta sezione Articoli!"; }
-      if (question.includes("Video")) { showSection('videos'); return "✅ Aperta sezione Video!"; }
-      if (question.includes("News")) { showSection('news'); return "✅ Aperta sezione News!"; }
-      if (question.includes("Categorie")) { showSection('categories'); return "✅ Aperta sezione Categorie!"; }
-      if (question.includes("Chi siamo")) { showSection('about'); return "✅ Aperta sezione Chi siamo!"; }
-      if (question.includes("Contatti")) { showSection('contacts'); return "✅ Aperta sezione Contatti!"; }
+      if (question.includes("Articoli")) { showSection('articles'); return "✅ Sezione Articoli aperta!"; }
+      if (question.includes("Video")) { showSection('videos'); return "✅ Sezione Video aperta!"; }
+      if (question.includes("News")) { showSection('news'); return "✅ Sezione News aperta!"; }
+      if (question.includes("Categorie")) { showSection('categories'); return "✅ Sezione Categorie aperta!"; }
+      if (question.includes("Chi siamo")) { showSection('about'); return "✅ Sezione Chi siamo aperta!"; }
+      if (question.includes("Contatti")) { showSection('contacts'); return "✅ Sezione Contatti aperta!"; }
       if (question.includes("Home")) { showSection('home'); return "✅ Tornato alla Home!"; }
     }
     
     if (m.includes("no") || m.includes("non") || m.includes("nope") || m === "n") {
       lastQuestion = null;
-      return "Va bene, niente da fare allora.";
+      return "Va bene, nessun problema!";
     }
   }
   
-  // 5. INSULTI
-  const insults = ["stupido", "idiota", "cretino", "scemo", "imbecille", "stronzo", "cazzo", "merda", "vaffanculo"];
-  if (insults.some(i => m.includes(i))) {
-    return "⚠️ Per favore, mantieni un linguaggio rispettoso.";
+  // 6. ALTRE DOMANDE UTILI
+  if (m.includes("grazie") || m.includes("thank you") || m.includes("ti ringrazio")) {
+    return "Di nulla! È un piacere aiutarti. 😊";
   }
   
-  // 6. RISPOSTE GENERICHE
+  if (m.includes("aiuto") || m.includes("supporto") || m.includes("assistenza")) {
+    return "Certamente! Posso: 1) Cercare informazioni (es: 'cerca Roma') 2) Aprire sezioni del sito (es: 'articoli') 3) Rispondere alle tue domande!";
+  }
+  
+  // 7. INSULTI
+  const insults = ["stupido", "idiota", "cretino", "scemo", "imbecille", "stronzo", "cazzo", "merda", "vaffanculo"];
+  if (insults.some(i => m.includes(i))) {
+    return "⚠️ Mantieni un linguaggio rispettoso per continuare a usare la chat.";
+  }
+  
+  // 8. RISPOSTE GENERICHE
   const genericResponses = [
-    "Prova a chiedermi di cercare qualcosa su Wikipedia (es: 'cerca informazioni su Roma', 'cos'è l'IA?'), oppure chiedimi di aprire una sezione del sito!",
-    "Posso cercare informazioni su Wikipedia o aiutarti a navigare nel sito RSM. Cosa ti serve?",
-    "Vuoi che cerchi qualcosa su Wikipedia? Oppure preferisci esplorare Articoli, Video o News del sito?",
-    "Digita: 'cerca [argomento]' per ricerche su Wikipedia, o 'articoli'/'video'/'news' per navigare nel sito."
+    "Prova a chiedermi di cercare qualcosa (es: 'cerca informazioni su Roma', 'cos'è l'IA?'), oppure chiedimi di aprire una sezione del sito!",
+    "Posso cercare informazioni su qualsiasi argomento! Chiedimi qualcosa come 'chi è Leonardo da Vinci' o 'cos'è la blockchain'.",
+    "Vuoi che cerchi qualcosa per te? Oppure preferisci esplorare Articoli, Video o News del sito RSM?",
+    "Digita: 'cerca [argomento]' per ricerche, o 'articoli'/'video'/'news' per navigare nel sito."
   ];
   
   return randomChoice(genericResponses);
