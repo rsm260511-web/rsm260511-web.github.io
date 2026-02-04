@@ -20,19 +20,7 @@ nav a{cursor:pointer;font-weight:600;}
 main{max-width:900px;margin:auto;padding:20px;}
 .card{background:#1c1c25;padding:20px;border-radius:10px;margin-bottom:20px;}
 .hidden{display:none}
-#single img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-    margin: 15px 0;
-}
-
-#single iframe {
-    max-width: 100%;
-    border-radius: 10px;
-    margin: 15px 0;
-}
+#single img, #single iframe{max-width:100%;height:auto;object-fit:cover;border-radius:10px;margin:15px 0;}
 #singleContent{line-height:1.7;}
 #chatBox{display:none;position:fixed;bottom:20px;right:20px;width:350px;height:500px;background:#1c1c25;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,0.4);overflow:hidden;flex-direction:column;z-index:1000;}
 #chatMessages{flex-grow:1;padding:10px;overflow-y:auto;}
@@ -649,6 +637,4 @@ async function botResponse(msg) {
 </script>
 </body>
 </html>
-
-
 
