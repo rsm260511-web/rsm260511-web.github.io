@@ -294,73 +294,65 @@ function randomChoice(arr){
   return arr[Math.floor(Math.random()*arr.length)];
 }
 
-// BOT RESPONSES ESTESA (VERSIONE NUOVA CORRETTA)
+// BOT RESPONSES ESTESA CON CORREZIONE ERRORI
 function botResponse(msg) {
-  const m = msg.toLowerCase();
-
- // SALUTI INIZIALI - SOLUZIONE DEFINITIVA
-const saluti = ["ciao", "buongiorno", "buon giorno", "buonasera", "buona sera", "buon pomeriggio", "buonpomeriggio", "hi", "hello", "salve", "hey", "hola", "salut"];
-
-// Funzione per DETTAGLIARE se è un saluto
-function isDefinitelyAGreeting(text) {
-    const normalized = normalizeText(text);
+    const m = msg.toLowerCase();
     
-    // REGOLA 1: Se inizia con "chi" e ha più di 4 caratteri -> NON è saluto
-    if (normalized.startsWith("chi") && normalized.length > 4) {
-        return false; // "chi è", "chi ha", "chi era", etc.
-    }
+    // PRIMA correggi errori comuni di digitazione
+    const correctedInput = fixCommonTypos(m);
     
-    // REGOLA 2: Solo parole singole o doppie tipiche dei saluti
-    const words = normalized.split(/\s+/);
+    // ====== SALUTI INIZIALI - VERSIONE DEFINITIVA ======
+    const saluti = ["ciao", "buongiorno", "buon giorno", "buonasera", "buona sera", "buon pomeriggio", "buonpomeriggio", "hi", "hello", "salve", "hey", "hola", "salut"];
     
-    // Se è una parola sola
-    if (words.length === 1) {
-        for (const saluto of saluti) {
-            if (normalized === saluto || stringSimilarity(normalized, saluto) > 0.8) {
-                return true;
-            }
+    // 1. Se inizia con "chi" -> NON è un saluto (tranne casi particolari)
+    if (correctedInput.startsWith("chi")) {
+        // Eccezioni: errori di battitura per "ciao"
+        if (correctedInput === "chi" || correctedInput === "ch" || correctedInput === "ci" || 
+            correctedInput === "chia" || correctedInput === "chio") {
+            return "Ciao! Come posso assisterti oggi?";
         }
-    }
-    
-    // Se sono due parole (solo combinazioni di saluti conosciute)
-    if (words.length === 2) {
-       const twoWordText = words.join(' ');
-       const twoWordGreetings = ["buon giorno", "buona sera", "buon pomeriggio"];
-        
-        for (const greeting of twoWordGreetings) {
-            if (stringSimilarity(twoWordText, greeting) > 0.7) {
-                return true;
-            }
-        }
-    }
-    
-    // REGOLA 3: Se inizia con saluto e POI ha qualcosa (max 2 parole extra)
-    if (words.length <= 3) {
+        // Altrimenti: non è un saluto, continua oltre
+    } 
+    // 2. Controlla se è veramente un saluto
+    else {
+        // Per ogni saluto nella lista
         for (const saluto of saluti) {
-            if (normalized.startsWith(saluto + " ")) {
-                // Controlla che non sia una domanda che inizia per sbaglio con "ciao"
-                const afterGreeting = normalized.substring(saluto.length).trim();
-                if (afterGreeting.length > 0) {
-                    // Non considerare saluto se dopo c'è "chi", "come", "dove", etc.
-                    const questionWords = ["chi", "come", "dove", "quando", "perché", "perche", "cosa", "che"];
-                    for (const qWord of questionWords) {
-                        if (afterGreeting.startsWith(qWord)) {
-                            return false; // È una domanda, non un saluto!
-                        }
+            // Caso 1: match esatto
+            if (correctedInput === saluto) {
+                return "Ciao! Come posso assisterti oggi?";
+            }
+            
+            // Caso 2: molto simile (80% di similarità)
+            if (stringSimilarity(correctedInput, saluto) > 0.8) {
+                return "Ciao! Come posso assisterti oggi?";
+            }
+            
+            // Caso 3: inizia con saluto + spazio (es: "ciao come stai?")
+            if (correctedInput.startsWith(saluto + " ")) {
+                // Ma controlla che non sia una domanda mascherata
+                const dopoSaluto = correctedInput.substring(saluto.length).trim();
+                const paroleDomanda = ["chi", "come", "dove", "quando", "perché", "cosa", "che", "quale"];
+                
+                let eUnaDomanda = false;
+                for (const parola of paroleDomanda) {
+                    if (dopoSaluto.startsWith(parola)) {
+                        eUnaDomanda = true;
+                        break;
                     }
                 }
-                return true; // È un saluto seguito da nome o "come stai?"
+                
+                // Se non è una domanda, è un saluto
+                if (!eUnaDomanda) {
+                    return "Ciao! Come posso assisterti oggi?";
+                }
+            }
+            
+            // Caso 4: saluto con punto esclamativo (es: "ciao!")
+            if (correctedInput.replace(/[!?.]/g, '') === saluto) {
+                return "Ciao! Come posso assisterti oggi?";
             }
         }
     }
-    
-    return false;
-}
-
-// USALA così:
-if (isDefinitelyAGreeting(correctedInput)) {
-    return "Ciao! Come posso assisterti oggi?";
-}
 
    // DOMANDE FREQUENTI ALLE IA - AGGIUNTE NUOVE
   const domandeIA = [
@@ -1033,6 +1025,7 @@ function summarizeText(text,maxSentences=3){
 </script>
 </body>
 </html>
+
 
 
 
