@@ -635,88 +635,95 @@ async function botResponse(msg) {
   return randomChoice(suggestions);
 }
 
-// ============ API CORRETTE E FUNZIONANTI ============
+// ============ API VERE CHE FUNZIONANO ============
 
-// 1. CITAZIONI IN ITALIANO
+// 1. CITAZIONI REALI (API Quotable)
 async function getRandomQuote() {
-  const citazioni = [
-    "La semplicità è l'ultima sofisticazione. — Leonardo da Vinci",
-    "Chi non risica, non rosica. — Proverbio italiano", 
-    "Il mondo è un libro e quelli che non viaggiano ne leggono solo una pagina. — Sant'Agostino",
-    "La vita è come andare in bicicletta: per mantenere l'equilibrio devi muoverti. — Albert Einstein",
-    "Il segreto per andare avanti è iniziare. — Mark Twain",
-    "Meglio un uovo oggi che una gallina domani. — Proverbio italiano",
-    "Chi trova un amico trova un tesoro. — Proverbio italiano",
-    "A caval donato non si guarda in bocca. — Proverbio italiano"
-  ];
-  return `💬 **Citazione:**\n${citazioni[Math.floor(Math.random() * citazioni.length)]}`;
+  try {
+    // Usa timestamp per evitare cache
+    const res = await fetch('https://api.quotable.io/random?' + new Date().getTime());
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    return `💬 **Citazione:**\n"${data.content}"\n\n— ${data.author}`;
+  } catch {
+    // Fallback
+    const citazioni = [
+      "La semplicità è l'ultima sofisticazione. — Leonardo da Vinci",
+      "Chi non risica, non rosica. — Proverbio italiano"
+    ];
+    return `💬 **Citazione:**\n${citazioni[Math.floor(Math.random() * citazioni.length)]}`;
+  }
 }
 
-// 2. BARZELLETTE IN ITALIANO (API funzionante)
+// 2. BARZELLETTE REALI (API JokeAPI con parametri diversi ogni volta)
 async function getRandomJoke() {
   try {
-    const res = await fetch('https://v2.jokeapi.dev/joke/Any?lang=it&safe-mode');
+    // Usa categorie diverse e timestamp per evitare cache
+    const categories = ['Programming', 'Misc', 'Pun', 'Spooky', 'Christmas'];
+    const randomCat = categories[Math.floor(Math.random() * categories.length)];
+    const res = await fetch(`https://v2.jokeapi.dev/joke/${randomCat}?lang=it&type=single&` + new Date().getTime());
+    
+    if (!res.ok) throw new Error();
     const data = await res.json();
+    
+    if (data.error) throw new Error();
     
     if (data.type === 'single') {
       return `😂 **Barzelletta:**\n${data.joke}`;
     } else if (data.type === 'twopart') {
       return `😂 **Barzelletta:**\n${data.setup}\n\n${data.delivery}`;
     }
-    throw new Error('Formato non supportato');
+    throw new Error();
   } catch {
-    // Fallback locale
+    // Fallback
     const barzellette = [
       "Perché il libro di matematica è triste? Perché ha troppi problemi.",
-      "Cosa dice un computer a un altro? I miei bit sono più veloci dei tuoi!",
-      "Perché il programmatore non beve il tè? Perché temeva il C++.",
-      "Qual è il colmo per un calciatore? Giocare in Premier League e chiamarsi Fuorigioco.",
-      "Come fa un informatico a spegnere la luce? Dice: 'Ctrl+Alt+Del'."
+      "Cosa dice un computer a un altro? I miei bit sono più veloci dei tuoi!"
     ];
     return `😂 **Barzelletta:**\n${barzellette[Math.floor(Math.random() * barzellette.length)]}`;
   }
 }
 
-// 3. CONSIGLI IN ITALIANO
+// 3. CONSIGLI REALI (API Advice Slip)
 async function getRandomAdvice() {
-  const consigli = [
-    "Non rimandare a domani quello che puoi fare oggi.",
-    "Ascolta due volte prima di parlare una volta.",
-    "Meglio un uovo oggi che una gallina domani.",
-    "Chi trova un amico trova un tesoro.",
-    "La pazienza è la virtù dei forti.",
-    "L'abito non fa il monaco.",
-    "Chi va piano, va sano e va lontano.",
-    "A caval donato non si guarda in bocca.",
-    "Tra il dire e il fare c'è di mezzo il mare.",
-    "Il buongiorno si vede dal mattino."
-  ];
-  return `💡 **Consiglio:**\n${consigli[Math.floor(Math.random() * consigli.length)]}`;
-}
-
-// 4. CAMBIO VALUTA
-async function getExchangeRate() {
   try {
-    const res = await fetch('https://api.exchangerate-api.com/v4/latest/EUR');
+    const res = await fetch('https://api.adviceslip.com/advice?' + new Date().getTime());
+    if (!res.ok) throw new Error();
     const data = await res.json();
-    return `💱 **Cambio valuta:**\n• 1 EUR = ${data.rates.USD.toFixed(4)} USD\n• 1 EUR = ${data.rates.GBP.toFixed(4)} GBP`;
+    return `💡 **Consiglio:**\n${data.slip.advice}`;
   } catch {
-    return "💱 **Cambio valuta:**\n• 1 EUR ≈ 1.09 USD\n• 1 EUR ≈ 0.86 GBP";
+    // Fallback italiano
+    const consigli = [
+      "Non rimandare a domani quello che puoi fare oggi.",
+      "Ascolta due volte prima di parlare una volta."
+    ];
+    return `💡 **Consiglio:**\n${consigli[Math.floor(Math.random() * consigli.length)]}`;
   }
 }
 
-// ============ AGGIORNAMENTO BOT RESPONSE PER API ============
-// Estendiamo la funzione botResponse per gestire le API
+// 4. CAMBIO VALUTA REALE (API Exchange Rates)
+async function getExchangeRate() {
+  try {
+    const res = await fetch('https://api.exchangerate-api.com/v4/latest/EUR?' + new Date().getTime());
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    return `💱 **Cambio valuta:**\n• 1 EUR = ${data.rates.USD.toFixed(4)} USD\n• 1 EUR = ${data.rates.GBP.toFixed(4)} GBP\n• 1 EUR = ${data.rates.JPY.toFixed(2)} JPY`;
+  } catch {
+    return "💱 **Cambio valuta:**\n• 1 EUR ≈ 1.09 USD\n• 1 EUR ≈ 0.86 GBP\n• 1 EUR ≈ 159.00 JPY";
+  }
+}
+
+// ============ AGGIORNAMENTO BOT RESPONSE ============
 const originalBotResponse = botResponse;
 botResponse = async function(msg) {
   const m = msg.toLowerCase().trim();
   
-  // Gestione nuove API
+  // Gestione API
   if (m.includes("citazione") || m.includes("frasi famose")) {
     return await getRandomQuote();
   }
   
-  if (m.includes("barzelletta") || m.includes("scherzo") || m.includes("battuta")) {
+  if (m.includes("barzelletta") || m.includes("scherzo")) {
     return await getRandomJoke();
   }
   
