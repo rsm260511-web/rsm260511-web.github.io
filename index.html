@@ -230,18 +230,99 @@ function renderCategories() {
     });
   }
 
-// OPEN ARTICOLI/VIDEO
-function openArticle(i){const a=articles[i]; showSection('single'); document.getElementById('singleTitle').innerText=a.title; document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):""; const imgBox=document.getElementById('singleImage'); imgBox.innerHTML=''; if(a.images && Array.isArray(a.images)){ a.images.forEach(src=>{const img=document.createElement('img'); img.src=src; imgBox.appendChild(img);}); } else if(a.image){imgBox.innerHTML=`<img src="${a.image}">`; } document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;}
-function openVideo(i){const a=articles[i]; showSection('single'); document.getElementById('singleTitle').innerText=a.title; document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):""; const imgBox=document.getElementById('singleImage'); imgBox.innerHTML=''; if(a.videoUrl){ imgBox.innerHTML=`<iframe width="100%" height="600" src="${a.videoUrl}" frameborder="0" allowfullscreen></iframe>`;} else if(a.images && Array.isArray(a.images)){ a.images.forEach(src=>{const img=document.createElement('img'); img.src=src; imgBox.appendChild(img);}); } document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;}
+// OPEN ARTICOLI/VIDEO - VIDEO PIÙ GRANDE
+function openArticle(i){
+  const a=articles[i]; 
+  showSection('single'); 
+  document.getElementById('singleTitle').innerText=a.title; 
+  document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):""; 
+  const imgBox=document.getElementById('singleImage'); 
+  imgBox.innerHTML=''; 
+  if(a.images && Array.isArray(a.images)){ 
+    a.images.forEach(src=>{
+      const img=document.createElement('img'); 
+      img.src=src;
+      imgBox.appendChild(img);
+    }); 
+  } else if(a.image){
+    imgBox.innerHTML=`<img src="${a.image}">`; 
+  } 
+  document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;
+}
+
+function openVideo(i){
+  const a=articles[i]; 
+  showSection('single'); 
+  document.getElementById('singleTitle').innerText=a.title; 
+  document.getElementById('singleDate').innerText=a.date?("📅 Pubblicato il "+new Date(a.date).toLocaleDateString('it-IT')):""; 
+  const imgBox=document.getElementById('singleImage'); 
+  imgBox.innerHTML=''; 
+  
+  if(a.videoUrl){ 
+    // VIDEO MOLTO PIÙ GRANDE - 700px di altezza invece di 600px
+    imgBox.innerHTML=`
+      <div style="width:100%; max-width:100%; margin:20px 0;">
+        <iframe width="100%" height="700" src="${a.videoUrl}" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen style="border-radius:10px;">
+        </iframe>
+      </div>
+    `;
+  } else if(a.images && Array.isArray(a.images)){ 
+    a.images.forEach(src=>{
+      const img=document.createElement('img'); 
+      img.src=src;
+      imgBox.appendChild(img);
+    }); 
+  } 
+  document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;
+}
 
 // SEARCH
-function searchAll(){const q=searchInput.value.toLowerCase(); const box=searchResults; box.innerHTML=''; if(!q){box.style.display='none'; return;} articles.forEach((a,i)=>{if(a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)){const d=document.createElement('div'); d.className='search-item'; d.innerText=a.title; d.onclick=()=>openArticle(i); box.appendChild(d);}}); box.style.display=box.children.length?'block':'none';}
+function searchAll(){
+  const q=searchInput.value.toLowerCase(); 
+  const box=searchResults; 
+  box.innerHTML=''; 
+  if(!q){
+    box.style.display='none'; 
+    return;
+  } 
+  articles.forEach((a,i)=>{
+    if(a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)){
+      const d=document.createElement('div'); 
+      d.className='search-item'; 
+      d.innerText=a.title; 
+      d.onclick=()=>{
+        if (a.type === "video") {
+          openVideo(i);
+        } else {
+          openArticle(i);
+        }
+      }; 
+      box.appendChild(d);
+    }
+  }); 
+  box.style.display=box.children.length?'block':'none';
+}
 
 // LATEST NEWS & VIDEO
-function renderLatestNews(){const news=articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; if(!news) return; document.getElementById('latestTitle').innerText=news.title; const i=articles.findIndex(a=>a.title===news.title); document.getElementById('latestNews').onclick=()=>openArticle(i);}
-function renderLatestVideo(){const video=articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; if(!video) return; document.getElementById('latestVideoTitle').innerText=video.title; const i=articles.findIndex(a=>a.title===video.title); document.getElementById('latestVideo').onclick=()=>openVideo(i);}
+function renderLatestNews(){
+  const news=articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; 
+  if(!news) return; 
+  document.getElementById('latestTitle').innerText=news.title; 
+  const i=articles.findIndex(a=>a.title===news.title); 
+  document.getElementById('latestNews').onclick=()=>openArticle(i);
+}
 
-// ============ CHATBOT AI ULTRA-INTELLIGENTE ============
+function renderLatestVideo(){
+  const video=articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; 
+  if(!video) return; 
+  document.getElementById('latestVideoTitle').innerText=video.title; 
+  const i=articles.findIndex(a=>a.title===video.title); 
+  document.getElementById('latestVideo').onclick=()=>openVideo(i);
+}
+
+// ============ CHATBOT AI ============
 const chatToggle = document.getElementById('chatToggle');
 const chatBox = document.getElementById('chatBox');
 const chatMessages = document.getElementById('chatMessages');
@@ -340,22 +421,17 @@ async function wikipediaSearch(query) {
 function summarizeText(text, maxSentences = 3) {
   if (!text) return "Non c'è testo da riassumere.";
   
-  // Pulisci il testo
   text = text.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-  
-  // Dividi in frasi
   const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
   
   if (sentences.length <= maxSentences) {
     return sentences.join('. ') + '.';
   }
   
-  // Trova le frasi più importanti (quelle con parole chiave)
   const words = text.toLowerCase().split(/\s+/).filter(w => w.length > 3);
   const wordFreq = {};
   words.forEach(w => wordFreq[w] = (wordFreq[w] || 0) + 1);
   
-  // Calcola punteggio per ogni frase
   const scoredSentences = sentences.map(sentence => {
     const sentenceWords = sentence.toLowerCase().split(/\s+/);
     let score = 0;
@@ -365,14 +441,9 @@ function summarizeText(text, maxSentences = 3) {
     return { sentence: sentence.trim(), score: score / sentenceWords.length };
   });
   
-  // Ordina per punteggio e prendi le migliori
   scoredSentences.sort((a, b) => b.score - a.score);
   const bestSentences = scoredSentences.slice(0, maxSentences);
-  
-  // Rimetti in ordine originale
-  bestSentences.sort((a, b) => 
-    sentences.indexOf(a.sentence) - sentences.indexOf(b.sentence)
-  );
+  bestSentences.sort((a, b) => sentences.indexOf(a.sentence) - sentences.indexOf(b.sentence));
   
   return bestSentences.map(s => s.sentence).join('. ') + '.';
 }
@@ -386,15 +457,73 @@ function findArticleByTitle(title) {
   );
 }
 
-// ============ BOT RESPONSE ULTRA-INTELLIGENTE ============
+// ============ SISTEMA INTELLIGENTE DI COMANDI ============
+const intelligentCommands = {
+  // COMANDI PERSONALI (risposte fisse e precise)
+  "come ti chiami": "🤖 Mi chiamo **Assistente RSM**! Sono l'AI intelligente del sito RSM.",
+  "tu come ti chiami": "🤖 Mi chiamo **Assistente RSM**! Creato per aiutarti.",
+  "qual è il tuo nome": "🤖 Il mio nome è **Assistente RSM**!",
+  "hai un nome": "🤖 Sì! Mi chiamo **Assistente RSM**.",
+  "ti chiami come": "🤖 **Assistente RSM**! Questo è il mio nome.",
+  
+  "cosa sei": "⚡ Sono un **assistente AI avanzato** integrato nel sito RSM.",
+  "chi sei": "⚡ Sono **Assistente RSM**, il tuo aiutante AI personale!",
+  "sei un ai": "✅ Esatto! Sono un **AI intelligente** creato per assisterti.",
+  "che cosa sei": "⚡ Sono l'**Assistente AI** del sito RSM, sempre pronto ad aiutarti.",
+  
+  "cosa puoi fare": "✨ **Posso:**\n• 🔍 Cercare informazioni su Wikipedia\n• 📝 Riassumere articoli e testi\n• 🗺️ Guidarti tra Articoli/Video/News\n• 💬 Rispondere alle tue domande",
+  "capacità": "✨ **Le mie capacità:**\n• Ricerche intelligenti\n• Riassunti automatici\n• Navigazione assistita\n• Supporto 24/7",
+  "come aiuti": "✨ **Ti aiuto con:**\n1) Ricerche di informazioni\n2) Riassunti di contenuti\n3) Navigazione nel sito\n4) Risposte a domande",
+  
+  "chi ti ha creato": "👨‍💻 Sono stato sviluppato dal **team RSM** per offrire assistenza intelligente.",
+  "creatore": "👨‍💻 Il mio creatore è il **team RSM**.",
+  "chi ti ha sviluppato": "👨‍💻 Sono stato sviluppato da **RSM** per assistere gli utenti.",
+  
+  "sei intelligente": "🧠 **Sì, molto!** Sono progettato per capire il contesto e fornire risposte utili.",
+  "quanto sei smart": "🧠 **Estremamente smart!** Riesco a interpretare le tue richieste in modo intelligente.",
+  "sei bravo": "😊 **Grazie!** Cerco sempre di fare del mio meglio per aiutarti.",
+  
+  "grazie": "🙏 **Di nulla!** È un piacere aiutarti. 😊",
+  "thank you": "🙏 **You're welcome!** Happy to help! 😊",
+  "ti ringrazio": "🙏 **Prego!** Se hai bisogno di altro, sono qui. 😊",
+  
+  "addio": "👋 **Arrivederci!** Torna quando vuoi!",
+  "arrivederci": "👋 **A presto!** Sarò qui se mi cerchi.",
+  "ciao ciao": "👋 **Ciao!** Ci vediamo alla prossima.",
+  
+  "aiuto": "🆘 **Ecco cosa posso fare:**\n• 'cerca [argomento]' - ricerche\n• 'riassumi' - riassunti articoli\n• 'articoli/video/news' - navigazione\n• Fammi qualsiasi domanda!",
+  "help": "🆘 **I can help with:**\n• 'search [topic]' - searches\n• 'summarize' - summarize articles\n• 'articles/videos/news' - navigation\n• Ask me anything!",
+  
+  // COMANDI SPECIALI CHE ATTIVANO AZIONI
+  "riassumi": "SUMMARY",
+  "sintetizza": "SUMMARY",
+  "fai un riassunto": "SUMMARY",
+  "riassunto di": "SUMMARY",
+  
+  "cerca": "SEARCH",
+  "trova": "SEARCH", 
+  "ricerca": "SEARCH",
+  "informazioni su": "SEARCH",
+  "dimmi di": "SEARCH",
+  "parlami di": "SEARCH",
+  
+  "cos'è": "WHATIS",
+  "che cos'è": "WHATIS",
+  "chi è": "WHOIS",
+  "cosa sono": "WHATIS",
+  "chi era": "WHOIS",
+  "significato di": "WHATIS",
+  "definizione di": "WHATIS"
+};
+
+// ============ BOT RESPONSE INTELLIGENTISSIMO ============
 async function botResponse(msg) {
   const m = msg.toLowerCase().trim();
   
-  // 1. CONTROLLO SALUTI MIGLIORATO
-  const saluti = ["ciao", "buongiorno", "buon giorno", "buonasera", "buona sera", "buon pomeriggio", "hi", "hello", "salve", "hey", "ehi"];
+  // 1. SALUTI
+  const saluti = ["ciao", "buongiorno", "buon giorno", "buonasera", "buona sera", "buon pomeriggio", "hi", "hello", "salve", "hey"];
   
-  const words = m.split(/\s+/);
-  if (words.length <= 2) {
+  if (m.split(/\s+/).length <= 2) {
     for (const saluto of saluti) {
       if (m === saluto || m.startsWith(saluto + " ")) {
         return "👋 Ciao! Sono l'Assistente RSM. Posso cercare informazioni, riassumere articoli e aiutarti a navigare!";
@@ -402,159 +531,105 @@ async function botResponse(msg) {
     }
   }
   
-  // 2. RIASSUNTI ARTICOLI (MOLTO INTELLIGENTE)
-  if (m.includes('riassumi') || m.includes('sintetizza') || m.includes('fai un riassunto') || m.includes('riassunto di')) {
-    // Se c'è un articolo aperto
-    if (!document.getElementById('single').classList.contains('hidden')) {
-      const articleContent = document.getElementById('singleContent').innerText;
-      if (articleContent) {
-        const summary = summarizeText(articleContent);
-        return `📝 **Riassunto:**\n\n${summary}`;
+  // 2. SISTEMA DI COMANDI INTELLIGENTE (PRIMA DI TUTTO)
+  for (const [command, response] of Object.entries(intelligentCommands)) {
+    if (m.includes(command)) {
+      // Comando SPECIALE: RIASSUNTI
+      if (response === "SUMMARY") {
+        if (!document.getElementById('single').classList.contains('hidden')) {
+          const articleContent = document.getElementById('singleContent').innerText;
+          if (articleContent) {
+            const summary = summarizeText(articleContent);
+            return `📝 **Riassunto:**\n\n${summary}`;
+          }
+        }
+        
+        const titleMatch = m.replace(/riassumi|sintetizza|fai un riassunto|riassunto di/gi, '').trim();
+        if (titleMatch) {
+          const article = findArticleByTitle(titleMatch);
+          if (article) {
+            const summary = summarizeText(article.content);
+            return `📝 **Riassunto di "${article.title}":**\n\n${summary}`;
+          }
+        }
+        
+        return "Per riassumere un articolo, apri prima l'articolo o scrivi 'riassumi [titolo articolo]'.";
       }
-    }
-    
-    // Cerca articolo per titolo
-    const titleMatch = m.replace(/riassumi|sintetizza|fai un riassunto|riassunto di/gi, '').trim();
-    if (titleMatch) {
-      const article = findArticleByTitle(titleMatch);
-      if (article) {
-        const summary = summarizeText(article.content);
-        return `📝 **Riassunto di "${article.title}":**\n\n${summary}`;
+      
+      // Comando SPECIALE: RICERCHE
+      if (response === "SEARCH" || response === "WHATIS" || response === "WHOIS") {
+        let searchQuery = m.replace(command, '').trim();
+        searchQuery = searchQuery.replace(/[?.,!;:]/g, '').trim();
+        
+        if (searchQuery.length > 2) {
+          return await wikipediaSearch(searchQuery);
+        }
+        return "Cosa vuoi che cerchi? Scrivi 'cerca [argomento]' per una ricerca.";
       }
-    }
-    
-    // Se non trova articolo specifico
-    return "Per riassumere un articolo, apri prima l'articolo dalla sezione Articoli o News, oppure scrivi 'riassumi [titolo articolo]'.";
-  }
-  
-  // 3. DOMANDE PERSONALI DELL'AI
-  const domandePersonali = [
-    {q: ["come ti chiami", "tu come ti chiami", "qual è il tuo nome", "hai un nome", "ti chiami come", "nome tuo"], 
-     r: "🤖 Mi chiamo **Assistente RSM**! Sono l'AI del sito, creato per aiutarti con informazioni e navigazione."},
-    
-    {q: ["cosa sei", "chi sei", "sei un ai", "assistente", "ai chi sei", "che cosa sei"], 
-     r: "⚡ Sono un **assistente AI avanzato** integrato in RSM. Posso cercare su Wikipedia, riassumere testi e guidarti nel sito!"},
-    
-    {q: ["cosa puoi fare", "capacità", "come aiuti", "funzioni", "cose che sai fare"], 
-     r: "✨ **Cosa posso fare:**\n• 🔍 Cercare informazioni su qualsiasi argomento\n• 📝 Riassumere articoli e testi\n• 🗺️ Guidarti tra Articoli, Video, News\n• 💬 Rispondere alle tue domande\n• 🚀 E molto altro!"},
-    
-    {q: ["chi ti ha creato", "sviluppatore", "creatore", "fatto da chi"], 
-     r: "👨‍💻 Sono stato sviluppato dal team **RSM** per offrire un'assistenza intelligente agli utenti del sito."},
-    
-    {q: ["sei intelligente", "quanto sei smart", "sei bravo", "quanto capisci"], 
-     r: "🧠 Sono progettato per essere molto intelligente! Posso capire il contesto, fare ricerche complesse e adattarmi alle tue esigenze."}
-  ];
-  
-  for (const domanda of domandePersonali) {
-    for (const keyword of domanda.q) {
-      if (m.includes(keyword)) {
-        return domanda.r;
-      }
+      
+      // Risposta FISSA per comandi personali
+      return response;
     }
   }
   
-  // 4. CONTROLLO RICERCHE WIKIPEDIA (INTELLIGENTE)
-  const searchPatterns = [
-    // Ricerche esplicite
-    /^(cerca|trova|ricerca|informazioni su|dimmi di|parlami di)\s+.+/i,
-    // Domande dirette
-    /^(cos'è|che cos'è|chi è|cosa sono|chi era|che cosa è|significato di|definizione di)\s+.+/i,
-    // Domande lunghe (>10 caratteri con parole interrogative)
-    /^.{10,}?(chi|cosa|come|dove|quando|perché|perchè|perche)\s+.+/i
-  ];
-  
-  let shouldSearch = false;
-  let searchQuery = m;
-  
-  // Controlla se è una domanda di ricerca
-  for (const pattern of searchPatterns) {
-    if (pattern.test(m)) {
-      shouldSearch = true;
-      // Pulisci la query
-      searchQuery = m.replace(/^(cerca|trova|ricerca|informazioni su|dimmi di|parlami di|cos'è|che cos'è|chi è|cosa sono|chi era|che cosa è|significato di|definizione di)\s+/i, '')
-                     .replace(/[?.,!;:]/g, '')
-                     .trim();
-      break;
-    }
-  }
-  
-  // Se è una domanda lunga (>15 parole) probabilmente vuole una ricerca
-  if (!shouldSearch && words.length > 15) {
-    shouldSearch = true;
-    searchQuery = m.replace(/[?.,!]/g, '').trim();
-  }
-  
-  if (shouldSearch && searchQuery.length > 2) {
-    return await wikipediaSearch(searchQuery);
-  }
-  
-  // 5. NAVIGAZIONE SITO (MIGLIORATA)
+  // 3. NAVIGAZIONE SITO
   const navigazione = {
     "articoli": {section: 'articles', emoji: '📄'},
     "video": {section: 'videos', emoji: '🎬'},
     "news": {section: 'news', emoji: '📰'},
     "notizie": {section: 'news', emoji: '📰'},
     "categorie": {section: 'categories', emoji: '🏷️'},
-    "argomenti": {section: 'categories', emoji: '🏷️'},
     "chi siamo": {section: 'about', emoji: '👥'},
     "contatti": {section: 'contacts', emoji: '📞'},
-    "home": {section: 'home', emoji: '🏠'},
-    "inizio": {section: 'home', emoji: '🏠'}
+    "home": {section: 'home', emoji: '🏠'}
   };
   
   for (const [keyword, info] of Object.entries(navigazione)) {
     if (m.includes(keyword)) {
-      lastQuestion = `Vuoi aprire la sezione ${keyword.charAt(0).toUpperCase() + keyword.slice(1)}?`;
+      lastQuestion = `Vuoi aprire la sezione ${keyword}?`;
       return `${info.emoji} ${lastQuestion}\n\nDì **'Sì'** per confermare o **'No'** per annullare.`;
     }
   }
   
-  // 6. GESTIONE SÌ/NO INTELLIGENTE
+  // 4. GESTIONE SÌ/NO
   if (lastQuestion) {
-    if (m.includes("sì") || m.includes("si") || m.includes("yes") || m === "s" || m === "ok" || m === "va bene" || m === "certo") {
+    if (m.includes("sì") || m.includes("si") || m.includes("yes") || m === "s" || m === "ok") {
       const question = lastQuestion;
       lastQuestion = null;
       
       for (const [keyword, info] of Object.entries(navigazione)) {
         if (question.includes(keyword)) {
           showSection(info.section);
-          return `✅ ${info.emoji} **Sezione ${keyword.charAt(0).toUpperCase() + keyword.slice(1)} aperta!**\n\nOra puoi esplorare i contenuti.`;
+          return `✅ ${info.emoji} **Sezione ${keyword} aperta!**`;
         }
       }
     }
     
     if (m.includes("no") || m.includes("non") || m.includes("nope") || m === "n") {
       lastQuestion = null;
-      return "👌 Va bene, operazione annullata. Cosa posso fare per te?";
+      return "👌 Va bene, operazione annullata.";
     }
   }
   
-  // 7. COMANDI SPECIALI
-  if (m.includes("grazie") || m.includes("thank you") || m.includes("ti ringrazio")) {
-    return "🙏 Di nulla! È un piacere aiutarti. Hai bisogno di altro?";
+  // 5. RICERCA AUTOMATICA SE DOMANDA LUNGA
+  if (m.includes("?") && m.length > 10) {
+    let searchQuery = m.replace(/[?.,!]/g, '').trim();
+    if (searchQuery.length > 5) {
+      return await wikipediaSearch(searchQuery);
+    }
   }
   
-  if (m.includes("aiuto") || m.includes("help") || m.includes("supporto")) {
-    return `🆘 **Come posso aiutarti:**\n\n• 🔍 **Cercare:** 'cerca Roma', 'cos'è l'IA?', 'chi è Einstein'\n• 📝 **Riassumere:** 'riassumi [articolo]' (con articolo aperto)\n• 🗺️ **Navigare:** 'articoli', 'video', 'news', 'categorie'\n• 💬 **Domande:** chiedimi qualsiasi cosa!`;
-  }
-  
-  // 8. INSULTI (gestione intelligente)
-  const insults = ["stupido", "idiota", "cretino", "scemo", "imbecille", "stronzo", "cazzo", "merda", "vaffanculo"];
-  if (insults.some(i => m.includes(i))) {
-    return "⚠️ Mantieni un tono rispettoso per continuare la conversazione. Posso aiutarti se mi spieghi cosa ti serve.";
-  }
-  
-  // 9. RISPOSTE INTELLIGENTI PER DOMANDE NON RICONOSCIUTE
+  // 6. RISPOSTE INTELLIGENTI
   if (m.includes("?")) {
-    return "🤔 È una domanda interessante! Prova a riformularla in modo più specifico, oppure chiedimi di 'cercare informazioni su...' se vuoi una risposta dettagliata.";
+    return "🤔 È una domanda interessante! Prova a chiedermi 'cerca [argomento]' per una risposta dettagliata.";
   }
   
-  // 10. SUGGERIMENTI CONTESTUALI
+  // 7. SUGGERIMENTI
   const suggestions = [
-    "💡 **Suggerimento:** Prova a chiedermi 'cerca informazioni su...' per ricerche approfondite, oppure 'riassumi' se hai un articolo aperto!",
-    "🌟 **Prova questo:** 'cos'è la blockchain?' o 'chi è Leonardo da Vinci?' per vedere come funziono le ricerche!",
-    "🚀 **Scopri di più:** Apri la sezione 'Articoli' o 'Video' per contenuti interessanti, oppure chiedimi di riassumere qualcosa!",
-    "🔎 **Esempi utili:**\n• 'cerca storia di Roma'\n• 'articoli' (per navigare)\n• 'riassumi' (con articolo aperto)\n• 'cosa puoi fare?'"
+    "💡 **Prova:** 'cerca informazioni su...' per ricerche, oppure 'riassumi' se hai un articolo aperto!",
+    "🌟 **Esempi:** 'cos'è l'IA?', 'chi è Leonardo da Vinci?', 'articoli', 'video'",
+    "🚀 **Posso:** cercare informazioni, riassumere contenuti, guidarti nel sito!",
+    "🔍 **Digita:** 'cerca [argomento]' per ricerche, oppure 'aiuto' per vedere cosa posso fare."
   ];
   
   return randomChoice(suggestions);
