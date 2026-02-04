@@ -457,6 +457,52 @@ function findArticleByTitle(title) {
   );
 }
 
+// ============ API DI TRADUZIONE (LibreTranslate) ============
+async function translateToItalian(text) {
+  try {
+    const response = await fetch('https://libretranslate.com/translate', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        q: text,
+        source: 'en',
+        target: 'it',
+        format: 'text'
+      })
+    });
+    
+    if (!response.ok) throw new Error();
+    const data = await response.json();
+    return data.translatedText || text;
+  } catch {
+    // Fallback: traduzione semplice per frasi comuni
+    const commonTranslations = {
+      "Remember that spiders are more afraid of you than you are of them.": "Ricorda che i ragni hanno più paura di te di quanta tu ne abbia di loro.",
+      "Don't waste money on things you don't need.": "Non sprecare soldi per cose che non ti servono.",
+      "Always get up and walk around during a long journey.": "Alzati e cammina sempre durante un lungo viaggio.",
+      "Be yourself.": "Sii te stesso.",
+      "Take a deep breath.": "Fai un respiro profondo.",
+      "Don't be afraid to ask for help.": "Non aver paura di chiedere aiuto.",
+      "Learn something new every day.": "Impara qualcosa di nuovo ogni giorno.",
+      "Stay hydrated.": "Mantieniti idratato.",
+      "Get enough sleep.": "Dormi abbastanza.",
+      "Eat your vegetables.": "Mangia le tue verdure.",
+      "Exercise regularly.": "Fai esercizio regolarmente.",
+      "Be kind to others.": "Sii gentile con gli altri.",
+      "Practice makes perfect.": "La pratica rende perfetti.",
+      "Don't judge a book by its cover.": "Non giudicare un libro dalla copertina.",
+      "Where there's a will, there's a way.": "Volere è potere.",
+      "Actions speak louder than words.": "I fatti parlano più delle parole.",
+      "Better late than never.": "Meglio tardi che mai.",
+      "The early bird catches the worm.": "Il mattino ha l'oro in bocca.",
+      "When in Rome, do as the Romans do.": "Paese che vai, usanza che trovi.",
+      "No pain, no gain.": "Niente dolore, niente guadagno."
+    };
+    
+    return commonTranslations[text] || text;
+  }
+}
+
 // ============ SISTEMA INTELLIGENTE DI COMANDI ============
 const intelligentCommands = {
   "come ti chiami": "🤖 Mi chiamo **Assistente RSM**! Sono l'AI intelligente del sito RSM.",
@@ -468,7 +514,7 @@ const intelligentCommands = {
   "chi sei": "⚡ Sono **Assistente RSM**, il tuo aiutante AI personale!",
   "sei un ai": "✅ Esatto! Sono un **AI intelligente** creato per assisterti.",
   
-  "cosa puoi fare": "✨ **Posso:**\n• 🔍 Cercare informazioni su Wikipedia\n• 📝 Riassumere articoli e testi\n• 🗺️ Guidarti tra Articoli/Video/News\n• 💬 Rispondere alle tue domande",
+  "cosa puoi fare": "✨ **Posso:**\n• 🔍 Cercare informazioni su Wikipedia\n• 📝 Riassumere articoli e testi\n• 🗺️ Guidarti tra Articoli/Video/News\n• 💬 Rispondere alle tue domande\n• 🌍 Tradurre testi (inglese → italiano)\n• 😂 Raccontare barzellette\n• 💡 Dare consigli\n• 💱 Mostrare cambi valuta",
   
   "chi ti ha creato": "👨‍💻 Sono stato sviluppato dal **team RSM** per offrire assistenza intelligente.",
   "creatore": "👨‍💻 Il mio creatore è il **team RSM**.",
@@ -479,7 +525,7 @@ const intelligentCommands = {
   "addio": "👋 **Arrivederci!** Torna quando vuoi!",
   "arrivederci": "👋 **A presto!** Sarò qui se mi cerchi.",
   
-  "aiuto": "🆘 **Ecco cosa posso fare:**\n• 'cerca [argomento]' - ricerche su Wikipedia\n• 'riassumi' - riassunti articoli\n• 'articoli/video/news' - navigazione nel sito\n• 'citazione' - citazioni famose (API reale)\n• 'barzelletta' - barzellette (API reale)\n• 'consiglio' - consigli (API reale)\n• 'cambio valuta' - tassi di cambio (API reale)",
+  "aiuto": "🆘 **Ecco cosa posso fare:**\n• 'cerca [argomento]' - ricerche su Wikipedia\n• 'riassumi' - riassunti articoli\n• 'articoli/video/news' - navigazione nel sito\n• 'citazione' - citazioni famose\n• 'barzelletta' - barzellette\n• 'consiglio' - consigli (tradotti in italiano)\n• 'cambio valuta' - tassi di cambio\n• 'traduci [testo]' - traduci inglese → italiano",
   
   // COMANDI SPECIALI CHE ATTIVANO AZIONI
   "riassumi": "SUMMARY",
@@ -504,12 +550,26 @@ async function botResponse(msg) {
   if (m.split(/\s+/).length <= 2) {
     for (const saluto of saluti) {
       if (m === saluto || m.startsWith(saluto + " ")) {
-        return "👋 Ciao! Sono l'Assistente RSM. Posso cercare informazioni, riassumere articoli e aiutarti a navigare!";
+        return "👋 Ciao! Sono l'Assistente RSM. Posso cercare informazioni, riassumere articoli, tradurre testi e aiutarti a navigare!";
       }
     }
   }
   
-  // 2. SISTEMA DI COMANDI INTELLIGENTE
+  // 2. TRADUZIONE (nuovo comando)
+  if (m.startsWith("traduci ") || m.startsWith("traduci:") || m.startsWith("translate ")) {
+    const textToTranslate = m.replace(/traduci|traduci:|translate/gi, '').trim();
+    if (textToTranslate.length > 2) {
+      try {
+        const translated = await translateToItalian(textToTranslate);
+        return `🌍 **Traduzione:**\n${translated}`;
+      } catch {
+        return "⚠️ Impossibile tradurre il testo in questo momento.";
+      }
+    }
+    return "Scrivi 'traduci [testo in inglese]' per tradurre in italiano.";
+  }
+  
+  // 3. SISTEMA DI COMANDI INTELLIGENTE
   for (const [command, response] of Object.entries(intelligentCommands)) {
     if (m.includes(command)) {
       if (response === "SUMMARY") {
@@ -537,7 +597,7 @@ async function botResponse(msg) {
     }
   }
   
-  // 3. NAVIGAZIONE SITO
+  // 4. NAVIGAZIONE SITO
   const navigazione = {
     "articoli": {section: 'articles', emoji: '📄'},
     "video": {section: 'videos', emoji: '🎬'},
@@ -556,7 +616,7 @@ async function botResponse(msg) {
     }
   }
   
-  // 4. GESTIONE SÌ/NO
+  // 5. GESTIONE SÌ/NO
   if (lastQuestion) {
     if (m.includes("sì") || m.includes("si") || m.includes("yes") || m === "s" || m === "ok") {
       const question = lastQuestion;
@@ -576,7 +636,7 @@ async function botResponse(msg) {
     }
   }
   
-  // 5. RICERCA AUTOMATICA SE DOMANDA LUNGA
+  // 6. RICERCA AUTOMATICA SE DOMANDA LUNGA
   if (m.includes("?") && m.length > 10) {
     let searchQuery = m.replace(/[?.,!]/g, '').trim();
     if (searchQuery.length > 5) {
@@ -584,7 +644,7 @@ async function botResponse(msg) {
     }
   }
   
-  // 6. COMANDI API (RICERCHE REALI IN TEMPO REALE)
+  // 7. COMANDI API (RICERCHE REALI IN TEMPO REALE)
   
   // CITAZIONI - API REALE
   if (m.includes("citazione") || m.includes("frasi famose") || m.includes("citazioni")) {
@@ -597,74 +657,76 @@ async function botResponse(msg) {
     }
   }
   
-  // BARZELLETTE - API REALE (con categorie casuali)
-  if (m.includes("barzelletta") || m.includes("scherzo") || m.includes("battuta") || m.includes("ridere")) {
+  // BARZELLETTE - API FUNZIONANTE (icanhazdadjoke)
+  if (m.includes("barzelletta") || m.includes("scherzo") || m.includes("battuta") || m.includes("ridere") || m.includes("joke")) {
     try {
-      const categories = ['Programming', 'Misc', 'Pun', 'Dark', 'Spooky'];
-      const randomCat = categories[Math.floor(Math.random() * categories.length)];
-      const res = await fetch(`https://v2.jokeapi.dev/joke/${randomCat}?lang=it&type=single&` + Date.now());
+      // Usa API più affidabile
+      const res = await fetch('https://icanhazdadjoke.com/', {
+        headers: {'Accept': 'application/json'}
+      });
       const data = await res.json();
       
-      if (data.type === 'single') {
-        return `😂 **Barzelletta:**\n${data.joke}`;
-      } else if (data.type === 'twopart') {
-        return `😂 **Barzelletta:**\n${data.setup}\n\n${data.delivery}`;
-      }
-      throw new Error();
+      // Traduci la barzelletta in italiano
+      const jokeEnglish = data.joke;
+      const jokeItalian = await translateToItalian(jokeEnglish);
+      
+      return `😂 **Barzelletta:**\n${jokeItalian}`;
     } catch {
-      return "⚠️ Impossibile recuperare una barzelletta al momento.";
+      // Fallback: barzellette in italiano
+      const italianJokes = [
+        "Perché i fantasmi sono cattivi bugiardi? Perché puoi vedere attraverso le loro storie.",
+        "Cosa fa un computer a mezzanotte? Manda un'e-mail.",
+        "Qual è il colmo per un calciatore? Giocare in Premier League e chiamarsi Fuorigioco.",
+        "Come fa un informatico a spegnere la luce? Dice: 'Ctrl+Alt+Del'.",
+        "Perché il pomodoro non è uscito? Perché si è fatto la salsa."
+      ];
+      return `😂 **Barzelletta:**\n${italianJokes[Math.floor(Math.random() * italianJokes.length)]}`;
     }
   }
   
-  // CONSIGLI - API REALE (con traduzione automatica)
-  if (m.includes("consiglio") || m.includes("suggerimento") || m.includes("consigli")) {
+  // CONSIGLI - API REALE CON TRADUZIONE
+  if (m.includes("consiglio") || m.includes("suggerimento") || m.includes("consigli") || m.includes("advice")) {
     try {
       const res = await fetch('https://api.adviceslip.com/advice?' + Date.now());
       const data = await res.json();
       
-      // Traduzioni comuni
-      const traduzioni = {
-        "Remember that spiders are more afraid of you than you are of them.": "Ricorda che i ragni hanno più paura di te di quanta tu ne abbia di loro.",
-        "Don't waste money on things you don't need.": "Non sprecare soldi per cose che non ti servono.",
-        "Be yourself.": "Sii te stesso.",
-        "Take a deep breath.": "Fai un respiro profondo.",
-        "Stay hydrated.": "Mantieniti idratato.",
-        "Get enough sleep.": "Dormi abbastanza.",
-        "Eat your vegetables.": "Mangia le tue verdure.",
-        "Don't be afraid to ask for help.": "Non aver paura di chiedere aiuto."
-      };
+      // Traduci il consiglio in italiano
+      const adviceEnglish = data.slip.advice;
+      const adviceItalian = await translateToItalian(adviceEnglish);
       
-      const inglese = data.slip.advice;
-      const italiano = traduzioni[inglese] || inglese;
-      
-      return `💡 **Consiglio:**\n${italiano}`;
+      return `💡 **Consiglio:**\n${adviceItalian}`;
     } catch {
       return "⚠️ Impossibile recuperare un consiglio al momento.";
     }
   }
   
   // CAMBIO VALUTA - API REALE (supporta PKR)
-  if (m.includes("cambio") || m.includes("valuta") || m.includes("euro") || m.includes("dollaro") || m.includes("pkr") || m.includes("sterlina")) {
+  if (m.includes("cambio") || m.includes("valuta") || m.includes("euro") || m.includes("dollaro") || m.includes("pkr") || m.includes("sterlina") || m.includes("exchange")) {
     try {
       const res = await fetch('https://api.exchangerate-api.com/v4/latest/EUR?' + Date.now());
       const data = await res.json();
       
-      return `💱 **Cambio valuta EUR:**\n• 1 EUR = ${data.rates.USD.toFixed(4)} USD\n• 1 EUR = ${data.rates.GBP.toFixed(4)} GBP\n• 1 EUR = ${data.rates.PKR ? data.rates.PKR.toFixed(2) : "N/D"} PKR\n• 1 EUR = ${data.rates.JPY.toFixed(2)} JPY`;
+      const pkrRate = data.rates.PKR ? data.rates.PKR.toFixed(2) : "N/D";
+      const usdRate = data.rates.USD ? data.rates.USD.toFixed(4) : "N/D";
+      const gbpRate = data.rates.GBP ? data.rates.GBP.toFixed(4) : "N/D";
+      
+      return `💱 **Cambio valuta EUR:**\n• 1 EUR = ${usdRate} USD\n• 1 EUR = ${gbpRate} GBP\n• 1 EUR = ${pkrRate} PKR\n• 1 EUR = ${data.rates.JPY.toFixed(2)} JPY`;
     } catch {
       return "💱 **Cambio valuta (stime):**\n• 1 EUR ≈ 1.09 USD\n• 1 EUR ≈ 0.86 GBP\n• 1 EUR ≈ 299.50 PKR";
     }
   }
   
-  // 7. RISPOSTE INTELLIGENTI
+  // 8. RISPOSTE INTELLIGENTI
   if (m.includes("?")) {
     return "🤔 È una domanda interessante! Prova a chiedermi 'cerca [argomento]' per una risposta dettagliata da Wikipedia.";
   }
   
-  // 8. SUGGERIMENTI
+  // 9. SUGGERIMENTI
   const suggestions = [
     "💡 **Prova:** 'cerca informazioni su...' per ricerche su Wikipedia",
     "🌟 **Esempi:** 'cos'è l'IA?', 'chi è Leonardo da Vinci?'",
-    "🚀 **Posso anche:** citazioni, barzellette, consigli, cambio valuta (tutto in tempo reale da API esterne!)",
+    "🌍 **Nuovo:** 'traduci hello world' - traduci inglese → italiano",
+    "🚀 **Posso anche:** citazioni, barzellette, consigli, cambio valuta",
     "🔍 **Digita:** 'aiuto' per vedere tutto quello che posso fare"
   ];
   
