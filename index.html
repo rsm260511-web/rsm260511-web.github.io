@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RSM - Multimedia Platform</title>
+    <title>RSM - Premium Multimedia Platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RSM - Leading multimedia platform with articles, videos, and news">
+    <meta name="description" content="RSM - Premium multimedia platform with articles, videos, and news in 9 languages">
+    <meta name="keywords" content="RSM, multimedia, articles, videos, news, technology, science, culture">
+    <meta property="og:title" content="RSM Multimedia Platform">
+    <meta property="og:description" content="Premium content in 9 languages">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="rsm-header.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* ============ VARIABLES & RESET ============ */
@@ -17,17 +21,21 @@
             --accent-red: #ff4757;
             --accent-blue: #2e86de;
             --accent-purple: #9b59b6;
+            --accent-green: #10ac84;
+            --accent-orange: #ff9f43;
             --text-primary: #ffffff;
             --text-secondary: #b0b0c0;
             --text-muted: #8888a0;
             --gradient-primary: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
             --gradient-secondary: linear-gradient(135deg, #2e86de 0%, #54a0ff 100%);
-            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.4);
-            --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.3);
-            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.2);
-            --border-radius: 16px;
-            --border-radius-sm: 10px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --gradient-purple: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            --gradient-dark: linear-gradient(135deg, #1a1a24 0%, #2d2d3d 100%);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.3);
+            --border-radius: 20px;
+            --border-radius-sm: 12px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -38,15 +46,17 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
             background: var(--primary-dark);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
             position: relative;
+            min-height: 100vh;
         }
 
         body::before {
@@ -57,25 +67,45 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 71, 87, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(46, 134, 222, 0.15) 0%, transparent 50%);
+                radial-gradient(circle at 10% 20%, rgba(255, 71, 87, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(46, 134, 222, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(155, 89, 182, 0.05) 0%, transparent 60%);
             z-index: -1;
             pointer-events: none;
+        }
+
+        /* ============ CUSTOM SCROLLBAR ============ */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #ff2e43 0%, #ff4757 100%);
         }
 
         /* ============ HEADER ============ */
         header {
             background: 
-                linear-gradient(rgba(10, 10, 15, 0.9), rgba(10, 10, 15, 0.95)),
+                linear-gradient(rgba(10, 10, 15, 0.92), rgba(10, 10, 15, 0.98)),
                 url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            padding: 100px 20px;
+            padding: 120px 20px 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 60vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -88,141 +118,168 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(45deg, 
-                rgba(255, 71, 87, 0.2) 0%, 
-                rgba(155, 89, 182, 0.2) 50%, 
-                rgba(46, 134, 222, 0.2) 100%);
+                rgba(255, 71, 87, 0.15) 0%, 
+                rgba(155, 89, 182, 0.15) 50%, 
+                rgba(46, 134, 222, 0.15) 100%);
             z-index: 1;
         }
 
         .header-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            animation: fadeInUp 1s ease;
+            max-width: 1000px;
+            animation: fadeInUp 1.2s ease-out;
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #fff, #ff9f9f, #ffb8b8);
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #fff 0%, #ff9f9f 30%, #ffb8b8 70%, #fff 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            line-height: 1.2;
+            text-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            line-height: 1.1;
+            letter-spacing: 1px;
         }
 
         header .tagline {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: var(--text-secondary);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             font-weight: 400;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .header-stats {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
+            gap: 50px;
+            margin-top: 60px;
             flex-wrap: wrap;
         }
 
         .stat-item {
             text-align: center;
+            padding: 25px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 150px;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-red);
         }
 
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 3rem;
+            font-weight: 800;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             line-height: 1;
+            margin-bottom: 10px;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
 
         /* ============ NAVIGATION ============ */
         nav {
-            background: rgba(17, 17, 24, 0.95);
+            background: rgba(17, 17, 24, 0.98);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            padding: 15px 30px;
+            padding: 18px 40px;
             display: flex;
             align-items: center;
             flex-wrap: wrap;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: var(--shadow-md);
+            gap: 20px;
         }
 
         .nav-links {
             display: flex;
-            gap: 5px;
+            gap: 8px;
             flex-wrap: wrap;
+            flex: 1;
         }
 
         .nav-link {
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 600;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border-radius: 50px;
             transition: var(--transition);
             position: relative;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 1rem;
             display: flex;
             align-items: center;
-            gap: 8px;
-            letter-spacing: 0.5px;
+            gap: 12px;
+            letter-spacing: 0.8px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid transparent;
         }
 
         .nav-link i {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
         }
 
         .nav-link:hover {
-            background: rgba(255, 71, 87, 0.1);
+            background: rgba(255, 71, 87, 0.15);
             color: var(--accent-red);
             transform: translateY(-2px);
+            border-color: rgba(255, 71, 87, 0.3);
+            box-shadow: var(--shadow-sm);
         }
 
         .nav-link.active {
             background: var(--gradient-primary);
             color: white;
-            box-shadow: var(--shadow-sm);
+            border-color: transparent;
+            box-shadow: 0 5px 20px rgba(255, 71, 87, 0.3);
         }
 
         .nav-link.active::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -6px;
             left: 50%;
             transform: translateX(-50%);
-            width: 20px;
-            height: 3px;
+            width: 24px;
+            height: 4px;
             background: var(--accent-red);
             border-radius: 2px;
         }
 
         /* ============ SEARCH ============ */
         .search-container {
-            margin-left: auto;
             position: relative;
-            min-width: 300px;
+            min-width: 350px;
+            margin: 0 20px;
         }
 
         .search-box {
@@ -231,29 +288,31 @@
 
         #searchInput {
             width: 100%;
-            padding: 14px 20px 14px 50px;
+            padding: 16px 25px 16px 60px;
             border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
             color: var(--text-primary);
-            font-size: 1rem;
+            font-size: 1.05rem;
             transition: var(--transition);
+            backdrop-filter: blur(10px);
         }
 
         #searchInput:focus {
             outline: none;
             border-color: var(--accent-red);
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.2);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 0 5px rgba(255, 71, 87, 0.2);
         }
 
         .search-icon {
             position: absolute;
-            left: 20px;
+            left: 25px;
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            z-index: 1;
         }
 
         #searchResults {
@@ -263,23 +322,24 @@
             right: 0;
             background: var(--card-dark);
             border-radius: var(--border-radius-sm);
-            margin-top: 10px;
+            margin-top: 15px;
             display: none;
             z-index: 1000;
-            max-height: 400px;
+            max-height: 500px;
             overflow-y: auto;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(20px);
         }
 
         .search-item {
-            padding: 15px 20px;
+            padding: 18px 25px;
             cursor: pointer;
             transition: var(--transition);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .search-item:last-child {
@@ -287,18 +347,19 @@
         }
 
         .search-item:hover {
-            background: rgba(255, 71, 87, 0.1);
+            background: rgba(255, 71, 87, 0.12);
         }
 
         .search-item-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: rgba(46, 134, 222, 0.2);
             color: var(--accent-blue);
+            font-size: 1.2rem;
         }
 
         .search-item.news .search-item-icon {
@@ -316,281 +377,318 @@
         }
 
         .search-item-title {
-            font-weight: 600;
-            margin-bottom: 5px;
+            font-weight: 700;
+            margin-bottom: 8px;
             color: var(--text-primary);
+            font-size: 1.1rem;
         }
 
         .search-item-meta {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
         /* ============ LANGUAGE SELECTOR ============ */
         .language-selector {
             position: relative;
-            margin-left: 20px;
+            margin-right: 15px;
         }
 
         .language-btn {
-            padding: 10px 20px;
+            padding: 12px 25px;
             background: rgba(46, 134, 222, 0.2);
             color: var(--accent-blue);
             border: 2px solid rgba(46, 134, 222, 0.3);
             border-radius: 50px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             transition: var(--transition);
-            min-width: 100px;
+            min-width: 110px;
             justify-content: center;
             backdrop-filter: blur(10px);
+            font-size: 1rem;
         }
 
         .language-btn:hover {
             background: rgba(46, 134, 222, 0.3);
             border-color: var(--accent-blue);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(46, 134, 222, 0.2);
+            box-shadow: 0 8px 25px rgba(46, 134, 222, 0.25);
         }
 
         .language-dropdown {
             position: absolute;
-            top: 55px;
+            top: 60px;
             right: 0;
             background: var(--card-dark);
             border-radius: var(--border-radius-sm);
-            padding: 15px;
-            min-width: 200px;
+            padding: 20px;
+            min-width: 220px;
             display: none;
             box-shadow: var(--shadow-lg);
             z-index: 1001;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             animation: fadeInDown 0.3s ease;
+            backdrop-filter: blur(20px);
         }
 
         .language-option {
-            padding: 12px 15px;
+            padding: 14px 18px;
             cursor: pointer;
-            border-radius: 8px;
-            margin: 5px 0;
+            border-radius: 10px;
+            margin: 6px 0;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-weight: 500;
+            gap: 15px;
+            font-weight: 600;
         }
 
         .language-option:hover {
-            background: rgba(46, 134, 222, 0.1);
-            transform: translateX(5px);
+            background: rgba(46, 134, 222, 0.15);
+            transform: translateX(8px);
         }
 
         .current-lang {
-            background: rgba(46, 134, 222, 0.15);
-            border-left: 3px solid var(--accent-blue);
+            background: rgba(46, 134, 222, 0.2);
+            border-left: 4px solid var(--accent-blue);
         }
 
-        /* ============ CHATBOT ============ */
+        /* ============ CHATBOT IMPROVED ============ */
         .chatbot-container {
-            margin-left: 15px;
+            position: relative;
         }
 
         #chatToggle {
-            padding: 12px 25px;
+            padding: 14px 30px;
             background: var(--gradient-primary);
             color: white;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             transition: var(--transition);
             box-shadow: var(--shadow-md);
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        #chatToggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        #chatToggle:hover::before {
+            left: 100%;
         }
 
         #chatToggle:hover {
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.4);
+            box-shadow: 0 15px 35px rgba(255, 71, 87, 0.4);
         }
 
         #chatBox {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 400px;
-            height: 600px;
+            bottom: 40px;
+            right: 40px;
+            width: 420px;
+            height: 650px;
             background: var(--card-dark);
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-lg);
             display: none;
             flex-direction: column;
             z-index: 1000;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             overflow: hidden;
             animation: slideInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
         }
 
         .chat-header {
-            background: linear-gradient(135deg, var(--secondary-dark), #1a1a24);
-            padding: 20px;
+            background: var(--gradient-dark);
+            padding: 25px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
         }
 
         .chat-title {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            font-size: 1.2rem;
+            gap: 15px;
+            font-weight: 800;
+            font-size: 1.3rem;
         }
 
         .chat-title i {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            animation: pulse 2s infinite;
         }
 
         #chatClose {
             background: var(--accent-red);
             color: white;
             border: none;
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             transition: var(--transition);
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 2;
         }
 
         #chatClose:hover {
-            transform: rotate(90deg);
+            transform: rotate(90deg) scale(1.1);
             background: #ff2e43;
+            box-shadow: 0 5px 20px rgba(255, 71, 87, 0.4);
         }
 
         #chatMessages {
             flex: 1;
-            padding: 20px;
+            padding: 25px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            background: rgba(10, 10, 15, 0.5);
+            gap: 20px;
+            background: rgba(10, 10, 15, 0.6);
         }
 
         .message {
-            max-width: 85%;
-            padding: 15px 20px;
-            border-radius: 20px;
+            max-width: 88%;
+            padding: 18px 25px;
+            border-radius: 25px;
             word-wrap: break-word;
-            animation: messageAppear 0.3s ease;
+            animation: messageAppear 0.4s ease;
             position: relative;
+            line-height: 1.6;
+            font-size: 1.05rem;
         }
 
         .message.user {
             align-self: flex-end;
             background: var(--gradient-secondary);
             color: white;
-            border-bottom-right-radius: 5px;
+            border-bottom-right-radius: 8px;
             box-shadow: var(--shadow-sm);
         }
 
         .message.bot {
             align-self: flex-start;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(10px);
-            border-bottom-left-radius: 5px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom-left-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .message-time {
-            font-size: 0.7rem;
-            opacity: 0.7;
-            margin-top: 5px;
+            font-size: 0.75rem;
+            opacity: 0.8;
+            margin-top: 8px;
             text-align: right;
+            font-weight: 500;
         }
 
         .chat-input-container {
-            padding: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
             background: var(--secondary-dark);
         }
 
         .chat-input-wrapper {
             display: flex;
-            gap: 12px;
+            gap: 15px;
             align-items: center;
         }
 
         #chatInput {
             flex: 1;
-            padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.08);
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.15);
             border-radius: 50px;
             outline: none;
             transition: var(--transition);
-            font-size: 1rem;
+            font-size: 1.05rem;
+            backdrop-filter: blur(10px);
         }
 
         #chatInput:focus {
             border-color: var(--accent-blue);
-            box-shadow: 0 0 0 4px rgba(46, 134, 222, 0.2);
+            box-shadow: 0 0 0 5px rgba(46, 134, 222, 0.2);
+            background: rgba(255, 255, 255, 0.12);
         }
 
         #chatSend {
-            padding: 15px 30px;
+            padding: 18px 35px;
             background: var(--gradient-secondary);
             color: white;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             white-space: nowrap;
             box-shadow: var(--shadow-sm);
+            font-size: 1.05rem;
         }
 
         #chatSend:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(46, 134, 222, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(46, 134, 222, 0.35);
         }
 
         /* ============ MAIN CONTENT ============ */
         main {
             max-width: 1400px;
-            margin: 50px auto;
-            padding: 0 30px;
+            margin: 60px auto;
+            padding: 0 40px;
         }
 
         .card {
             background: var(--card-dark);
-            padding: 30px;
+            padding: 35px;
             border-radius: var(--border-radius);
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .card::before {
@@ -599,14 +697,14 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 6px;
             background: var(--gradient-primary);
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-12px);
             box-shadow: var(--shadow-lg);
-            border-color: rgba(255, 71, 87, 0.2);
+            border-color: rgba(255, 71, 87, 0.25);
         }
 
         .hidden {
@@ -616,21 +714,22 @@
         /* ============ HOME SECTION ============ */
         .feature-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 35px;
+            margin-top: 35px;
         }
 
         .feature-card {
-            background: linear-gradient(145deg, rgba(26, 26, 36, 0.8), rgba(34, 34, 48, 0.8));
+            background: linear-gradient(145deg, rgba(26, 26, 36, 0.9), rgba(34, 34, 48, 0.9));
             border-radius: var(--border-radius);
-            padding: 30px;
+            padding: 35px;
             transition: var(--transition);
             cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
             height: 100%;
+            backdrop-filter: blur(10px);
         }
 
         .feature-card::before {
@@ -638,7 +737,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 5px;
+            width: 6px;
             height: 100%;
             background: var(--gradient-primary);
         }
@@ -648,55 +747,57 @@
         }
 
         .feature-card:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-10px) scale(1.02);
             box-shadow: var(--shadow-lg);
         }
 
         .feature-card-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 20px;
+            margin-bottom: 25px;
         }
 
         .feature-card-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            background: rgba(255, 71, 87, 0.1);
+            font-size: 2rem;
+            background: rgba(255, 71, 87, 0.15);
             color: var(--accent-red);
+            box-shadow: var(--shadow-sm);
         }
 
         .feature-card.video .feature-card-icon {
-            background: rgba(46, 134, 222, 0.1);
+            background: rgba(46, 134, 222, 0.15);
             color: var(--accent-blue);
         }
 
         .feature-card-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 5px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 8px;
             color: var(--text-primary);
         }
 
         .feature-card-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            margin-bottom: 20px;
             line-height: 1.4;
             background: linear-gradient(45deg, #fff, #ffb8b8);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            font-weight: 800;
         }
 
         .feature-card-content p {
             color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.6;
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
 
         /* ============ CONTENT SECTIONS ============ */
@@ -704,54 +805,65 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.15);
         }
 
         .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             background: linear-gradient(45deg, #fff, var(--accent-blue));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .section-title i {
-            font-size: 2rem;
+            font-size: 2.2rem;
+        }
+
+        .section-count {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            color: var(--text-primary);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
         }
 
         .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 35px;
+            margin-top: 35px;
         }
 
         .content-item {
-            background: linear-gradient(145deg, rgba(26, 26, 36, 0.8), rgba(34, 34, 48, 0.8));
+            background: linear-gradient(145deg, rgba(26, 26, 36, 0.9), rgba(34, 34, 48, 0.9));
             border-radius: var(--border-radius);
             overflow: hidden;
             transition: var(--transition);
             cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             height: 100%;
+            backdrop-filter: blur(10px);
         }
 
         .content-item:hover {
-            transform: translateY(-12px) scale(1.02);
+            transform: translateY(-15px) scale(1.03);
             box-shadow: var(--shadow-lg);
             border-color: rgba(255, 71, 87, 0.3);
         }
 
         .content-item-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
             overflow: hidden;
             position: relative;
         }
@@ -764,73 +876,82 @@
         }
 
         .content-item:hover .content-item-image img {
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
 
         .content-item-badge {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 8px 15px;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
             background: var(--gradient-primary);
             color: white;
             border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.85rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             box-shadow: var(--shadow-sm);
+            z-index: 1;
         }
 
         .content-item-content {
-            padding: 25px;
+            padding: 30px;
         }
 
         .content-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
             line-height: 1.4;
             color: var(--text-primary);
+            font-weight: 700;
         }
 
         .content-item p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            line-height: 1.7;
         }
 
         .content-item-meta {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .meta-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .meta-item i {
+            font-size: 1.1rem;
+            color: var(--accent-blue);
         }
 
         /* ============ CATEGORIES ============ */
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .category-card {
-            background: linear-gradient(145deg, rgba(26, 26, 36, 0.8), rgba(34, 34, 48, 0.8));
+            background: linear-gradient(145deg, rgba(26, 26, 36, 0.9), rgba(34, 34, 48, 0.9));
             border-radius: var(--border-radius);
-            padding: 25px;
+            padding: 30px;
             transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .category-card::before {
@@ -839,208 +960,314 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent-red), var(--accent-purple));
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-purple), var(--accent-blue));
         }
 
         .category-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
         }
 
         .category-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 20px;
+            margin-bottom: 25px;
         }
 
         .category-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            background: rgba(46, 134, 222, 0.1);
-            color: var(--accent-blue);
-        }
-
-        .category-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .category-items {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .category-item {
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 10px;
-            transition: var(--transition);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .category-item:hover {
-            background: rgba(255, 71, 87, 0.1);
-            transform: translateX(10px);
-            color: var(--accent-red);
-        }
-
-        .category-item i {
-            font-size: 0.9rem;
-            color: var(--accent-blue);
-        }
-
-        /* ============ SINGLE ARTICLE/VIDEO ============ */
-        #single .media-container {
-            margin: 30px 0;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        #single img {
-            width: 100%;
-            max-height: 500px;
-            object-fit: cover;
-            border-radius: var(--border-radius);
-        }
-
-        #single iframe {
-            width: 100%;
-            height: 500px;
-            border-radius: var(--border-radius);
-            border: none;
-        }
-
-        #singleContent {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        #singleContent p {
-            margin-bottom: 25px;
-        }
-
-        #singleContent h3 {
-            color: var(--text-primary);
-            margin: 30px 0 15px 0;
-            font-size: 1.5rem;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 25px;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-primary);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-            margin-top: 30px;
-        }
-
-        .back-button:hover {
-            background: rgba(255, 71, 87, 0.1);
-            border-color: var(--accent-red);
-            transform: translateX(-5px);
-        }
-
-        /* ============ ABOUT & CONTACTS ============ */
-        .about-content, .contacts-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .about-content p, .contacts-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            color: var(--text-secondary);
-        }
-
-        .contacts-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: var(--border-radius-sm);
-            transition: var(--transition);
-        }
-
-        .contact-item:hover {
-            background: rgba(46, 134, 222, 0.1);
-            transform: translateX(10px);
-        }
-
-        .contact-icon {
             width: 60px;
             height: 60px;
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.8rem;
+            background: rgba(46, 134, 222, 0.15);
+            color: var(--accent-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .category-title {
             font-size: 1.5rem;
-            background: rgba(46, 134, 222, 0.1);
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .category-items {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .category-item {
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 600;
+        }
+
+        .category-item:hover {
+            background: rgba(255, 71, 87, 0.15);
+            transform: translateX(15px);
+            color: var(--accent-red);
+        }
+
+        .category-item i {
+            font-size: 1rem;
             color: var(--accent-blue);
         }
 
-        .contact-details h4 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+        /* ============ SINGLE ARTICLE/VIDEO ============ */
+        #single .media-container {
+            margin: 40px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        #single img {
+            width: 100%;
+            max-height: 550px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            display: block;
+        }
+
+        #single iframe {
+            width: 100%;
+            height: 550px;
+            border-radius: var(--border-radius);
+            border: none;
+            background: #000;
+        }
+
+        #singleContent {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+        }
+
+        #singleContent p {
+            margin-bottom: 30px;
+        }
+
+        #singleContent h3 {
             color: var(--text-primary);
+            margin: 35px 0 20px 0;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: var(--transition);
+            margin-top: 35px;
+            backdrop-filter: blur(10px);
+            font-size: 1.05rem;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 71, 87, 0.15);
+            border-color: var(--accent-red);
+            transform: translateX(-8px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ============ ABOUT & CONTACTS ============ */
+        .about-content, .contacts-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content p, .contacts-content p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+        }
+
+        .contacts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:hover {
+            background: rgba(46, 134, 222, 0.15);
+            transform: translateX(15px);
+            border-color: var(--accent-blue);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            background: rgba(46, 134, 222, 0.15);
+            color: var(--accent-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-details h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: 700;
         }
 
         .contact-details p {
             margin: 0;
             color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* ============ LEGAL MODALS ============ */
+        .legal-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .legal-content {
+            background: var(--card-dark);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            animation: modalAppear 0.4s ease;
+        }
+
+        .legal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: var(--accent-red);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .legal-close:hover {
+            transform: rotate(90deg) scale(1.1);
+            background: #ff2e43;
+        }
+
+        .legal-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            font-weight: 800;
+            background: linear-gradient(45deg, #fff, var(--accent-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .legal-content h3 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px 0;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .legal-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .legal-content ul {
+            padding-left: 25px;
+            margin-bottom: 25px;
+        }
+
+        .legal-content li {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 10px;
+            font-size: 1.05rem;
         }
 
         /* ============ FOOTER ============ */
         footer {
             background: var(--secondary-dark);
-            padding: 60px 30px 30px;
-            margin-top: 80px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 80px 40px 40px;
+            margin-top: 100px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .footer-content {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
         }
 
         .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
+            font-size: 1.4rem;
+            margin-bottom: 30px;
             color: var(--text-primary);
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: 20px;
+            font-weight: 800;
         }
 
         .footer-section h3::after {
@@ -1048,16 +1275,17 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 50px;
-            height: 3px;
+            width: 60px;
+            height: 4px;
             background: var(--gradient-primary);
             border-radius: 2px;
         }
 
         .footer-section p {
             color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 20px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
         }
 
         .footer-links {
@@ -1065,7 +1293,7 @@
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .footer-links a {
@@ -1074,52 +1302,57 @@
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            font-weight: 600;
+            padding: 8px 0;
         }
 
         .footer-links a:hover {
             color: var(--accent-red);
-            transform: translateX(5px);
+            transform: translateX(8px);
         }
 
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .social-link {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.08);
             color: var(--text-secondary);
             transition: var(--transition);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .social-link:hover {
             background: var(--gradient-primary);
             color: white;
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            border-color: transparent;
+            box-shadow: var(--shadow-sm);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         /* ============ LOADING & ANIMATIONS ============ */
         .loading {
             display: inline-block;
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             border: 3px solid rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             border-top-color: var(--accent-red);
@@ -1129,7 +1362,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -1151,7 +1384,7 @@
         @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px) scale(0.95);
+                transform: translateY(40px) scale(0.9);
             }
             to {
                 opacity: 1;
@@ -1159,14 +1392,36 @@
             }
         }
 
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         @keyframes messageAppear {
             from {
                 opacity: 0;
-                transform: translateY(10px) scale(0.9);
+                transform: translateY(15px) scale(0.9);
             }
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
             }
         }
 
@@ -1175,57 +1430,217 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-25px); }
         }
 
         /* ============ RESPONSIVE DESIGN ============ */
         @media (max-width: 1200px) {
-            header h1 { font-size: 3.5rem; }
-            .content-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+            header h1 { font-size: 4.2rem; }
+            .content-grid { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+            .feature-cards { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
         }
 
         @media (max-width: 992px) {
-            nav { flex-direction: column; gap: 15px; }
-            .nav-links { order: 3; width: 100%; justify-content: center; }
-            .search-container { order: 2; width: 100%; margin: 10px 0; }
-            .language-selector, .chatbot-container { order: 1; margin: 5px; }
-            header { padding: 80px 20px; min-height: 50vh; }
-            header h1 { font-size: 3rem; }
+            nav { 
+                flex-direction: column; 
+                gap: 20px; 
+                padding: 15px 25px;
+            }
+            .nav-links { 
+                order: 3; 
+                width: 100%; 
+                justify-content: center;
+                gap: 5px;
+            }
+            .nav-link { 
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
+            .search-container { 
+                order: 2; 
+                width: 100%; 
+                margin: 10px 0;
+                min-width: auto;
+            }
+            .language-selector, .chatbot-container { 
+                order: 1; 
+                margin: 5px; 
+            }
+            header { 
+                padding: 100px 20px 60px; 
+                min-height: 60vh; 
+            }
+            header h1 { font-size: 3.5rem; }
             .feature-cards { grid-template-columns: 1fr; }
-            #chatBox { width: calc(100% - 60px); right: 30px; }
+            .header-stats { gap: 20px; }
+            .stat-item { 
+                min-width: 130px; 
+                padding: 20px 25px;
+            }
+            .stat-number { font-size: 2.5rem; }
+            
+            /* Mobile Chatbot Fix */
+            #chatBox {
+                width: calc(100% - 80px);
+                height: 70vh;
+                bottom: 20px;
+                right: 40px;
+                left: 40px;
+                margin: 0 auto;
+                max-width: 500px;
+            }
         }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            .header-stats { gap: 20px; }
-            .stat-number { font-size: 2rem; }
-            .section-title { font-size: 1.8rem; }
-            .nav-link { padding: 10px 15px; font-size: 0.9rem; }
-            .content-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 3rem; }
+            header .tagline { font-size: 1.4rem; }
+            .header-stats { 
+                gap: 15px;
+                margin-top: 40px;
+            }
+            .stat-item { 
+                min-width: 110px; 
+                padding: 15px 20px;
+            }
+            .stat-number { font-size: 2.2rem; }
+            .section-title { 
+                font-size: 2rem;
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .nav-link { 
+                padding: 10px 15px; 
+                font-size: 0.9rem;
+                gap: 8px;
+            }
+            .nav-link i { font-size: 1.1rem; }
+            .content-grid { 
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
             .categories-grid { grid-template-columns: 1fr; }
-            #single iframe { height: 300px; }
-            .footer-content { grid-template-columns: 1fr; }
+            #single iframe { height: 350px; }
+            .footer-content { 
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            main { padding: 0 25px; }
+            
+            /* Mobile Chatbot */
+            #chatBox {
+                width: calc(100% - 40px);
+                right: 20px;
+                left: 20px;
+                height: 65vh;
+                bottom: 15px;
+            }
+            .chat-header { padding: 20px; }
+            .chat-input-container { padding: 20px; }
+            #chatMessages { padding: 20px; }
         }
 
         @media (max-width: 480px) {
-            header h1 { font-size: 2rem; }
-            .header-stats { flex-direction: column; gap: 15px; }
-            .nav-link { padding: 8px 12px; font-size: 0.85rem; }
-            .section-title { font-size: 1.5rem; }
-            .card { padding: 20px; }
-            #chatBox { width: calc(100% - 40px); height: 500px; bottom: 20px; right: 20px; }
+            header h1 { font-size: 2.5rem; }
+            header .tagline { 
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+            .header-stats { 
+                flex-direction: column; 
+                gap: 15px;
+                width: 100%;
+            }
+            .stat-item { 
+                width: 100%;
+                max-width: 250px;
+            }
+            .nav-link { 
+                padding: 8px 12px; 
+                font-size: 0.85rem;
+                gap: 6px;
+            }
+            .nav-link i { font-size: 1rem; }
+            .section-title { font-size: 1.8rem; }
+            .section-count { 
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            .card { padding: 25px; }
+            .feature-card { padding: 25px; }
+            .feature-card-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+            .feature-card-content h3 {
+                font-size: 1.8rem;
+            }
+            .back-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            /* Mobile Chatbot */
+            #chatBox {
+                width: calc(100% - 30px);
+                right: 15px;
+                left: 15px;
+                height: 60vh;
+                bottom: 10px;
+            }
+            #chatToggle {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+            .chat-title {
+                font-size: 1.1rem;
+            }
+            .message {
+                font-size: 1rem;
+                padding: 15px 20px;
+            }
+            #chatSend {
+                padding: 15px 25px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 360px) {
+            header h1 { font-size: 2.2rem; }
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-link {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+            .language-btn, #chatToggle {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
         }
 
         /* ============ UTILITY CLASSES ============ */
         .gradient-text {
             background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .gradient-text-blue {
+            background: var(--gradient-secondary);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -1240,13 +1655,90 @@
         }
 
         .text-center { text-align: center; }
-        .mt-30 { margin-top: 30px; }
-        .mb-30 { margin-bottom: 30px; }
-        .py-30 { padding: 30px 0; }
-        .px-30 { padding: 0 30px; }
+        .mt-40 { margin-top: 40px; }
+        .mb-40 { margin-bottom: 40px; }
+        .py-40 { padding: 40px 0; }
+        .px-40 { padding: 0 40px; }
+        .w-100 { width: 100%; }
+        .d-flex { display: flex; }
+        .align-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .flex-column { flex-direction: column; }
+        .gap-20 { gap: 20px; }
+
+        /* Newsletter Form Styles */
+        .newsletter-form {
+            margin-top: 20px;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 16px 25px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50px;
+            color: white;
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 0 5px rgba(46, 134, 222, 0.2);
+        }
+
+        .newsletter-button {
+            width: 100%;
+            padding: 16px 25px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .newsletter-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.3);
+        }
+
+        .newsletter-success {
+            display: none;
+            padding: 15px 25px;
+            background: rgba(16, 172, 132, 0.2);
+            border: 2px solid var(--accent-green);
+            border-radius: var(--border-radius-sm);
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .newsletter-error {
+            display: none;
+            padding: 15px 25px;
+            background: rgba(255, 71, 87, 0.2);
+            border: 2px solid var(--accent-red);
+            border-radius: var(--border-radius-sm);
+            color: var(--accent-red);
+            font-weight: 600;
+            margin-top: 15px;
+            text-align: center;
+        }
     </style>
     
-    <!-- Webpushr - MANTENUTO INTEGRO -->
+    <!-- Webpushr -->
     <script>
     (function(w,d,s,id){
       if(typeof(w.webpushr)!=='undefined') return;
@@ -1370,7 +1862,7 @@
         <!-- Chatbot -->
         <div class="chatbot-container">
             <button id="chatToggle">
-                <i class="fas fa-robot"></i>
+                <i class="fas fa-robot pulse-animation"></i>
                 <span id="chatBtnText">AI Assistant</span>
             </button>
             
@@ -1378,9 +1870,9 @@
                 <div class="chat-header">
                     <div class="chat-title">
                         <i class="fas fa-robot"></i>
-                        <span id="chatTitle">RSM Assistant</span>
+                        <span id="chatTitle">RSM AI Assistant</span>
                     </div>
-                    <button id="chatClose">
+                    <button id="chatClose" title="Close Chat">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
@@ -1399,6 +1891,115 @@
             </div>
         </div>
     </nav>
+
+    <!-- Legal Modals -->
+    <div id="privacyModal" class="legal-modal">
+        <div class="legal-content">
+            <button class="legal-close" onclick="closeModal('privacyModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 id="privacyTitle">Privacy Policy</h2>
+            <div id="privacyContent">
+                <p>Your privacy is important to us. This Privacy Policy explains how RSM collects, uses, and protects your information.</p>
+                
+                <h3>Information We Collect</h3>
+                <p>We collect information you provide directly, such as when you contact us or use our services. This may include:</p>
+                <ul>
+                    <li>Contact information (name, email address)</li>
+                    <li>Usage data and preferences</li>
+                    <li>Device and browser information</li>
+                    <li>Content preferences and interactions</li>
+                </ul>
+                
+                <h3>How We Use Your Information</h3>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Provide and improve our services</li>
+                    <li>Personalize your experience</li>
+                    <li>Communicate with you about updates</li>
+                    <li>Ensure platform security</li>
+                </ul>
+                
+                <h3>Data Protection</h3>
+                <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, or destruction.</p>
+                
+                <h3>Your Rights</h3>
+                <p>You have the right to access, correct, or delete your personal information. Contact us at privacy@rsm.com to exercise these rights.</p>
+                
+                <p><strong>Last Updated:</strong> January 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="termsModal" class="legal-modal">
+        <div class="legal-content">
+            <button class="legal-close" onclick="closeModal('termsModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 id="termsTitle">Terms of Service</h2>
+            <div id="termsContent">
+                <p>Welcome to RSM. By accessing our platform, you agree to these Terms of Service.</p>
+                
+                <h3>Acceptance of Terms</h3>
+                <p>By accessing and using RSM, you accept and agree to be bound by these Terms of Service and our Privacy Policy.</p>
+                
+                <h3>User Responsibilities</h3>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the platform for lawful purposes only</li>
+                    <li>Respect intellectual property rights</li>
+                    <li>Not interfere with platform operations</li>
+                    <li>Provide accurate information when required</li>
+                </ul>
+                
+                <h3>Content Rights</h3>
+                <p>All content on RSM is protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works without permission.</p>
+                
+                <h3>Limitation of Liability</h3>
+                <p>RSM is provided "as is" without warranties of any kind. We are not liable for any damages arising from your use of the platform.</p>
+                
+                <h3>Changes to Terms</h3>
+                <p>We reserve the right to modify these terms at any time. Continued use after changes constitutes acceptance.</p>
+                
+                <p><strong>Effective Date:</strong> January 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookiesModal" class="legal-modal">
+        <div class="legal-content">
+            <button class="legal-close" onclick="closeModal('cookiesModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 id="cookiesTitle">Cookie Policy</h2>
+            <div id="cookiesContent">
+                <p>This Cookie Policy explains how RSM uses cookies and similar technologies.</p>
+                
+                <h3>What Are Cookies?</h3>
+                <p>Cookies are small text files stored on your device when you visit websites. They help websites remember your preferences and improve your experience.</p>
+                
+                <h3>How We Use Cookies</h3>
+                <p>We use cookies for:</p>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> Necessary for website functionality</li>
+                    <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
+                    <li><strong>Analytics Cookies:</strong> Understand how visitors use our platform</li>
+                    <li><strong>Marketing Cookies:</strong> Track effectiveness of marketing campaigns</li>
+                </ul>
+                
+                <h3>Cookie Management</h3>
+                <p>You can control cookies through your browser settings. However, disabling essential cookies may affect platform functionality.</p>
+                
+                <h3>Third-Party Cookies</h3>
+                <p>We may use third-party services that set their own cookies. These are subject to the respective privacy policies of those services.</p>
+                
+                <h3>Your Consent</h3>
+                <p>By using RSM, you consent to our use of cookies as described in this policy.</p>
+                
+                <p><strong>Last Updated:</strong> January 2025</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main>
@@ -1503,28 +2104,36 @@
                 <div class="about-content">
                     <p id="publicDescription">RSM is a premier multimedia platform delivering cutting-edge content across technology, science, culture, and entertainment.</p>
                     <p>Founded with a vision to revolutionize digital media consumption, RSM combines expert journalism with innovative storytelling to create engaging experiences for our global audience.</p>
-                    <div class="mt-30">
+                    <div class="mt-40">
                         <h3 style="color: var(--text-primary); margin-bottom: 20px;">Our Mission</h3>
                         <p>To inform, inspire, and innovate through high-quality multimedia content that pushes boundaries and sparks conversations.</p>
                     </div>
-                    <div class="mt-30">
+                    <div class="mt-40">
                         <h3 style="color: var(--text-primary); margin-bottom: 20px;">Our Values</h3>
                         <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <i class="fas fa-check-circle" style="color: var(--accent-blue); margin-right: 10px;"></i>
-                                <strong>Quality First:</strong> Every piece of content meets our high standards
+                            <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 15px;">
+                                <i class="fas fa-check-circle" style="color: var(--accent-blue); font-size: 1.2rem;"></i>
+                                <div>
+                                    <strong>Quality First:</strong> Every piece of content meets our high standards
+                                </div>
                             </li>
-                            <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <i class="fas fa-check-circle" style="color: var(--accent-blue); margin-right: 10px;"></i>
-                                <strong>Innovation:</strong> Constantly exploring new formats and technologies
+                            <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 15px;">
+                                <i class="fas fa-check-circle" style="color: var(--accent-blue); font-size: 1.2rem;"></i>
+                                <div>
+                                    <strong>Innovation:</strong> Constantly exploring new formats and technologies
+                                </div>
                             </li>
-                            <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <i class="fas fa-check-circle" style="color: var(--accent-blue); margin-right: 10px;"></i>
-                                <strong>Integrity:</strong> Transparent and ethical journalism
+                            <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 15px;">
+                                <i class="fas fa-check-circle" style="color: var(--accent-blue); font-size: 1.2rem;"></i>
+                                <div>
+                                    <strong>Integrity:</strong> Transparent and ethical journalism
+                                </div>
                             </li>
-                            <li style="padding: 10px 0;">
-                                <i class="fas fa-check-circle" style="color: var(--accent-blue); margin-right: 10px;"></i>
-                                <strong>Community:</strong> Building connections with our audience
+                            <li style="padding: 12px 0; display: flex; align-items: center; gap: 15px;">
+                                <i class="fas fa-check-circle" style="color: var(--accent-blue); font-size: 1.2rem;"></i>
+                                <div>
+                                    <strong>Community:</strong> Building connections with our audience
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -1577,7 +2186,7 @@
                         </div>
                     </div>
                     
-                    <div class="mt-30">
+                    <div class="mt-40">
                         <h3 style="color: var(--text-primary); margin-bottom: 20px;">Business Inquiries</h3>
                         <p>For partnerships, advertising, or media inquiries, please contact us at <strong>business@rsm.com</strong></p>
                     </div>
@@ -1592,15 +2201,15 @@
                 <span id="backButtonText">Back to Content</span>
             </button>
             
-            <div class="card mt-30">
+            <div class="card mt-40">
                 <h2 id="singleTitle">Loading...</h2>
-                <div id="singleMeta" class="content-item-meta" style="border: none; padding: 15px 0; margin: 20px 0;"></div>
+                <div id="singleMeta" class="content-item-meta" style="border: none; padding: 20px 0; margin: 25px 0;"></div>
                 
                 <div id="singleImage" class="media-container"></div>
                 
-                <div id="singleContent" style="margin-top: 30px;"></div>
+                <div id="singleContent" style="margin-top: 35px;"></div>
                 
-                <button class="back-button mt-30" onclick="goBack()">
+                <button class="back-button mt-40" onclick="goBack()">
                     <i class="fas fa-arrow-left"></i>
                     <span id="backButtonText2">Back to Content</span>
                 </button>
@@ -1615,11 +2224,21 @@
                 <h3>RSM Platform</h3>
                 <p id="footerDescription">Leading multimedia platform delivering premium content across various topics and formats.</p>
                 <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@RehanAhmed-w7e" target="_blank" class="social-link" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="social-link" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
                 </div>
             </div>
             
@@ -1637,9 +2256,9 @@
             <div class="footer-section">
                 <h3 id="legalTitle">Legal</h3>
                 <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span id="footerPrivacy">Privacy Policy</span></a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span id="footerTerms">Terms of Service</span></a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span id="footerCookies">Cookie Policy</span></a></li>
+                    <li><a onclick="openModal('privacyModal')"><i class="fas fa-chevron-right"></i> <span id="footerPrivacy">Privacy Policy</span></a></li>
+                    <li><a onclick="openModal('termsModal')"><i class="fas fa-chevron-right"></i> <span id="footerTerms">Terms of Service</span></a></li>
+                    <li><a onclick="openModal('cookiesModal')"><i class="fas fa-chevron-right"></i> <span id="footerCookies">Cookie Policy</span></a></li>
                     <li><a onclick="showSection('contacts')"><i class="fas fa-chevron-right"></i> <span id="footerContact">Contact Us</span></a></li>
                 </ul>
             </div>
@@ -1647,23 +2266,32 @@
             <div class="footer-section">
                 <h3 id="newsletterTitle">Newsletter</h3>
                 <p id="newsletterText">Subscribe to get updates on new content and features.</p>
-                <div style="margin-top: 20px;">
-                    <input type="email" placeholder="Your email" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; margin-bottom: 10px;">
-                    <button style="width: 100%; padding: 12px; background: var(--gradient-primary); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Subscribe</button>
+                <div class="newsletter-form">
+                    <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Your email address">
+                    <button id="newsletterButton" class="newsletter-button">
+                        <i class="fas fa-paper-plane"></i>
+                        <span id="subscribeText">Subscribe</span>
+                    </button>
+                    <div id="newsletterSuccess" class="newsletter-success">
+                        <i class="fas fa-check-circle"></i> Thank you for subscribing!
+                    </div>
+                    <div id="newsletterError" class="newsletter-error">
+                        <i class="fas fa-exclamation-circle"></i> Please enter a valid email
+                    </div>
                 </div>
             </div>
         </div>
         
         <div class="footer-bottom">
             <p>© 2025 – <strong>RSM Multimedia Platform</strong> | <span id="footerText">All rights reserved</span></p>
-            <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.7;">v2.0.0 • Made with <i class="fas fa-heart" style="color: var(--accent-red);"></i> for our global community</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.7;">v3.0.0 • Made with <i class="fas fa-heart" style="color: var(--accent-red);"></i> for our global community</p>
         </div>
     </footer>
 
     <!-- Loading Overlay -->
     <div id="loadingOverlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:var(--primary-dark);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;transition:opacity 0.5s ease;">
-        <div class="loading" style="width:50px;height:50px;border-width:4px;"></div>
-        <p style="margin-top:20px;color:var(--text-secondary);font-size:1.1rem;" id="loadingText">Loading RSM Platform...</p>
+        <div class="loading" style="width:60px;height:60px;border-width:4px;"></div>
+        <p style="margin-top:25px;color:var(--text-secondary);font-size:1.2rem;" id="loadingText">Loading RSM Platform...</p>
     </div>
 
     <script>
@@ -1673,7 +2301,8 @@
     let botLanguage = currentLanguage;
     let articleCache = {};
     let currentSection = 'home';
-    let articleIdMap = {}; // Mappa ID → index
+    let articleIdMap = {};
+    let translationCache = new Map();
 
     // ============ LANGUAGE DATA ============
     const languageData = {
@@ -1693,7 +2322,7 @@
                 navContacts: "Contacts",
                 searchPlaceholder: "Search articles, videos, news...",
                 chatBtnText: "AI Assistant",
-                chatTitle: "RSM Assistant",
+                chatTitle: "RSM AI Assistant",
                 sendBtnText: "Send",
                 chatPlaceholder: "Type your message...",
                 latestNewsTitle: "Latest News",
@@ -1724,7 +2353,15 @@
                 quickLinksTitle: "Quick Links",
                 legalTitle: "Legal",
                 footerDescription: "Leading multimedia platform delivering premium content across various topics and formats.",
-                botHello: "👋 Hello! I'm RSM Assistant. How can I help you today?\n\nI can:\n• Search information\n• Translate text\n• Calculate expressions\n• Convert currencies\n• Tell jokes & give advice\n\nTry saying: 'search AI technology' or 'translate hello to Italian'",
+                privacyTitle: "Privacy Policy",
+                termsTitle: "Terms of Service",
+                cookiesTitle: "Cookie Policy",
+                subscribeText: "Subscribe",
+                articlesLabel: "Articles",
+                videosLabel: "Videos",
+                newsLabel: "News",
+                languagesLabel: "Languages",
+                botHello: "👋 **Hello! I'm your RSM AI Assistant!** 🤖\n\nI can help you with:\n\n🔍 **Search Content** - Find articles, videos, news\n🌍 **Translate** - Between 9 languages\n🧮 **Calculate** - Math expressions\n💱 **Currency** - Convert currencies\n🎭 **Entertain** - Jokes & advice\n📱 **Site Guide** - Navigate RSM platform\n\n💡 **Try these commands:**\n• \"search technology\"\n• \"translate hello to Italian\"\n• \"calculate 15*3+7\"\n• \"100 USD to EUR\"\n• \"how do I find videos?\"\n• \"tell me about RSM\"",
                 changeLanguagePrompt: "⚠️ Language mismatch detected. Would you like to switch languages?",
                 searchNotFound: "🔍 No results found. Try different keywords.",
                 limitedInfo: "Limited information available.",
@@ -1750,7 +2387,7 @@
                 availableLanguages: "Available languages",
                 joke: "joke",
                 advice: "advice",
-                description: "RSM is a premier multimedia platform delivering cutting-edge content across technology, science, culture, and entertainment."
+                description: "RSM is a premier multimedia platform delivering cutting-edge content across technology, science, culture, and entertainment. We provide high-quality articles, videos, and news in 9 languages for a global audience."
             },
             jokes: [
                 "Why do JavaScript developers wear glasses? Because they don't C#!",
@@ -1765,6 +2402,15 @@
                 "Keep learning - technology never stops evolving.",
                 "Documentation is as important as the code itself.",
                 "Take breaks to avoid burnout and maintain creativity."
+            ],
+            siteGuide: [
+                "📱 **Navigation Guide:** Use the menu at the top to switch between sections: Home, Articles, Videos, News, Categories, About, Contacts.",
+                "🔍 **Search Feature:** Type keywords in the search bar to find specific content across all categories.",
+                "🌍 **Language Support:** Click the language button to switch between 9 different languages.",
+                "🤖 **AI Assistant:** I can help you navigate, search content, translate, calculate, and more!",
+                "📊 **Content Stats:** Check the homepage for statistics about articles, videos, and news available.",
+                "📁 **Categories:** Browse content organized by topics in the Categories section.",
+                "💡 **Quick Tips:** Use keyboard shortcuts - Ctrl+K for search, Esc to close modals."
             ]
         },
         it: {
@@ -1783,7 +2429,7 @@
                 navContacts: "Contatti",
                 searchPlaceholder: "Cerca articoli, video, notizie...",
                 chatBtnText: "Assistente AI",
-                chatTitle: "Assistente RSM",
+                chatTitle: "Assistente AI RSM",
                 sendBtnText: "Invia",
                 chatPlaceholder: "Scrivi il tuo messaggio...",
                 latestNewsTitle: "Ultime Notizie",
@@ -1814,7 +2460,15 @@
                 quickLinksTitle: "Link Veloci",
                 legalTitle: "Legale",
                 footerDescription: "Piattaforma multimediale leader che offre contenuti premium su vari argomenti e formati.",
-                botHello: "👋 Ciao! Sono l'Assistente RSM. Come posso aiutarti?\n\nPosso:\n• Cercare informazioni\n• Tradurre testo\n• Fare calcoli\n• Convertire valute\n• Raccontare barzellette e dare consigli\n\nProva a dire: 'cerca tecnologia AI' o 'traduci ciao in inglese'",
+                privacyTitle: "Privacy Policy",
+                termsTitle: "Termini di Servizio",
+                cookiesTitle: "Cookie Policy",
+                subscribeText: "Iscriviti",
+                articlesLabel: "Articoli",
+                videosLabel: "Video",
+                newsLabel: "Notizie",
+                languagesLabel: "Lingue",
+                botHello: "👋 **Ciao! Sono il tuo Assistente AI RSM!** 🤖\n\nPosso aiutarti con:\n\n🔍 **Cerca Contenuti** - Trova articoli, video, notizie\n🌍 **Traduci** - Tra 9 lingue\n🧮 **Calcola** - Espressioni matematiche\n💱 **Valuta** - Converti valute\n🎭 **Intrattieni** - Barzellette e consigli\n📱 **Guida Sito** - Naviga la piattaforma RSM\n\n💡 **Prova questi comandi:**\n• \"cerca tecnologia\"\n• \"traduci ciao in inglese\"\n• \"calcola 15*3+7\"\n• \"100 USD in EUR\"\n• \"come trovo i video?\"\n• \"raccontami di RSM\"",
                 changeLanguagePrompt: "⚠️ Rilevata discrepanza linguistica. Vuoi cambiare lingua?",
                 searchNotFound: "🔍 Nessun risultato trovato. Prova con parole diverse.",
                 limitedInfo: "Informazioni limitate disponibili.",
@@ -1840,7 +2494,7 @@
                 availableLanguages: "Lingue disponibili",
                 joke: "barzelletta",
                 advice: "consiglio",
-                description: "RSM è una piattaforma multimediale di prima qualità che offre contenuti all'avanguardia in tecnologia, scienza, cultura e intrattenimento."
+                description: "RSM è una piattaforma multimediale di prima qualità che offre contenuti all'avanguardia in tecnologia, scienza, cultura e intrattenimento. Forniamo articoli, video e notizie di alta qualità in 9 lingue per un pubblico globale."
             },
             jokes: [
                 "Perché JavaScript non va mai in vacanza? Perché non ha bisogno di fare una pausa!",
@@ -1855,6 +2509,15 @@
                 "Continua a imparare - la tecnologia non smette mai di evolversi.",
                 "La documentazione è importante quanto il codice stesso.",
                 "Fai pause per evitare il burnout e mantenere la creatività."
+            ],
+            siteGuide: [
+                "📱 **Guida Navigazione:** Usa il menu in alto per passare tra le sezioni: Home, Articoli, Video, Notizie, Categorie, Chi Siamo, Contatti.",
+                "🔍 **Funzione Ricerca:** Digita parole chiave nella barra di ricerca per trovare contenuti specifici in tutte le categorie.",
+                "🌍 **Supporto Lingue:** Clicca il pulsante lingua per passare tra 9 lingue diverse.",
+                "🤖 **Assistente AI:** Posso aiutarti a navigare, cercare contenuti, tradurre, calcolare e altro ancora!",
+                "📊 **Statistiche Contenuti:** Controlla la homepage per le statistiche su articoli, video e notizie disponibili.",
+                "📁 **Categorie:** Sfoglia i contenuti organizzati per argomenti nella sezione Categorie.",
+                "💡 **Consigli Rapidi:** Usa le scorciatoie da tastiera - Ctrl+K per cercare, Esc per chiudere le finestre."
             ]
         },
         es: {
@@ -1873,7 +2536,7 @@
                 navContacts: "Contactos",
                 searchPlaceholder: "Buscar artículos, vídeos, noticias...",
                 chatBtnText: "Asistente IA",
-                chatTitle: "Asistente RSM",
+                chatTitle: "Asistente IA RSM",
                 sendBtnText: "Enviar",
                 chatPlaceholder: "Escribe tu mensaje...",
                 latestNewsTitle: "Últimas Noticias",
@@ -1904,7 +2567,15 @@
                 quickLinksTitle: "Enlaces Rápidos",
                 legalTitle: "Legal",
                 footerDescription: "Plataforma multimedia líder que ofrece contenido premium sobre diversos temas y formatos.",
-                botHello: "👋 ¡Hola! Soy el Asistente RSM. ¿Cómo puedo ayudarte?\n\nPuedo:\n• Buscar información\n• Traducir texto\n• Hacer cálculos\n• Convertir monedas\n• Contar chistes y dar consejos\n\nPrueba a decir: 'busca tecnología AI' o 'traduce hola al inglés'",
+                privacyTitle: "Política de Privacidad",
+                termsTitle: "Términos de Servicio",
+                cookiesTitle: "Política de Cookies",
+                subscribeText: "Suscribirse",
+                articlesLabel: "Artículos",
+                videosLabel: "Vídeos",
+                newsLabel: "Noticias",
+                languagesLabel: "Idiomas",
+                botHello: "👋 **¡Hola! ¡Soy tu Asistente IA RSM!** 🤖\n\nPuedo ayudarte con:\n\n🔍 **Buscar Contenido** - Encuentra artículos, vídeos, noticias\n🌍 **Traducir** - Entre 9 idiomas\n🧮 **Calcular** - Expresiones matemáticas\n💱 **Moneda** - Convertir monedas\n🎭 **Entretenimiento** - Chistes y consejos\n📱 **Guía del Sitio** - Navega la plataforma RSM\n\n💡 **Prueba estos comandos:**\n• \"buscar tecnología\"\n• \"traducir hola al inglés\"\n• \"calcular 15*3+7\"\n• \"100 USD a EUR\"\n• \"¿cómo encuentro vídeos?\"\n• \"cuéntame sobre RSM\"",
                 changeLanguagePrompt: "⚠️ Se detectó discrepancia de idioma. ¿Quieres cambiar de idioma?",
                 searchNotFound: "🔍 No se encontraron resultados. Prueba con palabras diferentes.",
                 limitedInfo: "Información limitada disponible.",
@@ -1930,7 +2601,7 @@
                 availableLanguages: "Idiomas disponibles",
                 joke: "chiste",
                 advice: "consejo",
-                description: "RSM es una plataforma multimedia premium que ofrece contenido de vanguardia en tecnología, ciencia, cultura y entretenimiento."
+                description: "RSM es una plataforma multimedia premium que ofrece contenido de vanguardia en tecnología, ciencia, cultura y entretenimiento. Proporcionamos artículos, vídeos y noticias de alta calidad en 9 idiomas para una audiencia global."
             },
             jokes: [
                 "¿Por qué los programadores prefieren el frío? ¡Porque les gusta estar en un entorno de desarrollo!",
@@ -1945,6 +2616,15 @@
                 "Sigue aprendiendo - la tecnología nunca deja de evolucionar.",
                 "La documentación es tan importante como el código.",
                 "Toma descansos para evitar el agotamiento y mantener la creatividad."
+            ],
+            siteGuide: [
+                "📱 **Guía de Navegación:** Usa el menú superior para cambiar entre secciones: Inicio, Artículos, Vídeos, Noticias, Categorías, Nosotros, Contactos.",
+                "🔍 **Función de Búsqueda:** Escribe palabras clave en la barra de búsqueda para encontrar contenido específico en todas las categorías.",
+                "🌍 **Soporte de Idiomas:** Haz clic en el botón de idioma para cambiar entre 9 idiomas diferentes.",
+                "🤖 **Asistente IA:** ¡Puedo ayudarte a navegar, buscar contenido, traducir, calcular y más!",
+                "📊 **Estadísticas de Contenido:** Revisa la página de inicio para ver estadísticas sobre artículos, vídeos y noticias disponibles.",
+                "📁 **Categorías:** Explora contenido organizado por temas en la sección Categorías.",
+                "💡 **Consejos Rápidos:** Usa atajos de teclado - Ctrl+K para buscar, Esc para cerrar ventanas."
             ]
         },
         fr: {
@@ -1963,7 +2643,7 @@
                 navContacts: "Contacts",
                 searchPlaceholder: "Rechercher articles, vidéos, actualités...",
                 chatBtnText: "Assistant IA",
-                chatTitle: "Assistant RSM",
+                chatTitle: "Assistant IA RSM",
                 sendBtnText: "Envoyer",
                 chatPlaceholder: "Tapez votre message...",
                 latestNewsTitle: "Dernières Actualités",
@@ -1994,7 +2674,15 @@
                 quickLinksTitle: "Liens Rapides",
                 legalTitle: "Légal",
                 footerDescription: "Plateforme multimédia leader offrant du contenu premium sur divers sujets et formats.",
-                botHello: "👋 Bonjour! Je suis l'Assistant RSM. Comment puis-je vous aider?\n\nJe peux:\n• Rechercher des informations\n• Traduire du texte\n• Effectuer des calculs\n• Convertir des devises\n• Raconter des blagues et donner des conseils\n\nEssayez de dire: 'recherche technologie IA' ou 'traduire bonjour en anglais'",
+                privacyTitle: "Politique de Confidentialité",
+                termsTitle: "Conditions d'Utilisation",
+                cookiesTitle: "Politique des Cookies",
+                subscribeText: "S'abonner",
+                articlesLabel: "Articles",
+                videosLabel: "Vidéos",
+                newsLabel: "Actualités",
+                languagesLabel: "Langues",
+                botHello: "👋 **Bonjour! Je suis votre Assistant IA RSM!** 🤖\n\nJe peux vous aider avec:\n\n🔍 **Rechercher du Contenu** - Trouvez des articles, vidéos, actualités\n🌍 **Traduire** - Entre 9 langues\n🧮 **Calculer** - Expressions mathématiques\n💱 **Devise** - Convertir des devises\n🎭 **Divertissement** - Blagues et conseils\n📱 **Guide du Site** - Naviguez sur la plateforme RSM\n\n💡 **Essayez ces commandes:**\n• \"rechercher technologie\"\n• \"traduire bonjour en anglais\"\n• \"calculer 15*3+7\"\n• \"100 USD en EUR\"\n• \"comment trouver des vidéos?\"\n• \"parlez-moi de RSM\"",
                 changeLanguagePrompt: "⚠️ Incohérence linguistique détectée. Voulez-vous changer de langue?",
                 searchNotFound: "🔍 Aucun résultat trouvé. Essayez d'autres mots-clés.",
                 limitedInfo: "Informations limitées disponibles.",
@@ -2020,7 +2708,7 @@
                 availableLanguages: "Langues disponibles",
                 joke: "blague",
                 advice: "conseil",
-                description: "RSM est une plateforme multimédia premium offrant du contenu de pointe en technologie, science, culture et divertissement."
+                description: "RSM est une plateforme multimédia premium offrant du contenu de pointe en technologie, science, culture et divertissement. Nous fournissons des articles, vidéos et actualités de haute qualité en 9 langues pour un public mondial."
             },
             jokes: [
                 "Pourquoi les programmeurs détestent-ils la nature? Trop de bugs!",
@@ -2035,6 +2723,15 @@
                 "Continuez à apprendre - la technologie n'arrête jamais d'évoluer.",
                 "La documentation est aussi importante que le code lui-même.",
                 "Prenez des pauses pour éviter l'épuisement et maintenir la créativité."
+            ],
+            siteGuide: [
+                "📱 **Guide de Navigation:** Utilisez le menu en haut pour passer entre les sections: Accueil, Articles, Vidéos, Actualités, Catégories, À Propos, Contacts.",
+                "🔍 **Fonction de Recherche:** Tapez des mots-clés dans la barre de recherche pour trouver du contenu spécifique dans toutes les catégories.",
+                "🌍 **Support Multilingue:** Cliquez sur le bouton de langue pour changer entre 9 langues différentes.",
+                "🤖 **Assistant IA:** Je peux vous aider à naviguer, rechercher du contenu, traduire, calculer et plus encore!",
+                "📊 **Statistiques de Contenu:** Consultez la page d'accueil pour les statistiques sur les articles, vidéos et actualités disponibles.",
+                "📁 **Catégories:** Parcourez le contenu organisé par thèmes dans la section Catégories.",
+                "💡 **Astuces Rapides:** Utilisez les raccourcis clavier - Ctrl+K pour rechercher, Esc pour fermer les fenêtres."
             ]
         },
         de: {
@@ -2053,7 +2750,7 @@
                 navContacts: "Kontakte",
                 searchPlaceholder: "Artikel, Videos, Nachrichten suchen...",
                 chatBtnText: "KI-Assistent",
-                chatTitle: "RSM Assistent",
+                chatTitle: "RSM KI-Assistent",
                 sendBtnText: "Senden",
                 chatPlaceholder: "Schreiben Sie Ihre Nachricht...",
                 latestNewsTitle: "Neueste Nachrichten",
@@ -2084,7 +2781,15 @@
                 quickLinksTitle: "Schnelllinks",
                 legalTitle: "Rechtliches",
                 footerDescription: "Führende Multimedia-Plattform, die Premium-Inhalte zu verschiedenen Themen und Formaten bietet.",
-                botHello: "👋 Hallo! Ich bin der RSM-Assistent. Wie kann ich Ihnen helfen?\n\nIch kann:\n• Informationen suchen\n• Text übersetzen\n• Berechnungen durchführen\n• Währungen umrechnen\n• Witze erzählen und Ratschläge geben\n\nVersuchen Sie: 'suche KI-Technologie' oder 'übersetze hallo ins Englische'",
+                privacyTitle: "Datenschutzrichtlinie",
+                termsTitle: "Nutzungsbedingungen",
+                cookiesTitle: "Cookie-Richtlinie",
+                subscribeText: "Abonnieren",
+                articlesLabel: "Artikel",
+                videosLabel: "Videos",
+                newsLabel: "Nachrichten",
+                languagesLabel: "Sprachen",
+                botHello: "👋 **Hallo! Ich bin Ihr RSM KI-Assistent!** 🤖\n\nIch kann Ihnen helfen mit:\n\n🔍 **Inhalte Suchen** - Finden Sie Artikel, Videos, Nachrichten\n🌍 **Übersetzen** - Zwischen 9 Sprachen\n🧮 **Berechnen** - Mathematische Ausdrücke\n💱 **Währung** - Währungen umrechnen\n🎭 **Unterhaltung** - Witze & Ratschläge\n📱 **Site-Führung** - Navigieren Sie die RSM-Plattform\n\n💡 **Probieren Sie diese Befehle:**\n• \"suche Technologie\"\n• \"übersetze hallo ins Englische\"\n• \"berechnen 15*3+7\"\n• \"100 USD in EUR\"\n• \"wie finde ich Videos?\"\n• \"erzählen Sie mir von RSM\"",
                 changeLanguagePrompt: "⚠️ Sprachinkonsistenz erkannt. Möchten Sie die Sprache ändern?",
                 searchNotFound: "🔍 Keine Ergebnisse gefunden. Versuchen Sie andere Schlüsselwörter.",
                 limitedInfo: "Begrenzte Informationen verfügbar.",
@@ -2110,7 +2815,7 @@
                 availableLanguages: "Verfügbare Sprachen",
                 joke: "Witz",
                 advice: "Ratschlag",
-                description: "RSM ist eine Premium-Multimedia-Plattform, die wegweisende Inhalte in Technologie, Wissenschaft, Kultur und Unterhaltung bietet."
+                description: "RSM ist eine Premium-Multimedia-Plattform, die wegweisende Inhalte in Technologie, Wissenschaft, Kultur und Unterhaltung bietet. Wir liefern hochwertige Artikel, Videos und Nachrichten in 9 Sprachen für ein globales Publikum."
             },
             jokes: [
                 "Warum gehen Programmierer nie ins Kino? Weil sie zu viele Schleifen haben!",
@@ -2125,6 +2830,15 @@
                 "Lernen Sie weiter - die Technologie entwickelt sich ständig weiter.",
                 "Dokumentation ist genauso wichtig wie der Code selbst.",
                 "Machen Sie Pausen, um Burnout zu vermeiden und Kreativität zu erhalten."
+            ],
+            siteGuide: [
+                "📱 **Navigationsführung:** Verwenden Sie das Menü oben, um zwischen den Abschnitten zu wechseln: Startseite, Artikel, Videos, Nachrichten, Kategorien, Über Uns, Kontakte.",
+                "🔍 **Suchfunktion:** Geben Sie Stichwörter in die Suchleiste ein, um spezifische Inhalte in allen Kategorien zu finden.",
+                "🌍 **Sprachunterstützung:** Klicken Sie auf die Sprachschaltfläche, um zwischen 9 verschiedenen Sprachen zu wechseln.",
+                "🤖 **KI-Assistent:** Ich kann Ihnen beim Navigieren, Suchen von Inhalten, Übersetzen, Berechnen und mehr helfen!",
+                "📊 **Inhaltsstatistiken:** Überprüfen Sie die Startseite für Statistiken zu verfügbaren Artikeln, Videos und Nachrichten.",
+                "📁 **Kategorien:** Durchsuchen Sie Inhalte, die nach Themen in der Kategorie-Sektion organisiert sind.",
+                "💡 **Schnelle Tipps:** Verwenden Sie Tastaturkürzel - Strg+K zum Suchen, Esc zum Schließen von Fenstern."
             ]
         },
         zh: {
@@ -2143,7 +2857,7 @@
                 navContacts: "联系方式",
                 searchPlaceholder: "搜索文章、视频、新闻...",
                 chatBtnText: "AI助手",
-                chatTitle: "RSM助手",
+                chatTitle: "RSM AI助手",
                 sendBtnText: "发送",
                 chatPlaceholder: "输入您的消息...",
                 latestNewsTitle: "最新新闻",
@@ -2174,7 +2888,15 @@
                 quickLinksTitle: "快速链接",
                 legalTitle: "法律信息",
                 footerDescription: "领先的多媒体平台，提供各种主题和格式的优质内容。",
-                botHello: "👋 你好！我是RSM助手。有什么可以帮助您的？\n\n我可以：\n• 搜索信息\n• 翻译文本\n• 进行计算\n• 转换货币\n• 讲笑话和提供建议\n\n试试说：'搜索人工智能技术' 或 '翻译你好到英语'",
+                privacyTitle: "隐私政策",
+                termsTitle: "服务条款",
+                cookiesTitle: "Cookie政策",
+                subscribeText: "订阅",
+                articlesLabel: "文章",
+                videosLabel: "视频",
+                newsLabel: "新闻",
+                languagesLabel: "语言",
+                botHello: "👋 **你好！我是您的RSM AI助手！** 🤖\n\n我可以帮助您：\n\n🔍 **搜索内容** - 查找文章、视频、新闻\n🌍 **翻译** - 9种语言之间\n🧮 **计算** - 数学表达式\n💱 **货币** - 转换货币\n🎭 **娱乐** - 笑话和建议\n📱 **网站指南** - 浏览RSM平台\n\n💡 **尝试这些命令：**\n• \"搜索技术\"\n• \"翻译你好到英语\"\n• \"计算15*3+7\"\n• \"100美元兑换欧元\"\n• \"如何找到视频？\"\n• \"告诉我关于RSM\"",
                 changeLanguagePrompt: "⚠️ 检测到语言不匹配。您要切换语言吗？",
                 searchNotFound: "🔍 未找到结果。尝试不同的关键词。",
                 limitedInfo: "可用信息有限。",
@@ -2200,7 +2922,7 @@
                 availableLanguages: "可用语言",
                 joke: "笑话",
                 advice: "建议",
-                description: "RSM是一个高级多媒体平台，提供技术、科学、文化和娱乐方面的前沿内容。"
+                description: "RSM是一个高级多媒体平台，提供技术、科学、文化和娱乐方面的前沿内容。我们以9种语言提供高质量的文章、视频和新闻，面向全球观众。"
             },
             jokes: [
                 "为什么程序员总是分不清万圣节和圣诞节？因为 Oct 31 == Dec 25！",
@@ -2215,6 +2937,15 @@
                 "不断学习 - 技术永远不会停止发展。",
                 "文档与代码本身同样重要。",
                 "休息以避免倦怠并保持创造力。"
+            ],
+            siteGuide: [
+                "📱 **导航指南：** 使用顶部菜单在部分之间切换：首页、文章、视频、新闻、分类、关于我们、联系方式。",
+                "🔍 **搜索功能：** 在搜索栏中输入关键词以在所有类别中找到特定内容。",
+                "🌍 **语言支持：** 单击语言按钮可在9种不同语言之间切换。",
+                "🤖 **AI助手：** 我可以帮助您导航、搜索内容、翻译、计算等等！",
+                "📊 **内容统计：** 查看首页了解可用文章、视频和新闻的统计数据。",
+                "📁 **分类：** 在分类部分中按主题浏览组织的内容。",
+                "💡 **快速提示：** 使用键盘快捷键 - Ctrl+K搜索，Esc关闭窗口。"
             ]
         },
         ar: {
@@ -2233,7 +2964,7 @@
                 navContacts: "اتصل بنا",
                 searchPlaceholder: "ابحث في المقالات، الفيديوهات، الأخبار...",
                 chatBtnText: "مساعد الذكاء الاصطناعي",
-                chatTitle: "مساعد RSM",
+                chatTitle: "مساعد RSM الذكي",
                 sendBtnText: "إرسال",
                 chatPlaceholder: "اكتب رسالتك...",
                 latestNewsTitle: "آخر الأخبار",
@@ -2264,7 +2995,15 @@
                 quickLinksTitle: "روابط سريعة",
                 legalTitle: "قانوني",
                 footerDescription: "منصة وسائط متعددة رائدة تقدم محتوى مميزًا في مواضيع وتنسيقات متنوعة.",
-                botHello: "👋 مرحبًا! أنا مساعد RSM. كيف يمكنني مساعدتك؟\n\nأستطيع:\n• البحث عن المعلومات\n• ترجمة النص\n• إجراء الحسابات\n• تحويل العملات\n• إلقاء النكات وإعطاء النصائح\n\nجرب قول: 'ابحث عن تقنية الذكاء الاصطناعي' أو 'ترجم مرحبًا إلى الإنجليزية'",
+                privacyTitle: "سياسة الخصوصية",
+                termsTitle: "شروط الخدمة",
+                cookiesTitle: "سياسة الكوكيز",
+                subscribeText: "اشتراك",
+                articlesLabel: "مقالات",
+                videosLabel: "فيديوهات",
+                newsLabel: "أخبار",
+                languagesLabel: "لغات",
+                botHello: "👋 **مرحبًا! أنا مساعد RSM الذكي!** 🤖\n\nيمكنني مساعدتك في:\n\n🔍 **بحث المحتوى** - ابحث عن مقالات، فيديوهات، أخبار\n🌍 **ترجمة** - بين 9 لغات\n🧮 **حساب** - تعبيرات رياضية\n💱 **عملة** - تحويل العملات\n🎭 **ترفيه** - نكات ونصائح\n📱 **دليل الموقع** - تصفح منصة RSM\n\n💡 **جرب هذه الأوامر:**\n• \"ابحث عن التكنولوجيا\"\n• \"ترجمة مرحبًا إلى الإنجليزية\"\n• \"احسب 15*3+7\"\n• \"100 دولار إلى يورو\"\n• \"كيف أجد الفيديوهات؟\"\n• \"أخبرني عن RSM\"",
                 changeLanguagePrompt: "⚠️ تم اكتشاف عدم تطابق اللغة. هل تريد تغيير اللغة؟",
                 searchNotFound: "🔍 لم يتم العثور على نتائج. جرب كلمات مفتاحية مختلفة.",
                 limitedInfo: "معلومات محدودة متاحة.",
@@ -2290,7 +3029,7 @@
                 availableLanguages: "اللغات المتاحة",
                 joke: "نكتة",
                 advice: "نصيحة",
-                description: "RSM هي منصة وسائط متعددة مميزة تقدم محتوى مبتكرًا في التكنولوجيا والعلوم والثقافة والترفيه."
+                description: "RSM هي منصة وسائط متعددة مميزة تقدم محتوى مبتكرًا في التكنولوجيا والعلوم والثقافة والترفيه. نقدم مقالات وفيديوهات وأخبار عالية الجودة بـ 9 لغات لجمهور عالمي."
             },
             jokes: [
                 "لماذا لا يحب المبرمجون الطبيعة؟ لأنها مليئة بالأخطاء!",
@@ -2305,6 +3044,15 @@
                 "استمر في التعلم - التكنولوجيا لا تتوقف عن التطور.",
                 "التوثيق مهم بقدر أهمية الكود نفسه.",
                 "خذ فترات راحة لتجنب الإرهاق والحفاظ على الإبداع."
+            ],
+            siteGuide: [
+                "📱 **دليل التنقل:** استخدم القائمة العلوية للتبديل بين الأقسام: الرئيسية، المقالات، الفيديوهات، الأخبار، الفئات، من نحن، اتصل بنا.",
+                "🔍 **ميزة البحث:** اكتب الكلمات الرئيسية في شريط البحث للعثور على محتوى محدد في جميع الفئات.",
+                "🌍 **دعم اللغة:** انقر على زر اللغة للتبديل بين 9 لغات مختلفة.",
+                "🤖 **المساعد الذكي:** يمكنني مساعدتك في التنقل، البحث عن المحتوى، الترجمة، الحساب، والمزيد!",
+                "📊 **إحصائيات المحتوى:** تحقق من الصفحة الرئيسية لإحصائيات المقالات، الفيديوهات، والأخبار المتاحة.",
+                "📁 **الفئات:** تصفح المحتوى المنظم حسب الموضوعات في قسم الفئات.",
+                "💡 **نصائح سريعة:** استخدم اختصارات لوحة المفاتيح - Ctrl+K للبحث، Esc لإغلاق النوافذ."
             ]
         },
         ru: {
@@ -2323,7 +3071,7 @@
                 navContacts: "Контакты",
                 searchPlaceholder: "Поиск статей, видео, новостей...",
                 chatBtnText: "ИИ-Ассистент",
-                chatTitle: "Ассистент RSM",
+                chatTitle: "ИИ-Ассистент RSM",
                 sendBtnText: "Отправить",
                 chatPlaceholder: "Введите ваше сообщение...",
                 latestNewsTitle: "Последние Новости",
@@ -2354,7 +3102,15 @@
                 quickLinksTitle: "Быстрые Ссылки",
                 legalTitle: "Правовая Информация",
                 footerDescription: "Ведущая мультимедийная платформа, предлагающая премиум-контент по различным темам и форматам.",
-                botHello: "👋 Привет! Я ассистент RSM. Как я могу вам помочь?\n\nЯ могу:\n• Искать информацию\n• Переводить текст\n• Выполнять вычисления\n• Конвертировать валюты\n• Рассказывать шутки и давать советы\n\nПопробуйте сказать: 'поиск технологии ИИ' или 'перевести привет на английский'",
+                privacyTitle: "Политика Конфиденциальности",
+                termsTitle: "Условия Использования",
+                cookiesTitle: "Политика Cookie",
+                subscribeText: "Подписаться",
+                articlesLabel: "Статьи",
+                videosLabel: "Видео",
+                newsLabel: "Новости",
+                languagesLabel: "Языки",
+                botHello: "👋 **Привет! Я ваш ИИ-Ассистент RSM!** 🤖\n\nЯ могу помочь вам с:\n\n🔍 **Поиск Контента** - Найдите статьи, видео, новости\n🌍 **Перевод** - Между 9 языками\n🧮 **Вычисления** - Математические выражения\n💱 **Валюта** - Конвертация валют\n🎭 **Развлечения** - Шутки и советы\n📱 **Руководство по Сайту** - Навигация по платформе RSM\n\n💡 **Попробуйте эти команды:**\n• \"поиск технологий\"\n• \"перевести привет на английский\"\n• \"вычислить 15*3+7\"\n• \"100 USD в EUR\"\n• \"как найти видео?\"\n• \"расскажите о RSM\"",
                 changeLanguagePrompt: "⚠️ Обнаружено несоответствие языка. Хотите изменить язык?",
                 searchNotFound: "🔍 Результаты не найдены. Попробуйте другие ключевые слова.",
                 limitedInfo: "Доступна ограниченная информация.",
@@ -2380,7 +3136,7 @@
                 availableLanguages: "Доступные языки",
                 joke: "шутка",
                 advice: "совет",
-                description: "RSM — это премиальная мультимедийная платформа, предлагающая передовой контент в области технологий, науки, культуры и развлечений."
+                description: "RSM — это премиальная мультимедийная платформа, предлагающая передовой контент в области технологий, науки, культуры и развлечений. Мы предоставляем высококачественные статьи, видео и новости на 9 языках для глобальной аудитории."
             },
             jokes: [
                 "Почему программисты ненавидят природу? Слишком много багов!",
@@ -2395,6 +3151,15 @@
                 "Продолжайте учиться — технологии никогда не перестают развиваться.",
                 "Документация так же важна, как и сам код.",
                 "Делайте перерывы, чтобы избежать выгорания и сохранить творческий подход."
+            ],
+            siteGuide: [
+                "📱 **Руководство по Навигации:** Используйте меню вверху для переключения между разделами: Главная, Статьи, Видео, Новости, Категории, О Нас, Контакты.",
+                "🔍 **Функция Поиска:** Введите ключевые слова в строку поиска, чтобы найти конкретный контент во всех категориях.",
+                "🌍 **Поддержка Языков:** Нажмите на кнопку языка, чтобы переключиться между 9 различными языками.",
+                "🤖 **ИИ-Ассистент:** Я могу помочь вам ориентироваться, искать контент, переводить, вычислять и многое другое!",
+                "📊 **Статистика Контента:** Проверьте главную страницу для статистики по доступным статьям, видео и новостям.",
+                "📁 **Категории:** Просматривайте контент, организованный по темам в разделе Категории.",
+                "💡 **Быстрые Советы:** Используйте сочетания клавиш - Ctrl+K для поиска, Esc для закрытия окон."
             ]
         },
         ur: {
@@ -2413,7 +3178,7 @@
                 navContacts: "رابطے",
                 searchPlaceholder: "مقالات، ویڈیوز، خبریں تلاش کریں...",
                 chatBtnText: "AI اسسٹنٹ",
-                chatTitle: "RSM اسسٹنٹ",
+                chatTitle: "RSM AI اسسٹنٹ",
                 sendBtnText: "بھیجیں",
                 chatPlaceholder: "اپنا پیغام ٹائپ کریں...",
                 latestNewsTitle: "تازہ ترین خبریں",
@@ -2444,7 +3209,15 @@
                 quickLinksTitle: "فوری لنکس",
                 legalTitle: "قانونی معلومات",
                 footerDescription: "مختلف موضوعات اور فارمیٹس میں پریمیم مواد پیش کرنے والی معروف ملٹی میڈیا پلیٹ فارم۔",
-                botHello: "👋 ہیلو! میں RSM اسسٹنٹ ہوں۔ میں آپ کی کس طرح مدد کر سکتا ہوں؟\n\nمیں کر سکتا ہوں:\n• معلومات تلاش کریں\n• متن کا ترجمہ کریں\n• حساب کتاب کریں\n• کرنسیوں کو تبدیل کریں\n• لطیفے سناؤں اور مشورے دوں\n\nکوشش کریں: 'AI ٹیکنالوجی تلاش کریں' یا 'ہیلو کا انگریزی میں ترجمہ کریں'",
+                privacyTitle: "پرائیویسی پالیسی",
+                termsTitle: "خدمات کی شرائط",
+                cookiesTitle: "کوکی پالیسی",
+                subscribeText: "سبسکرائب کریں",
+                articlesLabel: "مقالات",
+                videosLabel: "ویڈیوز",
+                newsLabel: "خبریں",
+                languagesLabel: "زبانیں",
+                botHello: "👋 **ہیلو! میں آپ کا RSM AI اسسٹنٹ ہوں!** 🤖\n\nمیں آپ کی مدد کر سکتا ہوں:\n\n🔍 **مواد تلاش کریں** - مضامین، ویڈیوز، خبریں تلاش کریں\n🌍 **ترجمہ** - 9 زبانوں کے درمیان\n🧮 **حساب** - ریاضی کے اظہار\n💱 **کرنسی** - کرنسیوں کو تبدیل کریں\n🎭 **تفریح** - لطیفے اور مشورے\n📱 **سائٹ گائیڈ** - RSM پلیٹ فارم کو نیویگیٹ کریں\n\n💡 **ان کمانڈز کو آزمائیں:**\n• \"ٹیکنالوجی تلاش کریں\"\n• \"ہیلو کا انگریزی میں ترجمہ کریں\"\n• \"15*3+7 کا حساب کریں\"\n• \"100 USD سے EUR\"\n• \"میں ویڈیوز کیسے ڈھونڈوں؟\"\n• \"مجھے RSM کے بارے میں بتائیں\"",
                 changeLanguagePrompt: "⚠️ زبان کا عدم مطابقت کا پتہ چلا۔ کیا آپ زبان تبدیل کرنا چاہتے ہیں؟",
                 searchNotFound: "🔍 کوئی نتیجہ نہیں ملا۔ مختلف کلیدی الفاظ آزمائیں۔",
                 limitedInfo: "محدود معلومات دستیاب ہے۔",
@@ -2470,7 +3243,7 @@
                 availableLanguages: "دستیاب زبانیں",
                 joke: "مذاق",
                 advice: "مشورہ",
-                description: "RSM ایک پریمیم ملٹی میڈیا پلیٹ فارم ہے جو ٹیکنالوجی، سائنس، ثقافت اور تفریح میں جدید ترین مواد پیش کرتی ہے۔"
+                description: "RSM ایک پریمیم ملٹی میڈیا پلیٹ فارم ہے جو ٹیکنالوجی، سائنس، ثقافت اور تفریح میں جدید ترین مواد پیش کرتی ہے۔ ہم عالمی سامعین کے لیے 9 زبانوں میں اعلیٰ معیار کے مضامین، ویڈیوز اور خبریں فراہم کرتے ہیں۔"
             },
             jokes: [
                 "پروگرامرز فطرت سے کیوں نفرت کرتے ہیں؟ کیونکہ بہت زیادہ بگز ہیں!",
@@ -2485,6 +3258,15 @@
                 "سیکھتے رہیں - ٹیکنالوجی کبھی ترقی کرنا نہیں چھوڑتی۔",
                 "دستاویزات کوڈ کے خود اتنی ہی اہم ہیں۔",
                 "تھکن سے بچنے اور تخلیقی صلاحیتوں کو برقرار رکھنے کے لیے وقفے لیں۔"
+            ],
+            siteGuide: [
+                "📱 **نیویگیشن گائیڈ:** سیکشنز کے درمیان سوئچ کرنے کے لیے اوپر والے مینو کا استعمال کریں: ہوم، مضامین، ویڈیوز، خبریں، زمرے، ہمارے بارے میں، رابطے۔",
+                "🔍 **سرچ فیچر:** تمام زمروں میں مخصوص مواد تلاش کرنے کے لیے سرچ بار میں کلیدی الفاظ ٹائپ کریں۔",
+                "🌍 **زبان کی حمایت:** 9 مختلف زبانوں کے درمیان سوئچ کرنے کے لیے زبان کے بٹن پر کلک کریں۔",
+                "🤖 **AI اسسٹنٹ:** میں آپ کو نیویگیٹ کرنے، مواد تلاش کرنے، ترجمہ کرنے، حساب کرنے اور مزید مدد کر سکتا ہوں!",
+                "📊 **مواد کے اعدادوشمار:** دستیاب مضامین، ویڈیوز اور خبروں کے اعدادوشمار کے لیے ہوم پیج چیک کریں۔",
+                "📁 **زمرے:** زمرے کے سیکشن میں موضوعات کے لحاظ سے منظم مواد براؤز کریں۔",
+                "💡 **فوری ٹپس:** کی بورڈ شارٹ کٹس استعمال کریں - تلاش کے لیے Ctrl+K، ونڈوز بند کرنے کے لیے Esc۔"
             ]
         }
     };
@@ -2508,13 +3290,16 @@
             });
             
             // Apply language
-            applyLanguage(currentLanguage);
+            await applyLanguage(currentLanguage);
             
             // Initialize counts
             updateContentCounts();
             
             // Render all content
             await renderAllContent();
+            
+            // Initialize newsletter
+            initNewsletter();
             
             // Hide loading with delay
             setTimeout(() => {
@@ -2554,11 +3339,12 @@
             localStorage.setItem('rsm_language', langCode);
             
             // Update UI
-            applyLanguage(langCode);
+            await applyLanguage(langCode);
             toggleLanguageDropdown();
             
             // Clear cache for new language
             articleCache = {};
+            translationCache.clear();
             
             // Update content counts
             updateContentCounts();
@@ -2578,7 +3364,7 @@
         }
     }
 
-    function applyLanguage(langCode) {
+    async function applyLanguage(langCode) {
         const lang = languageData[langCode];
         if (!lang) return;
         
@@ -2630,7 +3416,15 @@
             'newsletterText': t.newsletterText,
             'quickLinksTitle': t.quickLinksTitle,
             'legalTitle': t.legalTitle,
-            'footerDescription': t.footerDescription
+            'footerDescription': t.footerDescription,
+            'privacyTitle': t.privacyTitle,
+            'termsTitle': t.termsTitle,
+            'cookiesTitle': t.cookiesTitle,
+            'subscribeText': t.subscribeText,
+            'articlesLabel': t.articlesLabel,
+            'videosLabel': t.videosLabel,
+            'newsLabel': t.newsLabel,
+            'languagesLabel': t.languagesLabel
         };
         
         for (const [id, text] of Object.entries(elements)) {
@@ -2643,9 +3437,13 @@
         // Update placeholders
         document.getElementById('searchInput').placeholder = t.searchPlaceholder;
         document.getElementById('chatInput').placeholder = t.chatPlaceholder;
+        document.getElementById('newsletterEmail').placeholder = t.subscribeText + '...';
         
         // Update loading text
         updateLoadingText('Loading content...');
+        
+        // Update legal content
+        updateLegalContent(langCode);
     }
 
     function updateLanguageDropdown() {
@@ -2664,24 +3462,59 @@
         }
     }
 
-    // ============ TRANSLATION FUNCTIONS ============
+    function updateLegalContent(langCode) {
+        const lang = languageData[langCode];
+        if (!lang) return;
+        
+        // This function would update legal modal content based on language
+        // For now, we'll use the translations we already have
+    }
+
+    // ============ TRANSLATION FUNCTIONS WITH FIXED 500 CHAR LIMIT ============
     async function translateText(text, targetLang) {
         try {
             if (!text || text.length < 2) return text;
             if (targetLang === 'en') return text;
             
-            // Truncate text to avoid 500 char limit
-            const truncatedText = text.length > 450 ? text.substring(0, 450) : text;
-            
-            const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(truncatedText)}&langpair=en|${targetLang}`);
-            if (!response.ok) throw new Error('Translation failed');
-            
-            const data = await response.json();
-            
-            if (data.responseData && data.responseData.translatedText) {
-                return data.responseData.translatedText;
+            // Check cache first
+            const cacheKey = `${text}_${targetLang}`;
+            if (translationCache.has(cacheKey)) {
+                return translationCache.get(cacheKey);
             }
-            return text;
+            
+            // Split long text into chunks of 450 characters
+            const chunkSize = 450;
+            const chunks = [];
+            
+            for (let i = 0; i < text.length; i += chunkSize) {
+                chunks.push(text.substring(i, i + chunkSize));
+            }
+            
+            // Translate each chunk
+            const translatedChunks = [];
+            
+            for (const chunk of chunks) {
+                try {
+                    const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(chunk)}&langpair=en|${targetLang}`);
+                    if (!response.ok) continue;
+                    
+                    const data = await response.json();
+                    if (data.responseData && data.responseData.translatedText) {
+                        translatedChunks.push(data.responseData.translatedText);
+                    } else {
+                        translatedChunks.push(chunk);
+                    }
+                } catch (error) {
+                    translatedChunks.push(chunk);
+                }
+                
+                // Add delay to avoid rate limiting
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            
+            const translatedText = translatedChunks.join(' ');
+            translationCache.set(cacheKey, translatedText);
+            return translatedText;
         } catch (error) {
             console.warn('Translation error:', error);
             return text;
@@ -2697,11 +3530,15 @@
         }
         
         try {
+            // Translate title and content separately
+            const translatedTitle = await translateText(article.title, langCode);
+            const translatedContent = await translateText(article.content, langCode);
+            
             const translatedArticle = {
                 ...article,
-                title: await translateText(article.title, langCode),
-                content: await translateText(article.content, langCode),
-                originalTitle: article.title, // Keep original for reference
+                title: translatedTitle,
+                content: translatedContent,
+                originalTitle: article.title,
                 originalContent: article.content
             };
             
@@ -2756,12 +3593,12 @@
         const container = document.getElementById('articlesGrid');
         const articlesItems = articles.filter(a => a.type === "article");
         
-        document.getElementById('articlesTotal').textContent = `${articlesItems.length} articles`;
+        document.getElementById('articlesTotal').textContent = `${articlesItems.length} ${languageData[currentLanguage].translations.articlesLabel.toLowerCase()}`;
         document.getElementById('articlesCount').textContent = articlesItems.length;
         
         container.innerHTML = '';
         
-        for (const article of articlesItems.slice(0, 12)) { // Limit to 12
+        for (const article of articlesItems.slice(0, 12)) {
             const translatedArticle = await getTranslatedArticle(article, currentLanguage);
             
             const item = document.createElement('div');
@@ -2772,20 +3609,20 @@
                 ${article.image ? `
                     <div class="content-item-image">
                         <img src="${article.image}" alt="${translatedArticle.title}" loading="lazy">
-                        <div class="content-item-badge">Article</div>
+                        <div class="content-item-badge">${languageData[currentLanguage].translations.articlesLabel}</div>
                     </div>
                 ` : ''}
                 <div class="content-item-content">
                     <h3>${translatedArticle.title}</h3>
-                    <p>${translatedArticle.content.substring(0, 100)}...</p>
+                    <p>${translatedArticle.content.substring(0, 120)}...</p>
                     <div class="content-item-meta">
                         <div class="meta-item">
                             <i class="far fa-calendar"></i>
-                            <span>${article.date ? new Date(article.date).toLocaleDateString(currentLanguage) : 'No date'}</span>
+                            <span>${article.date ? new Date(article.date).toLocaleDateString(currentLanguage) : languageData[currentLanguage].translations.publishedOn}</span>
                         </div>
                         <div class="meta-item">
                             <i class="far fa-folder"></i>
-                            <span>${article.category || 'General'}</span>
+                            <span>${article.category || languageData[currentLanguage].translations.categories}</span>
                         </div>
                     </div>
                 </div>
@@ -2800,12 +3637,12 @@
         const container = document.getElementById('videosGrid');
         const videoItems = articles.filter(a => a.type === "video");
         
-        document.getElementById('videosTotal').textContent = `${videoItems.length} videos`;
+        document.getElementById('videosTotal').textContent = `${videoItems.length} ${languageData[currentLanguage].translations.videosLabel.toLowerCase()}`;
         document.getElementById('videosCount').textContent = videoItems.length;
         
         container.innerHTML = '';
         
-        for (const video of videoItems.slice(0, 12)) { // Limit to 12
+        for (const video of videoItems.slice(0, 12)) {
             const translatedVideo = await getTranslatedArticle(video, currentLanguage);
             
             const item = document.createElement('div');
@@ -2816,20 +3653,20 @@
                 ${video.image || video.thumbnail ? `
                     <div class="content-item-image">
                         <img src="${video.image || video.thumbnail}" alt="${translatedVideo.title}" loading="lazy">
-                        <div class="content-item-badge">Video</div>
+                        <div class="content-item-badge">${languageData[currentLanguage].translations.videosLabel}</div>
                     </div>
                 ` : ''}
                 <div class="content-item-content">
                     <h3>${translatedVideo.title}</h3>
-                    <p>${translatedVideo.content.substring(0, 100)}...</p>
+                    <p>${translatedVideo.content.substring(0, 120)}...</p>
                     <div class="content-item-meta">
                         <div class="meta-item">
                             <i class="far fa-calendar"></i>
-                            <span>${video.date ? new Date(video.date).toLocaleDateString(currentLanguage) : 'No date'}</span>
+                            <span>${video.date ? new Date(video.date).toLocaleDateString(currentLanguage) : languageData[currentLanguage].translations.publishedOn}</span>
                         </div>
                         <div class="meta-item">
                             <i class="fas fa-play-circle"></i>
-                            <span>Video</span>
+                            <span>${languageData[currentLanguage].translations.videosLabel}</span>
                         </div>
                     </div>
                 </div>
@@ -2844,12 +3681,12 @@
         const container = document.getElementById('newsGrid');
         const newsItems = articles.filter(a => a.type === "news");
         
-        document.getElementById('newsTotal').textContent = `${newsItems.length} news`;
+        document.getElementById('newsTotal').textContent = `${newsItems.length} ${languageData[currentLanguage].translations.newsLabel.toLowerCase()}`;
         document.getElementById('newsCount').textContent = newsItems.length;
         
         container.innerHTML = '';
         
-        for (const news of newsItems.slice(0, 12)) { // Limit to 12
+        for (const news of newsItems.slice(0, 12)) {
             const translatedNews = await getTranslatedArticle(news, currentLanguage);
             
             const item = document.createElement('div');
@@ -2860,20 +3697,20 @@
                 ${news.image ? `
                     <div class="content-item-image">
                         <img src="${news.image}" alt="${translatedNews.title}" loading="lazy">
-                        <div class="content-item-badge">News</div>
+                        <div class="content-item-badge">${languageData[currentLanguage].translations.newsLabel}</div>
                     </div>
                 ` : ''}
                 <div class="content-item-content">
                     <h3>${translatedNews.title}</h3>
-                    <p>${translatedNews.content.substring(0, 100)}...</p>
+                    <p>${translatedNews.content.substring(0, 120)}...</p>
                     <div class="content-item-meta">
                         <div class="meta-item">
                             <i class="far fa-calendar"></i>
-                            <span>${news.date ? new Date(news.date).toLocaleDateString(currentLanguage) : 'Breaking'}</span>
+                            <span>${news.date ? new Date(news.date).toLocaleDateString(currentLanguage) : languageData[currentLanguage].translations.publishedOn}</span>
                         </div>
                         <div class="meta-item">
                             <i class="far fa-newspaper"></i>
-                            <span>News</span>
+                            <span>${languageData[currentLanguage].translations.newsLabel}</span>
                         </div>
                     </div>
                 </div>
@@ -2890,8 +3727,8 @@
         
         container.innerHTML = '';
         
-        for (const category of categories.slice(0, 6)) { // Limit to 6 categories
-            const categoryArticles = articles.filter(a => a.category === category).slice(0, 5); // 5 items per category
+        for (const category of categories.slice(0, 6)) {
+            const categoryArticles = articles.filter(a => a.category === category).slice(0, 5);
             
             const card = document.createElement('div');
             card.className = 'category-card';
@@ -2976,15 +3813,15 @@
         const metaHTML = `
             <div class="meta-item">
                 <i class="far fa-calendar"></i>
-                <span>${article.date ? new Date(article.date).toLocaleDateString(currentLanguage) : 'No date'}</span>
+                <span>${article.date ? new Date(article.date).toLocaleDateString(currentLanguage) : languageData[currentLanguage].translations.publishedOn}</span>
             </div>
             <div class="meta-item">
                 <i class="far fa-folder"></i>
-                <span>${article.category || 'General'}</span>
+                <span>${article.category || languageData[currentLanguage].translations.categories}</span>
             </div>
             <div class="meta-item">
                 <i class="far fa-newspaper"></i>
-                <span>Article</span>
+                <span>${languageData[currentLanguage].translations.articlesLabel}</span>
             </div>
         `;
         document.getElementById('singleMeta').innerHTML = metaHTML;
@@ -3029,15 +3866,15 @@
         const metaHTML = `
             <div class="meta-item">
                 <i class="far fa-calendar"></i>
-                <span>${article.date ? new Date(article.date).toLocaleDateString(currentLanguage) : 'No date'}</span>
+                <span>${article.date ? new Date(article.date).toLocaleDateString(currentLanguage) : languageData[currentLanguage].translations.publishedOn}</span>
             </div>
             <div class="meta-item">
                 <i class="far fa-folder"></i>
-                <span>${article.category || 'General'}</span>
+                <span>${article.category || languageData[currentLanguage].translations.categories}</span>
             </div>
             <div class="meta-item">
                 <i class="fas fa-play-circle"></i>
-                <span>Video</span>
+                <span>${languageData[currentLanguage].translations.videosLabel}</span>
             </div>
         `;
         document.getElementById('singleMeta').innerHTML = metaHTML;
@@ -3130,6 +3967,10 @@
                 const icon = result.article.type === 'video' ? 'play-circle' : 
                             result.article.type === 'news' ? 'newspaper' : 'file-alt';
                 
+                const typeLabel = result.article.type === 'video' ? languageData[currentLanguage].translations.videosLabel :
+                                result.article.type === 'news' ? languageData[currentLanguage].translations.newsLabel :
+                                languageData[currentLanguage].translations.articlesLabel;
+                
                 item.innerHTML = `
                     <div class="search-item-icon">
                         <i class="fas fa-${icon}"></i>
@@ -3137,9 +3978,9 @@
                     <div class="search-item-content">
                         <div class="search-item-title">${result.translated.title}</div>
                         <div class="search-item-meta">
-                            <span>${result.article.type.charAt(0).toUpperCase() + result.article.type.slice(1)}</span>
+                            <span>${typeLabel}</span>
                             <span>•</span>
-                            <span>${result.article.category || 'General'}</span>
+                            <span>${result.article.category || languageData[currentLanguage].translations.categories}</span>
                         </div>
                     </div>
                 `;
@@ -3171,7 +4012,7 @@
     const chatSend = document.getElementById('chatSend');
     const chatClose = document.getElementById('chatClose');
 
-    // FIX: Chatbot initialization
+    // Initialize chatbot
     chatToggle.addEventListener('click', function(e) {
         e.stopPropagation();
         const isVisible = chatBox.style.display === 'flex';
@@ -3242,10 +4083,24 @@
         }
     });
 
-    // ============ BOT RESPONSE FUNCTION ============
+    // ============ IMPROVED AI ASSISTANT WITH MULTIPLE APIS ============
     async function botResponse(msg) {
         const m = msg.toLowerCase().trim();
         const t = languageData[botLanguage].translations;
+        
+        // Site Navigation Help
+        if (m.includes('how') && (m.includes('navigate') || m.includes('find') || m.includes('where') || 
+            m.includes('guide') || m.includes('help') || m.includes('use') || m.includes('search') ||
+            m.includes('video') || m.includes('article') || m.includes('news') || m.includes('category'))) {
+            
+            const guide = languageData[botLanguage].siteGuide;
+            return guide[Math.floor(Math.random() * guide.length)];
+        }
+        
+        // About RSM
+        if (m.includes('rsm') && (m.includes('about') || m.includes('what is') || m.includes('tell me'))) {
+            return `🚀 **About RSM Platform:**\n\n${t.description}\n\n🌍 **Available in:** 9 languages\n📊 **Content:** Articles, Videos, News\n🎯 **Mission:** ${t.description.split('.')[0]}\n\n💡 **Try:** "how do I find videos?" or "search technology"`;
+        }
         
         // Simple greetings
         if (m.match(/^(hello|hi|hey|hola|ciao|bonjour|hallo|你好|مرحبا|привет|ہیلو)/i)) {
@@ -3254,7 +4109,7 @@
         
         // Help command
         if (m.includes('help') || m.includes('aiuto') || m.includes('ayuda') || m.includes('aide') || m.includes('hilfe') || m.includes('帮助') || m.includes('مساعدة') || m.includes('помощь') || m.includes('مدد')) {
-            return `🤖 **RSM Assistant Help**\n\nI can help you with:\n\n• **Search**: "search artificial intelligence"\n• **Translate**: "translate hello to Italian"\n• **Calculate**: "calculate 15 * 3 + 7"\n• **Currency**: "100 USD to EUR"\n• **Jokes**: "tell me a joke"\n• **Advice**: "give me advice"\n• **Language**: "change language to Spanish"\n\nTry asking me anything!`;
+            return `🤖 **RSM Assistant Help**\n\nI can help you with:\n\n• **Search**: "search artificial intelligence"\n• **Translate**: "translate hello to Italian"\n• **Calculate**: "calculate 15 * 3 + 7"\n• **Currency**: "100 USD to EUR"\n• **Jokes**: "tell me a joke"\n• **Advice**: "give me advice"\n• **Language**: "change language to Spanish"\n• **Navigation**: "how do I find videos?"\n• **About RSM**: "tell me about RSM"\n\nTry asking me anything!`;
         }
         
         // Search functionality
@@ -3267,19 +4122,21 @@
                 ).slice(0, 3);
                 
                 if (results.length > 0) {
-                    let response = `🔍 **Search Results for "${query}":**\n\n`;
+                    let response = `🔍 **${t.searchNotFound.split('🔍')[1] || 'Search Results for'} "${query}":**\n\n`;
                     for (const result of results) {
                         const translated = await getTranslatedArticle(result, botLanguage);
-                        response += `• **${translated.title}** (${result.type})\n`;
+                        const typeLabel = result.type === 'video' ? t.videosLabel :
+                                        result.type === 'news' ? t.newsLabel : t.articlesLabel;
+                        response += `• **${translated.title}** (${typeLabel})\n`;
                     }
-                    response += `\nClick on any content to view it.`;
+                    response += `\n${t.clickNewsText || 'Click on any content to view it.'}`;
                     return response;
                 } else {
                     return t.searchNotFound;
                 }
             }
         }
-        
+
         // Translation
         if (m.includes('translate') || m.includes('traduci') || m.includes('traducir') || m.includes('traduire') || m.includes('übersetzen') || m.includes('翻译') || m.includes('ترجمة') || m.includes('перевести') || m.includes('ترجمہ')) {
             const match = m.match(/(?:translate|traduci|traducir|traduire|übersetzen|翻译|ترجمة|перевести|ترجمہ)\s+(.+?)\s+(?:to|in|a|en|auf|为|إلى|на|میں)\s+(\w+)/i);
