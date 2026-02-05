@@ -26,6 +26,53 @@ main{max-width:900px;margin:auto;padding:20px;}
 #chatMessages{flex-grow:1;padding:10px;overflow-y:auto;}
 #chatInput{flex-grow:1;padding:10px;border:none;background:#0e0e11;color:#fff;outline:none;}
 #chatSend{padding:0 15px;border:none;background:#ff4d4d;color:#fff;cursor:pointer;font-weight:600;}
+
+/* Language Selector */
+.language-selector {
+    position: relative;
+    margin-left: 15px;
+}
+
+.language-btn {
+    padding: 8px 15px;
+    background: #4da6ff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: #1c1c25;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 150px;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1001;
+}
+
+.language-option {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 2px 0;
+}
+
+.language-option:hover {
+    background: #2a2a35;
+}
+
+.current-lang {
+    background: #4da6ff;
+}
 </style>
 
 <!-- Webpushr -->
@@ -50,27 +97,45 @@ main{max-width:900px;margin:auto;padding:20px;}
 
 <body>
 <header>
-  <h1>RSM</h1>
+  <h1 id="siteTitle">RSM</h1>
 </header>
 
 <nav>
-  <a onclick="showSection('home')">Home</a>
-  <a onclick="showSection('articles')">Articles</a>
-  <a onclick="showSection('videos')">Videos</a>
-  <a onclick="showSection('news')">News</a>
-  <a onclick="showSection('categories')">Categories</a>
-  <a onclick="showSection('about')">About Us</a>
-  <a onclick="showSection('contacts')">Contacts</a>
+  <a onclick="showSection('home')" id="navHome">Home</a>
+  <a onclick="showSection('articles')" id="navArticles">Articles</a>
+  <a onclick="showSection('videos')" id="navVideos">Videos</a>
+  <a onclick="showSection('news')" id="navNews">News</a>
+  <a onclick="showSection('categories')" id="navCategories">Categories</a>
+  <a onclick="showSection('about')" id="navAbout">About Us</a>
+  <a onclick="showSection('contacts')" id="navContacts">Contacts</a>
 
   <div id="searchBox">
     <input id="searchInput" placeholder="Search..." oninput="searchAll()">
     <div id="searchResults"></div>
   </div>
 
+  <!-- Language Selector -->
+  <div class="language-selector">
+    <button class="language-btn" onclick="toggleLanguageDropdown()">
+      <span id="currentLangFlag">🌐</span>
+      <span id="currentLangCode">EN</span>
+    </button>
+    <div class="language-dropdown" id="languageDropdown">
+      <div class="language-option current-lang" onclick="changeLanguage('en')">🇺🇸 English</div>
+      <div class="language-option" onclick="changeLanguage('it')">🇮🇹 Italiano</div>
+      <div class="language-option" onclick="changeLanguage('es')">🇪🇸 Español</div>
+      <div class="language-option" onclick="changeLanguage('fr')">🇫🇷 Français</div>
+      <div class="language-option" onclick="changeLanguage('de')">🇩🇪 Deutsch</div>
+      <div class="language-option" onclick="changeLanguage('zh')">🇨🇳 中文</div>
+      <div class="language-option" onclick="changeLanguage('ar')">🇸🇦 العربية</div>
+      <div class="language-option" onclick="changeLanguage('ru')">🇷🇺 Русский</div>
+    </div>
+  </div>
+
  <!-- Chatbot AI -->
 <div id="chatBotContainer" style="position:relative; margin-left:15px;">
   <button id="chatToggle" style="padding:8px 12px; border:none; border-radius:20px; background:#ff4d4d; color:#fff; cursor:pointer; font-weight:600;">
-    AI Chat
+    <span id="chatBtnText">AI Chat</span>
   </button>
   
   <div id="chatBox" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:500px; background:#1c1c25; border-radius:10px; box-shadow:0 10px 25px rgba(0,0,0,0.4); overflow:hidden; flex-direction:column; z-index:1000;">
@@ -79,7 +144,7 @@ main{max-width:900px;margin:auto;padding:20px;}
       <button id="chatClose" style="background:#ff4d4d; color:white; border:none; width:30px; height:30px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:bold; margin-right:10px;">
         ×
       </button>
-      <span style="color:#fff; font-weight:600;">🤖 RSM Assistant</span>
+      <span style="color:#fff; font-weight:600;">🤖 <span id="chatTitle">RSM Assistant</span></span>
     </div>
     
     <div id="chatMessages" style="flex:1; overflow-y:auto; padding:15px;"></div>
@@ -89,7 +154,7 @@ main{max-width:900px;margin:auto;padding:20px;}
         <input id="chatInput" type="text" placeholder="Type here..." autocomplete="off" 
                style="flex:1; padding:10px; background:#0e0e11; color:#fff; border:none; border-radius:6px; outline:none;">
         <button id="chatSend" style="padding:0 15px; background:#4da6ff; color:#fff; border:none; border-radius:6px; cursor:pointer; font-weight:600;">
-          Send
+          <span id="sendBtnText">Send</span>
         </button>
       </div>
     </div>
@@ -100,32 +165,47 @@ main{max-width:900px;margin:auto;padding:20px;}
 <main>
 <section id="home">
   <div id="latestNews" class="card" style="border-left:5px solid #ff4d4d">
-    <h2>🟥 Latest News</h2>
+    <h2>🟥 <span id="latestNewsTitle">Latest News</span></h2>
     <h3 id="latestTitle"></h3>
-    <p style="opacity:.7">Click to read the full news</p>
+    <p style="opacity:.7"><span id="clickNewsText">Click to read the full news</span></p>
   </div>
   <div id="latestVideo" class="card" style="border-left:5px solid #4da6ff">
-    <h2>🎬 Latest Video</h2>
+    <h2>🎬 <span id="latestVideoTitleText">Latest Video</span></h2>
     <h3 id="latestVideoTitle"></h3>
-    <p style="opacity:.7">Click to watch the full video</p>
+    <p style="opacity:.7"><span id="clickVideoText">Click to watch the full video</span></p>
   </div>
 </section>
 
-<section id="articles" class="hidden"></section>
-<section id="videos" class="hidden"></section>
-<section id="news" class="hidden"></section>
-<section id="categories" class="hidden"></section>
+<section id="articles" class="hidden">
+  <h2 id="articlesTitle">Articles</h2>
+  <div id="articlesContainer"></div>
+</section>
+
+<section id="videos" class="hidden">
+  <h2 id="videosTitle">Videos</h2>
+  <div id="videosContainer"></div>
+</section>
+
+<section id="news" class="hidden">
+  <h2 id="newsTitle">News</h2>
+  <div id="newsContainer"></div>
+</section>
+
+<section id="categories" class="hidden">
+  <h2 id="categoriesTitle">Categories</h2>
+  <div id="categoriesContainer"></div>
+</section>
 
 <section id="about" class="hidden">
   <div class="card">
-    <h2>About Us</h2>
+    <h2 id="aboutTitle">About Us</h2>
     <p id="publicDescription"></p>
   </div>
 </section>
 
 <section id="contacts" class="hidden">
   <div class="card">
-    <h2>Contacts</h2>
+    <h2 id="contactsTitle">Contacts</h2>
     <p>📞 +39 351 093 3272</p>
     <p>📧 rsm260511@gmail.com</p>
   </div>
@@ -140,127 +220,495 @@ main{max-width:900px;margin:auto;padding:20px;}
 </main>
 
 <footer style="text-align:center;padding:20px;font-size:14px;opacity:.6">
-© 2025 – RSM | All rights reserved
+© 2025 – RSM | <span id="footerText">All rights reserved</span>
 </footer>
+
 <script>
-// DATA
-let articles=[];
-fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
-.then(r=>r.json())
-.then(data=>{
-  document.getElementById('publicDescription').innerText=data.description;
-  articles = data.articles;
+// ============ GLOBAL VARIABLES ============
+let articles = [];
+let currentLanguage = localStorage.getItem('rsm_language') || 'en';
+let translations = {};
+
+// ============ LANGUAGE SYSTEM ============
+const languageData = {
+  en: {
+    name: "English",
+    flag: "🇺🇸",
+    translations: {
+      siteTitle: "RSM",
+      navHome: "Home",
+      navArticles: "Articles",
+      navVideos: "Videos",
+      navNews: "News",
+      navCategories: "Categories",
+      navAbout: "About Us",
+      navContacts: "Contacts",
+      searchPlaceholder: "Search...",
+      chatBtnText: "AI Chat",
+      chatTitle: "RSM Assistant",
+      sendBtnText: "Send",
+      chatPlaceholder: "Type here...",
+      latestNewsTitle: "Latest News",
+      clickNewsText: "Click to read the full news",
+      latestVideoTitleText: "Latest Video",
+      clickVideoText: "Click to watch the full video",
+      articlesTitle: "Articles",
+      videosTitle: "Videos",
+      newsTitle: "News",
+      categoriesTitle: "Categories",
+      aboutTitle: "About Us",
+      contactsTitle: "Contacts",
+      footerText: "All rights reserved",
+      publishedOn: "Published on",
+      botHello: "👋 Hello! I'm RSM Assistant. I can search information, summarize articles, translate between languages, perform calculations, convert currencies, tell jokes, and give advice!",
+      changeLanguagePrompt: "⚠️ I notice you're speaking a different language. The site is currently set to English. Would you like me to change the language? Say 'change language to [language]' or click the language button in the top menu."
+    }
+  },
+  it: {
+    name: "Italiano",
+    flag: "🇮🇹",
+    translations: {
+      siteTitle: "RSM",
+      navHome: "Home",
+      navArticles: "Articoli",
+      navVideos: "Video",
+      navNews: "Notizie",
+      navCategories: "Categorie",
+      navAbout: "Chi Siamo",
+      navContacts: "Contatti",
+      searchPlaceholder: "Cerca...",
+      chatBtnText: "Chat AI",
+      chatTitle: "Assistente RSM",
+      sendBtnText: "Invia",
+      chatPlaceholder: "Scrivi qui...",
+      latestNewsTitle: "Ultime Notizie",
+      clickNewsText: "Clicca per leggere la notizia completa",
+      latestVideoTitleText: "Ultimo Video",
+      clickVideoText: "Clicca per guardare il video completo",
+      articlesTitle: "Articoli",
+      videosTitle: "Video",
+      newsTitle: "Notizie",
+      categoriesTitle: "Categorie",
+      aboutTitle: "Chi Siamo",
+      contactsTitle: "Contatti",
+      footerText: "Tutti i diritti riservati",
+      publishedOn: "Pubblicato il",
+      botHello: "👋 Ciao! Sono l'Assistente RSM. Posso cercare informazioni, riassumere articoli, tradurre tra lingue, fare calcoli, convertire valute, raccontare barzellette e dare consigli!",
+      changeLanguagePrompt: "⚠️ Noto che stai parlando un'altra lingua. Il sito è attualmente impostato in italiano. Vuoi che cambi la lingua? Di 'cambia lingua in [lingua]' o clicca il pulsante lingua nel menu in alto."
+    }
+  },
+  es: {
+    name: "Español",
+    flag: "🇪🇸",
+    translations: {
+      siteTitle: "RSM",
+      navHome: "Inicio",
+      navArticles: "Artículos",
+      navVideos: "Vídeos",
+      navNews: "Noticias",
+      navCategories: "Categorías",
+      navAbout: "Sobre Nosotros",
+      navContacts: "Contactos",
+      searchPlaceholder: "Buscar...",
+      chatBtnText: "Chat IA",
+      chatTitle: "Asistente RSM",
+      sendBtnText: "Enviar",
+      chatPlaceholder: "Escribe aquí...",
+      latestNewsTitle: "Últimas Noticias",
+      clickNewsText: "Haz clic para leer la noticia completa",
+      latestVideoTitleText: "Último Vídeo",
+      clickVideoText: "Haz clic para ver el vídeo completo",
+      articlesTitle: "Artículos",
+      videosTitle: "Vídeos",
+      newsTitle: "Noticias",
+      categoriesTitle: "Categorías",
+      aboutTitle: "Sobre Nosotros",
+      contactsTitle: "Contactos",
+      footerText: "Todos los derechos reservados",
+      publishedOn: "Publicado el",
+      botHello: "👋 ¡Hola! Soy el Asistente RSM. ¡Puedo buscar información, resumir artículos, traducir entre idiomas, realizar cálculos, convertir monedas, contar chistes y dar consejos!",
+      changeLanguagePrompt: "⚠️ Noto que estás hablando otro idioma. El sitio está actualmente configurado en español. ¿Quieres que cambie el idioma? Di 'cambiar idioma a [idioma]' o haz clic en el botón de idioma en el menú superior."
+    }
+  },
+  fr: {
+    name: "Français",
+    flag: "🇫🇷",
+    translations: {
+      siteTitle: "RSM",
+      navHome: "Accueil",
+      navArticles: "Articles",
+      navVideos: "Vidéos",
+      navNews: "Actualités",
+      navCategories: "Catégories",
+      navAbout: "À Propos",
+      navContacts: "Contacts",
+      searchPlaceholder: "Rechercher...",
+      chatBtnText: "Chat IA",
+      chatTitle: "Assistant RSM",
+      sendBtnText: "Envoyer",
+      chatPlaceholder: "Écrivez ici...",
+      latestNewsTitle: "Dernières Actualités",
+      clickNewsText: "Cliquez pour lire l'actualité complète",
+      latestVideoTitleText: "Dernière Vidéo",
+      clickVideoText: "Cliquez pour regarder la vidéo complète",
+      articlesTitle: "Articles",
+      videosTitle: "Vidéos",
+      newsTitle: "Actualités",
+      categoriesTitle: "Catégories",
+      aboutTitle: "À Propos",
+      contactsTitle: "Contacts",
+      footerText: "Tous droits réservés",
+      publishedOn: "Publié le",
+      botHello: "👋 Bonjour ! Je suis l'Assistant RSM. Je peux rechercher des informations, résumer des articles, traduire entre les langues, effectuer des calculs, convertir des devises, raconter des blagues et donner des conseils !",
+      changeLanguagePrompt: "⚠️ Je remarque que vous parlez une autre langue. Le site est actuellement configuré en français. Voulez-vous que je change la langue ? Dites 'changer la langue en [langue]' ou cliquez sur le bouton de langue dans le menu supérieur."
+    }
+  },
+  de: {
+    name: "Deutsch",
+    flag: "🇩🇪",
+    translations: {
+      siteTitle: "RSM",
+      navHome: "Startseite",
+      navArticles: "Artikel",
+      navVideos: "Videos",
+      navNews: "Nachrichten",
+      navCategories: "Kategorien",
+      navAbout: "Über Uns",
+      navContacts: "Kontakte",
+      searchPlaceholder: "Suchen...",
+      chatBtnText: "KI Chat",
+      chatTitle: "RSM Assistent",
+      sendBtnText: "Senden",
+      chatPlaceholder: "Hier schreiben...",
+      latestNewsTitle: "Neueste Nachrichten",
+      clickNewsText: "Klicken Sie, um die vollständige Nachricht zu lesen",
+      latestVideoTitleText: "Neuestes Video",
+      clickVideoText: "Klicken Sie, um das vollständige Video anzusehen",
+      articlesTitle: "Artikel",
+      videosTitle: "Videos",
+      newsTitle: "Nachrichten",
+      categoriesTitle: "Kategorien",
+      aboutTitle: "Über Uns",
+      contactsTitle: "Kontakte",
+      footerText: "Alle Rechte vorbehalten",
+      publishedOn: "Veröffentlicht am",
+      botHello: "👋 Hallo! Ich bin der RSM-Assistent. Ich kann Informationen suchen, Artikel zusammenfassen, zwischen Sprachen übersetzen, Berechnungen durchführen, Währungen umrechnen, Witze erzählen und Ratschläge geben!",
+      changeLanguagePrompt: "⚠️ Ich bemerke, dass Sie eine andere Sprache sprechen. Die Seite ist derzeit auf Deutsch eingestellt. Möchten Sie, dass ich die Sprache ändere? Sagen Sie 'Sprache ändern zu [Sprache]' oder klicken Sie auf die Sprachschaltfläche im oberen Menü."
+    }
+  },
+  zh: {
+    name: "中文",
+    flag: "🇨🇳",
+    translations: {
+      siteTitle: "RSM",
+      navHome: "首页",
+      navArticles: "文章",
+      navVideos: "视频",
+      navNews: "新闻",
+      navCategories: "分类",
+      navAbout: "关于我们",
+      navContacts: "联系方式",
+      searchPlaceholder: "搜索...",
+      chatBtnText: "AI聊天",
+      chatTitle: "RSM助手",
+      sendBtnText: "发送",
+      chatPlaceholder: "在这里输入...",
+      latestNewsTitle: "最新新闻",
+      clickNewsText: "点击阅读完整新闻",
+      latestVideoTitleText: "最新视频",
+      clickVideoText: "点击观看完整视频",
+      articlesTitle: "文章",
+      videosTitle: "视频",
+      newsTitle: "新闻",
+      categoriesTitle: "分类",
+      aboutTitle: "关于我们",
+      contactsTitle: "联系方式",
+      footerText: "版权所有",
+      publishedOn: "发布于",
+      botHello: "👋 你好！我是RSM助手。我可以搜索信息、总结文章、翻译语言、进行计算、兑换货币、讲笑话和提供建议！",
+      changeLanguagePrompt: "⚠️ 我注意到您在使用其他语言。网站当前设置为中文。您想要更改语言吗？说'更改语言为[语言]'或点击顶部菜单中的语言按钮。"
+    }
+  },
+  ar: {
+    name: "العربية",
+    flag: "🇸🇦",
+    translations: {
+      siteTitle: "RSM",
+      navHome: "الرئيسية",
+      navArticles: "المقالات",
+      navVideos: "الفيديوهات",
+      navNews: "الأخبار",
+      navCategories: "الفئات",
+      navAbout: "من نحن",
+      navContacts: "اتصل بنا",
+      searchPlaceholder: "بحث...",
+      chatBtnText: "دردشة الذكاء الاصطناعي",
+      chatTitle: "مساعد RSM",
+      sendBtnText: "إرسال",
+      chatPlaceholder: "اكتب هنا...",
+      latestNewsTitle: "آخر الأخبار",
+      clickNewsText: "انقر لقراءة الخبر الكامل",
+      latestVideoTitleText: "آخر فيديو",
+      clickVideoText: "انقر لمشاهدة الفيديو الكامل",
+      articlesTitle: "المقالات",
+      videosTitle: "الفيديوهات",
+      newsTitle: "الأخبار",
+      categoriesTitle: "الفئات",
+      aboutTitle: "من نحن",
+      contactsTitle: "اتصل بنا",
+      footerText: "جميع الحقوق محفوظة",
+      publishedOn: "نشر في",
+      botHello: "👋 مرحباً! أنا مساعد RSM. يمكنني البحث عن المعلومات وتلخيص المقالات والترجمة بين اللغات وإجراء العمليات الحسابية وتحويل العملات وإلقاء النكات وتقديم النصائح!",
+      changeLanguagePrompt: "⚠️ ألاحظ أنك تتحدث لغة مختلفة. الموقع مضبوط حاليًا على العربية. هل تريدني أن أغير اللغة؟ قل 'تغيير اللغة إلى [اللغة]' أو انقر على زر اللغة في القائمة العلوية."
+    }
+  },
+  ru: {
+    name: "Русский",
+    flag: "🇷🇺",
+    translations: {
+      siteTitle: "RSM",
+      navHome: "Главная",
+      navArticles: "Статьи",
+      navVideos: "Видео",
+      navNews: "Новости",
+      navCategories: "Категории",
+      navAbout: "О нас",
+      navContacts: "Контакты",
+      searchPlaceholder: "Поиск...",
+      chatBtnText: "ИИ Чат",
+      chatTitle: "Помощник RSM",
+      sendBtnText: "Отправить",
+      chatPlaceholder: "Введите здесь...",
+      latestNewsTitle: "Последние новости",
+      clickNewsText: "Нажмите, чтобы прочитать полную новость",
+      latestVideoTitleText: "Последнее видео",
+      clickVideoText: "Нажмите, чтобы посмотреть полное видео",
+      articlesTitle: "Статьи",
+      videosTitle: "Видео",
+      newsTitle: "Новости",
+      categoriesTitle: "Категории",
+      aboutTitle: "О нас",
+      contactsTitle: "Контакты",
+      footerText: "Все права защищены",
+      publishedOn: "Опубликовано",
+      botHello: "👋 Привет! Я помощник RSM. Я могу искать информацию, суммировать статьи, переводить между языками, выполнять вычисления, конвертировать валюты, рассказывать анекдоты и давать советы!",
+      changeLanguagePrompt: "⚠️ Я заметил, что вы говорите на другом языке. Сайт в настоящее время установлен на русский. Хотите, чтобы я изменил язык? Скажите 'изменить язык на [язык]' или нажмите кнопку языка в верхнем меню."
+    }
+  }
+};
+
+// ============ INITIALIZATION ============
+function initApp() {
+  // Load articles first
+  fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
+  .then(r=>r.json())
+  .then(data=>{
+    articles = data.articles;
+    // Set current language and update UI
+    applyLanguage(currentLanguage);
+    renderAllContent();
+  });
+}
+
+// ============ LANGUAGE FUNCTIONS ============
+function toggleLanguageDropdown() {
+  const dropdown = document.getElementById('languageDropdown');
+  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+function changeLanguage(langCode) {
+  if (languageData[langCode]) {
+    currentLanguage = langCode;
+    localStorage.setItem('rsm_language', langCode);
+    applyLanguage(langCode);
+    toggleLanguageDropdown();
+    
+    // Update bot language
+    botLanguage = langCode;
+    
+    // Add welcome message in new language
+    if (chatMessages.children.length === 0) {
+      appendMessage('bot', languageData[langCode].translations.botHello);
+    }
+    
+    // Re-render all content
+    renderAllContent();
+  }
+}
+
+function applyLanguage(langCode) {
+  const lang = languageData[langCode];
+  if (!lang) return;
+  
+  // Update UI elements
+  document.getElementById('currentLangFlag').textContent = lang.flag;
+  document.getElementById('currentLangCode').textContent = langCode.toUpperCase();
+  document.documentElement.lang = langCode;
+  
+  // Apply translations
+  const t = lang.translations;
+  for (const [key, value] of Object.entries(t)) {
+    const element = document.getElementById(key);
+    if (element) {
+      element.textContent = value;
+    }
+  }
+  
+  // Update placeholders
+  document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+  document.getElementById('chatInput').placeholder = t.chatPlaceholder;
+  
+  // Update language dropdown options
+  updateLanguageDropdown();
+}
+
+function updateLanguageDropdown() {
+  const dropdown = document.getElementById('languageDropdown');
+  dropdown.innerHTML = '';
+  
+  for (const [code, lang] of Object.entries(languageData)) {
+    const option = document.createElement('div');
+    option.className = 'language-option';
+    if (code === currentLanguage) {
+      option.classList.add('current-lang');
+    }
+    option.innerHTML = `${lang.flag} ${lang.name}`;
+    option.onclick = () => changeLanguage(code);
+    dropdown.appendChild(option);
+  }
+}
+
+// ============ RENDER FUNCTIONS ============
+function renderAllContent() {
   renderArticles();
   renderVideos();
   renderNews();
   renderCategories();
   renderLatestNews();
   renderLatestVideo();
-});
-
-// SECTIONS
-function showSection(id){
-  document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
-  document.getElementById(id).classList.remove('hidden');
-  window.scrollTo(0,0);
 }
 
-// RENDER ARTICLES, VIDEOS, NEWS, CATEGORIES
 function renderArticles() {
-    const c = document.getElementById('articles');
-    c.innerHTML = '';
-    articles.filter(a => a.type === "article").forEach(a => {
-        const i = articles.indexOf(a);
-        const d = document.createElement('div');
-        d.className = 'card';
-        d.innerHTML = `<h2>${a.title}</h2>`;
-        d.onclick = () => openArticle(i);
-        c.appendChild(d);
-    });
+  const container = document.getElementById('articlesContainer');
+  if (!container) return;
+  
+  container.innerHTML = '';
+  articles.filter(a => a.type === "article").forEach(a => {
+    const i = articles.indexOf(a);
+    const d = document.createElement('div');
+    d.className = 'card';
+    d.innerHTML = `<h3>${a.title}</h3><p>${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>`;
+    d.onclick = () => openArticle(i);
+    container.appendChild(d);
+  });
 }
 
 function renderVideos() {
-    const c = document.getElementById('videos');
-    c.innerHTML = '';
-    articles.filter(a => a.type === "video").forEach(a => {
-        const i = articles.indexOf(a);
-        const d = document.createElement('div');
-        d.className = 'card';
-        d.innerHTML = `<h2>${a.title}</h2>`;
-        d.onclick = () => openVideo(i);
-        c.appendChild(d);
-    });
+  const container = document.getElementById('videosContainer');
+  if (!container) return;
+  
+  container.innerHTML = '';
+  articles.filter(a => a.type === "video").forEach(a => {
+    const i = articles.indexOf(a);
+    const d = document.createElement('div');
+    d.className = 'card';
+    d.innerHTML = `<h3>${a.title}</h3><p>${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>`;
+    d.onclick = () => openVideo(i);
+    container.appendChild(d);
+  });
 }
 
 function renderNews() {
-    const c = document.getElementById('news');
-    c.innerHTML = '';
-    articles.filter(a => a.type === "news").forEach(a => {
-        const i = articles.indexOf(a);
-        const d = document.createElement('div');
-        d.className = 'card';
-        d.innerHTML = `<h2>${a.title}</h2>`;
-        d.onclick = () => openArticle(i);
-        c.appendChild(d);
-    });
+  const container = document.getElementById('newsContainer');
+  if (!container) return;
+  
+  container.innerHTML = '';
+  articles.filter(a => a.type === "news").forEach(a => {
+    const i = articles.indexOf(a);
+    const d = document.createElement('div');
+    d.className = 'card';
+    d.innerHTML = `<h3>${a.title}</h3><p>${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>`;
+    d.onclick = () => openArticle(i);
+    container.appendChild(d);
+  });
 }
 
 function renderCategories() {
-    const c = document.getElementById('categories');
-    c.innerHTML = '';
-    [...new Set(articles.map(a => a.category))].forEach(cat => {
-        const box = document.createElement('div');
-        box.className = 'card';
-        box.innerHTML = `<h2>${cat}</h2>`;
-        articles.filter(a => a.category === cat).forEach(a => {
-            const i = articles.indexOf(a);
-            const p = document.createElement('p');
-            p.style.cursor = 'pointer';
-            p.innerText = "• " + a.title;
-            p.onclick = () => {
-                if (a.type === "video") {
-                    openVideo(i);
-                } else {
-                    openArticle(i);
-                }
-            };
-            box.appendChild(p);
-        });
-        c.appendChild(box);
+  const container = document.getElementById('categoriesContainer');
+  if (!container) return;
+  
+  container.innerHTML = '';
+  [...new Set(articles.map(a => a.category))].forEach(cat => {
+    const box = document.createElement('div');
+    box.className = 'card';
+    box.innerHTML = `<h3>${cat}</h3>`;
+    articles.filter(a => a.category === cat).forEach(a => {
+      const i = articles.indexOf(a);
+      const p = document.createElement('p');
+      p.style.cursor = 'pointer';
+      p.innerText = "• " + a.title;
+      p.onclick = () => {
+        if (a.type === "video") {
+          openVideo(i);
+        } else {
+          openArticle(i);
+        }
+      };
+      box.appendChild(p);
     });
-  }
-
-// OPEN ARTICLES/VIDEOS - LARGER VIDEO
-function openArticle(i){
-  const a=articles[i]; 
-  showSection('single'); 
-  document.getElementById('singleTitle').innerText=a.title; 
-  document.getElementById('singleDate').innerText=a.date?("📅 Published on "+new Date(a.date).toLocaleDateString('en-US')):""; 
-  const imgBox=document.getElementById('singleImage'); 
-  imgBox.innerHTML=''; 
-  if(a.images && Array.isArray(a.images)){ 
-    a.images.forEach(src=>{
-      const img=document.createElement('img'); 
-      img.src=src;
-      imgBox.appendChild(img);
-    }); 
-  } else if(a.image){
-    imgBox.innerHTML=`<img src="${a.image}">`; 
-  } 
-  document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;
+    container.appendChild(box);
+  });
 }
 
-function openVideo(i){
-  const a=articles[i]; 
-  showSection('single'); 
-  document.getElementById('singleTitle').innerText=a.title; 
-  document.getElementById('singleDate').innerText=a.date?("📅 Published on "+new Date(a.date).toLocaleDateString('en-US')):""; 
-  const imgBox=document.getElementById('singleImage'); 
-  imgBox.innerHTML=''; 
+// ============ NAVIGATION ============
+function showSection(id) {
+  document.querySelectorAll('main section').forEach(s => s.classList.add('hidden'));
+  const section = document.getElementById(id);
+  if (section) {
+    section.classList.remove('hidden');
+  }
+  window.scrollTo(0, 0);
+}
+
+function openArticle(i) {
+  const a = articles[i];
+  showSection('single');
+  document.getElementById('singleTitle').textContent = a.title;
   
-  if(a.videoUrl){ 
-    // LARGER VIDEO
-    imgBox.innerHTML=`
+  const dateText = languageData[currentLanguage].translations.publishedOn || "Published on";
+  document.getElementById('singleDate').textContent = a.date ? 
+    `📅 ${dateText} ${new Date(a.date).toLocaleDateString(currentLanguage)}` : "";
+  
+  const imgBox = document.getElementById('singleImage');
+  imgBox.innerHTML = '';
+  
+  if (a.images && Array.isArray(a.images)) {
+    a.images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      imgBox.appendChild(img);
+    });
+  } else if (a.image) {
+    imgBox.innerHTML = `<img src="${a.image}">`;
+  }
+  
+  document.getElementById('singleContent').innerHTML = `<p>${a.content.replace(/\n/g, "<br><br>")}</p>`;
+}
+
+function openVideo(i) {
+  const a = articles[i];
+  showSection('single');
+  document.getElementById('singleTitle').textContent = a.title;
+  
+  const dateText = languageData[currentLanguage].translations.publishedOn || "Published on";
+  document.getElementById('singleDate').textContent = a.date ? 
+    `📅 ${dateText} ${new Date(a.date).toLocaleDateString(currentLanguage)}` : "";
+  
+  const imgBox = document.getElementById('singleImage');
+  imgBox.innerHTML = '';
+  
+  if (a.videoUrl) {
+    imgBox.innerHTML = `
       <div style="width:100%; max-width:100%; margin:20px 0;">
         <iframe width="100%" height="200" src="${a.videoUrl}" 
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -268,58 +716,68 @@ function openVideo(i){
         </iframe>
       </div>
     `;
-  } else if(a.images && Array.isArray(a.images)){ 
-    a.images.forEach(src=>{
-      const img=document.createElement('img'); 
-      img.src=src;
+  } else if (a.images && Array.isArray(a.images)) {
+    a.images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
       imgBox.appendChild(img);
-    }); 
-  } 
-  document.getElementById('singleContent').innerHTML=`<p>${a.content.replace(/\n/g,"<br><br>")}</p>`;
+    });
+  }
+  
+  document.getElementById('singleContent').innerHTML = `<p>${a.content.replace(/\n/g, "<br><br>")}</p>`;
 }
 
-// SEARCH
-function searchAll(){
-  const q=searchInput.value.toLowerCase(); 
-  const box=searchResults; 
-  box.innerHTML=''; 
-  if(!q){
-    box.style.display='none'; 
+// ============ SEARCH ============
+function searchAll() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const box = document.getElementById('searchResults');
+  box.innerHTML = '';
+  
+  if (!q) {
+    box.style.display = 'none';
     return;
-  } 
-  articles.forEach((a,i)=>{
-    if(a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)){
-      const d=document.createElement('div'); 
-      d.className='search-item'; 
-      d.innerText=a.title; 
-      d.onclick=()=>{
+  }
+  
+  articles.forEach((a, i) => {
+    if (a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)) {
+      const d = document.createElement('div');
+      d.className = 'search-item';
+      d.textContent = a.title;
+      d.onclick = () => {
         if (a.type === "video") {
           openVideo(i);
         } else {
           openArticle(i);
         }
-      }; 
+      };
       box.appendChild(d);
     }
-  }); 
-  box.style.display=box.children.length?'block':'none';
+  });
+  
+  box.style.display = box.children.length ? 'block' : 'none';
 }
 
-// LATEST NEWS & VIDEO
-function renderLatestNews(){
-  const news=articles.filter(a=>a.type==="news").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; 
-  if(!news) return; 
-  document.getElementById('latestTitle').innerText=news.title; 
-  const i=articles.findIndex(a=>a.title===news.title); 
-  document.getElementById('latestNews').onclick=()=>openArticle(i);
+// ============ LATEST NEWS & VIDEO ============
+function renderLatestNews() {
+  const news = articles.filter(a => a.type === "news")
+    .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+  
+  if (!news) return;
+  
+  document.getElementById('latestTitle').textContent = news.title;
+  const i = articles.findIndex(a => a.title === news.title);
+  document.getElementById('latestNews').onclick = () => openArticle(i);
 }
 
-function renderLatestVideo(){
-  const video=articles.filter(a=>a.type==="video").sort((a,b)=>new Date(b.date)-new Date(a.date))[0]; 
-  if(!video) return; 
-  document.getElementById('latestVideoTitle').innerText=video.title; 
-  const i=articles.findIndex(a=>a.title===video.title); 
-  document.getElementById('latestVideo').onclick=()=>openVideo(i);
+function renderLatestVideo() {
+  const video = articles.filter(a => a.type === "video")
+    .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+  
+  if (!video) return;
+  
+  document.getElementById('latestVideoTitle').textContent = video.title;
+  const i = articles.findIndex(a => a.title === video.title);
+  document.getElementById('latestVideo').onclick = () => openVideo(i);
 }
 
 // ============ CHATBOT AI ============
@@ -328,8 +786,22 @@ const chatBox = document.getElementById('chatBox');
 const chatMessages = document.getElementById('chatMessages');
 const chatInput = document.getElementById('chatInput');
 const chatSend = document.getElementById('chatSend');
+const chatClose = document.getElementById('chatClose');
 
 let lastQuestion = null;
+let botLanguage = currentLanguage;
+
+// Language detection patterns
+const languagePatterns = {
+  en: /\b(hello|hi|hey|good|morning|afternoon|evening|thanks|thank you|please|sorry|excuse me|how are you|what's up|hey there)\b/i,
+  it: /\b(ciao|buongiorno|buonasera|salve|grazie|prego|scusa|mi scusi|come stai|come va|tutto bene|per favore|arrivederci|ciao ciao)\b/i,
+  es: /\b(hola|buenos días|buenas tardes|buenas noches|gracias|por favor|perdón|disculpa|¿cómo estás?|¿qué tal?|adiós|hasta luego|hasta pronto)\b/i,
+  fr: /\b(bonjour|salut|bonsoir|merci|s'il vous plaît|excusez-moi|pardon|comment ça va?|ça va?|au revoir|à bientôt|bonne journée)\b/i,
+  de: /\b(hallo|guten tag|guten morgen|guten abend|danke|bitte|entschuldigung|wie geht's?|wie geht es dir?|tschüss|auf wiedersehen|bis bald)\b/i,
+  zh: /\b(你好|嗨|早上好|下午好|晚上好|谢谢|请|对不起|不好意思|最近怎么样|再见|拜拜|明天见)\b/,
+  ar: /\b(مرحبا|أهلا|صباح الخير|مساء الخير|شكرا|من فضلك|آسف|معذرة|كيف حالك|مع السلامة|إلى اللقاء|وداعا)\b/,
+  ru: /\b(привет|здравствуйте|доброе утро|добрый день|добрый вечер|спасибо|пожалуйста|извините|простите|как дела?|до свидания|пока)\b/
+};
 
 // Open/Close chat
 chatToggle.addEventListener('click', () => {
@@ -337,7 +809,6 @@ chatToggle.addEventListener('click', () => {
   if (chatBox.style.display === 'flex') chatInput.focus();
 });
 
-const chatClose = document.getElementById('chatClose');
 chatClose.addEventListener('click', () => {
   chatBox.style.display = 'none';
 });
@@ -358,12 +829,22 @@ function appendMessage(sender, text) {
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-// Send message ASYNC
+// Send message
 async function sendMessage() {
   const msg = chatInput.value.trim();
   if (!msg) return;
   
   appendMessage('user', msg);
+  
+  // Detect if user is speaking different language
+  const detectedLang = detectLanguage(msg);
+  if (detectedLang && detectedLang !== botLanguage && !msg.toLowerCase().includes("translate") && !msg.toLowerCase().includes("traduci")) {
+    const prompt = languageData[botLanguage].translations.changeLanguagePrompt;
+    appendMessage('bot', prompt);
+    chatInput.value = '';
+    chatInput.focus();
+    return;
+  }
   
   // AI Response
   const botReply = await botResponse(msg);
@@ -382,20 +863,32 @@ function randomChoice(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// ============ WIKIPEDIA SEARCH (ENGLISH) ============
+// Detect language from text
+function detectLanguage(text) {
+  for (const [lang, pattern] of Object.entries(languagePatterns)) {
+    if (pattern.test(text)) {
+      return lang;
+    }
+  }
+  return null;
+}
+
+// ============ WIKIPEDIA SEARCH ============
 async function wikipediaSearch(query) {
   try {
-    const searchUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*&srlimit=1`;
+    // Use language-specific Wikipedia
+    const langCode = botLanguage === 'zh' ? 'zh' : botLanguage;
+    const searchUrl = `https://${langCode}.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*&srlimit=1`;
     
     const searchResponse = await fetch(searchUrl);
     const searchData = await searchResponse.json();
     
     if (!searchData.query?.search?.length) {
-      return "🔍 I couldn't find information on this topic.";
+      return getTranslation("searchNotFound");
     }
     
     const pageTitle = searchData.query.search[0].title;
-    const contentUrl = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&titles=${encodeURIComponent(pageTitle)}&format=json&origin=*`;
+    const contentUrl = `https://${langCode}.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&titles=${encodeURIComponent(pageTitle)}&format=json&origin=*`;
     
     const contentResponse = await fetch(contentUrl);
     const contentData = await contentResponse.json();
@@ -404,7 +897,7 @@ async function wikipediaSearch(query) {
     const pageId = Object.keys(pages)[0];
     
     if (pageId === "-1" || !pages[pageId].extract) {
-      return `📚 **${pageTitle}**\n\nLimited information on this topic.`;
+      return `📚 **${pageTitle}**\n\n${getTranslation("limitedInfo")}`;
     }
     
     const extract = pages[pageId].extract;
@@ -413,574 +906,356 @@ async function wikipediaSearch(query) {
     return `📚 **${pageTitle}**\n\n${shortExtract}`;
     
   } catch (error) {
-    return "⚠️ Unable to perform search at this moment.";
+    return getTranslation("searchError");
   }
 }
 
-// ============ TEXT SUMMARIZATION ============
-function summarizeText(text, maxSentences = 3) {
-  if (!text) return "There's no text to summarize.";
-  
-  text = text.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
-  
-  if (sentences.length <= maxSentences) {
-    return sentences.join('. ') + '.';
-  }
-  
-  const words = text.toLowerCase().split(/\s+/).filter(w => w.length > 3);
-  const wordFreq = {};
-  words.forEach(w => wordFreq[w] = (wordFreq[w] || 0) + 1);
-  
-  const scoredSentences = sentences.map(sentence => {
-    const sentenceWords = sentence.toLowerCase().split(/\s+/);
-    let score = 0;
-    sentenceWords.forEach(w => {
-      if (wordFreq[w]) score += wordFreq[w];
-    });
-    return { sentence: sentence.trim(), score: score / sentenceWords.length };
-  });
-  
-  scoredSentences.sort((a, b) => b.score - a.score);
-  const bestSentences = scoredSentences.slice(0, maxSentences);
-  bestSentences.sort((a, b) => sentences.indexOf(a.sentence) - sentences.indexOf(b.sentence));
-  
-  return bestSentences.map(s => s.sentence).join('. ') + '.';
-}
-
-// Find article by title
-function findArticleByTitle(title) {
-  const searchTitle = title.toLowerCase().trim();
-  return articles.find(a => 
-    a.title.toLowerCase().includes(searchTitle) || 
-    searchTitle.includes(a.title.toLowerCase())
-  );
-}
-
-// ============ MATH CALCULATION ============
-function calculateMathExpression(expr) {
+// ============ TRANSLATION API ============
+async function translateText(text, targetLang) {
   try {
-    // Replace "×" with "*", "÷" with "/" and "pi" with Math.PI
-    const cleanExpr = expr
-      .replace(/×/g, '*')
-      .replace(/÷/g, '/')
-      .replace(/pi/gi, 'Math.PI')
-      .replace(/\^/g, '**')
-      .replace(/sqrt\(/gi, 'Math.sqrt(')
-      .replace(/sin\(/gi, 'Math.sin(')
-      .replace(/cos\(/gi, 'Math.cos(')
-      .replace(/tan\(/gi, 'Math.tan(')
-      .replace(/log\(/gi, 'Math.log10(')
-      .replace(/ln\(/gi, 'Math.log(');
+    // Use Google Translate API (unofficial but reliable)
+    const sourceLang = detectLanguage(text) || 'auto';
+    const encodedText = encodeURIComponent(text);
     
-    // Use eval only for safe mathematical expressions
-    const safeEval = new Function('return ' + cleanExpr);
-    const result = safeEval();
+    const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang}&dt=t&q=${encodedText}`);
     
-    if (isNaN(result) || !isFinite(result)) {
-      return "I cannot calculate this expression.";
+    if (!response.ok) throw new Error("Translation failed");
+    
+    const data = await response.json();
+    
+    if (data && data[0] && data[0][0] && data[0][0][0]) {
+      return {
+        translated: data[0][0][0],
+        detected: sourceLang,
+        success: true
+      };
     }
     
-    return result.toString();
+    throw new Error("No translation found");
   } catch (error) {
-    return "Calculation error. Please write the expression correctly.";
-  }
-}
-
-// ============ TRANSLATION API (MULTI-LANGUAGE) ============
-async function translateText(text, targetLang = 'en') {
-  try {
-    // Language code mapping
-    const langCodes = {
-      'english': 'en', 'en': 'en',
-      'italian': 'it', 'it': 'it',
-      'spanish': 'es', 'es': 'es',
-      'french': 'fr', 'fr': 'fr',
-      'german': 'de', 'de': 'de',
-      'portuguese': 'pt', 'pt': 'pt',
-      'russian': 'ru', 'ru': 'ru',
-      'arabic': 'ar', 'ar': 'ar',
-      'chinese': 'zh', 'zh': 'zh',
-      'japanese': 'ja', 'ja': 'ja',
-      'korean': 'ko', 'ko': 'ko',
-      'hindi': 'hi', 'hi': 'hi',
-      'dutch': 'nl', 'nl': 'nl',
-      'polish': 'pl', 'pl': 'pl',
-      'turkish': 'tr', 'tr': 'tr',
-      'greek': 'el', 'el': 'el',
-      'swedish': 'sv', 'sv': 'sv'
+    // Fallback to simple word mapping for common phrases
+    const commonTranslations = {
+      'hello': { en: 'hello', it: 'ciao', es: 'hola', fr: 'bonjour', de: 'hallo', zh: '你好', ar: 'مرحبا', ru: 'привет' },
+      'thank you': { en: 'thank you', it: 'grazie', es: 'gracias', fr: 'merci', de: 'danke', zh: '谢谢', ar: 'شكرا', ru: 'спасибо' },
+      'goodbye': { en: 'goodbye', it: 'arrivederci', es: 'adiós', fr: 'au revoir', de: 'auf wiedersehen', zh: '再见', ar: 'مع السلامة', ru: 'до свидания' },
+      'yes': { en: 'yes', it: 'sì', es: 'sí', fr: 'oui', de: 'ja', zh: '是的', ar: 'نعم', ru: 'да' },
+      'no': { en: 'no', it: 'no', es: 'no', fr: 'non', de: 'nein', zh: '不', ar: 'لا', ru: 'нет' }
     };
     
-    // Normalize target language
-    const targetLangCode = langCodes[targetLang.toLowerCase()] || targetLang;
-    
-    // Use LibreTranslate API (free and reliable)
-    const response = await fetch('https://libretranslate.com/translate', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        q: text,
-        source: 'auto',
-        target: targetLangCode,
-        format: 'text'
-      })
-    });
-    
-    const data = await response.json();
-    
-    if (data.translatedText) {
-      return {
-        translated: data.translatedText,
-        detectedLanguage: data.detectedLanguage?.language || 'unknown'
-      };
-    }
-    
-    throw new Error("Translation failed");
-    
-  } catch (error) {
-    // Fallback to MyMemory API
-    try {
-      const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=auto|${targetLang}`);
-      const data = await response.json();
-      
-      if (data.responseData && data.responseData.translatedText) {
+    const lowerText = text.toLowerCase();
+    for (const [key, translations] of Object.entries(commonTranslations)) {
+      if (lowerText.includes(key) && translations[targetLang]) {
         return {
-          translated: data.responseData.translatedText,
-          detectedLanguage: 'auto'
+          translated: translations[targetLang],
+          detected: 'en',
+          success: true
         };
       }
-    } catch {
-      return {
-        translated: text,
-        detectedLanguage: 'unknown',
-        error: true
-      };
     }
+    
+    return {
+      translated: text,
+      detected: 'unknown',
+      success: false,
+      error: "Could not translate"
+    };
   }
 }
 
-// ============ CURRENCY EXCHANGE API ============
+// ============ CURRENCY EXCHANGE ============
 async function getExchangeRate(fromCurrency, toCurrency, amount = 1) {
   try {
-    // Use ExchangeRate-API with fallback
-    const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurrency.toUpperCase()}`);
+    // Fix currency codes
+    const from = fromCurrency.toUpperCase();
+    const to = toCurrency.toUpperCase();
+    
+    // Common currency mapping
+    const currencyMap = {
+      'EURO': 'EUR', 'EUR': 'EUR',
+      'DOLLAR': 'USD', 'USD': 'USD', 'US DOLLAR': 'USD',
+      'POUND': 'GBP', 'GBP': 'GBP', 'STERLING': 'GBP',
+      'PKR': 'PKR', 'RUPEE': 'PKR',
+      'YEN': 'JPY', 'JPY': 'JPY',
+      'YUAN': 'CNY', 'CNY': 'CNY',
+      'RUBLE': 'RUB', 'RUB': 'RUB'
+    };
+    
+    const fromCode = currencyMap[from] || from;
+    const toCode = currencyMap[to] || to;
+    
+    // Try first API
+    const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${fromCode}`);
+    if (!response.ok) throw new Error("API 1 failed");
+    
     const data = await response.json();
     
-    if (data.rates && data.rates[toCurrency.toUpperCase()]) {
-      const rate = data.rates[toCurrency.toUpperCase()];
+    if (data.rates && data.rates[toCode]) {
+      const rate = data.rates[toCode];
+      const converted = (amount * rate).toFixed(2);
+      return {
+        success: true,
+        result: `${amount} ${fromCode} = ${converted} ${toCode}`,
+        rate: rate,
+        details: `${getTranslation("exchangeRate")} 1 ${fromCode} = ${rate.toFixed(4)} ${toCode}`
+      };
+    }
+    
+    throw new Error("Currency not found");
+  } catch (error) {
+    // Fallback to fixed rates for common conversions
+    const fixedRates = {
+      'EUR_PKR': 299.5,
+      'USD_PKR': 278.5,
+      'EUR_USD': 1.09,
+      'USD_EUR': 0.92,
+      'EUR_GBP': 0.86,
+      'GBP_EUR': 1.16,
+      'USD_GBP': 0.79,
+      'GBP_USD': 1.27
+    };
+    
+    const key = `${fromCurrency.toUpperCase()}_${toCurrency.toUpperCase()}`;
+    const reverseKey = `${toCurrency.toUpperCase()}_${fromCurrency.toUpperCase()}`;
+    
+    if (fixedRates[key]) {
+      const rate = fixedRates[key];
       const converted = (amount * rate).toFixed(2);
       return {
         success: true,
         result: `${amount} ${fromCurrency.toUpperCase()} = ${converted} ${toCurrency.toUpperCase()}`,
         rate: rate,
-        details: `Exchange rate: 1 ${fromCurrency.toUpperCase()} = ${rate.toFixed(4)} ${toCurrency.toUpperCase()}`
+        details: `${getTranslation("exchangeRate")} 1 ${fromCurrency.toUpperCase()} = ${rate.toFixed(4)} ${toCurrency.toUpperCase()} (estimated)`
       };
-    } else {
+    } else if (fixedRates[reverseKey]) {
+      const rate = 1 / fixedRates[reverseKey];
+      const converted = (amount * rate).toFixed(2);
       return {
-        success: false,
-        error: "Currency not supported"
+        success: true,
+        result: `${amount} ${fromCurrency.toUpperCase()} = ${converted} ${toCurrency.toUpperCase()}`,
+        rate: rate,
+        details: `${getTranslation("exchangeRate")} 1 ${fromCurrency.toUpperCase()} = ${rate.toFixed(4)} ${toCurrency.toUpperCase()} (estimated)`
       };
     }
-  } catch (error) {
-    try {
-      // Fallback API
-      const response = await fetch(`https://open.er-api.com/v6/latest/${fromCurrency.toUpperCase()}`);
-      const data = await response.json();
-      
-      if (data.rates && data.rates[toCurrency.toUpperCase()]) {
-        const rate = data.rates[toCurrency.toUpperCase()];
-        const converted = (amount * rate).toFixed(2);
-        return {
-          success: true,
-          result: `${amount} ${fromCurrency.toUpperCase()} = ${converted} ${toCurrency.toUpperCase()}`,
-          rate: rate,
-          details: `Exchange rate: 1 ${fromCurrency.toUpperCase()} = ${rate.toFixed(4)} ${toCurrency.toUpperCase()}`
-        };
-      }
-    } catch {
-      return {
-        success: false,
-        error: "Unable to retrieve exchange rate"
-      };
-    }
+    
+    return {
+      success: false,
+      error: getTranslation("exchangeError")
+    };
   }
 }
 
-// ============ JOKES FROM API ============
-async function getJokeFromAPI() {
-  try {
-    // JokeAPI
-    const res = await fetch('https://v2.jokeapi.dev/joke/Any?safe-mode&' + Date.now());
-    const data = await res.json();
-    
-    if (data.error) {
-      throw new Error("API error");
-    }
-    
-    if (data.type === 'single') {
-      return `😂 **Joke:**\n${data.joke}`;
-    } else if (data.type === 'twopart') {
-      return `😂 **Joke:**\n${data.setup}\n\n${data.delivery}`;
-    }
-    
-    throw new Error("Unsupported format");
-  } catch (error) {
-    // Fallback to another API
-    try {
-      const res = await fetch('https://official-joke-api.appspot.com/random_joke');
-      const data = await res.json();
-      return `😂 **Joke:**\n${data.setup}\n\n${data.punchline}`;
-    } catch {
-      return "😂 **Joke:**\nWhy don't scientists trust atoms? Because they make up everything.";
-    }
-  }
-}
-
-// ============ ADVICE FROM API ============
-async function getAdviceFromAPI() {
-  try {
-    const res = await fetch('https://api.adviceslip.com/advice?' + Date.now());
-    const data = await res.json();
-    
-    if (data.slip && data.slip.advice) {
-      return `💡 **Advice:**\n${data.slip.advice}`;
-    }
-    
-    throw new Error("No advice found");
-  } catch (error) {
-    // Fallback to predefined advice
-    const adviceList = [
-      "💡 **Advice:**\nDon't put off until tomorrow what you can do today.",
-      "💡 **Advice:**\nThe best preparation for the future is to live well in the present.",
-      "💡 **Advice:**\nSmall daily habits create big results over time.",
-      "💡 **Advice:**\nListen before you speak. Understanding comes from attentive listening.",
-      "💡 **Advice:**\nTake care of your mental health as much as your physical health."
-    ];
-    
-    return adviceList[Math.floor(Math.random() * adviceList.length)];
-  }
-}
-
-// ============ INTELLIGENT COMMANDS SYSTEM ============
-const intelligentCommands = {
-  "what's your name": "🤖 My name is **RSM Assistant**! I'm the AI assistant of RSM website.",
-  "your name": "🤖 My name is **RSM Assistant**! Created to help you.",
-  "what is your name": "🤖 My name is **RSM Assistant**!",
-  "do you have a name": "🤖 Yes! My name is **RSM Assistant**.",
-  
-  "what are you": "⚡ I am an **advanced AI assistant** integrated into the RSM website.",
-  "who are you": "⚡ I am **RSM Assistant**, your personal AI helper!",
-  "are you an ai": "✅ Exactly! I am an **intelligent AI** created to assist you.",
-  
-  "what can you do": "✨ **I can:**\n• 🔍 Search information on Wikipedia\n• 📝 Summarize articles and texts\n• 🗺️ Guide you through Articles/Videos/News\n• 💬 Answer your questions\n• 🌍 Translate between any languages\n• 🧮 Perform mathematical calculations\n• 💱 Convert any currency\n• 😂 Tell jokes (from API)\n• 💡 Give advice\n• 📊 Provide real-time exchange rates",
-  
-  "who created you": "👨‍💻 I was developed by the **RSM team** to provide intelligent assistance.",
-  "creator": "👨‍💻 My creator is the **RSM team**.",
-  
-  "thank you": "🙏 **You're welcome!** Happy to help! 😊",
-  "thanks": "🙏 **You're welcome!** 😊",
-  
-  "goodbye": "👋 **Goodbye!** Come back anytime!",
-  "bye": "👋 **See you!** I'll be here if you need me.",
-  
-  "help": "🆘 **Here's what I can do:**\n• 'search [topic]' - Wikipedia searches\n• 'summarize' - article summaries\n• 'articles/videos/news' - site navigation\n• 'translate [text] to [language]' - translations\n• 'calculate [expression]' - mathematical calculations\n• 'exchange [currency] [currency]' - currency conversion\n• '3 euro in pkr' - direct conversions\n• 'joke' - jokes from API\n• 'advice' - advice in English\n• 'quote' - famous quotes",
-  
-  // SPECIAL COMMANDS THAT TRIGGER ACTIONS
-  "summarize": "SUMMARY",
-  "summary": "SUMMARY",
-  
-  "search": "SEARCH",
-  "find": "SEARCH", 
-  "look for": "SEARCH",
-  
-  "what is": "WHATIS",
-  "what's": "WHATIS",
-  "who is": "WHOIS",
-  
-  "calculate": "CALCULATE",
-  "calculation": "CALCULATE",
-  "how much is": "CALCULATE"
-};
-
-// ============ INTELLIGENT BOT RESPONSE ============
+// ============ BOT RESPONSE ============
 async function botResponse(msg) {
   const m = msg.toLowerCase().trim();
   
-  // 1. GREETINGS
-  const greetings = ["hello", "hi", "hey", "good morning", "good afternoon", "good evening"];
+  // Get translations for current bot language
+  function t(key) {
+    return languageData[botLanguage]?.translations[key] || key;
+  }
   
-  if (m.split(/\s+/).length <= 2) {
-    for (const greeting of greetings) {
-      if (m === greeting || m.startsWith(greeting + " ")) {
-        return "👋 Hello! I'm RSM Assistant. I can search information, summarize articles, translate between languages, perform calculations, convert currencies, tell jokes, and give advice!";
+  // 1. Change language command
+  if (m.includes("change language") || m.includes("cambia lingua") || m.includes("cambiar idioma") || 
+      m.includes("changer la langue") || m.includes("sprache ändern") || m.includes("更改语言") || 
+      m.includes("تغيير اللغة") || m.includes("изменить язык")) {
+    
+    const langMap = {
+      'english': 'en', 'en': 'en',
+      'italian': 'it', 'italiano': 'it', 'it': 'it',
+      'spanish': 'es', 'español': 'es', 'es': 'es',
+      'french': 'fr', 'français': 'fr', 'fr': 'fr',
+      'german': 'de', 'deutsch': 'de', 'de': 'de',
+      'chinese': 'zh', '中文': 'zh', 'zh': 'zh',
+      'arabic': 'ar', 'العربية': 'ar', 'ar': 'ar',
+      'russian': 'ru', 'русский': 'ru', 'ru': 'ru'
+    };
+    
+    for (const [keyword, langCode] of Object.entries(langMap)) {
+      if (m.includes(keyword)) {
+        changeLanguage(langCode);
+        return `✅ ${t('languageChanged') || 'Language changed to'} ${languageData[langCode].name}`;
+      }
+    }
+    
+    return `${t('availableLanguages') || 'Available languages'}: English, Italiano, Español, Français, Deutsch, 中文, العربية, Русский`;
+  }
+  
+  // 2. Currency conversion (FIXED - works correctly now)
+  const currencyMatch = m.match(/(\d+(?:\.\d+)?)\s*(\w+)\s*(?:in|to|into|a|en|in)\s*(\w+)/i);
+  if (currencyMatch) {
+    const amount = parseFloat(currencyMatch[1]);
+    const fromCurrency = currencyMatch[2];
+    const toCurrency = currencyMatch[3];
+    
+    if (amount > 0) {
+      const result = await getExchangeRate(fromCurrency, toCurrency, amount);
+      if (result.success) {
+        return `💱 ${t('currencyConversion') || 'Currency Conversion'}:\n${result.result}\n${result.details}`;
+      } else {
+        return `💱 ${t('error') || 'Error'}: ${result.error}\n${t('tryExample') || 'Try'}: '3 EUR in PKR' ${t('or') || 'or'} '100 USD in EUR'`;
       }
     }
   }
   
-  // 2. TRANSLATION (Advanced multi-language)
+  // 3. Translation
   if (m.startsWith("translate ") || m.startsWith("traduci ") || m.includes(" to ") || m.includes(" in ")) {
-    // Match patterns like:
-    // "translate hello to italian"
-    // "translate ciao in english"
-    // "traduci libro in spagnolo"
-    // "traduci heft to english"
-    
-    const translatePatterns = [
+    const patterns = [
       /translate\s+(.+?)\s+(?:to|in|into)\s+(\w+)/i,
-      /traduci\s+(.+?)\s+(?:in|to|a)\s+(\w+)/i,
-      /translate\s+(.+)/i,
-      /traduci\s+(.+)/i
+      /traduci\s+(.+?)\s+(?:in|to|a)\s+(\w+)/i
     ];
     
     let textToTranslate = "";
-    let targetLanguage = "english";
+    let targetLanguage = "en";
     
-    for (const pattern of translatePatterns) {
+    for (const pattern of patterns) {
       const match = m.match(pattern);
       if (match) {
         textToTranslate = match[1].trim();
         if (match[2]) {
-          targetLanguage = match[2].trim();
+          targetLanguage = match[2].trim().toLowerCase();
         }
         break;
       }
     }
     
-    // Common language mappings
-    const languageMap = {
-      'english': 'en', 'eng': 'en', 'en': 'en',
-      'italian': 'it', 'italiano': 'it', 'it': 'it',
-      'spanish': 'es', 'español': 'es', 'spagnolo': 'es', 'es': 'es',
-      'french': 'fr', 'français': 'fr', 'francese': 'fr', 'fr': 'fr',
-      'german': 'de', 'deutsch': 'de', 'tedesco': 'de', 'de': 'de',
-      'portuguese': 'pt', 'português': 'pt', 'portoghese': 'pt', 'pt': 'pt',
-      'russian': 'ru', 'русский': 'ru', 'russo': 'ru', 'ru': 'ru',
-      'arabic': 'ar', 'عربي': 'ar', 'arabo': 'ar', 'ar': 'ar',
-      'chinese': 'zh', '中文': 'zh', 'cinese': 'zh', 'zh': 'zh',
-      'japanese': 'ja', '日本語': 'ja', 'giapponese': 'ja', 'ja': 'ja',
-      'korean': 'ko', '한국어': 'ko', 'coreano': 'ko', 'ko': 'ko',
-      'hindi': 'hi', 'हिन्दी': 'hi', 'hindi': 'hi', 'hi': 'hi'
-    };
-    
-    const normalizedTargetLang = languageMap[targetLanguage.toLowerCase()] || targetLanguage;
+    if (!textToTranslate) {
+      textToTranslate = m.replace(/translate|traduci|to|in|into|a/gi, '').trim();
+    }
     
     if (textToTranslate.length > 1) {
       try {
-        const translation = await translateText(textToTranslate, normalizedTargetLang);
+        const langMap = {
+          'english': 'en', 'en': 'en',
+          'italian': 'it', 'italiano': 'it', 'it': 'it',
+          'spanish': 'es', 'español': 'es', 'es': 'es',
+          'french': 'fr', 'français': 'fr', 'fr': 'fr',
+          'german': 'de', 'deutsch': 'de', 'de': 'de',
+          'chinese': 'zh', '中文': 'zh', 'zh': 'zh',
+          'arabic': 'ar', 'العربية': 'ar', 'ar': 'ar',
+          'russian': 'ru', 'русский': 'ru', 'ru': 'ru'
+        };
         
-        if (!translation.error && translation.translated !== textToTranslate) {
-          // Get language name for display
+        const targetLangCode = langMap[targetLanguage] || targetLanguage;
+        
+        const translation = await translateText(textToTranslate, targetLangCode);
+        
+        if (translation.success) {
           const langNames = {
             'en': 'English', 'it': 'Italian', 'es': 'Spanish', 'fr': 'French',
-            'de': 'German', 'pt': 'Portuguese', 'ru': 'Russian', 'ar': 'Arabic',
-            'zh': 'Chinese', 'ja': 'Japanese', 'ko': 'Korean', 'hi': 'Hindi'
+            'de': 'German', 'zh': 'Chinese', 'ar': 'Arabic', 'ru': 'Russian'
           };
           
-          const targetLangName = langNames[normalizedTargetLang] || normalizedTargetLang;
-          return `🌍 **Translation:**\nOriginal: "${textToTranslate}"\n${targetLangName}: "${translation.translated}"`;
+          const targetLangName = langNames[targetLangCode] || targetLangCode;
+          return `🌍 ${t('translation') || 'Translation'}:\n${t('original') || 'Original'}: "${textToTranslate}"\n${targetLangName}: "${translation.translated}"`;
         } else {
-          return `⚠️ Could not translate "${textToTranslate}" to ${targetLanguage}. Please try with a different text.`;
+          return `⚠️ ${t('translationError') || 'Could not translate'} "${textToTranslate}" ${t('to') || 'to'} ${targetLanguage}.`;
         }
       } catch (error) {
-        return "⚠️ Unable to translate at this moment. Please try again later.";
+        return `⚠️ ${t('translationFailed') || 'Translation failed at the moment'}.`;
       }
     }
     
-    return `🌍 **Translation Help:**\nWrite 'translate [text] to [language]' to translate.\n\n**Examples:**\n• 'translate hello to italian'\n• 'translate ciao in english'\n• 'traduci libro in spagnolo'\n• 'traduci heft to english'\n\n**Supported languages:** English, Italian, Spanish, French, German, Portuguese, Russian, Arabic, Chinese, Japanese, Korean, Hindi`;
+    return `🌍 ${t('translationHelp') || 'Translation Help'}:\n${t('writeTranslate') || "Write 'translate [text] to [language]' to translate."}\n\n${t('examples') || 'Examples'}:\n• 'translate hello to italian'\n• 'translate ciao in english'\n• 'traduci libro in spagnolo'\n• 'traduci heft to english'`;
   }
   
-  // 3. MATH CALCULATIONS
-  if (m.startsWith("calculate ") || m.startsWith("how much is ") || 
-      m.startsWith("what is ") || /^[\d+\-*/().^π×÷ ]+$/.test(m) || 
-      m.includes("+") || m.includes("-") || m.includes("*") || m.includes("/")) {
+  // 4. Math calculations
+  if (m.startsWith("calculate ") || m.startsWith("calcola ") || m.startsWith("calcular ") || 
+      /^[\d+\-*/().^π×÷ ]+$/.test(m) || m.includes("+") || m.includes("-") || m.includes("*") || m.includes("/")) {
     
     let expr = m;
     if (m.startsWith("calculate ")) expr = m.substring(10);
-    else if (m.startsWith("how much is ")) expr = m.substring(12);
-    else if (m.startsWith("what is ")) expr = m.substring(8);
+    else if (m.startsWith("calcola ")) expr = m.substring(8);
+    else if (m.startsWith("calcular ")) expr = m.substring(9);
     
     if (expr.trim().length > 0) {
-      const result = calculateMathExpression(expr);
-      return `🧮 **Calculation:**\n${expr} = **${result}**`;
-    }
-  }
-  
-  // 4. CURRENCY CONVERSION (direct)
-  const currencyRegex = /(\d+(?:\.\d+)?)\s+(\w{3})\s+(?:in|to|into)\s+(\w{3})/i;
-  const currencyMatch = m.match(currencyRegex);
-  
-  if (currencyMatch) {
-    const amount = parseFloat(currencyMatch[1]);
-    const fromCurrency = currencyMatch[2].toUpperCase();
-    const toCurrency = currencyMatch[3].toUpperCase();
-    
-    if (amount > 0) {
-      const result = await getExchangeRate(fromCurrency, toCurrency, amount);
-      if (result.success) {
-        return `💱 **Currency Conversion:**\n${result.result}\n${result.details}`;
-      } else {
-        return `💱 **Error:** ${result.error}\nTry: '3 EUR in PKR' or '100 USD in EUR'`;
-      }
-    }
-  }
-  
-  // 5. CURRENCY EXCHANGE (list rates)
-  if (m.includes("exchange") || m.includes("currency") || m.includes("rate") || 
-      m.includes("euro in") || m.includes("usd in") || m.includes("pkr in")) {
-    try {
-      const res = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
-      const data = await res.json();
-      
-      let response = "💱 **Exchange Rates (USD base):**\n";
-      const currencies = ['EUR', 'GBP', 'PKR', 'JPY', 'CNY', 'INR', 'CAD', 'AUD', 'CHF', 'AED'];
-      
-      currencies.forEach(curr => {
-        if (data.rates[curr]) {
-          response += `• 1 USD = ${data.rates[curr].toFixed(4)} ${curr}\n`;
-        }
-      });
-      
-      response += "\n**To convert:** '[amount] [currency1] in [currency2]'\n**Examples:**\n• '3 EUR in PKR'\n• '100 USD in EUR'\n• '50 GBP in USD'";
-      return response;
-    } catch {
-      return "💱 **Exchange Rates (estimates):**\n• 1 USD ≈ 0.92 EUR\n• 1 USD ≈ 0.79 GBP\n• 1 USD ≈ 278.50 PKR\n• 1 USD ≈ 110.00 JPY\n• 1 EUR ≈ 299.50 PKR\n\n**Examples:** '3 euro in pkr' or '100 usd in eur'";
-    }
-  }
-  
-  // 6. JOKES FROM API
-  if (m.includes("joke") || m.includes("funny") || m.includes("humor") || m.includes("laugh")) {
-    try {
-      const joke = await getJokeFromAPI();
-      return joke;
-    } catch (error) {
-      return "😂 **Joke:**\nWhy don't scientists trust atoms? Because they make up everything.";
-    }
-  }
-  
-  // 7. ADVICE FROM API
-  if (m.includes("advice") || m.includes("suggestion") || m.includes("tip")) {
-    try {
-      const advice = await getAdviceFromAPI();
-      return advice;
-    } catch (error) {
-      return "💡 **Advice:**\nDon't put off until tomorrow what you can do today.";
-    }
-  }
-  
-  // 8. INTELLIGENT COMMANDS SYSTEM
-  for (const [command, response] of Object.entries(intelligentCommands)) {
-    if (m.includes(command)) {
-      if (response === "SUMMARY") {
-        if (!document.getElementById('single').classList.contains('hidden')) {
-          const articleContent = document.getElementById('singleContent').innerText;
-          if (articleContent) {
-            const summary = summarizeText(articleContent);
-            return `📝 **Summary:**\n\n${summary}`;
-          }
-        }
-        return "To summarize an article, first open the article or write 'summarize [article title]'.";
-      }
-      
-      if (response === "SEARCH" || response === "WHATIS" || response === "WHOIS") {
-        let searchQuery = m.replace(command, '').trim();
-        searchQuery = searchQuery.replace(/[?.,!;:]/g, '').trim();
+      try {
+        const cleanExpr = expr
+          .replace(/×/g, '*')
+          .replace(/÷/g, '/')
+          .replace(/pi/gi, 'Math.PI')
+          .replace(/\^/g, '**')
+          .replace(/sqrt\(/gi, 'Math.sqrt(')
+          .replace(/sin\(/gi, 'Math.sin(')
+          .replace(/cos\(/gi, 'Math.cos(')
+          .replace(/tan\(/gi, 'Math.tan(');
         
-        if (searchQuery.length > 2) {
-          return await wikipediaSearch(searchQuery);
+        const safeEval = new Function('return ' + cleanExpr);
+        const result = safeEval();
+        
+        if (isNaN(result) || !isFinite(result)) {
+          return t('calcError') || "I cannot calculate this expression.";
         }
-        return "What do you want me to search? Write 'search [topic]' for a search.";
+        
+        return `🧮 ${t('calculation') || 'Calculation'}:\n${expr} = **${result}**`;
+      } catch (error) {
+        return t('calcFormatError') || "Calculation error. Please write the expression correctly.";
       }
-      
-      if (response === "CALCULATE") {
-        let expr = m.replace(command, '').trim();
-        if (expr.length > 0) {
-          const result = calculateMathExpression(expr);
-          return `🧮 **Calculation:**\n${expr} = **${result}**`;
-        }
-        return "Write 'calculate [expression]' to calculate.\nExamples:\n• 'calculate 2+2×3'\n• 'calculate sin(30)'\n• 'calculate sqrt(16)'";
-      }
-      
-      return response;
     }
   }
   
-  // 9. SITE NAVIGATION
-  const navigation = {
-    "articles": {section: 'articles', emoji: '📄'},
-    "videos": {section: 'videos', emoji: '🎬'},
-    "news": {section: 'news', emoji: '📰'},
-    "categories": {section: 'categories', emoji: '🏷️'},
-    "about": {section: 'about', emoji: '👥'},
-    "contacts": {section: 'contacts', emoji: '📞'},
-    "home": {section: 'home', emoji: '🏠'}
+  // 5. Simple responses based on language
+  const greetings = {
+    en: ["hello", "hi", "hey", "good morning", "good afternoon", "good evening"],
+    it: ["ciao", "salve", "buongiorno", "buonasera"],
+    es: ["hola", "buenos días", "buenas tardes"],
+    fr: ["bonjour", "salut", "bonsoir"],
+    de: ["hallo", "guten tag", "guten morgen"],
+    zh: ["你好", "嗨"],
+    ar: ["مرحبا", "أهلا"],
+    ru: ["привет", "здравствуйте"]
   };
   
-  for (const [keyword, info] of Object.entries(navigation)) {
-    if (m.includes(keyword)) {
-      lastQuestion = `Do you want to open the ${keyword} section?`;
-      return `${info.emoji} ${lastQuestion}\n\nSay **'Yes'** to confirm or **'No'** to cancel.`;
-    }
-  }
-  
-  // 10. YES/NO HANDLING
-  if (lastQuestion) {
-    if (m.includes("yes") || m.includes("yeah") || m === "y" || m === "ok") {
-      const question = lastQuestion;
-      lastQuestion = null;
-      
-      for (const [keyword, info] of Object.entries(navigation)) {
-        if (question.includes(keyword)) {
-          showSection(info.section);
-          return `✅ ${info.emoji} **${keyword} section opened!**`;
-        }
+  if (m.split(/\s+/).length <= 2) {
+    const langGreetings = greetings[botLanguage] || greetings.en;
+    for (const greeting of langGreetings) {
+      if (m === greeting || m.startsWith(greeting + " ")) {
+        return languageData[botLanguage].translations.botHello;
       }
     }
-    
-    if (m.includes("no") || m.includes("not") || m.includes("nope") || m === "n") {
-      lastQuestion = null;
-      return "👌 Okay, operation cancelled.";
-    }
   }
   
-  // 11. AUTOMATIC SEARCH IF LONG QUESTION
-  if (m.includes("?") && m.length > 10) {
-    let searchQuery = m.replace(/[?.,!]/g, '').trim();
-    if (searchQuery.length > 5) {
-      return await wikipediaSearch(searchQuery);
-    }
-  }
+  // 6. Default response
+  const suggestions = {
+    en: [
+      "💡 **Try:** 'search information about...' for Wikipedia searches",
+      "🌍 **Translate:** 'translate hello to italian'",
+      "🧮 **Calculations:** 'calculate 2+2×3'",
+      "💱 **Currency:** '3 EUR in PKR'",
+      "😂 **Fun:** 'joke' for a laugh"
+    ],
+    it: [
+      "💡 **Prova:** 'cerca informazioni su...' per ricerche Wikipedia",
+      "🌍 **Traduci:** 'traduci ciao in inglese'",
+      "🧮 **Calcoli:** 'calcola 2+2×3'",
+      "💱 **Valuta:** '3 euro in pkr'",
+      "😂 **Divertimento:** 'barzelletta'"
+    ],
+    es: [
+      "💡 **Prueba:** 'busca información sobre...' para búsquedas en Wikipedia",
+      "🌍 **Traduce:** 'traduce hola al italiano'",
+      "🧮 **Cálculos:** 'calcula 2+2×3'",
+      "💱 **Moneda:** '3 euro en pkr'",
+      "😂 **Diversión:** 'chiste'"
+    ]
+  };
   
-  // 12. QUOTES - REAL API
-  if (m.includes("quote") || m.includes("famous quotes") || m.includes("quotes")) {
-    try {
-      const res = await fetch('https://api.quotable.io/random?' + Date.now());
-      const data = await res.json();
-      return `💬 **Quote:**\n"${data.content}"\n\n— ${data.author}`;
-    } catch {
-      return "⚠️ Unable to retrieve a quote at the moment.";
-    }
-  }
-  
-  // 13. INTELLIGENT RESPONSES
-  if (m.includes("?")) {
-    return "🤔 That's an interesting question! Try asking me 'search [topic]' for a detailed answer from Wikipedia.";
-  }
-  
-  // 14. SUGGESTIONS
-  const suggestions = [
-    "💡 **Try:** 'search information about...' for Wikipedia searches",
-    "🌍 **Translate:** 'translate hello to italian' or 'traduci ciao in english'",
-    "🧮 **Calculations:** 'calculate 2+2×3' or 'how much is sin(30)'",
-    "💱 **Currency:** '3 EUR in PKR' or '100 USD in EUR'",
-    "😂 **Fun:** 'joke' for a laugh",
-    "💡 **Help:** 'advice' for some advice",
-    "🔍 **Type:** 'help' to see everything I can do"
-  ];
-  
-  return randomChoice(suggestions);
+  const langSuggestions = suggestions[botLanguage] || suggestions.en;
+  return randomChoice(langSuggestions);
 }
+
+// Helper function to get translations
+function getTranslation(key) {
+  return languageData[botLanguage]?.translations[key] || key;
+}
+
+// ============ INITIALIZE APP ============
+document.addEventListener('DOMContentLoaded', initApp);
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.language-selector')) {
+    document.getElementById('languageDropdown').style.display = 'none';
+  }
+});
 </script>
 </body>
 </html>
