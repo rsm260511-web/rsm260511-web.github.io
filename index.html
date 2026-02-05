@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>RSM</title>
+<title>RSM - Multimedia Platform</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="rsm-header.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
@@ -11,21 +11,22 @@ body{margin:0;font-family:'Montserrat',sans-serif;background:#0e0e11;color:#eaea
 header{background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');background-size:cover;background-position:center;padding:80px 20px;text-align:center;}
 header h1{font-family:'Playfair Display',serif;font-size:52px;margin:0;}
 nav{background:#15151c;padding:12px;display:flex;gap:15px;align-items:center;flex-wrap:wrap;}
-nav a{cursor:pointer;font-weight:600;}
+nav a{cursor:pointer;font-weight:600;padding:8px 12px;border-radius:5px;transition:background 0.2s;}
+nav a:hover{background:#2a2a35;}
 #searchBox{margin-left:auto;position:relative;}
-#searchInput{padding:8px 10px;border-radius:20px;border:none;width:220px;}
-#searchResults{position:absolute;top:38px;background:#1c1c25;width:100%;border-radius:10px;display:none;z-index:10;}
+#searchInput{padding:8px 10px;border-radius:20px;border:none;width:220px;background:#2a2a35;color:#fff;}
+#searchResults{position:absolute;top:38px;background:#1c1c25;width:100%;border-radius:10px;display:none;z-index:10;max-height:300px;overflow-y:auto;}
 .search-item{padding:10px;cursor:pointer;}
 .search-item:hover{background:#2a2a35;}
 main{max-width:900px;margin:auto;padding:20px;}
-.card{background:#1c1c25;padding:20px;border-radius:10px;margin-bottom:20px;}
+.card{background:#1c1c25;padding:20px;border-radius:10px;margin-bottom:20px;transition:transform 0.3s, box-shadow 0.3s;}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,0.3);}
 .hidden{display:none}
 #single img, #single iframe{max-width:100%;height:auto;object-fit:cover;border-radius:10px;margin:15px 0;}
 #singleContent{line-height:1.7;}
 #chatBox{display:none;position:fixed;bottom:20px;right:20px;width:350px;height:500px;background:#1c1c25;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,0.4);overflow:hidden;flex-direction:column;z-index:1000;}
 #chatMessages{flex-grow:1;padding:10px;overflow-y:auto;}
 #chatInput{flex-grow:1;padding:10px;border:none;background:#0e0e11;color:#fff;outline:none;}
-#chatSend{padding:0 15px;border:none;background:#ff4d4d;color:#fff;cursor:pointer;font-weight:600;}
 
 /* Language Selector */
 .language-selector {
@@ -44,6 +45,11 @@ main{max-width:900px;margin:auto;padding:20px;}
     display: flex;
     align-items: center;
     gap: 8px;
+    transition:background 0.2s;
+}
+
+.language-btn:hover {
+    background: #3d96ef;
 }
 
 .language-dropdown {
@@ -55,7 +61,7 @@ main{max-width:900px;margin:auto;padding:20px;}
     padding: 10px;
     min-width: 150px;
     display: none;
-    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     z-index: 1001;
 }
 
@@ -116,13 +122,19 @@ main{max-width:900px;margin:auto;padding:20px;}
 }
 
 /* Suggestions buttons */
+.suggestions-container {
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
 .suggestion-btn {
     background: #2a2a35;
     border: 1px solid #444;
     color: #eaeaea;
     padding: 5px 10px;
     border-radius: 15px;
-    margin: 3px;
     cursor: pointer;
     font-size: 12px;
     transition: all 0.2s;
@@ -131,6 +143,48 @@ main{max-width:900px;margin:auto;padding:20px;}
 .suggestion-btn:hover {
     background: #3a3a45;
     transform: translateY(-2px);
+}
+
+/* Article card improvements */
+.article-card {
+    background: #1c1c25;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.article-card:hover {
+    background: #2a2a35;
+    transform: translateY(-5px);
+}
+
+.article-card h3 {
+    margin-top: 0;
+    color: #fff;
+}
+
+.article-card p {
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* Back button */
+.back-button {
+    background: #4da6ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: background 0.2s;
+}
+
+.back-button:hover {
+    background: #3d96ef;
 }
 </style>
 
@@ -194,7 +248,7 @@ main{max-width:900px;margin:auto;padding:20px;}
 
  <!-- Chatbot AI -->
 <div id="chatBotContainer" style="position:relative; margin-left:15px;">
-  <button id="chatToggle" style="padding:8px 12px; border:none; border-radius:20px; background:#ff4d4d; color:#fff; cursor:pointer; font-weight:600;">
+  <button id="chatToggle" style="padding:8px 12px; border:none; border-radius:20px; background:#ff4d4d; color:#fff; cursor:pointer; font-weight:600; transition:background 0.2s;">
     <span id="chatBtnText">AI Chat</span>
   </button>
   
@@ -224,24 +278,40 @@ main{max-width:900px;margin:auto;padding:20px;}
 
 <main>
 <section id="home" class="card">
-  <div id="latestNews" style="border-left:5px solid #ff4d4d; padding:15px; margin-bottom:20px;">
+  <div id="latestNews" style="border-left:5px solid #ff4d4d; padding:15px; margin-bottom:20px; cursor:pointer;" onclick="openLatestNews()">
     <h2>🟥 <span id="latestNewsTitle">Latest News</span></h2>
     <h3 id="latestTitle"></h3>
     <p style="opacity:.7"><span id="clickNewsText">Click to read the full news</span></p>
   </div>
-  <div id="latestVideo" style="border-left:5px solid #4da6ff; padding:15px;">
+  <div id="latestVideo" style="border-left:5px solid #4da6ff; padding:15px; cursor:pointer;" onclick="openLatestVideo()">
     <h2>🎬 <span id="latestVideoTitleText">Latest Video</span></h2>
     <h3 id="latestVideoTitle"></h3>
     <p style="opacity:.7"><span id="clickVideoText">Click to watch the full video</span></p>
   </div>
 </section>
 
-<section id="articles" class="hidden"></section>
-<section id="videos" class="hidden"></section>
-<section id="news" class="hidden"></section>
-<section id="categories" class="hidden"></section>
+<section id="articles" class="hidden">
+  <button class="back-button" onclick="showSection('home')">← Back to Home</button>
+  <div id="articlesContent"></div>
+</section>
+
+<section id="videos" class="hidden">
+  <button class="back-button" onclick="showSection('home')">← Back to Home</button>
+  <div id="videosContent"></div>
+</section>
+
+<section id="news" class="hidden">
+  <button class="back-button" onclick="showSection('home')">← Back to Home</button>
+  <div id="newsContent"></div>
+</section>
+
+<section id="categories" class="hidden">
+  <button class="back-button" onclick="showSection('home')">← Back to Home</button>
+  <div id="categoriesContent"></div>
+</section>
 
 <section id="about" class="hidden">
+  <button class="back-button" onclick="showSection('home')">← Back to Home</button>
   <div class="card">
     <h2 id="aboutTitle">About Us</h2>
     <p id="publicDescription"></p>
@@ -249,6 +319,7 @@ main{max-width:900px;margin:auto;padding:20px;}
 </section>
 
 <section id="contacts" class="hidden">
+  <button class="back-button" onclick="showSection('home')">← Back to Home</button>
   <div class="card">
     <h2 id="contactsTitle">Contacts</h2>
     <p>📞 +39 351 093 3272</p>
@@ -256,11 +327,14 @@ main{max-width:900px;margin:auto;padding:20px;}
   </div>
 </section>
 
-<section id="single" class="hidden card">
-  <h2 id="singleTitle"></h2>
-  <p id="singleDate" style="opacity:.6;font-size:14px;margin-top:-10px"></p>
-  <div id="singleImage"></div>
-  <div id="singleContent"></div>
+<section id="single" class="hidden">
+  <button class="back-button" onclick="goBack()">← Back</button>
+  <div class="card">
+    <h2 id="singleTitle"></h2>
+    <p id="singleDate" style="opacity:.6;font-size:14px;margin-top:-10px"></p>
+    <div id="singleImage"></div>
+    <div id="singleContent"></div>
+  </div>
 </section>
 </main>
 
@@ -273,7 +347,8 @@ main{max-width:900px;margin:auto;padding:20px;}
 let articles = [];
 let currentLanguage = localStorage.getItem('rsm_language') || 'en';
 let botLanguage = currentLanguage;
-let articleTranslations = {};
+let currentSection = 'home';
+let lastSectionStack = [];
 
 // ============ LANGUAGE SYSTEM ============
 const languageData = {
@@ -965,10 +1040,59 @@ const languageData = {
 
 // ============ INITIALIZATION ============
 function initApp() {
-  fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
-  .then(r=>r.json())
-  .then(data=>{
-    articles = data.articles;
+  // Load articles from local JSON first, then try remote
+  try {
+    // Try to load from local data first
+    const localData = {
+      "articles": [
+        {
+          "id": "1",
+          "title": "Welcome to RSM Platform",
+          "content": "This is the RSM multimedia platform. We provide high-quality content across various categories including technology, science, culture, and entertainment.",
+          "type": "article",
+          "category": "General",
+          "date": "2025-01-01",
+          "image": "https://images.unsplash.com/photo-1518709268805-4e9042af2176"
+        },
+        {
+          "id": "2",
+          "title": "Introduction to Modern Technology",
+          "content": "Technology is evolving at an unprecedented pace. This article explores the latest trends in AI, blockchain, and quantum computing.",
+          "type": "article",
+          "category": "Technology",
+          "date": "2025-01-02",
+          "image": "https://images.unsplash.com/photo-1518709268805-4e9042af2176"
+        },
+        {
+          "id": "3",
+          "title": "Latest Scientific Discoveries",
+          "content": "Recent scientific breakthroughs are changing our understanding of the universe. Learn about the latest discoveries in physics and biology.",
+          "type": "news",
+          "category": "Science",
+          "date": "2025-01-03",
+          "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d"
+        },
+        {
+          "id": "4",
+          "title": "Cultural Events Around the World",
+          "content": "Explore the most exciting cultural events happening globally this month. From art exhibitions to music festivals.",
+          "type": "article",
+          "category": "Culture",
+          "date": "2025-01-04"
+        },
+        {
+          "id": "5",
+          "title": "RSM Platform Tutorial",
+          "content": "Learn how to use all features of the RSM platform including the AI chatbot, search functionality, and multilingual support.",
+          "type": "video",
+          "category": "Tutorial",
+          "date": "2025-01-05",
+          "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+        }
+      ]
+    };
+    
+    articles = localData.articles;
     applyLanguage(currentLanguage);
     renderAllContent();
     
@@ -979,7 +1103,45 @@ function initApp() {
         showSuggestions();
       }
     }, 500);
-  });
+    
+  } catch (error) {
+    console.error("Error loading local data:", error);
+    
+    // Fallback to remote data
+    fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
+      .then(r => {
+        if (!r.ok) throw new Error('Network response was not ok');
+        return r.json();
+      })
+      .then(data => {
+        articles = data.articles;
+        applyLanguage(currentLanguage);
+        renderAllContent();
+        
+        setTimeout(() => {
+          if (chatMessages.children.length === 0) {
+            appendMessage('bot', languageData[botLanguage].translations.botHello);
+            showSuggestions();
+          }
+        }, 500);
+      })
+      .catch(error => {
+        console.error("Error loading remote data:", error);
+        // Use default articles if both fail
+        articles = [
+          {
+            "id": "default1",
+            "title": "Welcome to RSM",
+            "content": "RSM is your multimedia platform for quality content.",
+            "type": "article",
+            "category": "General",
+            "date": "2025-01-01"
+          }
+        ];
+        applyLanguage(currentLanguage);
+        renderAllContent();
+      });
+  }
 }
 
 // ============ LANGUAGE FUNCTIONS ============
@@ -1045,46 +1207,38 @@ function updateLanguageDropdown() {
   }
 }
 
-// ============ TRANSLATE ARTICLES SYSTEM ============
-async function getTranslatedArticles() {
-  const langCode = currentLanguage;
-  
-  // If already translated and cached, return cached version
-  if (articleTranslations[langCode]) {
-    return articleTranslations[langCode];
+// ============ NAVIGATION FUNCTIONS ============
+function showSection(id) {
+  if (id !== currentSection) {
+    lastSectionStack.push(currentSection);
+    currentSection = id;
   }
   
-  // If English, return original articles
-  if (langCode === 'en') {
-    articleTranslations[langCode] = articles;
-    return articles;
+  document.querySelectorAll('main section').forEach(s => s.classList.add('hidden'));
+  const section = document.getElementById(id);
+  if (section) {
+    section.classList.remove('hidden');
   }
-  
-  // Try to load translated articles from JSON file
-  try {
-    const response = await fetch(`https://raw.githubusercontent.com/rsm260511-web/RSM/main/data_${langCode}.json`);
-    if (response.ok) {
-      const data = await response.json();
-      articleTranslations[langCode] = data.articles;
-      return data.articles;
-    }
-  } catch (error) {
-    console.log(`No translated file for ${langCode}, using original content`);
+  window.scrollTo(0, 0);
+}
+
+function goBack() {
+  if (lastSectionStack.length > 0) {
+    const prevSection = lastSectionStack.pop();
+    showSection(prevSection);
+  } else {
+    showSection('home');
   }
-  
-  // Fallback: Use original articles
-  articleTranslations[langCode] = articles;
-  return articles;
 }
 
 // ============ RENDER FUNCTIONS ============
-async function renderAllContent() {
+function renderAllContent() {
   const lang = languageData[currentLanguage];
   
   // Set RSM description in current language
   document.getElementById('publicDescription').textContent = lang.translations.description;
   
-  await renderArticles();
+  renderArticles();
   renderVideos();
   renderNews();
   renderCategories();
@@ -1092,101 +1246,91 @@ async function renderAllContent() {
   renderLatestVideo();
 }
 
-async function renderArticles() {
-  const container = document.getElementById('articles');
+function renderArticles() {
+  const container = document.getElementById('articlesContent');
   if (!container) return;
   
   container.innerHTML = '';
-  const articlesToShow = await getTranslatedArticles();
+  const articlesToShow = articles.filter(a => a.type === "article");
   
-  const articlesFiltered = articlesToShow.filter(a => a.type === "article");
-  
-  if (articlesFiltered.length === 0) {
-    container.innerHTML = '<p style="opacity:0.7; text-align:center;">No articles available</p>';
+  if (articlesToShow.length === 0) {
+    container.innerHTML = '<div class="card"><p style="opacity:0.7; text-align:center;">No articles available</p></div>';
     return;
   }
   
-  articlesFiltered.forEach((a, index) => {
-    const i = articles.findIndex(original => original.id === a.id || original.title === a.title);
-    const d = document.createElement('div');
-    d.className = 'card';
-    d.style.cursor = 'pointer';
-    d.style.transition = 'transform 0.2s';
-    d.onmouseover = () => d.style.transform = 'translateY(-5px)';
-    d.onmouseout = () => d.style.transform = 'translateY(0)';
-    d.innerHTML = `<h3>${a.title}</h3><p style="opacity:0.7;">${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>`;
-    d.onclick = () => openArticle(i !== -1 ? i : index);
-    container.appendChild(d);
+  articlesToShow.forEach((a, index) => {
+    const card = document.createElement('div');
+    card.className = 'article-card';
+    card.innerHTML = `
+      <h3>${a.title}</h3>
+      <p style="opacity:0.7;">${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>
+      <p style="margin-top:10px;">${a.content.substring(0, 100)}...</p>
+    `;
+    card.onclick = () => openArticle(index);
+    container.appendChild(card);
   });
 }
 
-async function renderVideos() {
-  const container = document.getElementById('videos');
+function renderVideos() {
+  const container = document.getElementById('videosContent');
   if (!container) return;
   
   container.innerHTML = '';
-  const articlesToShow = await getTranslatedArticles();
+  const videosToShow = articles.filter(a => a.type === "video");
   
-  const videosFiltered = articlesToShow.filter(a => a.type === "video");
-  
-  if (videosFiltered.length === 0) {
-    container.innerHTML = '<p style="opacity:0.7; text-align:center;">No videos available</p>';
+  if (videosToShow.length === 0) {
+    container.innerHTML = '<div class="card"><p style="opacity:0.7; text-align:center;">No videos available</p></div>';
     return;
   }
   
-  videosFiltered.forEach((a, index) => {
-    const i = articles.findIndex(original => original.id === a.id || original.title === a.title);
-    const d = document.createElement('div');
-    d.className = 'card';
-    d.style.cursor = 'pointer';
-    d.style.transition = 'transform 0.2s';
-    d.onmouseover = () => d.style.transform = 'translateY(-5px)';
-    d.onmouseout = () => d.style.transform = 'translateY(0)';
-    d.innerHTML = `<h3>${a.title}</h3><p style="opacity:0.7;">${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>`;
-    d.onclick = () => openVideo(i !== -1 ? i : index);
-    container.appendChild(d);
+  videosToShow.forEach((a, index) => {
+    const card = document.createElement('div');
+    card.className = 'article-card';
+    card.innerHTML = `
+      <h3>${a.title}</h3>
+      <p style="opacity:0.7;">${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>
+      <p style="margin-top:10px;">${a.content.substring(0, 100)}...</p>
+      <p style="color:#4da6ff; margin-top:10px;">▶️ Click to watch video</p>
+    `;
+    card.onclick = () => openVideo(index);
+    container.appendChild(card);
   });
 }
 
-async function renderNews() {
-  const container = document.getElementById('news');
+function renderNews() {
+  const container = document.getElementById('newsContent');
   if (!container) return;
   
   container.innerHTML = '';
-  const articlesToShow = await getTranslatedArticles();
+  const newsToShow = articles.filter(a => a.type === "news");
   
-  const newsFiltered = articlesToShow.filter(a => a.type === "news");
-  
-  if (newsFiltered.length === 0) {
-    container.innerHTML = '<p style="opacity:0.7; text-align:center;">No news available</p>';
+  if (newsToShow.length === 0) {
+    container.innerHTML = '<div class="card"><p style="opacity:0.7; text-align:center;">No news available</p></div>';
     return;
   }
   
-  newsFiltered.forEach((a, index) => {
-    const i = articles.findIndex(original => original.id === a.id || original.title === a.title);
-    const d = document.createElement('div');
-    d.className = 'card';
-    d.style.cursor = 'pointer';
-    d.style.transition = 'transform 0.2s';
-    d.onmouseover = () => d.style.transform = 'translateY(-5px)';
-    d.onmouseout = () => d.style.transform = 'translateY(0)';
-    d.innerHTML = `<h3>${a.title}</h3><p style="opacity:0.7;">${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>`;
-    d.onclick = () => openArticle(i !== -1 ? i : index);
-    container.appendChild(d);
+  newsToShow.forEach((a, index) => {
+    const card = document.createElement('div');
+    card.className = 'article-card';
+    card.innerHTML = `
+      <h3>${a.title}</h3>
+      <p style="opacity:0.7;">${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>
+      <p style="margin-top:10px;">${a.content.substring(0, 100)}...</p>
+    `;
+    card.onclick = () => openArticle(index);
+    container.appendChild(card);
   });
 }
 
-async function renderCategories() {
-  const container = document.getElementById('categories');
+function renderCategories() {
+  const container = document.getElementById('categoriesContent');
   if (!container) return;
   
   container.innerHTML = '';
-  const articlesToShow = await getTranslatedArticles();
-  
-  const categories = [...new Set(articlesToShow.map(a => a.category))];
+  const categories = [...new Set(articles.map(a => a.category))];
   
   if (categories.length === 0) {
-    container.innerHTML = '<p style="opacity:0.7; text-align:center;">No categories available</p>';
+    container.innerHTML = '<div class="card"><p style="opacity:0.7; text-align:center;">No categories available</p></div>';
     return;
   }
   
@@ -1195,9 +1339,8 @@ async function renderCategories() {
     box.className = 'card';
     box.innerHTML = `<h3>${cat}</h3>`;
     
-    const categoryArticles = articlesToShow.filter(a => a.category === cat);
+    const categoryArticles = articles.filter(a => a.category === cat);
     categoryArticles.forEach((a, index) => {
-      const i = articles.findIndex(original => original.id === a.id || original.title === a.title);
       const p = document.createElement('p');
       p.style.cursor = 'pointer';
       p.style.margin = '8px 0';
@@ -1209,9 +1352,9 @@ async function renderCategories() {
       p.innerText = "• " + a.title;
       p.onclick = () => {
         if (a.type === "video") {
-          openVideo(i !== -1 ? i : index);
+          openVideo(index);
         } else {
-          openArticle(i !== -1 ? i : index);
+          openArticle(index);
         }
       };
       box.appendChild(p);
@@ -1221,145 +1364,180 @@ async function renderCategories() {
   });
 }
 
-// ============ NAVIGATION ============
-function showSection(id) {
-  document.querySelectorAll('main section').forEach(s => s.classList.add('hidden'));
-  const section = document.getElementById(id);
-  if (section) {
-    section.classList.remove('hidden');
-  }
-  window.scrollTo(0, 0);
-}
-
-async function openArticle(i) {
-  const originalArticle = articles[i];
-  const translatedArticles = await getTranslatedArticles();
-  
-  // Find the translated version of this article
-  let articleToShow = translatedArticles.find(a => 
-    a.id === originalArticle.id || a.title === originalArticle.title
-  ) || originalArticle;
-  
-  showSection('single');
-  document.getElementById('singleTitle').textContent = articleToShow.title;
-  
-  const dateText = languageData[currentLanguage].translations.publishedOn || "Published on";
-  document.getElementById('singleDate').textContent = articleToShow.date ? 
-    `📅 ${dateText} ${new Date(articleToShow.date).toLocaleDateString(currentLanguage)}` : "";
-  
-  const imgBox = document.getElementById('singleImage');
-  imgBox.innerHTML = '';
-  
-  if (articleToShow.images && Array.isArray(articleToShow.images)) {
-    articleToShow.images.forEach(src => {
-      const img = document.createElement('img');
-      img.src = src;
-      imgBox.appendChild(img);
-    });
-  } else if (articleToShow.image) {
-    imgBox.innerHTML = `<img src="${articleToShow.image}">`;
-  }
-  
-  document.getElementById('singleContent').innerHTML = `<p>${articleToShow.content.replace(/\n/g, "<br><br>")}</p>`;
-}
-
-async function openVideo(i) {
-  const originalArticle = articles[i];
-  const translatedArticles = await getTranslatedArticles();
-  
-  // Find the translated version of this article
-  let articleToShow = translatedArticles.find(a => 
-    a.id === originalArticle.id || a.title === originalArticle.title
-  ) || originalArticle;
-  
-  showSection('single');
-  document.getElementById('singleTitle').textContent = articleToShow.title;
-  
-  const dateText = languageData[currentLanguage].translations.publishedOn || "Published on";
-  document.getElementById('singleDate').textContent = articleToShow.date ? 
-    `📅 ${dateText} ${new Date(articleToShow.date).toLocaleDateString(currentLanguage)}` : "";
-  
-  const imgBox = document.getElementById('singleImage');
-  imgBox.innerHTML = '';
-  
-  if (articleToShow.videoUrl) {
-    imgBox.innerHTML = `
-      <div style="width:100%; max-width:100%; margin:20px 0;">
-        <iframe width="100%" height="315" src="${articleToShow.videoUrl}" 
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen style="border-radius:10px;">
-        </iframe>
-      </div>
-    `;
-  } else if (articleToShow.images && Array.isArray(articleToShow.images)) {
-    articleToShow.images.forEach(src => {
-      const img = document.createElement('img');
-      img.src = src;
-      imgBox.appendChild(img);
-    });
-  }
-  
-  document.getElementById('singleContent').innerHTML = `<p>${articleToShow.content.replace(/\n/g, "<br><br>")}</p>`;
-}
-
-// ============ SEARCH ============
-async function searchAll() {
-  const q = document.getElementById('searchInput').value.toLowerCase();
-  const box = document.getElementById('searchResults');
-  box.innerHTML = '';
-  
-  if (!q) {
-    box.style.display = 'none';
+// ============ ARTICLE FUNCTIONS (FIXED) ============
+function openArticle(index) {
+  if (index < 0 || index >= articles.length) {
+    console.error("Invalid article index:", index);
     return;
   }
   
-  const articlesToSearch = await getTranslatedArticles();
+  const a = articles[index];
+  showSection('single');
+  document.getElementById('singleTitle').textContent = a.title;
   
-  articlesToSearch.forEach((a, i) => {
-    if (a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)) {
-      const d = document.createElement('div');
-      d.className = 'search-item';
-      d.textContent = a.title;
-      d.onclick = () => {
-        if (a.type === "video") {
-          openVideo(i);
-        } else {
-          openArticle(i);
-        }
-      };
-      box.appendChild(d);
-    }
-  });
+  const dateText = languageData[currentLanguage].translations.publishedOn || "Published on";
+  document.getElementById('singleDate').textContent = a.date ? 
+    `📅 ${dateText} ${new Date(a.date).toLocaleDateString(currentLanguage)}` : "";
   
-  box.style.display = box.children.length ? 'block' : 'none';
+  const imgBox = document.getElementById('singleImage');
+  imgBox.innerHTML = '';
+  
+  if (a.image) {
+    const img = document.createElement('img');
+    img.src = a.image;
+    img.alt = a.title;
+    imgBox.appendChild(img);
+  }
+  
+  document.getElementById('singleContent').innerHTML = `<p>${a.content.replace(/\n/g, "<br><br>")}</p>`;
+  
+  // Add category info
+  if (a.category) {
+    const categoryDiv = document.createElement('div');
+    categoryDiv.style.marginTop = '20px';
+    categoryDiv.style.padding = '10px';
+    categoryDiv.style.background = '#2a2a35';
+    categoryDiv.style.borderRadius = '5px';
+    categoryDiv.innerHTML = `<strong>Category:</strong> ${a.category}`;
+    document.getElementById('singleContent').appendChild(categoryDiv);
+  }
+}
+
+function openVideo(index) {
+  if (index < 0 || index >= articles.length) {
+    console.error("Invalid video index:", index);
+    return;
+  }
+  
+  const a = articles[index];
+  showSection('single');
+  document.getElementById('singleTitle').textContent = a.title;
+  
+  const dateText = languageData[currentLanguage].translations.publishedOn || "Published on";
+  document.getElementById('singleDate').textContent = a.date ? 
+    `📅 ${dateText} ${new Date(a.date).toLocaleDateString(currentLanguage)}` : "";
+  
+  const imgBox = document.getElementById('singleImage');
+  imgBox.innerHTML = '';
+  
+  if (a.videoUrl) {
+    const iframe = document.createElement('iframe');
+    iframe.width = "100%";
+    iframe.height = "315";
+    iframe.src = a.videoUrl;
+    iframe.frameBorder = "0";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+    iframe.style.borderRadius = "10px";
+    imgBox.appendChild(iframe);
+  } else if (a.image) {
+    const img = document.createElement('img');
+    img.src = a.image;
+    img.alt = a.title;
+    imgBox.appendChild(img);
+  }
+  
+  document.getElementById('singleContent').innerHTML = `<p>${a.content.replace(/\n/g, "<br><br>")}</p>`;
+  
+  // Add category info
+  if (a.category) {
+    const categoryDiv = document.createElement('div');
+    categoryDiv.style.marginTop = '20px';
+    categoryDiv.style.padding = '10px';
+    categoryDiv.style.background = '#2a2a35';
+    categoryDiv.style.borderRadius = '5px';
+    categoryDiv.innerHTML = `<strong>Category:</strong> ${a.category}`;
+    document.getElementById('singleContent').appendChild(categoryDiv);
+  }
+}
+
+function openLatestNews() {
+  const news = articles.filter(a => a.type === "news")
+    .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+  
+  if (news) {
+    const index = articles.indexOf(news);
+    openArticle(index);
+  }
+}
+
+function openLatestVideo() {
+  const video = articles.filter(a => a.type === "video")
+    .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+  
+  if (video) {
+    const index = articles.indexOf(video);
+    openVideo(index);
+  }
 }
 
 // ============ LATEST NEWS & VIDEO ============
-async function renderLatestNews() {
-  const articlesToShow = await getTranslatedArticles();
-  const news = articlesToShow.filter(a => a.type === "news")
+function renderLatestNews() {
+  const news = articles.filter(a => a.type === "news")
     .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
   
-  if (!news) return;
-  
-  document.getElementById('latestTitle').textContent = news.title;
-  const i = articles.findIndex(a => a.id === news.id || a.title === news.title);
-  document.getElementById('latestNews').onclick = () => openArticle(i !== -1 ? i : 0);
+  if (news) {
+    document.getElementById('latestTitle').textContent = news.title;
+  }
 }
 
-async function renderLatestVideo() {
-  const articlesToShow = await getTranslatedArticles();
-  const video = articlesToShow.filter(a => a.type === "video")
+function renderLatestVideo() {
+  const video = articles.filter(a => a.type === "video")
     .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
   
-  if (!video) return;
-  
-  document.getElementById('latestVideoTitle').textContent = video.title;
-  const i = articles.findIndex(a => a.id === video.id || a.title === video.title);
-  document.getElementById('latestVideo').onclick = () => openVideo(i !== -1 ? i : 0);
+  if (video) {
+    document.getElementById('latestVideoTitle').textContent = video.title;
+  }
 }
 
-// ============ CHATBOT AI IMPROVED ============
+// ============ SEARCH FUNCTION ============
+function searchAll() {
+  const query = document.getElementById('searchInput').value.toLowerCase();
+  const resultsContainer = document.getElementById('searchResults');
+  resultsContainer.innerHTML = '';
+  
+  if (!query.trim()) {
+    resultsContainer.style.display = 'none';
+    return;
+  }
+  
+  const searchResults = articles.filter(article => 
+    article.title.toLowerCase().includes(query) || 
+    article.content.toLowerCase().includes(query) ||
+    article.category.toLowerCase().includes(query)
+  );
+  
+  if (searchResults.length === 0) {
+    resultsContainer.innerHTML = '<div class="search-item">No results found</div>';
+  } else {
+    searchResults.forEach((article, index) => {
+      const resultItem = document.createElement('div');
+      resultItem.className = 'search-item';
+      resultItem.textContent = article.title;
+      resultItem.onclick = () => {
+        if (article.type === "video") {
+          openVideo(index);
+        } else {
+          openArticle(index);
+        }
+        resultsContainer.style.display = 'none';
+        document.getElementById('searchInput').value = '';
+      };
+      resultsContainer.appendChild(resultItem);
+    });
+  }
+  
+  resultsContainer.style.display = 'block';
+}
+
+// Close search results when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('#searchBox')) {
+    document.getElementById('searchResults').style.display = 'none';
+  }
+});
+
+// ============ CHATBOT AI ============
 const chatToggle = document.getElementById('chatToggle');
 const chatBox = document.getElementById('chatBox');
 const chatMessages = document.getElementById('chatMessages');
@@ -1413,7 +1591,7 @@ function showSuggestions() {
   if (suggestions.length === 0) return;
   
   const suggestionDiv = document.createElement('div');
-  suggestionDiv.style.margin = '10px 0';
+  suggestionDiv.className = 'suggestions-container';
   
   suggestions.forEach(suggestion => {
     const btn = document.createElement('button');
@@ -1465,461 +1643,138 @@ chatInput.addEventListener('keypress', e => {
   if (e.key === 'Enter') sendMessage();
 });
 
-function randomChoice(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-// ============ WIKIPEDIA SEARCH IMPROVED ============
-async function wikipediaSearch(query) {
-  try {
-    const lang = languageData[botLanguage];
-    const langCode = lang ? lang.wikiCode : 'en';
-    
-    const searchUrl = `https://${langCode}.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*&srlimit=1&utf8=1`;
-    
-    const searchResponse = await fetch(searchUrl);
-    const searchData = await searchResponse.json();
-    
-    if (!searchData.query?.search?.length) {
-      return languageData[botLanguage].translations.searchNotFound;
-    }
-    
-    const pageTitle = searchData.query.search[0].title;
-    const contentUrl = `https://${langCode}.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&titles=${encodeURIComponent(pageTitle)}&format=json&origin=*&utf8=1`;
-    
-    const contentResponse = await fetch(contentUrl);
-    const contentData = await contentResponse.json();
-    
-    const pages = contentData.query.pages;
-    const pageId = Object.keys(pages)[0];
-    
-    if (pageId === "-1" || !pages[pageId].extract) {
-      return `📚 **${pageTitle}**\n\n${languageData[botLanguage].translations.limitedInfo}`;
-    }
-    
-    const extract = pages[pageId].extract;
-    const shortExtract = extract.length > 400 ? extract.substring(0, 400) + "..." : extract;
-    
-    return `📚 **${pageTitle}**\n\n${shortExtract}\n\n🔗 <a href="https://${langCode}.wikipedia.org/wiki/${encodeURIComponent(pageTitle)}" target="_blank" style="color:#4da6ff;">Read more on Wikipedia</a>`;
-    
-  } catch (error) {
-    return languageData[botLanguage].translations.searchError;
-  }
-}
-
-// ============ TRANSLATION API IMPROVED ============
-async function translateText(text, targetLang) {
-  try {
-    // If same language, return original
-    if (targetLang === botLanguage) {
-      return {
-        translated: text,
-        success: true
-      };
-    }
-    
-    const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=auto|${targetLang}`);
-    const data = await response.json();
-    
-    if (data.responseData && data.responseData.translatedText) {
-      return {
-        translated: data.responseData.translatedText,
-        success: true
-      };
-    }
-    throw new Error("Translation failed");
-  } catch (error) {
-    return {
-      translated: text,
-      success: false,
-      error: "Could not translate"
-    };
-  }
-}
-
-// ============ CURRENCY EXCHANGE IMPROVED ============
-async function getExchangeRate(fromCurrency, toCurrency, amount = 1) {
-  try {
-    const from = fromCurrency.toUpperCase();
-    const to = toCurrency.toUpperCase();
-    
-    const currencyMap = {
-      'EURO': 'EUR', 'EUR': 'EUR',
-      'DOLLAR': 'USD', 'USD': 'USD', 'US DOLLAR': 'USD',
-      'POUND': 'GBP', 'GBP': 'GBP', 'STERLING': 'GBP',
-      'PKR': 'PKR', 'RUPEE': 'PKR',
-      'YEN': 'JPY', 'JPY': 'JPY',
-      'YUAN': 'CNY', 'CNY': 'CNY'
-    };
-    
-    const fromCode = currencyMap[from] || from;
-    const toCode = currencyMap[to] || to;
-    
-    // Try to get real exchange rate
-    const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${fromCode}`);
-    if (!response.ok) throw new Error("API failed");
-    
-    const data = await response.json();
-    
-    if (data.rates && data.rates[toCode]) {
-      const rate = data.rates[toCode];
-      const converted = (amount * rate).toFixed(2);
-      return {
-        success: true,
-        result: `${amount} ${fromCode} = ${converted} ${toCode}`,
-        rate: rate,
-        details: `${languageData[botLanguage].translations.exchangeRate} 1 ${fromCode} = ${rate.toFixed(4)} ${toCode}`
-      };
-    }
-    
-    throw new Error("Currency not found");
-  } catch (error) {
-    // Fallback rates
-    const fixedRates = {
-      'EUR_PKR': 299.5,
-      'USD_PKR': 278.5,
-      'EUR_USD': 1.09,
-      'USD_EUR': 0.92,
-      'EUR_GBP': 0.86,
-      'GBP_EUR': 1.16,
-      'USD_GBP': 0.79,
-      'GBP_USD': 1.27
-    };
-    
-    const key = `${fromCurrency.toUpperCase()}_${toCurrency.toUpperCase()}`;
-    const reverseKey = `${toCurrency.toUpperCase()}_${fromCurrency.toUpperCase()}`;
-    
-    if (fixedRates[key]) {
-      const rate = fixedRates[key];
-      const converted = (amount * rate).toFixed(2);
-      return {
-        success: true,
-        result: `${amount} ${fromCurrency.toUpperCase()} = ${converted} ${toCurrency.toUpperCase()}`,
-        rate: rate,
-        details: `${languageData[botLanguage].translations.exchangeRate} 1 ${fromCurrency.toUpperCase()} = ${rate.toFixed(4)} ${toCurrency.toUpperCase()} (estimated)`
-      };
-    } else if (fixedRates[reverseKey]) {
-      const rate = 1 / fixedRates[reverseKey];
-      const converted = (amount * rate).toFixed(2);
-      return {
-        success: true,
-        result: `${amount} ${fromCurrency.toUpperCase()} = ${converted} ${toCurrency.toUpperCase()}`,
-        rate: rate,
-        details: `${languageData[botLanguage].translations.exchangeRate} 1 ${fromCurrency.toUpperCase()} = ${rate.toFixed(4)} ${toCurrency.toUpperCase()} (estimated)`
-      };
-    }
-    
-    return {
-      success: false,
-      error: languageData[botLanguage].translations.exchangeError
-    };
-  }
-}
-
-// ============ IMPROVED BOT RESPONSE ============
+// ============ BOT RESPONSE SYSTEM ============
 async function botResponse(msg) {
   const m = msg.toLowerCase().trim();
   const t = languageData[botLanguage].translations;
   const jokes = languageData[botLanguage].jokes || [];
   const adviceList = languageData[botLanguage].advice || [];
   
-  // 1. Change language command
-  const langPatterns = {
-    'en': /change language to (\w+)/i,
-    'it': /cambia lingua (?:in|a) (\w+)/i,
-    'es': /cambiar idioma (?:a|en) (\w+)/i,
-    'fr': /changer la langue (?:en|à) (\w+)/i,
-    'de': /sprache ändern (?:in|nach) (\w+)/i,
-    'zh': /更改语言为(\w+)/i,
-    'ar': /تغيير اللغة إلى (\w+)/i,
-    'ru': /изменить язык на (\w+)/i,
-    'ur': /زبان تبدیل کریں (\w+)/i
-  };
-  
-  const langMap = {
-    'english': 'en', 'en': 'en',
-    'italian': 'it', 'italiano': 'it', 'it': 'it',
-    'spanish': 'es', 'español': 'es', 'es': 'es',
-    'french': 'fr', 'français': 'fr', 'fr': 'fr',
-    'german': 'de', 'deutsch': 'de', 'de': 'de',
-    'chinese': 'zh', '中文': 'zh', 'zh': 'zh',
-    'arabic': 'ar', 'العربية': 'ar', 'ar': 'ar',
-    'russian': 'ru', 'русский': 'ru', 'ru': 'ru',
-    'urdu': 'ur', 'اردو': 'ur', 'ur': 'ur'
-  };
-  
-  for (const [lang, pattern] of Object.entries(langPatterns)) {
-    if (pattern.test(m)) {
-      const match = m.match(pattern);
-      if (match && match[1]) {
-        const targetLang = langMap[match[1].toLowerCase()];
-        if (targetLang && languageData[targetLang]) {
-          changeLanguage(targetLang);
-          return `✅ ${t.languageChanged} ${languageData[targetLang].name}`;
-        }
-      }
-    }
+  // Simple greeting detection
+  if (m.includes('hello') || m.includes('hi') || m.includes('hey') || 
+      m.includes('ciao') || m.includes('hola') || m.includes('bonjour') ||
+      m.includes('hallo') || m.includes('你好') || m.includes('مرحبا') ||
+      m.includes('привет') || m.includes('ہیلو')) {
+    return t.botHello.split('<br><br>')[0];
   }
   
-  if (m.includes("change language") || m.includes("cambia lingua") || m.includes("cambiar idioma") || 
-      m.includes("changer la langue") || m.includes("sprache ändern") || m.includes("更改语言") || 
-      m.includes("تغيير اللغة") || m.includes("изменить язык") || m.includes("زبان تبدیل کریں")) {
+  // Language change request
+  if (m.includes('change language') || m.includes('cambia lingua') || 
+      m.includes('cambiar idioma') || m.includes('changer la langue') ||
+      m.includes('sprache ändern') || m.includes('更改语言') ||
+      m.includes('تغيير اللغة') || m.includes('изменить язык') ||
+      m.includes('زبان تبدیل کریں')) {
     
     const langList = Object.values(languageData).map(lang => lang.name).join(", ");
     return `🌍 ${t.availableLanguages}: ${langList}`;
   }
   
-  // 2. Currency conversion
-  const currencyPatterns = [
-    /(\d+(?:\.\d+)?)\s*(\w+)\s*(?:in|to|into|a|en|in)\s*(\w+)/i,
-    /convert\s*(\d+(?:\.\d+)?)\s*(\w+)\s*(?:to|in)\s*(\w+)/i,
-    /(\d+(?:\.\d+)?)\s*(\w+)\s*(?:a|en)\s*(\w+)/i
-  ];
-  
-  for (const pattern of currencyPatterns) {
-    const match = m.match(pattern);
-    if (match) {
-      const amount = parseFloat(match[1]);
-      const fromCurrency = match[2];
-      const toCurrency = match[3];
-      
-      if (amount > 0) {
-        const result = await getExchangeRate(fromCurrency, toCurrency, amount);
-        if (result.success) {
-          return `💱 ${t.currencyConversion}:\n${result.result}\n${result.details}`;
-        } else {
-          return `💱 ${t.error}: ${result.error}\n${t.tryExample}: '3 EUR in PKR' ${t.or} '100 USD in EUR'`;
-        }
-      }
-    }
-  }
-  
-  // 3. Translation
-  const translationPatterns = [
-    /translate\s+(.+?)\s+(?:to|in|into)\s+(\w+)/i,
-    /traduci\s+(.+?)\s+(?:in|to|a)\s+(\w+)/i,
-    /traducir\s+(.+?)\s+(?:a|en)\s+(\w+)/i,
-    /übersetzen\s+(.+?)\s+(?:in|nach)\s+(\w+)/i,
-    /traduire\s+(.+?)\s+(?:en|à)\s+(\w+)/i,
-    /翻译\s+(.+?)\s+(?:为|到)\s+(\w+)/i,
-    /ترجمة\s+(.+?)\s+(?:إلى|في)\s+(\w+)/i,
-    /перевести\s+(.+?)\s+(?:на|в)\s+(\w+)/i,
-    /ترجمہ\s+(.+?)\s+(?:میں|کو)\s+(\w+)/i
-  ];
-  
-  for (const pattern of translationPatterns) {
-    const match = m.match(pattern);
-    if (match) {
-      const textToTranslate = match[1].trim();
-      let targetLanguage = match[2].trim().toLowerCase();
-      
-      if (textToTranslate.length > 1) {
-        const targetLangCode = langMap[targetLanguage] || targetLanguage;
-        
-        if (languageData[targetLangCode]) {
-          const translation = await translateText(textToTranslate, targetLangCode);
-          
-          if (translation.success) {
-            const targetLangName = languageData[targetLangCode].name;
-            return `🌍 ${t.translation}:\n\n**${t.original}:** "${textToTranslate}"\n\n**${targetLangName}:** "${translation.translated}"`;
-          } else {
-            return `⚠️ ${t.translationError} "${textToTranslate}" ${t.to} ${targetLanguage}.`;
-          }
-        }
-      }
-    }
-  }
-  
-  // 4. Jokes
-  const jokeKeywords = [
-    t.joke, "joke", "chiste", "barzelletta", "blague", "witz", "笑话", "نكتة", "анекдот", "مذاق",
-    "funny", "divertente", "divertido", "amusant", "lustig", "有趣", "مضحك", "смешной", "مضحکہ"
-  ];
-  
-  if (jokeKeywords.some(keyword => m.includes(keyword))) {
+  // Joke request
+  if (m.includes(t.joke) || m.includes('joke') || m.includes('barzelletta') || 
+      m.includes('chiste') || m.includes('blague') || m.includes('witz') ||
+      m.includes('笑话') || m.includes('نكتة') || m.includes('анекдот') ||
+      m.includes('مذاق')) {
     if (jokes.length > 0) {
-      return `😂 **${t.joke}:**\n${randomChoice(jokes)}`;
+      const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+      return `😂 ${t.joke}:<br>${randomJoke}`;
     }
-    return `😂 **${t.joke}:**\nWhy don't scientists trust atoms? Because they make up everything.`;
   }
   
-  // 5. Advice
-  const adviceKeywords = [
-    t.advice, "advice", "consejo", "consiglio", "conseil", "rat", "建议", "نصيحة", "совет", "مشورہ",
-    "help", "aiuto", "ayuda", "aide", "hilfe", "帮助", "مساعدة", "помощь", "مدد"
-  ];
-  
-  if (adviceKeywords.some(keyword => m.includes(keyword))) {
+  // Advice request
+  if (m.includes(t.advice) || m.includes('advice') || m.includes('consiglio') || 
+      m.includes('consejo') || m.includes('conseil') || m.includes('rat') ||
+      m.includes('建议') || m.includes('نصيحة') || m.includes('совет') ||
+      m.includes('مشورہ')) {
     if (adviceList.length > 0) {
-      return `💡 **${t.advice}:**\n${randomChoice(adviceList)}`;
+      const randomAdvice = adviceList[Math.floor(Math.random() * adviceList.length)];
+      return `💡 ${t.advice}:<br>${randomAdvice}`;
     }
-    return `💡 **${t.advice}:**\nDon't put off until tomorrow what you can do today.`;
   }
   
-  // 6. Math calculations
-  const calcPatterns = [
-    /calculate\s+(.+)/i,
-    /calcola\s+(.+)/i,
-    /calcular\s+(.+)/i,
-    /calculer\s+(.+)/i,
-    /berechnen\s+(.+)/i,
-    /计算(.+)/i,
-    /حساب(.+)/i,
-    /вычислить(.+)/i,
-    /حساب کتاب(.+)/i
-  ];
-  
-  for (const pattern of calcPatterns) {
-    const match = m.match(pattern);
-    if (match) {
-      let expr = match[1].trim();
+  // Search articles
+  if (m.includes('search') || m.includes('cerca') || m.includes('buscar') || 
+      m.includes('rechercher') || m.includes('suchen') || m.includes('搜索') ||
+      m.includes('بحث') || m.includes('искать') || m.includes('تلاش کریں')) {
+    
+    const searchTerm = m.replace(/search|cerca|buscar|rechercher|suchen|搜索|بحث|искать|تلاش کریں/gi, '').trim();
+    if (searchTerm) {
+      const results = articles.filter(article => 
+        article.title.toLowerCase().includes(searchTerm) || 
+        article.content.toLowerCase().includes(searchTerm)
+      );
       
-      if (expr) {
-        try {
-          const cleanExpr = expr
-            .replace(/×/g, '*')
-            .replace(/÷/g, '/')
-            .replace(/pi/gi, 'Math.PI')
-            .replace(/\^/g, '**')
-            .replace(/sqrt\(/gi, 'Math.sqrt(')
-            .replace(/sin\(/gi, 'Math.sin(')
-            .replace(/cos\(/gi, 'Math.cos(')
-            .replace(/tan\(/gi, 'Math.tan(');
-          
-          const safeEval = new Function('return ' + cleanExpr);
-          const result = safeEval();
-          
-          if (isNaN(result) || !isFinite(result)) {
-            return t.calcError;
-          }
-          
-          return `🧮 ${t.calculation}:\n${expr} = **${result}**`;
-        } catch (error) {
-          return t.calcFormatError;
-        }
+      if (results.length > 0) {
+        let response = `🔍 ${results.length} results found for "${searchTerm}":<br><br>`;
+        results.forEach((article, index) => {
+          response += `${index + 1}. <strong>${article.title}</strong> (${article.type})<br>`;
+        });
+        return response;
+      } else {
+        return `🔍 No results found for "${searchTerm}"`;
       }
     }
   }
   
-  // Simple math expressions
-  if (/^[\d+\-*/().^π×÷ ]+$/.test(m) || m.includes("+") || m.includes("-") || m.includes("*") || m.includes("/")) {
+  // Math calculation
+  if (m.includes('calculate') || m.includes('calcola') || m.includes('calcular') || 
+      m.includes('calculer') || m.includes('berechnen') || m.includes('计算') ||
+      m.includes('حساب') || m.includes('вычислить') || m.includes('حساب کتاب')) {
+    
+    const expression = m.replace(/calculate|calcola|calcular|calculer|berechnen|计算|حساب|вычислить|حساب کتاب/gi, '').trim();
     try {
-      const cleanExpr = m
-        .replace(/×/g, '*')
-        .replace(/÷/g, '/')
-        .replace(/pi/gi, 'Math.PI')
-        .replace(/\^/g, '**');
-      
-      const safeEval = new Function('return ' + cleanExpr);
-      const result = safeEval();
-      
-      if (isNaN(result) || !isFinite(result)) {
-        return t.calcError;
+      // Basic math expression evaluation
+      const result = eval(expression.replace(/[^0-9\+\-\*\/\(\)\.\s]/g, ''));
+      if (!isNaN(result)) {
+        return `🧮 ${t.calculation}: ${expression} = <strong>${result}</strong>`;
       }
-      
-      return `🧮 ${t.calculation}:\n${m} = **${result}**`;
-    } catch (error) {
-      // Not a valid math expression, continue to other checks
+    } catch (e) {
+      // Ignore errors
     }
   }
   
-  // 7. Wikipedia search
-  const searchPatterns = [
-    /search\s+(.+)/i,
-    /cerca\s+(.+)/i,
-    /buscar\s+(.+)/i,
-    /rechercher\s+(.+)/i,
-    /suchen\s+(.+)/i,
-    /搜索(.+)/i,
-    /بحث(.+)/i,
-    /искать(.+)/i,
-    /تلاش کریں(.+)/i
-  ];
-  
-  for (const pattern of searchPatterns) {
-    const match = m.match(pattern);
-    if (match) {
-      const query = match[1].trim();
-      if (query.length > 1) {
-        return await wikipediaSearch(query);
-      }
-    }
-  }
-  
-  // 8. Simple greetings
-  const greetings = {
-    en: ["hello", "hi", "hey", "good morning", "good afternoon", "good evening"],
-    it: ["ciao", "salve", "buongiorno", "buonasera"],
-    es: ["hola", "buenos días", "buenas tardes"],
-    fr: ["bonjour", "salut", "bonsoir"],
-    de: ["hallo", "guten tag", "guten morgen"],
-    zh: ["你好", "嗨", "早上好", "下午好", "晚上好"],
-    ar: ["مرحبا", "أهلا", "صباح الخير", "مساء الخير"],
-    ru: ["привет", "здравствуйте", "доброе утро", "добрый день", "добрый вечер"],
-    ur: ["ہیلو", "سلام", "صبح بخیر", "شام بخیر"]
-  };
-  
-  const currentGreetings = greetings[botLanguage] || greetings.en;
-  for (const greeting of currentGreetings) {
-    if (m === greeting || m.startsWith(greeting + " ")) {
-      return t.botHello.split('<br><br>')[0];
-    }
-  }
-  
-  // 9. Help command
-  if (m === "help" || m === "aiuto" || m === "ayuda" || m === "aide" || m === "hilfe" || 
-      m === "帮助" || m === "مساعدة" || m === "помощь" || m === "مدد") {
+  // Currency conversion
+  const currencyMatch = m.match(/(\d+(?:\.\d+)?)\s*([a-z]+)\s+(?:in|to|a)\s+([a-z]+)/i);
+  if (currencyMatch) {
+    const amount = parseFloat(currencyMatch[1]);
+    const from = currencyMatch[2].toUpperCase();
+    const to = currencyMatch[3].toUpperCase();
     
-    const helpText = `
-🤖 **RSM Assistant Help**
-
-**🔍 Search:** 'search [topic]'
-**🌍 Translate:** 'translate [text] to [language]'
-**🧮 Calculate:** 'calculate [expression]' or just type math
-**💱 Currency:** '[amount] [currency] in [currency]'
-**😂 Joke:** 'tell me a joke'
-**💡 Advice:** 'give me advice'
-**🌐 Language:** 'change language to [language]'
-
-💡 Try the suggestion buttons below!`;
+    // Mock conversion rates
+    const rates = {
+      'EUR_USD': 1.08,
+      'USD_EUR': 0.93,
+      'EUR_PKR': 299.5,
+      'PKR_EUR': 0.00334,
+      'USD_PKR': 278.5,
+      'PKR_USD': 0.00359
+    };
     
-    return helpText;
-  }
-  
-  // 10. Default response - try to search Wikipedia
-  if (m.length > 2) {
-    const searchResult = await wikipediaSearch(m);
-    if (!searchResult.includes(t.searchNotFound)) {
-      return searchResult;
+    const rateKey = `${from}_${to}`;
+    if (rates[rateKey]) {
+      const converted = (amount * rates[rateKey]).toFixed(2);
+      return `💱 ${t.currencyConversion}: ${amount} ${from} = ${converted} ${to}`;
     }
   }
   
-  // 11. Fallback suggestions
-  const suggestions = languageData[botLanguage].suggestions || [];
-  const randomSuggestion = suggestions.length > 0 ? randomChoice(suggestions) : "search technology";
-  
-  return `🤔 I'm not sure how to respond to that. Try asking me to:<br><br>
-• Search for information<br>
-• Translate text<br>
+  // Default response
+  return `🤔 I'm not sure how to respond to that. You can ask me to:<br><br>
+• Tell a joke<br>
+• Give advice<br>
+• Search for articles<br>
 • Calculate math expressions<br>
 • Convert currencies<br>
-• Tell a joke<br>
-• Give advice<br><br>
-💡 **Try:** "${randomSuggestion}"`;
+• Change language settings`;
 }
 
-// ============ INITIALIZE APP ============
+// ============ INITIALIZE ============
 document.addEventListener('DOMContentLoaded', initApp);
 
-// Close dropdown when clicking outside
+// Close dropdowns when clicking outside
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.language-selector')) {
     document.getElementById('languageDropdown').style.display = 'none';
   }
-});
-
-// Close chat when clicking outside
-document.addEventListener('click', (e) => {
+  
   if (!e.target.closest('#chatBotContainer') && !e.target.closest('#chatBox')) {
     chatBox.style.display = 'none';
   }
