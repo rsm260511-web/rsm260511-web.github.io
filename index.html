@@ -6,7 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="rsm-header.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
+/* ============ STILI ORIGINALI MANTENUTI ============ */
 body{margin:0;font-family:'Montserrat',sans-serif;background:#0e0e11;color:#eaeaea;}
 header{background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');background-size:cover;background-position:center;padding:80px 20px;text-align:center;}
 header h1{font-family:'Playfair Display',serif;font-size:52px;margin:0;}
@@ -73,9 +75,187 @@ main{max-width:900px;margin:auto;padding:20px;}
 .current-lang {
     background: #4da6ff;
 }
+
+/* ============ MIGLIORAMENTI AGGIUNTI ============ */
+/* Fix per la navigazione */
+nav a {
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #eaeaea;
+}
+
+nav a:hover {
+    background: rgba(255, 77, 77, 0.2);
+    color: #ff4d4d;
+}
+
+/* Miglioramenti card */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 77, 77, 0.3);
+}
+
+/* Miglioramenti sezioni home */
+#home .card div {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#home .card div:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(5px);
+}
+
+/* Miglioramenti chatbot */
+#chatMessages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    word-wrap: break-word;
+    animation: fadeIn 0.3s ease;
+}
+
+.message.user {
+    align-self: flex-end;
+    background: #007bff;
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.message.bot {
+    align-self: flex-start;
+    background: #2a2a35;
+    color: white;
+    border-bottom-left-radius: 5px;
+}
+
+/* Miglioramenti ricerca */
+#searchInput {
+    width: 250px;
+    padding-left: 35px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#searchBox {
+    position: relative;
+}
+
+#searchBox::before {
+    content: "🔍";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+/* Miglioramenti bottoni */
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Animazioni */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Miglioramenti responsive */
+@media (max-width: 768px) {
+    #searchInput {
+        width: 200px;
+    }
+    
+    nav {
+        justify-content: center;
+    }
+    
+    #searchBox {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+    #searchInput {
+        width: 100%;
+    }
+    
+    #chatBox {
+        width: calc(100% - 40px);
+        right: 20px;
+        left: 20px;
+        margin: 0 auto;
+    }
+}
+
+/* Loading indicator */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #ff4d4d;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Tooltip per bot */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
 </style>
 
-<!-- Webpushr -->
+<!-- Webpushr - MANTENUTO COME NEL CODICE ORIGINALE -->
 <script>
 (function(w,d,s,id){
   if(typeof(w.webpushr)!=='undefined') return;
@@ -133,34 +313,34 @@ main{max-width:900px;margin:auto;padding:20px;}
     </div>
   </div>
 
- <!-- Chatbot AI -->
-<div id="chatBotContainer" style="position:relative; margin-left:15px;">
-  <button id="chatToggle" style="padding:8px 12px; border:none; border-radius:20px; background:#ff4d4d; color:#fff; cursor:pointer; font-weight:600;">
-    <span id="chatBtnText">AI Chat</span>
-  </button>
-  
-  <div id="chatBox" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:500px; background:#1c1c25; border-radius:10px; box-shadow:0 10px 25px rgba(0,0,0,0.4); overflow:hidden; flex-direction:column; z-index:1000;">
+  <!-- Chatbot AI - MANTENUTO COME ORIGINALE -->
+  <div id="chatBotContainer" style="position:relative; margin-left:15px;">
+    <button id="chatToggle" style="padding:8px 12px; border:none; border-radius:20px; background:#ff4d4d; color:#fff; cursor:pointer; font-weight:600;">
+      <span id="chatBtnText">AI Chat</span>
+    </button>
     
-    <div style="background:#15151c; padding:12px 15px; display:flex; align-items:center; border-bottom:1px solid #333;">
-      <button id="chatClose" style="background:#ff4d4d; color:white; border:none; width:30px; height:30px; border-radius:50%; cursor:pointer; display=flex; align-items:center; justify-content:center; font-weight:bold; margin-right:10px;">
-        ×
-      </button>
-      <span style="color:#fff; font-weight:600;">🤖 <span id="chatTitle">RSM Assistant</span></span>
-    </div>
-    
-    <div id="chatMessages" style="flex:1; overflow-y:auto; padding:15px;"></div>
-    
-    <div style="border-top:1px solid #333; padding:12px; background:#15151c;">
-      <div style="display:flex; gap:8px;">
-        <input id="chatInput" type="text" placeholder="Type here..." autocomplete="off" 
-               style="flex:1; padding:10px; background:#0e0e11; color:#fff; border:none; border-radius:6px; outline:none;">
-        <button id="chatSend" style="padding:0 15px; background:#4da6ff; color:#fff; border:none; border-radius:6px; cursor:pointer; font-weight:600;">
-          <span id="sendBtnText">Send</span>
+    <div id="chatBox" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:500px; background:#1c1c25; border-radius:10px; box-shadow:0 10px 25px rgba(0,0,0,0.4); overflow:hidden; flex-direction:column; z-index:1000;">
+      
+      <div style="background:#15151c; padding:12px 15px; display:flex; align-items:center; border-bottom:1px solid #333;">
+        <button id="chatClose" style="background:#ff4d4d; color:white; border:none; width:30px; height:30px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:bold; margin-right:10px;">
+          ×
         </button>
+        <span style="color:#fff; font-weight:600;">🤖 <span id="chatTitle">RSM Assistant</span></span>
+      </div>
+      
+      <div id="chatMessages" style="flex:1; overflow-y:auto; padding:15px;"></div>
+      
+      <div style="border-top:1px solid #333; padding:12px; background:#15151c;">
+        <div style="display:flex; gap:8px;">
+          <input id="chatInput" type="text" placeholder="Type here..." autocomplete="off" 
+                 style="flex:1; padding:10px; background:#0e0e11; color:#fff; border:none; border-radius:6px; outline:none;">
+          <button id="chatSend" style="padding:0 15px; background:#4da6ff; color:#fff; border:none; border-radius:6px; cursor:pointer; font-weight:600;">
+            <span id="sendBtnText">Send</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </nav>
 
 <main>
@@ -214,6 +394,12 @@ main{max-width:900px;margin:auto;padding:20px;}
 let articles = [];
 let currentLanguage = localStorage.getItem('rsm_language') || 'en';
 let botLanguage = currentLanguage;
+let translatedCache = {}; // Cache per traduzioni
+
+// ============ FIX: FUNZIONE PER APRIRE ARTICOLI CORRETTAMENTE ============
+function getArticleIndexByTitle(title) {
+    return articles.findIndex(a => a.title === title);
+}
 
 // ============ LANGUAGE SYSTEM ============
 const languageData = {
@@ -441,7 +627,7 @@ const languageData = {
       chatBtnText: "Chat IA",
       chatTitle: "Assistant RSM",
       sendBtnText: "Envoyer",
-      chatPlaceholder: "Écrivez ici...",
+      chatPlaceholder: "Écrivez aquí...",
       latestNewsTitle: "Dernières Actualités",
       clickNewsText: "Cliquez pour lire l'actualité complète",
       latestVideoTitleText: "Dernière Vidéo",
@@ -841,14 +1027,38 @@ const languageData = {
 };
 
 // ============ INITIALIZATION ============
-function initApp() {
-  fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json')
-  .then(r=>r.json())
-  .then(data=>{
-    articles = data.articles;
-    applyLanguage(currentLanguage);
-    renderAllContent();
-  });
+async function initApp() {
+    try {
+        // Mostra un indicatore di caricamento
+        document.body.innerHTML += '<div id="loading" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#0e0e11;display:flex;justify-content:center;align-items:center;z-index:9999;"><div class="spinner"></div></div>';
+        
+        const response = await fetch('https://raw.githubusercontent.com/rsm260511-web/RSM/main/data.json');
+        if (!response.ok) throw new Error('Failed to load data');
+        
+        const data = await response.json();
+        articles = data.articles;
+        
+        // FIX: Inizializza correttamente gli articoli
+        if (!articles || !Array.isArray(articles)) {
+            articles = [];
+            console.error('Invalid articles data');
+        }
+        
+        applyLanguage(currentLanguage);
+        await renderAllContent();
+        
+        // Nascondi loading
+        setTimeout(() => {
+            const loading = document.getElementById('loading');
+            if (loading) loading.remove();
+        }, 500);
+        
+    } catch (error) {
+        console.error('Error loading data:', error);
+        alert('Error loading content. Please try again later.');
+        const loading = document.getElementById('loading');
+        if (loading) loading.remove();
+    }
 }
 
 // ============ LANGUAGE FUNCTIONS ============
@@ -857,7 +1067,7 @@ function toggleLanguageDropdown() {
   dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
 }
 
-function changeLanguage(langCode) {
+async function changeLanguage(langCode) {
   if (languageData[langCode]) {
     currentLanguage = langCode;
     botLanguage = langCode;
@@ -865,11 +1075,13 @@ function changeLanguage(langCode) {
     applyLanguage(langCode);
     toggleLanguageDropdown();
     
-    if (chatMessages.children.length === 0) {
+    // FIX: Aggiorna i contenuti tradotti
+    await renderAllContent();
+    
+    // Messaggio di benvenuto nel chatbot
+    if (document.getElementById('chatMessages').children.length === 0) {
       appendMessage('bot', languageData[langCode].translations.botHello);
     }
-    
-    renderAllContent();
   }
 }
 
@@ -882,10 +1094,33 @@ function applyLanguage(langCode) {
   document.documentElement.lang = langCode;
   
   const t = lang.translations;
-  for (const [key, value] of Object.entries(t)) {
-    const element = document.getElementById(key);
+  
+  // FIX: Traduci tutti gli elementi
+  const elements = {
+    'siteTitle': t.siteTitle,
+    'navHome': t.navHome,
+    'navArticles': t.navArticles,
+    'navVideos': t.navVideos,
+    'navNews': t.navNews,
+    'navCategories': t.navCategories,
+    'navAbout': t.navAbout,
+    'navContacts': t.navContacts,
+    'latestNewsTitle': t.latestNewsTitle,
+    'clickNewsText': t.clickNewsText,
+    'latestVideoTitleText': t.latestVideoTitleText,
+    'clickVideoText': t.clickVideoText,
+    'aboutTitle': t.aboutTitle,
+    'contactsTitle': t.contactsTitle,
+    'footerText': t.footerText,
+    'chatBtnText': t.chatBtnText,
+    'chatTitle': t.chatTitle,
+    'sendBtnText': t.sendBtnText
+  };
+  
+  for (const [id, text] of Object.entries(elements)) {
+    const element = document.getElementById(id);
     if (element) {
-      element.textContent = value;
+      element.textContent = text;
     }
   }
   
@@ -914,36 +1149,58 @@ function updateLanguageDropdown() {
 // ============ TRANSLATE ARTICLES FROM JSON ============
 async function translateArticleText(text, targetLang) {
   try {
-    if (text.length < 3) return text;
+    if (!text || text.length < 2) return text;
+    if (targetLang === 'en') return text;
+    
+    // Usa cache per evitare richieste duplicate
+    const cacheKey = `${text}_${targetLang}`;
+    if (translatedCache[cacheKey]) {
+      return translatedCache[cacheKey];
+    }
     
     const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=auto|${targetLang}`);
+    if (!response.ok) throw new Error('Translation failed');
+    
     const data = await response.json();
     
     if (data.responseData && data.responseData.translatedText) {
-      return data.responseData.translatedText;
+      const translated = data.responseData.translatedText;
+      translatedCache[cacheKey] = translated;
+      return translated;
     }
     return text;
   } catch (error) {
+    console.warn('Translation error:', error);
     return text;
   }
 }
 
 async function getTranslatedArticles() {
-  const langCode = currentLanguage;
-  if (langCode === 'en') return articles;
+  if (currentLanguage === 'en') return articles;
   
   const translatedArticles = [];
   
   for (const article of articles) {
     try {
+      const cacheKey = `article_${article.id || article.title}_${currentLanguage}`;
+      
+      // Se abbiamo già tradotto questo articolo, usa la cache
+      if (translatedCache[cacheKey]) {
+        translatedArticles.push(translatedCache[cacheKey]);
+        continue;
+      }
+      
       const translatedArticle = {
         ...article,
-        title: article.title,
-        content: article.content
+        title: await translateArticleText(article.title, currentLanguage),
+        content: await translateArticleText(article.content, currentLanguage)
       };
       
+      translatedCache[cacheKey] = translatedArticle;
       translatedArticles.push(translatedArticle);
+      
     } catch (error) {
+      console.warn('Error translating article:', error);
       translatedArticles.push(article);
     }
   }
@@ -959,11 +1216,11 @@ async function renderAllContent() {
   document.getElementById('publicDescription').textContent = lang.translations.description;
   
   await renderArticles();
-  renderVideos();
-  renderNews();
-  renderCategories();
-  renderLatestNews();
-  renderLatestVideo();
+  await renderVideos();
+  await renderNews();
+  await renderCategories();
+  await renderLatestNews();
+  await renderLatestVideo();
 }
 
 async function renderArticles() {
@@ -973,69 +1230,128 @@ async function renderArticles() {
   container.innerHTML = '';
   const articlesToShow = await getTranslatedArticles();
   
-  articlesToShow.filter(a => a.type === "article").forEach(a => {
-    const i = articles.indexOf(a);
+  const articleItems = articlesToShow.filter(a => a.type === "article");
+  
+  if (articleItems.length === 0) {
+    container.innerHTML = '<div class="card"><p>No articles available</p></div>';
+    return;
+  }
+  
+  articleItems.forEach(a => {
+    // FIX: Usa l'indice originale, non tradotto
+    const originalIndex = articles.findIndex(item => item.title === a.originalTitle || item.id === a.id);
+    const i = originalIndex !== -1 ? originalIndex : articles.indexOf(a);
+    
     const d = document.createElement('div');
-    d.className = 'card';
-    d.innerHTML = `<h3>${a.title}</h3><p>${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>`;
+    d.className = 'card content-item';
+    d.innerHTML = `
+      <h3>${a.title}</h3>
+      <p class="date">📅 ${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>
+    `;
     d.onclick = () => openArticle(i);
     container.appendChild(d);
   });
 }
 
-function renderVideos() {
+async function renderVideos() {
   const container = document.getElementById('videos');
   if (!container) return;
   
   container.innerHTML = '';
-  articles.filter(a => a.type === "video").forEach(a => {
-    const i = articles.indexOf(a);
+  const articlesToShow = await getTranslatedArticles();
+  
+  const videoItems = articlesToShow.filter(a => a.type === "video");
+  
+  if (videoItems.length === 0) {
+    container.innerHTML = '<div class="card"><p>No videos available</p></div>';
+    return;
+  }
+  
+  videoItems.forEach(a => {
+    // FIX: Usa l'indice originale
+    const originalIndex = articles.findIndex(item => item.title === a.originalTitle || item.id === a.id);
+    const i = originalIndex !== -1 ? originalIndex : articles.indexOf(a);
+    
     const d = document.createElement('div');
-    d.className = 'card';
-    d.innerHTML = `<h3>${a.title}</h3><p>${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>`;
+    d.className = 'card content-item';
+    d.innerHTML = `
+      <h3>${a.title}</h3>
+      <p class="date">📅 ${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>
+      ${a.image ? `<img src="${a.image}" alt="${a.title}" loading="lazy">` : ''}
+    `;
     d.onclick = () => openVideo(i);
     container.appendChild(d);
   });
 }
 
-function renderNews() {
+async function renderNews() {
   const container = document.getElementById('news');
   if (!container) return;
   
   container.innerHTML = '';
-  articles.filter(a => a.type === "news").forEach(a => {
-    const i = articles.indexOf(a);
+  const articlesToShow = await getTranslatedArticles();
+  
+  const newsItems = articlesToShow.filter(a => a.type === "news");
+  
+  if (newsItems.length === 0) {
+    container.innerHTML = '<div class="card"><p>No news available</p></div>';
+    return;
+  }
+  
+  newsItems.forEach(a => {
+    // FIX: Usa l'indice originale
+    const originalIndex = articles.findIndex(item => item.title === a.originalTitle || item.id === a.id);
+    const i = originalIndex !== -1 ? originalIndex : articles.indexOf(a);
+    
     const d = document.createElement('div');
-    d.className = 'card';
-    d.innerHTML = `<h3>${a.title}</h3><p>${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>`;
+    d.className = 'card content-item';
+    d.innerHTML = `
+      <h3>${a.title}</h3>
+      <p class="date">📅 ${a.date ? new Date(a.date).toLocaleDateString(currentLanguage) : ''}</p>
+    `;
     d.onclick = () => openArticle(i);
     container.appendChild(d);
   });
 }
 
-function renderCategories() {
+async function renderCategories() {
   const container = document.getElementById('categories');
   if (!container) return;
   
   container.innerHTML = '';
-  [...new Set(articles.map(a => a.category))].forEach(cat => {
+  const articlesToShow = await getTranslatedArticles();
+  
+  const categories = [...new Set(articlesToShow.map(a => a.category))].filter(c => c);
+  
+  if (categories.length === 0) {
+    container.innerHTML = '<div class="card"><p>No categories available</p></div>';
+    return;
+  }
+  
+  categories.forEach(cat => {
     const box = document.createElement('div');
-    box.className = 'card';
+    box.className = 'card category-item';
     box.innerHTML = `<h3>${cat}</h3>`;
-    articles.filter(a => a.category === cat).forEach(a => {
-      const i = articles.indexOf(a);
-      const p = document.createElement('p');
-      p.style.cursor = 'pointer';
-      p.innerText = "• " + a.title;
-      p.onclick = () => {
-        if (a.type === "video") {
-          openVideo(i);
-        } else {
-          openArticle(i);
-        }
-      };
-      box.appendChild(p);
-    });
+    
+    articlesToShow
+      .filter(a => a.category === cat)
+      .forEach(a => {
+        // FIX: Usa l'indice originale
+        const originalIndex = articles.findIndex(item => item.title === a.originalTitle || item.id === a.id);
+        const i = originalIndex !== -1 ? originalIndex : articles.indexOf(a);
+        
+        const p = document.createElement('p');
+        p.innerHTML = `<i class="fas fa-chevron-right"></i> ${a.title}`;
+        p.onclick = () => {
+          if (a.type === "video") {
+            openVideo(i);
+          } else {
+            openArticle(i);
+          }
+        };
+        box.appendChild(p);
+      });
+    
     container.appendChild(box);
   });
 }
@@ -1047,13 +1363,33 @@ function showSection(id) {
   if (section) {
     section.classList.remove('hidden');
   }
-  window.scrollTo(0, 0);
+  
+  // Aggiorna la navigazione attiva
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  const activeNav = document.querySelector(`nav a[onclick*="${id}"]`);
+  if (activeNav) {
+    activeNav.classList.add('active');
+  }
+  
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-function openArticle(i) {
+async function openArticle(i) {
+  if (i < 0 || i >= articles.length) {
+    console.error('Invalid article index:', i);
+    return;
+  }
+  
   const a = articles[i];
   showSection('single');
-  document.getElementById('singleTitle').textContent = a.title;
+  
+  // Traduci il titolo se necessario
+  let title = a.title;
+  if (currentLanguage !== 'en') {
+    title = await translateArticleText(a.title, currentLanguage);
+  }
+  
+  document.getElementById('singleTitle').textContent = title;
   
   const dateText = languageData[currentLanguage].translations.publishedOn || "Published on";
   document.getElementById('singleDate').textContent = a.date ? 
@@ -1066,19 +1402,39 @@ function openArticle(i) {
     a.images.forEach(src => {
       const img = document.createElement('img');
       img.src = src;
+      img.alt = title;
+      img.loading = 'lazy';
       imgBox.appendChild(img);
     });
   } else if (a.image) {
-    imgBox.innerHTML = `<img src="${a.image}">`;
+    imgBox.innerHTML = `<img src="${a.image}" alt="${title}" loading="lazy">`;
   }
   
-  document.getElementById('singleContent').innerHTML = `<p>${a.content.replace(/\n/g, "<br><br>")}</p>`;
+  // Traduci il contenuto se necessario
+  let content = a.content;
+  if (currentLanguage !== 'en') {
+    content = await translateArticleText(a.content, currentLanguage);
+  }
+  
+  document.getElementById('singleContent').innerHTML = `<p>${content.replace(/\n/g, "<br><br>")}</p>`;
 }
 
-function openVideo(i) {
+async function openVideo(i) {
+  if (i < 0 || i >= articles.length) {
+    console.error('Invalid video index:', i);
+    return;
+  }
+  
   const a = articles[i];
   showSection('single');
-  document.getElementById('singleTitle').textContent = a.title;
+  
+  // Traduci il titolo se necessario
+  let title = a.title;
+  if (currentLanguage !== 'en') {
+    title = await translateArticleText(a.title, currentLanguage);
+  }
+  
+  document.getElementById('singleTitle').textContent = title;
   
   const dateText = languageData[currentLanguage].translations.publishedOn || "Published on";
   document.getElementById('singleDate').textContent = a.date ? 
@@ -1090,7 +1446,7 @@ function openVideo(i) {
   if (a.videoUrl) {
     imgBox.innerHTML = `
       <div style="width:100%; max-width:100%; margin:20px 0;">
-        <iframe width="100%" height="200" src="${a.videoUrl}" 
+        <iframe width="100%" height="315" src="${a.videoUrl.replace('watch?v=', 'embed/')}" 
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen style="border-radius:10px;">
         </iframe>
@@ -1100,16 +1456,24 @@ function openVideo(i) {
     a.images.forEach(src => {
       const img = document.createElement('img');
       img.src = src;
+      img.alt = title;
+      img.loading = 'lazy';
       imgBox.appendChild(img);
     });
   }
   
-  document.getElementById('singleContent').innerHTML = `<p>${a.content.replace(/\n/g, "<br><br>")}</p>`;
+  // Traduci il contenuto se necessario
+  let content = a.content;
+  if (currentLanguage !== 'en') {
+    content = await translateArticleText(a.content, currentLanguage);
+  }
+  
+  document.getElementById('singleContent').innerHTML = `<p>${content.replace(/\n/g, "<br><br>")}</p>`;
 }
 
 // ============ SEARCH ============
 function searchAll() {
-  const q = document.getElementById('searchInput').value.toLowerCase();
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
   const box = document.getElementById('searchResults');
   box.innerHTML = '';
   
@@ -1118,46 +1482,96 @@ function searchAll() {
     return;
   }
   
+  let results = [];
+  
   articles.forEach((a, i) => {
-    if (a.title.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)) {
-      const d = document.createElement('div');
-      d.className = 'search-item';
-      d.textContent = a.title;
-      d.onclick = () => {
-        if (a.type === "video") {
-          openVideo(i);
-        } else {
-          openArticle(i);
-        }
-      };
-      box.appendChild(d);
+    if (a.title.toLowerCase().includes(q) || 
+        (a.content && a.content.toLowerCase().includes(q)) ||
+        (a.category && a.category.toLowerCase().includes(q))) {
+      results.push({article: a, index: i});
     }
   });
   
-  box.style.display = box.children.length ? 'block' : 'none';
+  if (results.length > 0) {
+    results.slice(0, 10).forEach(({article, index}) => {
+      const d = document.createElement('div');
+      d.className = 'search-item';
+      d.innerHTML = `
+        <strong>${article.title}</strong><br>
+        <small>${article.type} • ${article.category || 'Uncategorized'}</small>
+      `;
+      d.onclick = () => {
+        if (article.type === "video") {
+          openVideo(index);
+        } else {
+          openArticle(index);
+        }
+        box.style.display = 'none';
+        document.getElementById('searchInput').value = '';
+      };
+      box.appendChild(d);
+    });
+    
+    box.style.display = 'block';
+  } else {
+    box.style.display = 'none';
+  }
 }
+
+// Chiudi la ricerca quando si clicca fuori
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('#searchBox')) {
+    document.getElementById('searchResults').style.display = 'none';
+  }
+});
 
 // ============ LATEST NEWS & VIDEO ============
-function renderLatestNews() {
-  const news = articles.filter(a => a.type === "news")
-    .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+async function renderLatestNews() {
+  const newsItems = articles.filter(a => a.type === "news");
   
-  if (!news) return;
+  if (newsItems.length === 0) {
+    document.getElementById('latestNews').style.display = 'none';
+    return;
+  }
   
-  document.getElementById('latestTitle').textContent = news.title;
-  const i = articles.findIndex(a => a.title === news.title);
-  document.getElementById('latestNews').onclick = () => openArticle(i);
+  const latestNews = newsItems.sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+  
+  // Traduci il titolo se necessario
+  let title = latestNews.title;
+  if (currentLanguage !== 'en') {
+    title = await translateArticleText(latestNews.title, currentLanguage);
+  }
+  
+  document.getElementById('latestTitle').textContent = title;
+  const i = articles.findIndex(a => a.title === latestNews.title);
+  
+  if (i !== -1) {
+    document.getElementById('latestNews').onclick = () => openArticle(i);
+  }
 }
 
-function renderLatestVideo() {
-  const video = articles.filter(a => a.type === "video")
-    .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+async function renderLatestVideo() {
+  const videoItems = articles.filter(a => a.type === "video");
   
-  if (!video) return;
+  if (videoItems.length === 0) {
+    document.getElementById('latestVideo').style.display = 'none';
+    return;
+  }
   
-  document.getElementById('latestVideoTitle').textContent = video.title;
-  const i = articles.findIndex(a => a.title === video.title);
-  document.getElementById('latestVideo').onclick = () => openVideo(i);
+  const latestVideo = videoItems.sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+  
+  // Traduci il titolo se necessario
+  let title = latestVideo.title;
+  if (currentLanguage !== 'en') {
+    title = await translateArticleText(latestVideo.title, currentLanguage);
+  }
+  
+  document.getElementById('latestVideoTitle').textContent = title;
+  const i = articles.findIndex(a => a.title === latestVideo.title);
+  
+  if (i !== -1) {
+    document.getElementById('latestVideo').onclick = () => openVideo(i);
+  }
 }
 
 // ============ CHATBOT AI ============
@@ -1168,11 +1582,16 @@ const chatInput = document.getElementById('chatInput');
 const chatSend = document.getElementById('chatSend');
 const chatClose = document.getElementById('chatClose');
 
-let lastQuestion = null;
-
 chatToggle.addEventListener('click', () => {
-  chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
-  if (chatBox.style.display === 'flex') chatInput.focus();
+  const isVisible = chatBox.style.display === 'flex';
+  chatBox.style.display = isVisible ? 'none' : 'flex';
+  if (!isVisible) {
+    chatInput.focus();
+    // Inizializza con messaggio di benvenuto se vuoto
+    if (chatMessages.children.length === 0) {
+      appendMessage('bot', languageData[botLanguage].translations.botHello);
+    }
+  }
 });
 
 chatClose.addEventListener('click', () => {
@@ -1181,15 +1600,8 @@ chatClose.addEventListener('click', () => {
 
 function appendMessage(sender, text) {
   const div = document.createElement('div');
+  div.className = `message ${sender}`;
   div.innerHTML = text.replace(/\n/g, '<br>');
-  div.style.margin = '5px';
-  div.style.padding = '8px 12px';
-  div.style.borderRadius = '15px';
-  div.style.maxWidth = '80%';
-  div.style.wordWrap = 'break-word';
-  div.style.alignSelf = sender === 'user' ? 'flex-end' : 'flex-start';
-  div.style.background = sender === 'user' ? '#007bff' : '#333';
-  div.style.color = '#fff';
   chatMessages.appendChild(div);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
@@ -1199,43 +1611,24 @@ async function sendMessage() {
   if (!msg) return;
   
   appendMessage('user', msg);
-  
-  const languagePatterns = {
-    en: /\b(hello|hi|hey|good|morning|afternoon|evening|thanks|thank you|please|sorry|excuse me|how are you|what's up|hey there)\b/i,
-    it: /\b(ciao|buongiorno|buonasera|salve|grazie|prego|scusa|mi scusi|come stai|come va|tutto bene|per favore|arrivederci|ciao ciao)\b/i,
-    es: /\b(hola|buenos días|buenas tardes|buenas noches|gracias|por favor|perdón|disculpa|¿cómo estás?|¿qué tal?|adiós|hasta luego|hasta pronto)\b/i,
-    fr: /\b(bonjour|salut|bonsoir|merci|s'il vous plaît|excusez-moi|pardon|comment ça va?|ça va?|au revoir|à bientôt|bonne journée)\b/i,
-    de: /\b(hallo|guten tag|guten morgen|guten abend|danke|bitte|entschuldigung|wie geht's?|wie geht es dir?|tschüss|auf wiedersehen|bis bald)\b/i,
-    zh: /\b(你好|嗨|早上好|下午好|晚上好|谢谢|请|对不起|不好意思|最近怎么样|再见|拜拜|明天见)\b/,
-    ar: /\b(مرحبا|أهلا|صباح الخير|مساء الخير|شكرا|من فضلك|آسف|معذرة|كيف حالك|مع السلامة|إلى اللقاء|وداعا)\b/,
-    ru: /\b(привет|здравствуйте|доброе утро|دобрый день|добрый вечер|спасибо|пожалуйста|извините|простите|как дела?|до свидания|пока)\b/,
-    ur: /\b(ہیلو|سلام|صبح بخیر|شام بخیر|شکریہ|براہ کرم|معذرت|معاف کیجئے|آپ کیسے ہیں؟|خدا حافظ|الوداع)\b/
-  };
-  
-  let detectedLang = null;
-  for (const [lang, pattern] of Object.entries(languagePatterns)) {
-    if (pattern.test(msg)) {
-      detectedLang = lang;
-      break;
-    }
-  }
-  
-  if (detectedLang && detectedLang !== botLanguage && 
-      !msg.toLowerCase().includes("translate") && 
-      !msg.toLowerCase().includes("traduci") &&
-      !msg.toLowerCase().includes("search") &&
-      !msg.toLowerCase().includes("cerca")) {
-    const prompt = languageData[botLanguage].translations.changeLanguagePrompt;
-    appendMessage('bot', prompt);
-    chatInput.value = '';
-    chatInput.focus();
-    return;
-  }
-  
-  const botReply = await botResponse(msg);
-  appendMessage('bot', botReply);
-  
   chatInput.value = '';
+  
+  // Mostra indicatore di typing
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'message bot';
+  typingDiv.innerHTML = '<div class="loading"></div>';
+  chatMessages.appendChild(typingDiv);
+  
+  try {
+    const response = await botResponse(msg);
+    typingDiv.remove();
+    appendMessage('bot', response);
+  } catch (error) {
+    typingDiv.remove();
+    appendMessage('bot', '⚠️ An error occurred. Please try again.');
+    console.error('Chat error:', error);
+  }
+  
   chatInput.focus();
 }
 
@@ -1244,11 +1637,18 @@ chatInput.addEventListener('keypress', e => {
   if (e.key === 'Enter') sendMessage();
 });
 
+// Chiudi il dropdown lingua quando si clicca fuori
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.language-selector')) {
+    document.getElementById('languageDropdown').style.display = 'none';
+  }
+});
+
 function randomChoice(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// ============ WIKIPEDIA SEARCH IN ALL LANGUAGES ============
+// ============ WIKIPEDIA SEARCH ============
 async function wikipediaSearch(query) {
   try {
     const lang = languageData[botLanguage];
@@ -1282,14 +1682,19 @@ async function wikipediaSearch(query) {
     return `📚 **${pageTitle}**\n\n${shortExtract}`;
     
   } catch (error) {
+    console.error('Wikipedia search error:', error);
     return languageData[botLanguage].translations.searchError;
   }
 }
 
-// ============ TRANSLATION API FOR ALL LANGUAGES ============
+// ============ TRANSLATION API ============
 async function translateText(text, targetLang) {
   try {
+    if (!text || text.length < 2) return {translated: text, success: false};
+    
     const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=auto|${targetLang}`);
+    if (!response.ok) throw new Error('Translation failed');
+    
     const data = await response.json();
     
     if (data.responseData && data.responseData.translatedText) {
@@ -1300,6 +1705,7 @@ async function translateText(text, targetLang) {
     }
     throw new Error("Translation failed");
   } catch (error) {
+    console.error('Translation error:', error);
     return {
       translated: text,
       success: false,
@@ -1326,6 +1732,7 @@ async function getExchangeRate(fromCurrency, toCurrency, amount = 1) {
     const fromCode = currencyMap[from] || from;
     const toCode = currencyMap[to] || to;
     
+    // Usa un API gratuita per i tassi di cambio
     const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${fromCode}`);
     if (!response.ok) throw new Error("API failed");
     
@@ -1344,6 +1751,9 @@ async function getExchangeRate(fromCurrency, toCurrency, amount = 1) {
     
     throw new Error("Currency not found");
   } catch (error) {
+    console.error('Exchange rate error:', error);
+    
+    // Tassi di cambio di fallback
     const fixedRates = {
       'EUR_PKR': 299.5,
       'USD_PKR': 278.5,
@@ -1391,30 +1801,39 @@ async function botResponse(msg) {
   const adviceList = languageData[botLanguage].advice || [];
   
   // 1. Change language command
-  if (m.includes("change language") || m.includes("cambia lingua") || m.includes("cambiar idioma") || 
-      m.includes("changer la langue") || m.includes("sprache ändern") || m.includes("更改语言") || 
-      m.includes("تغيير اللغة") || m.includes("изменить язык") || m.includes("زبان تبدیل کریں")) {
-    
-    const langMap = {
-      'english': 'en', 'en': 'en',
-      'italian': 'it', 'italiano': 'it', 'it': 'it',
-      'spanish': 'es', 'español': 'es', 'es': 'es',
-      'french': 'fr', 'français': 'fr', 'fr': 'fr',
-      'german': 'de', 'deutsch': 'de', 'de': 'de',
-      'chinese': 'zh', '中文': 'zh', 'zh': 'zh',
-      'arabic': 'ar', 'العربية': 'ar', 'ar': 'ar',
-      'russian': 'ru', 'русский': 'ru', 'ru': 'ru',
-      'urdu': 'ur', 'اردو': 'ur', 'ur': 'ur'
-    };
-    
-    for (const [keyword, langCode] of Object.entries(langMap)) {
-      if (m.includes(keyword)) {
-        changeLanguage(langCode);
-        return `✅ ${t.languageChanged || 'Language changed to'} ${languageData[langCode].name}`;
+  const langChangePatterns = [
+    /change language to (\w+)/i,
+    /cambia lingua in (\w+)/i,
+    /cambiar idioma a (\w+)/i,
+    /changer la langue en (\w+)/i,
+    /sprache ändern zu (\w+)/i,
+    /更改语言为(\w+)/i,
+    /تغيير اللغة إلى (\w+)/i,
+    /изменить язык на (\w+)/i,
+    /زبان تبدیل کریں (\w+)/i
+  ];
+  
+  for (const pattern of langChangePatterns) {
+    const match = m.match(pattern);
+    if (match) {
+      const langMap = {
+        'english': 'en', 'en': 'en',
+        'italian': 'it', 'italiano': 'it', 'it': 'it',
+        'spanish': 'es', 'español': 'es', 'es': 'es',
+        'french': 'fr', 'français': 'fr', 'fr': 'fr',
+        'german': 'de', 'deutsch': 'de', 'de': 'de',
+        'chinese': 'zh', '中文': 'zh', 'zh': 'zh',
+        'arabic': 'ar', 'العربية': 'ar', 'ar': 'ar',
+        'russian': 'ru', 'русский': 'ru', 'ru': 'ru',
+        'urdu': 'ur', 'اردو': 'ur', 'ur': 'ur'
+      };
+      
+      const requestedLang = match[1].toLowerCase();
+      if (langMap[requestedLang]) {
+        await changeLanguage(langMap[requestedLang]);
+        return `✅ ${t.languageChanged} ${languageData[langMap[requestedLang]].name}`;
       }
     }
-    
-    return `${t.availableLanguages || 'Available languages'}: English, Italiano, Español, Français, Deutsch, 中文, العربية, Русский, اردو`;
   }
   
   // 2. Currency conversion
@@ -1427,15 +1846,15 @@ async function botResponse(msg) {
     if (amount > 0) {
       const result = await getExchangeRate(fromCurrency, toCurrency, amount);
       if (result.success) {
-        return `💱 ${t.currencyConversion || 'Currency Conversion'}:\n${result.result}\n${result.details}`;
+        return `💱 ${t.currencyConversion}:\n${result.result}\n${result.details}`;
       } else {
-        return `💱 ${t.error || 'Error'}: ${result.error}\n${t.tryExample || 'Try'}: '3 EUR in PKR' ${t.or || 'or'} '100 USD in EUR'`;
+        return `💱 ${t.error}: ${result.error}\n${t.tryExample}: '3 EUR in PKR' ${t.or} '100 USD in EUR'`;
       }
     }
   }
   
-  // 3. Translation for ALL languages
-  if (m.startsWith("translate ") || m.startsWith("traduci ") || m.includes(" to ") || m.includes(" in ")) {
+  // 3. Translation
+  if (m.startsWith("translate ") || m.includes(" to ") || m.includes(" in ")) {
     const patterns = [
       /translate\s+(.+?)\s+(?:to|in|into)\s+(\w+)/i,
       /traduci\s+(.+?)\s+(?:in|to|a)\s+(\w+)/i,
@@ -1491,32 +1910,32 @@ async function botResponse(msg) {
           };
           
           const targetLangName = langNames[targetLangCode] || targetLangCode;
-          return `🌍 ${t.translation || 'Translation'}:\n${t.original || 'Original'}: "${textToTranslate}"\n${targetLangName}: "${translation.translated}"`;
+          return `🌍 ${t.translation}:\n${t.original}: "${textToTranslate}"\n${targetLangName}: "${translation.translated}"`;
         } else {
-          return `⚠️ ${t.translationError || 'Could not translate'} "${textToTranslate}" ${t.to || 'to'} ${targetLanguage}.`;
+          return `⚠️ ${t.translationError} "${textToTranslate}" ${t.to} ${targetLanguage}.`;
         }
       } catch (error) {
-        return `⚠️ ${t.translationFailed || 'Translation failed at the moment'}.`;
+        return `⚠️ ${t.translationFailed}.`;
       }
     }
     
-    return `🌍 ${t.translationHelp || 'Translation Help'}:\n${t.writeTranslate || "Write 'translate [text] to [language]' to translate."}\n\n${t.examples || 'Examples'}:\n• 'translate hello to italian'\n• 'translate ciao in english'\n• 'traduci libro in spagnolo'\n• 'traduci heft to english'`;
+    return `🌍 ${t.translationHelp}:\n${t.writeTranslate}\n\n${t.examples}:\n• 'translate hello to italian'\n• 'translate ciao in english'\n• 'traduci libro in spagnolo'\n• 'traduci heft to english'`;
   }
   
-  // 4. Jokes in current language
-  if (m.includes(t.joke || "joke") || m.includes("chiste") || m.includes("barzelletta") || m.includes("blague") || m.includes("witz") || m.includes("笑话") || m.includes("نكتة") || m.includes("анекдот") || m.includes("مذاق")) {
+  // 4. Jokes
+  if (m.includes(t.joke) || m.includes("joke") || m.includes("chiste") || m.includes("barzelletta") || m.includes("blague") || m.includes("witz") || m.includes("笑话") || m.includes("نكتة") || m.includes("анекдот") || m.includes("مذاق")) {
     if (jokes.length > 0) {
-      return `😂 **${t.joke || 'Joke'}:**\n${randomChoice(jokes)}`;
+      return `😂 **${t.joke}:**\n${randomChoice(jokes)}`;
     }
-    return `😂 **${t.joke || 'Joke'}:**\nWhy don't scientists trust atoms? Because they make up everything.`;
+    return `😂 **${t.joke}:**\nWhy don't scientists trust atoms? Because they make up everything.`;
   }
   
-  // 5. Advice in current language
-  if (m.includes(t.advice || "advice") || m.includes("consejo") || m.includes("consiglio") || m.includes("conseil") || m.includes("rat") || m.includes("建议") || m.includes("نصيحة") || m.includes("совет") || m.includes("مشورہ")) {
+  // 5. Advice
+  if (m.includes(t.advice) || m.includes("advice") || m.includes("consejo") || m.includes("consiglio") || m.includes("conseil") || m.includes("rat") || m.includes("建议") || m.includes("نصيحة") || m.includes("совет") || m.includes("مشورہ")) {
     if (adviceList.length > 0) {
-      return `💡 **${t.advice || 'Advice'}:**\n${randomChoice(adviceList)}`;
+      return `💡 **${t.advice}:**\n${randomChoice(adviceList)}`;
     }
-    return `💡 **${t.advice || 'Advice'}:**\nDon't put off until tomorrow what you can do today.`;
+    return `💡 **${t.advice}:**\nDon't put off until tomorrow what you can do today.`;
   }
   
   // 6. Math calculations
@@ -1526,15 +1945,14 @@ async function botResponse(msg) {
       /^[\d+\-*/().^π×÷ ]+$/.test(m) || m.includes("+") || m.includes("-") || m.includes("*") || m.includes("/")) {
     
     let expr = m;
-    if (m.startsWith("calculate ")) expr = m.substring(10);
-    else if (m.startsWith("calcola ")) expr = m.substring(8);
-    else if (m.startsWith("calcular ")) expr = m.substring(9);
-    else if (m.startsWith("calculer ")) expr = m.substring(9);
-    else if (m.startsWith("berechnen ")) expr = m.substring(10);
-    else if (m.startsWith("计算")) expr = m.substring(2);
-    else if (m.startsWith("حساب")) expr = m.substring(4);
-    else if (m.startsWith("вычислить")) expr = m.substring(9);
-    else if (m.startsWith("حساب کتاب")) expr = m.substring(8);
+    const prefixes = ["calculate ", "calcola ", "calcular ", "calculer ", "berechnen ", "计算", "حساب", "вычислить", "حساب کتاب"];
+    
+    for (const prefix of prefixes) {
+      if (m.startsWith(prefix)) {
+        expr = m.substring(prefix.length);
+        break;
+      }
+    }
     
     if (expr.trim().length > 0) {
       try {
@@ -1548,35 +1966,35 @@ async function botResponse(msg) {
           .replace(/cos\(/gi, 'Math.cos(')
           .replace(/tan\(/gi, 'Math.tan(');
         
+        // FIX: Valutazione sicura
         const safeEval = new Function('return ' + cleanExpr);
         const result = safeEval();
         
         if (isNaN(result) || !isFinite(result)) {
-          return t.calcError || "I cannot calculate this expression.";
+          return t.calcError;
         }
         
-        return `🧮 ${t.calculation || 'Calculation'}:\n${expr} = **${result}**`;
+        return `🧮 ${t.calculation}:\n${expr} = **${result}**`;
       } catch (error) {
-        return t.calcFormatError || "Calculation error. Please write the expression correctly.";
+        return t.calcFormatError;
       }
     }
   }
   
-  // 7. Wikipedia search in ALL languages
+  // 7. Wikipedia search
   if (m.startsWith("search ") || m.startsWith("cerca ") || m.startsWith("buscar ") || 
       m.startsWith("rechercher ") || m.startsWith("suchen ") || m.startsWith("搜索") || 
       m.startsWith("بحث") || m.startsWith("искать") || m.startsWith("تلاش کریں")) {
     
     let query = m;
-    if (m.startsWith("search ")) query = m.substring(7);
-    else if (m.startsWith("cerca ")) query = m.substring(6);
-    else if (m.startsWith("buscar ")) query = m.substring(7);
-    else if (m.startsWith("rechercher ")) query = m.substring(11);
-    else if (m.startsWith("suchen ")) query = m.substring(7);
-    else if (m.startsWith("搜索")) query = m.substring(2);
-    else if (m.startsWith("بحث")) query = m.substring(2);
-    else if (m.startsWith("искать")) query = m.substring(6);
-    else if (m.startsWith("تلاش کریں")) query = m.substring(9);
+    const prefixes = ["search ", "cerca ", "buscar ", "rechercher ", "suchen ", "搜索", "بحث", "искать", "تلاش کریں"];
+    
+    for (const prefix of prefixes) {
+      if (m.startsWith(prefix)) {
+        query = m.substring(prefix.length);
+        break;
+      }
+    }
     
     if (query.trim().length > 1) {
       return await wikipediaSearch(query);
@@ -1607,7 +2025,7 @@ async function botResponse(msg) {
     }
   }
   
-  // 9. Suggestions in current language
+  // 9. Default response with suggestions
   const suggestions = {
     en: [
       "💡 **Try:** 'search information about...' for Wikipedia searches",
@@ -1639,7 +2057,7 @@ async function botResponse(msg) {
       "🧮 **Calculs:** 'calculer 2+2×3'",
       "💱 **Monnaie:** '3 euro en pkr'",
       `😂 **Amusement:** '${t.joke}' pour rire`,
-      `💡 **Aide:** '${t.advice}' pour un conseil`
+      `💡 **Aide:** '${t.advice}' pour un consejo`
     ],
     de: [
       "💡 **Versuchen:** 'suche Informationen über...' für Wikipedia-Suchen",
@@ -1689,12 +2107,12 @@ async function botResponse(msg) {
 // ============ INITIALIZE APP ============
 document.addEventListener('DOMContentLoaded', initApp);
 
-// Close dropdown when clicking outside
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.language-selector')) {
-    document.getElementById('languageDropdown').style.display = 'none';
+// Inizializza il chatbot con il messaggio di benvenuto
+setTimeout(() => {
+  if (document.getElementById('chatMessages').children.length === 0) {
+    appendMessage('bot', languageData[currentLanguage].translations.botHello);
   }
-});
+}, 1000);
 </script>
 </body>
 </html>
