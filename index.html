@@ -911,15 +911,52 @@ function updateLanguageDropdown() {
   }
 }
 
-// ============ TRADUZIONE ARTICOLI REAL-TIME ============
+// ============ TRADUZIONE ARTICOLI REAL-TIME (CON SPLIT) ============
+async function translateLongText(text, targetLang) {
+  try {
+    if (currentLanguage === 'it') return text;
+    if (text.length <= 500) {
+      const response = await fetch(
+        `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=it|${targetLang}`
+      );
+      const data = await response.json();
+      return data.responseData?.translatedText || text;
+    }
+    
+    // Split del testo in parti di max 500 caratteri
+    const parts = [];
+    for (let i = 0; i < text.length; i += 450) { // 450 per margine
+      parts.push(text.substring(i, i + 450));
+    }
+    
+    // Traduci ogni parte
+    const translatedParts = [];
+    for (const part of parts) {
+      try {
+        const response = await fetch(
+          `https://api.mymemory.translated.net/get?q=${encodeURIComponent(part)}&langpair=it|${targetLang}`
+        );
+        const data = await response.json();
+        translatedParts.push(data.responseData?.translatedText || part);
+      } catch (error) {
+        translatedParts.push(part);
+      }
+    }
+    
+    return translatedParts.join(' ');
+  } catch (error) {
+    console.error("Errore traduzione testo lungo:", error);
+    return text;
+  }
+}
+
 async function getTranslatedArticleContent(article) {
   try {
     if (currentLanguage === 'it') return article;
     
-    const t = languageData[currentLanguage].translations;
-    
     const translatedArticle = { ...article };
     
+    // Traduci il titolo (sempre corto)
     if (article.title) {
       const titleResponse = await fetch(
         `https://api.mymemory.translated.net/get?q=${encodeURIComponent(article.title)}&langpair=it|${currentLanguage}`
@@ -930,19 +967,14 @@ async function getTranslatedArticleContent(article) {
       }
     }
     
+    // Traduci il contenuto (con split se lungo)
     if (article.content) {
-      const contentResponse = await fetch(
-        `https://api.mymemory.translated.net/get?q=${encodeURIComponent(article.content)}&langpair=it|${currentLanguage}`
-      );
-      const contentData = await contentResponse.json();
-      if (contentData.responseData?.translatedText) {
-        translatedArticle.content = contentData.responseData.translatedText;
-      }
+      translatedArticle.content = await translateLongText(article.content, currentLanguage);
     }
     
     return translatedArticle;
   } catch (error) {
-    console.error("Errore traduzione:", error);
+    console.error("Errore traduzione articolo:", error);
     return article;
   }
 }
@@ -950,12 +982,55 @@ async function getTranslatedArticleContent(article) {
 async function getTranslatedArticles() {
   if (currentLanguage === 'it') return articles;
   
-  const translatedPromises = articles.map(article => getTranslatedArticleContent(article));
-  const translatedArticles = await Promise.all(translatedPromises);
+  const translatedArticles = [];
+  
+  // Traduci un articolo alla volta per non sovraccaricare l'API
+  for (const article of articles) {
+    try {
+      const translated = await getTranslatedArticleContent(article);
+      translatedArticles.push(translated);
+    } catch (error) {
+      translatedArticles.push(article);
+    }
+  }
   
   return translatedArticles;
 }
 
+// ============ FIX PER APERTURA ARTICOLO CORRETTO ============
+async function openArticle(index) {
+  const originalArticle = articles[index];
+  const a = await getTranslatedArticleContent(originalArticle);
+  
+  showSection('single');
+  document.getElementById('singleTitle').textContent = a.title;
+  
+  const dateText = languageData[currentLanguage].translations.publishedOn || "Published on";
+  document.getElementById('singleDate').textContent = a.date ? 
+    `📅 ${dateText} ${new Date(a.date).toLocaleDateString(currentLanguage)}` : "";
+  
+  const imgBox = document.getElementById('singleImage');
+  imgBox.innerHTML = '';
+  
+  if (a.images && Array.isArray(a.images)) {
+    a.images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      imgBox.appendChild(img);
+    });
+  } else if (a.image) {
+    imgBox.innerHTML = `<img src="${a.image}">`;
+  }
+  
+  // Mostra contenuto tradotto o messaggio di fallback
+  let contentToShow = a.content;
+  if (a.content.includes("QUERY LENGTH LIMIT EXCEEDED") || a.content.length < 10) {
+    contentToShow = languageData[currentLanguage].translations.limitedInfo || "Article content (translation may be limited)";
+  }
+  
+  document.getElementById('singleContent').innerHTML = `<p>${contentToShow.replace(/\n/g, "<br><br>")}</p>`;
+}
+    
 // ============ RENDER FUNCTIONS ============
 async function renderAllContent() {
   const lang = languageData[currentLanguage];
@@ -1708,3 +1783,4 @@ document.addEventListener('click', (e) => {
 </script>
 </body>
 </html>
+
