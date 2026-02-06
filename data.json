@@ -1,66 +1,298 @@
 {
-  "description": "RSM è uno spazio dedicato all’esplorazione di misteri, notizie attuali e storie poco conosciute. L’obiettivo è informare, incuriosire e stimolare il pensiero critico su eventi che spesso restano ai margini dell’informazione tradizionale.",
+  "description": {
+    "en": "RSM is a space dedicated to exploring mysteries, current events, and little-known stories. The goal is to inform, intrigue, and stimulate critical thinking about events that often remain on the margins of traditional information.",
+    "it": "RSM è uno spazio dedicato all'esplorazione di misteri, notizie attuali e storie poco conosciute. L'obiettivo è informare, incuriosire e stimolare il pensiero critico su eventi che spesso restano ai margini dell'informazione tradizionale.",
+    "es": "RSM es un espacio dedicado a explorar misterios, noticias actuales e historias poco conocidas. El objetivo es informar, intrigar y estimular el pensamiento crítico sobre eventos que a menudo permanecen al margen de la información tradicional.",
+    "fr": "RSM est un espace dédié à l'exploration des mystères, des actualités et des histoires méconnues. L'objectif est d'informer, d'intriguer et de stimuler la pensée critique sur des événements qui restent souvent en marge de l'information traditionnelle.",
+    "de": "RSM ist ein Raum, der der Erforschung von Mysterien, aktuellen Ereignissen und wenig bekannten Geschichten gewidmet ist. Das Ziel ist es, zu informieren, neugierig zu machen und kritisches Denken über Ereignisse anzuregen, die oft am Rande der traditionellen Information bleiben.",
+    "zh": "RSM 是一个致力于探索谜团、时事和鲜为人知故事的空间。目标是告知、引起兴趣并激发对传统信息边缘事件的批判性思考。",
+    "ar": "RSM هو مساحة مخصصة لاستكشاف الأسرار والأحداث الجارية والقصص غير المعروفة. الهدف هو إعلام وإثارة الفضائل وتحفيز التفكير النقدي حول الأحداث التي تبقى غالباً على هامش المعلومات التقليدية.",
+    "ru": "RSM — это пространство, посвященное исследованию загадок, текущих событий и малоизвестных историй. Цель — информировать, интриговать и стимулировать критическое мышление о событиях, которые часто остаются на периферии традиционной информации.",
+    "ur": "RSM پراسرار باتوں، موجودہ واقعات اور کم معلوم کہانیوں کی تلاش کے لیے وقف ایک جگہ ہے۔ مقصد ایسے واقعات کے بارے میں تنقیدی سوچ کو آگاہ کرنا، تجسس پیدا کرنا اور حوصلہ افزائی کرنا ہے جو اکثر روایتی معلومات کے کنارے پر رہ جاتے ہیں۔"
+  },
   "articles": [
     {
-      "title": "Le piramidi d’Egitto: il mistero ingegneristico che sfida la storia ufficiale",
-      "content": "Le piramidi d’Egitto, in particolare la Grande Piramide di Giza, rappresentano una delle più grandi anomalie della storia umana. Costruite ufficialmente intorno al 2500 a.C., mostrano un livello di precisione geometrica e ingegneristica che ancora oggi solleva interrogativi profondi. I blocchi di pietra, alcuni dei quali superano le 70 tonnellate, sono stati posizionati con tolleranze millimetriche, senza l’uso apparente di malta e con un allineamento ai punti cardinali quasi perfetto.\nNon esistono documenti contemporanei che descrivano il metodo di costruzione delle grandi piramidi. Gli strumenti ritrovati nei siti egizi non sembrano compatibili con la lavorazione del granito duro utilizzato nelle camere interne. Inoltre, la Grande Piramide è priva di geroglifici e decorazioni, un fatto anomalo rispetto alle tombe reali dell’epoca.\nStudi moderni basati su scansioni muoniche hanno rivelato la presenza di cavità e strutture interne sconosciute, alimentando l’ipotesi che la piramide potesse avere funzioni diverse da quelle funerarie. Alcuni ricercatori ipotizzano un ruolo astronomico, rituale o simbolico, mentre altri suggeriscono che possa essere il risultato di una conoscenza ereditata da una civiltà precedente. Le piramidi continuano a sfidare la narrazione storica tradizionale e a porre domande fondamentali sulle reali capacità delle civiltà antiche.",
-      "category": "Misteri",
+      "id": "pyramids-egypt",
+      "category": "Mysteries",
       "type": "article",
       "date": "2026-01-30",
       "images": [
         "https://plus.unsplash.com/premium_photo-1661891622579-bee76e28c304?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGlyYW1pZGl8ZW58MHx8MHx8fDA%3D"
-      ]
+      ],
+      "translations": {
+        "en": {
+          "title": "The Pyramids of Egypt: the engineering mystery that challenges official history",
+          "content": "The pyramids of Egypt, particularly the Great Pyramid of Giza, represent one of the greatest anomalies in human history. Officially built around 2500 BC, they show a level of geometric and engineering precision that still raises deep questions today. The stone blocks, some exceeding 70 tons, were placed with millimeter tolerances, without the apparent use of mortar and with an almost perfect alignment to the cardinal points.\nNo contemporary documents describe the construction method of the great pyramids. The tools found at Egyptian sites do not seem compatible with the processing of the hard granite used in the internal chambers. Furthermore, the Great Pyramid is devoid of hieroglyphs and decorations, an anomalous fact compared to the royal tombs of the time.\nModern studies based on muonic scans have revealed the presence of unknown cavities and internal structures, fueling the hypothesis that the pyramid could have functions other than funerary. Some researchers hypothesize an astronomical, ritual or symbolic role, while others suggest that it may be the result of knowledge inherited from a previous civilization. The pyramids continue to challenge traditional historical narrative and pose fundamental questions about the real capabilities of ancient civilizations."
+        },
+        "it": {
+          "title": "Le piramidi d'Egitto: il mistero ingegneristico che sfida la storia ufficiale",
+          "content": "Le piramidi d'Egitto, in particolare la Grande Piramide di Giza, rappresentano una delle più grandi anomalie della storia umana. Costruite ufficialmente intorno al 2500 a.C., mostrano un livello di precisione geometrica e ingegneristica che ancora oggi solleva interrogativi profondi. I blocchi di pietra, alcuni dei quali superano le 70 tonnellate, sono stati posizionati con tolleranze millimetriche, senza l'uso apparente di malta e con un allineamento ai punti cardinali quasi perfetto.\nNon esistono documenti contemporanei che descrivano il metodo di costruzione delle grandi piramidi. Gli strumenti ritrovati nei siti egizi non sembrano compatibili con la lavorazione del granito duro utilizzato nelle camere interne. Inoltre, la Grande Piramide è priva di geroglifici e decorazioni, un fatto anomalo rispetto alle tombe reali dell'epoca.\nStudi moderni basati su scansioni muoniche hanno rivelato la presenza di cavità e strutture interne sconosciute, alimentando l'ipotesi che la piramide potesse avere funzioni diverse da quelle funerarie. Alcuni ricercatori ipotizzano un ruolo astronomico, rituale o simbolico, mentre altri suggeriscono che possa essere il risultato di una conoscenza ereditata da una civiltà precedente. Le piramidi continuano a sfidare la narrazione storica tradizionale e a porre domande fondamentali sulle reali capacità delle civiltà antiche."
+        },
+        "es": {
+          "title": "Las pirámides de Egipto: el misterio de ingeniería que desafía la historia oficial",
+          "content": "Las pirámides de Egipto, particularmente la Gran Pirámide de Giza, representan una de las mayores anomalías en la historia humana. Construidas oficialmente alrededor del 2500 a.C., muestran un nivel de precisión geométrica y de ingeniería que todavía hoy plantea preguntas profundas. Los bloques de piedra, algunos superando las 70 toneladas, fueron colocados con tolerancias milimétricas, sin el uso aparente de mortero y con una alineación casi perfecta a los puntos cardinales.\nNo existen documentos contemporáneos que describan el método de construcción de las grandes pirámides. Las herramientas encontradas en los sitios egipcios no parecen compatibles con el procesamiento del granito duro utilizado en las cámaras internas. Además, la Gran Pirámide carece de jeroglíficos y decoraciones, un hecho anómalo en comparación con las tumbas reales de la época.\nEstudios modernos basados en escaneos muónicos han revelado la presencia de cavidades y estructuras internas desconocidas, alimentando la hipótesis de que la pirámide podría tener funciones diferentes a las funerarias. Algunos investigadores hipotetizan un rol astronómico, ritual o simbólico, mientras que otros sugieren que podría ser el resultado de conocimientos heredados de una civilización anterior. Las pirámides continúan desafiando la narrativa histórica tradicional y plantean preguntas fundamentales sobre las capacidades reales de las civilizaciones antiguas."
+        },
+        "fr": {
+          "title": "Les pyramides d'Égypte : le mystère d'ingénierie qui défie l'histoire officielle",
+          "content": "Les pyramides d'Égypte, en particulier la Grande Pyramide de Gizeh, représentent l'une des plus grandes anomalies de l'histoire humaine. Construites officiellement vers 2500 av. J.-C., elles montrent un niveau de précision géométrique et d'ingénierie qui soulève encore aujourd'hui des questions profondes. Les blocs de pierre, dont certains dépassent 70 tonnes, ont été placés avec des tolérances millimétriques, sans l'utilisation apparente de mortier et avec un alignement presque parfait aux points cardinaux.\nIl n'existe pas de documents contemporains décrivant la méthode de construction des grandes pyramides. Les outils trouvés sur les sites égyptiens ne semblent pas compatibles avec le traitement du granit dur utilisé dans les chambres internes. De plus, la Grande Pyramide est dépourvue de hiéroglyphes et de décorations, un fait anormal par rapport aux tombes royales de l'époque.\nDes études modernes basées sur des scans muoniques ont révélé la présence de cavités et de structures internes inconnues, alimentant l'hypothèse que la pyramide pourrait avoir des fonctions différentes de celles funéraires. Certains chercheurs émettent l'hypothèse d'un rôle astronomique, rituel ou symbolique, tandis que d'autres suggèrent qu'il pourrait s'agir du résultat de connaissances héritées d'une civilisation antérieure. Les pyramides continuent de défier le récit historique traditionnel et posent des questions fondamentales sur les capacités réelles des civilisations anciennes."
+        },
+        "de": {
+          "title": "Die Pyramiden Ägyptens: das Ingenieursmysterium, das die offizielle Geschichte herausfordert",
+          "content": "Die Pyramiden Ägyptens, insbesondere die Große Pyramide von Gizeh, stellen eine der größten Anomalien der Menschheitsgeschichte dar. Offiziell um 2500 v. Chr. erbaut, zeigen sie ein Maß an geometrischer und ingenieurtechnischer Präzision, das noch heute tiefgreifende Fragen aufwirft. Die Steinblöcke, von denen einige 70 Tonnen überschreiten, wurden mit millimetergenauen Toleranzen platziert, ohne erkennbare Verwendung von Mörtel und mit einer fast perfekten Ausrichtung an den Himmelsrichtungen.\nEs gibt keine zeitgenössischen Dokumente, die die Bauweise der großen Pyramiden beschreiben. Die in ägyptischen Stätten gefundenen Werkzeuge scheinen nicht mit der Verarbeitung des harten Granits vereinbar zu sein, der in den inneren Kammern verwendet wurde. Darüber hinaus ist die Große Pyramide frei von Hieroglyphen und Verzierungen, eine Anomalie im Vergleich zu den königlichen Gräbern der damaligen Zeit.\nModerne Studien, die auf myonischen Scans basieren, haben das Vorhandensein unbekannter Hohlräume und innerer Strukturen aufgedeckt und unterstützen die Hypothese, dass die Pyramide andere als nur Bestattungsfunktionen gehabt haben könnte. Einige Forscher vermuten eine astronomische, rituelle oder symbolische Rolle, während andere vorschlagen, dass sie das Ergebnis von Kenntnissen sein könnte, die von einer früheren Zivilisation geerbt wurden. Die Pyramiden stellen weiterhin die traditionelle Geschichtsdarstellung in Frage und werfen grundlegende Fragen über die tatsächlichen Fähigkeiten antiker Zivilisationen auf."
+        },
+        "zh": {
+          "title": "埃及金字塔：挑战官方历史的工程之谜",
+          "content": "埃及金字塔，特别是吉萨大金字塔，代表了人类历史上最大的异常现象之一。据官方记载建于公元前2500年左右，它们展现了几何和工程精度水平，至今仍引发深刻问题。一些重达70多吨的石块，以毫米级公差放置，没有明显使用砂浆，并且与基本方位几乎完美对齐。\n没有当代文献描述大金字塔的建造方法。在埃及遗址发现的工具似乎与内部房间使用的坚硬花岗岩加工不相容。此外，大金字塔没有象形文字和装饰，与当时的皇家陵墓相比这是一个异常现象。\n基于μ子扫描的现代研究揭示了未知的空洞和内部结构的存在，支持了金字塔可能具有除葬礼功能外的其他功能的假设。一些研究人员假设了天文、仪式或象征作用，而其他人则认为这可能是从前一个文明继承的知识的结果。金字塔继续挑战传统的历史叙事，并对古代文明的真实能力提出了根本性问题。"
+        },
+        "ar": {
+          "title": "أهرامات مصر: اللغز الهندسي الذي يتحدى التاريخ الرسمي",
+          "content": "تمثل أهرامات مصر، وخاصة الهرم الأكبر بالجيزة، واحدة من أكبر الشذوذات في تاريخ البشرية. بُنيت رسمياً حوالي عام 2500 قبل الميلاد، وتظهر مستوى من الدقة الهندسية والهندسية لا يزال يثير أسئلة عميقة حتى اليوم. تم وضع كتل الحجر، التي يتجاوز بعضها 70 طناً، بتحملات مليمترية، دون استخدام ملاط واضح وبمحاذاة شبه مثالية للنقاط الأساسية.\nلا توجد وثائق معاصرة تصف طريقة بناء الأهرامات الكبرى. لا تبدو الأدوات الموجودة في المواقع المصرية متوافقة مع معالجة الجرانيت الصلب المستخدم في الغرف الداخلية. علاوة على ذلك، يخلو الهرم الأكبر من الهيروغليفيات والزخارف، وهي حقيقة غير طبيعية مقارنة بمقابر الملوك في ذلك الوقت.\nكشفت الدراسات الحديثة القائمة على المسحات الميونية عن وجود تجاويف وهياكل داخلية غير معروفة، مما يدعم الفرضية القائلة بأن الهرم يمكن أن يكون له وظائف أخرى غير الجنائزية. يفترض بعض الباحثين دوراً فلكياً أو طقسياً أو رمزياً، بينما يقترح آخرون أنه قد يكون نتيجة معرفة موروثة من حضارة سابقة. تستمر الأهرامات في تحدي السرد التاريخي التقليدي وترفع أسئلة أساسية حول القدرات الحقيقية للحضارات القديمة."
+        },
+        "ru": {
+          "title": "Пирамиды Египта: инженерная загадка, бросающая вызов официальной истории",
+          "content": "Пирамиды Египта, в частности Великая пирамида Гизы, представляют собой одну из величайших аномалий в истории человечества. Официально построенные около 2500 г. до н.э., они демонстрируют уровень геометрической и инженерной точности, который до сих пор вызывает глубокие вопросы. Каменные блоки, некоторые из которых превышают 70 тонн, были размещены с миллиметровыми допусками, без видимого использования раствора и с почти идеальным выравниванием по сторонам света.\nНе существует современных документов, описывающих метод строительства великих пирамид. Инструменты, найденные на египетских объектах, не совместимы с обработкой твердого гранита, использованного во внутренних камерах. Кроме того, Великая пирамида лишена иероглифов и украшений, что является аномальным фактом по сравнению с царскими гробницами того времени.\nСовременные исследования, основанные на мюонном сканировании, выявили наличие неизвестных полостей и внутренних структур, поддерживая гипотезу о том, что пирамида могла иметь функции, отличные от погребальных. Некоторые исследователи предполагают астрономическую, ритуальную или символическую роль, в то время как другие предполагают, что это может быть результатом знаний, унаследованных от предшествующей цивилизации. Пирамиды продолжают бросать вызов традиционной исторической наррации и ставят фундаментальные вопросы о реальных возможностях древних цивилизаций."
+        },
+        "ur": {
+          "title": "مصر کے اہرام: انجینئرنگ کا معمہ جو سرکاری تاریخ کو چیلنج کرتا ہے",
+          "content": "مصر کے اہرام، خاص طور پر گیزہ کا عظیم ہرم، انسانی تاریخ کی سب سے بڑی غیر معمولی باتوں میں سے ایک ہے۔ سرکاری طور پر 2500 قبل مسیح کے قریب تعمیر کیا گیا، یہ ہندسی اور انجینئرنگ کی درستگی کا ایک ایسا سطح دکھاتا ہے جو آج بھی گہرے سوالات اٹھاتا ہے۔ پتھر کے بلاکس، جن میں سے کچھ 70 ٹن سے زیادہ ہیں، ملی میٹر رواداری کے ساتھ رکھے گئے تھے، بغیر گارے کے ظاہر استعمال کے اور کارڈنل پوائنٹس کے ساتھ تقریباً کامل سیدھ میں۔\nاس وقت کے کوئی دستاویزات موجود نہیں ہیں جو بڑے اہراموں کے تعمیر کے طریقہ کار کو بیان کرتی ہوں۔ مصری مقامات پر پائے جانے والے اوزار اندرونی کمرے میں استعمال ہونے والے سخت گرینائٹ کے پروسیسنگ کے ساتھ مطابقت پذیر نہیں لگتے۔ مزید برآں، عظیم ہرم ہائروگلیفس اور سجاوٹ سے خالی ہے، جو اس وقت کی شاہی قبروں کے مقابلے میں ایک غیر معمولی حقیقت ہے۔\nمیونک اسکیننگ پر مبنی جدید مطالعے نے نامعلوم کھوکھلی اور اندرونی ڈھانچے کی موجودگی کا انکشاف کیا ہے، جو اس مفروضے کو تقویت دیتا ہے کہ ہرم کے جنازے کے علاوہ دیگر افعال ہو سکتے ہیں۔ کچھ محققین ایک فلکیاتی، رسمی یا علامتی کردار کا قیاس کرتے ہیں، جبکہ دوسرے تجویز کرتے ہیں کہ یہ پچھلی تہذیب سے وراثت میں ملنے والے علم کا نتیجہ ہو سکتا ہے۔ اہرام روایتی تاریخی بیانیے کو چیلنج کرتے رہتے ہیں اور قدیم تہذیبوں کی حقیقی صلاحیتوں کے بارے میں بنیادی سوالات اٹھاتے ہیں۔"
+        }
+      }
     },
     {
-      "title": "Vajont: la tragedia annunciata che nessuno volle fermare",
-      "content": "Il disastro del Vajont, avvenuto il 9 ottobre 1963, è considerato una delle più grandi tragedie evitabili della storia italiana. La diga del Vajont, all’epoca una delle più alte al mondo, era stata costruita in un’area geologicamente fragile, ai piedi del Monte Toc, noto per la sua instabilità.\nGià durante la fase di progettazione, diversi geologi avevano segnalato il rischio di una frana di grandi dimensioni. Nei mesi precedenti al disastro, il versante della montagna mostrava segni evidenti di movimento: fratture nel terreno, piccoli smottamenti e rumori sotterranei. Nonostante questi segnali, le operazioni continuarono senza evacuare le popolazioni a valle.\nQuando una massa di circa 270 milioni di metri cubi di roccia precipitò nel bacino artificiale, l’acqua generò un’onda gigantesca che superò la diga e si abbatté sui paesi sottostanti, distruggendo Longarone e causando quasi duemila vittime. Il Vajont non fu un fallimento tecnico della diga, ma un fallimento umano, politico e industriale, diventando il simbolo delle conseguenze della negligenza e dell’arroganza del progresso.",
-      "category": "Storia",
+      "id": "vajont-disaster",
+      "category": "History",
       "type": "article",
       "date": "2026-01-31",
       "images": [
         "https://media.istockphoto.com/id/1213547474/it/foto/vajont-dam-in-longarone.webp?a=1&b=1&s=612x612&w=0&k=20&c=ILRHHc21otTwWRMujDz0wuCn9boAv5joJegpclUSw2k="
-      ]
+      ],
+      "translations": {
+        "en": {
+          "title": "Vajont: the announced tragedy that no one wanted to stop",
+          "content": "The Vajont disaster, which occurred on October 9, 1963, is considered one of the greatest preventable tragedies in Italian history. The Vajont dam, at the time one of the highest in the world, had been built in a geologically fragile area, at the foot of Mount Toc, known for its instability.\nAlready during the design phase, several geologists had reported the risk of a large landslide. In the months preceding the disaster, the mountainside showed clear signs of movement: ground fractures, small landslides and underground noises. Despite these signals, operations continued without evacuating the populations downstream.\nWhen a mass of approximately 270 million cubic meters of rock fell into the artificial basin, the water generated a gigantic wave that overcame the dam and hit the villages below, destroying Longarone and causing almost two thousand victims. Vajont was not a technical failure of the dam, but a human, political and industrial failure, becoming the symbol of the consequences of negligence and the arrogance of progress."
+        },
+        "it": {
+          "title": "Vajont: la tragedia annunciata che nessuno volle fermare",
+          "content": "Il disastro del Vajont, avvenuto il 9 ottobre 1963, è considerato una delle più grandi tragedie evitabili della storia italiana. La diga del Vajont, all'epoca una delle più alte al mondo, era stata costruita in un'area geologicamente fragile, ai piedi del Monte Toc, noto per la sua instabilità.\nGià durante la fase di progettazione, diversi geologi avevano segnalato il rischio di una frana di grandi dimensioni. Nei mesi precedenti al disastro, il versante della montagna mostrava segni evidenti di movimento: fratture nel terreno, piccoli smottamenti e rumori sotterranei. Nonostante questi segnali, le operazioni continuarono senza evacuare le popolazioni a valle.\nQuando una massa di circa 270 milioni di metri cubi di roccia precipitò nel bacino artificiale, l'acqua generò un'onda gigantesca che superò la diga e si abbatté sui paesi sottostanti, distruggendo Longarone e causando quasi duemila vittime. Il Vajont non fu un fallimento tecnico della diga, ma un fallimento umano, politico e industriale, diventando il simbolo delle conseguenze della negligenza e dell'arroganza del progresso."
+        },
+        "es": {
+          "title": "Vajont: la tragedia anunciada que nadie quiso detener",
+          "content": "El desastre de Vajont, ocurrido el 9 de octubre de 1963, es considerado una de las mayores tragedias evitables de la historia italiana. La presa de Vajont, en ese momento una de las más altas del mundo, había sido construida en un área geológicamente frágil, al pie del Monte Toc, conocido por su inestabilidad.\nYa durante la fase de diseño, varios geólogos habían informado sobre el riesgo de un gran deslizamiento de tierra. En los meses previos al desastre, la ladera de la montaña mostraba signos evidentes de movimiento: fracturas en el suelo, pequeños deslizamientos y ruidos subterráneos. A pesar de estas señales, las operaciones continuaron sin evacuar a las poblaciones aguas abajo.\nCuando una masa de aproximadamente 270 millones de metros cúbicos de roca cayó en la cuenca artificial, el agua generó una ola gigantesca que superó la presa y golpeó los pueblos de abajo, destruyendo Longarone y causando casi dos mil víctimas. Vajont no fue un fallo técnico de la presa, sino un fracaso humano, político e industrial, convirtiéndose en el símbolo de las consecuencias de la negligencia y la arrogancia del progreso."
+        },
+        "fr": {
+          "title": "Vajont : la tragédie annoncée que personne n'a voulu arrêter",
+          "content": "La catastrophe de Vajont, survenue le 9 octobre 1963, est considérée comme l'une des plus grandes tragédies évitables de l'histoire italienne. Le barrage de Vajont, à l'époque l'un des plus hauts du monde, avait été construit dans une zone géologiquement fragile, au pied du mont Toc, connu pour son instabilité.\nDès la phase de conception, plusieurs géologues avaient signalé le risque d'un important glissement de terrain. Dans les mois précédant la catastrophe, le flanc de la montagne montrait des signes évidents de mouvement : fractures du sol, petits glissements et bruits souterrains. Malgré ces signaux, les opérations ont continué sans évacuer les populations en aval.\nLorsqu'une masse d'environ 270 millions de mètres cubes de roche est tombée dans le bassin artificiel, l'eau a généré une vague gigantesque qui a franchi le barrage et frappé les villages en dessous, détruisant Longarone et faisant près de deux mille victimes. Vajont n'a pas été un échec technique du barrage, mais un échec humain, politique et industriel, devenant le symbole des conséquences de la négligence et de l'arrogance du progrès."
+        },
+        "de": {
+          "title": "Vajont: die angekündigte Tragödie, die niemand stoppen wollte",
+          "content": "Die Vajont-Katastrophe, die am 9. Oktober 1963 stattfand, gilt als eine der größten vermeidbaren Tragödien in der italienischen Geschichte. Die Vajont-Talsperre, damals eine der höchsten der Welt, war in einem geologisch fragilen Gebiet am Fuße des Monte Toc errichtet worden, der für seine Instabilität bekannt ist.\nBereits während der Planungsphase hatten mehrere Geologen auf das Risiko eines großen Erdrutsches hingewiesen. In den Monaten vor der Katastrophe zeigte der Berghang deutliche Anzeichen von Bewegung: Bodenrisse, kleine Erdrutsche und unterirdische Geräusche. Trotz dieser Signale wurden die Arbeiten fortgesetzt, ohne die Bevölkerung flussabwärts zu evakuieren.\nAls eine Masse von etwa 270 Millionen Kubikmetern Gestein in das künstliche Becken stürzte, erzeugte das Wasser eine gigantische Welle, die den Damm überwand und die darunter liegenden Dörfer traf, Longarone zerstörte und fast zweitausend Opfer forderte. Vajont war kein technisches Versagen des Damms, sondern ein menschliches, politisches und industrielles Versagen und wurde zum Symbol für die Folgen von Fahrlässigkeit und Fortschrittsarroganz."
+        },
+        "zh": {
+          "title": "瓦伊昂特：无人愿意阻止的预告悲剧",
+          "content": "1963年10月9日发生的瓦伊昂特大坝灾难被认为是意大利历史上最严重的可预防悲剧之一。瓦伊昂特大坝当时是世界上最高的大坝之一，建在地质脆弱地区，位于以不稳定著称的托克山脚下。\n早在设计阶段，几位地质学家就已经报告了大滑坡的风险。灾难发生前的几个月，山体显示出明显的运动迹象：地面裂缝、小型滑坡和地下噪音。尽管有这些信号，作业仍在继续，没有疏散下游居民。\n当约2.7亿立方米的岩石体坠入人工水库时，水产生了巨大的波浪，越过水坝，袭击了下游村庄，摧毁了隆加罗内，造成近两千人死亡。瓦伊昂特不是大坝的技术故障，而是人类、政治和工业的失败，成为疏忽和进步傲慢后果的象征。"
+        },
+        "ar": {
+          "title": "فاجونت: المأساة المعلنة التي لم يرغب أحد في إيقافها",
+          "content": "تعتبر كارثة فاجونت، التي وقعت في 9 أكتوبر 1963، واحدة من أعظم المآسي التي يمكن تجنبها في التاريخ الإيطالي. كان سد فاجونت، في ذلك الوقت أحد أعلى السدود في العالم، قد بُني في منطقة جيولوجية هشة، عند سفح جبل توك، المعروف بعدم استقراره.\nأثناء مرحلة التصميم، كان العديد من الجيولوجيين قد أبلغوا بخطر حدوث انهيار أرضي كبير. في الأشهر السابقة للكارثة، أظهر منحدر الجبل علامات واضحة على الحركة: كسور في الأرض، وانهيارات أرضية صغيرة، وضوضاء تحت الأرض. على الرغم من هذه الإشارات، استمرت العمليات دون إخلاء السكان المصب.\nعندما سقطت كتلة من الصخور تبلغ حوالي 270 مليون متر مكعب في الحوض الاصطناعي، ولد الماء موجة عملاقة تجاوزت السد وضربت القرى أدناه، ودمرت لونجاروني وتسببت في ما يقرب من ألفي ضحية. لم يكن فاجونت فشلاً تقنياً للسد، بل فشلاً بشرياً وسياسياً وصناعياً، ليصبح رمزاً لعواقب الإهمال وتعجرف التقدم."
+        },
+        "ru": {
+          "title": "Вайонт: объявленная трагедия, которую никто не хотел останавливать",
+          "content": "Катастрофа на Вайонте, произошедшая 9 октября 1963 года, считается одной из величайших предотвратимых трагедий в итальянской истории. Плотина Вайонт, в то время одна из самых высоких в мире, была построена в геологически хрупкой зоне, у подножия горы Ток, известной своей нестабильностью.\nЕще на этапе проектирования несколько геологов сообщили о риске крупного оползня. В месяцы, предшествовавшие катастрофе, склон горы проявлял явные признаки движения: трещины в грунте, небольшие оползни и подземные шумы. Несмотря на эти сигналы, работы продолжались без эвакуации населения ниже по течению.\nКогда масса приблизительно 270 миллионов кубических метров породы упала в искусственный бассейн, вода породила гигантскую волну, которая преодолела плотину и обрушилась на деревни внизу, разрушив Лонгароне и вызвав почти две тысячи жертв. Вайонт был не техническим провалом плотины, а человеческим, политическим и промышленным провалом, став символом последствий халатности и высокомерия прогресса."
+        },
+        "ur": {
+          "title": "واجونٹ: اعلان کردہ سانحہ جسے کوئی روکنا نہیں چاہتا تھا",
+          "content": "واجونٹ کی تباہی، جو 9 اکتوبر 1963 کو واقع ہوئی، کو اطالوی تاریخ کے سب سے بڑے قابل تلافی سانحوں میں سے ایک سمجھا جاتا ہے۔ واجونٹ ڈیم، جو اس وقت دنیا کے بلند ترین ڈیموں میں سے ایک تھا، ایک جیولوجیکل لحاظ سے نازک علاقے میں بنایا گیا تھا، ماؤنٹ ٹوک کے دامن میں، جو اپنی عدم استحکام کے لیے جانا جاتا ہے۔\nڈیزائن کے مرحلے کے دوران ہی، کئی ارضیات دانوں نے بڑے لینڈ سلائیڈ کے خطرے کی اطلاع دی تھی۔ تباہی سے پہلے کے مہینوں میں، پہاڑی ڈھلان حرکت کے واضح علامات دکھا رہی تھی: زمین میں دراڑیں، چھوٹے لینڈ سلائیڈز اور زیر زمین شور۔ ان اشاروں کے باوجود، آپریشنز نیچے کے آبادیوں کو بغیر نکالے جاری رہے۔\nجب تقریباً 270 ملین کیوبک میٹر چٹان کا ایک ماس مصنوعی بیسن میں گر گیا، تو پانی نے ایک عظیم الشان لہر پیدا کی جس نے ڈیم کو عبور کیا اور نیچے کے گاؤں پر ٹکرائی، لونگارون کو تباہ کر دیا اور تقریباً دو ہزار ہلاکتیں ہوئیں۔ واجونٹ ڈیم کا تکنیکی ناکامی نہیں تھا، بلکہ ایک انسانی، سیاسی اور صنعتی ناکامی تھی، جو لاپرواہی اور ترقی کے گھمنڈ کے نتائج کی علامت بن گئی۔"
+        }
+      }
     },
     {
-      "title": "MH370: il mistero irrisolto dell’aviazione moderna",
-      "content": "L’8 marzo 2014 il volo MH370 della Malaysia Airlines scomparve dai radar con 239 persone a bordo, dando origine a uno dei più grandi misteri dell’aviazione civile. Dopo il decollo da Kuala Lumpur verso Pechino, le comunicazioni si interruppero improvvisamente e il transponder venne disattivato, mentre l’aereo cambiava rotta senza alcuna spiegazione ufficiale.\nLe indagini internazionali coinvolsero decine di paesi e portarono a una delle operazioni di ricerca più costose della storia. Le analisi dei segnali satellitari suggerirono una possibile rotta verso l’Oceano Indiano, ma le ricerche non riuscirono mai a individuare il relitto principale. Solo alcuni frammenti compatibili con il Boeing 777 furono ritrovati anni dopo sulle coste dell’Africa.\nLe ipotesi avanzate spaziano dal guasto tecnico all’atto deliberato, fino a scenari mai completamente chiariti. L’assenza di risposte definitive ha lasciato famiglie, investigatori e opinione pubblica senza una verità certa. Il caso MH370 evidenzia i limiti dei sistemi di controllo aereo globali e rimane una ferita aperta nella storia dell’aviazione.",
-      "category": "Misteri",
+      "id": "mh370-mystery",
+      "category": "Mysteries",
       "type": "article",
       "date": "2026-01-31",
       "images": [
         "https://plus.unsplash.com/premium_photo-1679954420929-72dc48e5176c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TUgzNzB8ZW58MHx8MHx8fDA%3D"
-      ]
+      ],
+      "translations": {
+        "en": {
+          "title": "MH370: the unsolved mystery of modern aviation",
+          "content": "On March 8, 2014, Malaysia Airlines flight MH370 disappeared from radar with 239 people on board, giving rise to one of the greatest mysteries in civil aviation. After takeoff from Kuala Lumpur to Beijing, communications were suddenly interrupted and the transponder was disabled, while the plane changed course without any official explanation.\nInternational investigations involved dozens of countries and led to one of the most expensive search operations in history. Analyses of satellite signals suggested a possible route towards the Indian Ocean, but searches never managed to locate the main wreckage. Only some fragments compatible with the Boeing 777 were found years later on the coasts of Africa.\nThe hypotheses advanced range from technical failure to deliberate act, up to scenarios never fully clarified. The absence of definitive answers has left families, investigators and public opinion without a certain truth. The MH370 case highlights the limits of global air control systems and remains an open wound in aviation history."
+        },
+        "it": {
+          "title": "MH370: il mistero irrisolto dell'aviazione moderna",
+          "content": "L'8 marzo 2014 il volo MH370 della Malaysia Airlines scomparve dai radar con 239 persone a bordo, dando origine a uno dei più grandi misteri dell'aviazione civile. Dopo il decollo da Kuala Lumpur verso Pechino, le comunicazioni si interruppero improvvisamente e il transponder venne disattivato, mentre l'aereo cambiava rotta senza alcuna spiegazione ufficiale.\nLe indagini internazionali coinvolsero decine di paesi e portarono a una delle operazioni di ricerca più costose della storia. Le analisi dei segnali satellitari suggerirono una possibile rotta verso l'Oceano Indiano, ma le ricerche non riuscirono mai a individuare il relitto principale. Solo alcuni frammenti compatibili con il Boeing 777 furono ritrovati anni dopo sulle coste dell'Africa.\nLe ipotesi avanzate spaziano dal guasto tecnico all'atto deliberato, fino a scenari mai completamente chiariti. L'assenza di risposte definitive ha lasciato famiglie, investigatori e opinione pubblica senza una verità certa. Il caso MH370 evidenzia i limiti dei sistemi di controllo aereo globali e rimane una ferita aperta nella storia dell'aviazione."
+        },
+        "es": {
+          "title": "MH370: el misterio sin resolver de la aviación moderna",
+          "content": "El 8 de marzo de 2014, el vuelo MH370 de Malaysia Airlines desapareció de los radares con 239 personas a bordo, dando lugar a uno de los mayores misterios de la aviación civil. Después del despegue de Kuala Lumpur hacia Pekín, las comunicaciones se interrumpieron repentinamente y el transpondedor se desactivó, mientras el avión cambiaba de rumbo sin ninguna explicación oficial.\nLas investigaciones internacionales involucraron a decenas de países y llevaron a una de las operaciones de búsqueda más costosas de la historia. Los análisis de las señales satelitales sugirieron una posible ruta hacia el Océano Índico, pero las búsquedas nunca lograron localizar los restos principales. Solo algunos fragmentos compatibles con el Boeing 777 fueron encontrados años después en las costas de África.\nLas hipótesis planteadas van desde una falla técnica hasta un acto deliberado, hasta escenarios nunca completamente aclarados. La ausencia de respuestas definitivas ha dejado a familias, investigadores y opinión pública sin una verdad cierta. El caso MH370 destaca los límites de los sistemas globales de control aéreo y sigue siendo una herida abierta en la historia de la aviación."
+        },
+        "fr": {
+          "title": "MH370 : le mystère non résolu de l'aviation moderne",
+          "content": "Le 8 mars 2014, le vol MH370 de Malaysia Airlines a disparu des radars avec 239 personnes à bord, donnant lieu à l'un des plus grands mystères de l'aviation civile. Après le décollage de Kuala Lumpur à destination de Pékin, les communications ont été soudainement interrompues et le transpondeur désactivé, tandis que l'avion changeait de cap sans aucune explication officielle.\nLes enquêtes internationales ont impliqué des dizaines de pays et ont conduit à l'une des opérations de recherche les plus coûteuses de l'histoire. Les analyses des signaux satellites ont suggéré une route possible vers l'océan Indien, mais les recherches n'ont jamais réussi à localiser l'épave principale. Seuls quelques fragments compatibles avec le Boeing 777 ont été retrouvés des années plus tard sur les côtes africaines.\nLes hypothèses avancées vont de la défaillance technique à l'acte délibéré, jusqu'à des scénarios jamais complètement clarifiés. L'absence de réponses définitives a laissé les familles, les enquêteurs et l'opinion publique sans vérité certaine. Le cas MH370 met en lumière les limites des systèmes de contrôle aérien mondiaux et reste une blessure ouverte dans l'histoire de l'aviation."
+        },
+        "de": {
+          "title": "MH370: das ungelöste Rätsel der modernen Luftfahrt",
+          "content": "Am 8. März 2014 verschwand Malaysia-Airlines-Flug MH370 mit 239 Menschen an Bord vom Radar und gab Anlass zu einem der größten Rätsel der zivilen Luftfahrt. Nach dem Start von Kuala Lumpur nach Peking wurden die Kommunikationen plötzlich unterbrochen und der Transponder deaktiviert, während das Flugzeug ohne offizielle Erklärung den Kurs änderte.\nInternationale Ermittlungen beteiligten Dutzende von Ländern und führten zu einer der teuersten Suchoperationen der Geschichte. Analysen von Satellitensignalen deuteten auf eine mögliche Route in Richtung Indischen Ozean hin, aber die Suche konnte das Hauptwrack nie lokalisieren. Nur einige mit der Boeing 777 kompatible Fragmente wurden Jahre später an den Küsten Afrikas gefunden.\nDie aufgestellten Hypothesen reichen von technischem Versagen über vorsätzliche Handlungen bis hin zu nie vollständig aufgeklärten Szenarien. Das Fehlen endgültiger Antworten hat Familien, Ermittler und die Öffentlichkeit ohne sichere Wahrheit zurückgelassen. Der Fall MH370 verdeutlicht die Grenzen der globalen Flugüberwachungssysteme und bleibt eine offene Wunde in der Luftfahrtgeschichte."
+        },
+        "zh": {
+          "title": "MH370：现代航空的未解之谜",
+          "content": "2014年3月8日，马来西亚航空公司MH370航班从雷达上消失，机上239人，成为民航史上最大的谜团之一。从吉隆坡飞往北京起飞后，通讯突然中断，应答器被禁用，飞机在没有官方解释的情况下改变了航线。\n国际调查涉及数十个国家，并成为历史上最昂贵的搜索行动之一。卫星信号分析表明可能飞往印度洋的路线，但搜索从未找到主要残骸。直到几年后，在非洲海岸才找到一些与波音777兼容的碎片。\n提出的假设范围从技术故障到蓄意行为，再到从未完全澄清的情况。缺乏明确答案使家属、调查人员和公众舆论无法得到确定真相。MH370案件突显了全球空中管制系统的局限性，并仍然是航空史上一个未愈合的伤口。"
+        },
+        "ar": {
+          "title": "MH370: اللغز غير المحلول للطيران الحديث",
+          "content": "في 8 مارس 2014، اختفى رحلة ماليزيا للخطوط الجوية MH370 من الرادار وعلى متنها 239 شخصاً، مما أدى إلى نشوء أحد أعظم الألغاز في الطيران المدني. بعد الإقلاع من كوالالمبور إلى بكين، توقفت الاتصالات فجأة وتم تعطيل جهاز الإرسال، بينما غيرت الطائرة مسارها دون أي تفسير رسمي.\nاشتملت التحقيقات الدولية على عشرات الدول وأدت إلى واحدة من أكثر عمليات البحث تكلفة في التاريخ. اقترحت تحليلات إشارات الأقمار الصناعية مساراً محتملاً نحو المحيط الهندي، لكن عمليات البحث لم تتمكن مطلقاً من تحديد موقع الحطام الرئيسي. تم العثور على بعض الشظايا المتوافقة مع طائرة بوينغ 777 فقط بعد سنوات على سواحل أفريقيا.\nتتراوح الفرضيات المطروحة من عطل تقني إلى فعل متعمد، وحتى سيناريوهات لم يتم توضيحها بالكامل. غياب الإجابات النهائية ترك العائلات والمحققين والرأي العام بدون حقيقة مؤكدة. تسلط قضية MH370 الضوء على حدود أنظمة التحكم الجوي العالمية وتظل جرحاً مفتوحاً في تاريخ الطيران."
+        },
+        "ru": {
+          "title": "MH370: неразгаданная тайна современной авиации",
+          "content": "8 марта 2014 года рейс MH370 авиакомпании Malaysia Airlines исчез с радаров с 239 людьми на борту, что привело к одной из величайших загадок гражданской авиации. После вылета из Куала-Лумпура в Пекин связь внезапно прервалась, и транспондер был отключен, в то время как самолет изменил курс без какого-либо официального объяснения.\nМеждународные расследования охватили десятки стран и привели к одной из самых дорогостоящих поисковых операций в истории. Анализ спутниковых сигналов предположил возможный маршрут в сторону Индийского океана, но поискам так и не удалось обнаружить основное место крушения. Лишь некоторые фрагменты, совместимые с Boeing 777, были обнаружены спустя годы на побережьях Африки.\nВыдвинутые гипотезы варьируются от технического сбоя до преднамеренного акта, вплоть до сценариев, никогда не проясненных полностью. Отсутствие окончательных ответов оставило семьи, следователей и общественное мнение без определенной истины. Дело MH370 подчеркивает ограниченность глобальных систем управления воздушным движением и остается открытой раной в истории авиации."
+        },
+        "ur": {
+          "title": "MH370: جدید ہوابازی کا حل نہ ہونے والا معمہ",
+          "content": "8 مارچ 2014 کو، ملائیشیا ایئرلائنز کی پرواز MH370 239 افراد کے ساتھ ریڈار سے غائب ہو گئی، جس سے سول ایوی ایشن کے سب سے بڑے اسراروں میں سے ایک کی ابتدا ہوئی۔ کوالالمپور سے بیجنگ کے لیے ٹیک آف کے بعد، مواصلات اچانک منقطع ہو گئیں اور ٹرانزپونڈر غیر فعال ہو گیا، جبکہ جہاز نے بغیر کسی سرکاری وضاحت کے راستہ تبدیل کر دیا۔\nبین الاقوامی تفتیش میں درجنوں ممالک شامل تھے اور تاریخ کی سب سے مہنگی تلاش کے آپریشنز میں سے ایک کا باعث بنی۔ سیٹلائٹ سگنلز کے تجزیے نے ہندوستانی سمندر کی طرف ایک ممکنہ راستے کی تجویز پیش کی، لیکن تلاش کبھی بھی اہم ملبے کا پتہ لگانے میں کامیاب نہ ہو سکی۔ صرف بوئنگ 777 کے مطابق کچھ ٹکڑے سالوں بعد افریقہ کے ساحلوں پر پائے گئے۔\nپیش کی گئی مفروضے تکنیکی ناکامی سے لے کر ارادی عمل تک، حتیٰ کہ کبھی مکمل طور پر واضح نہ ہونے والے منظرناموں تک پھیلے ہوئے ہیں۔ حتمی جوابات کی عدم موجودگی نے خاندانوں، تفتیش کاروں اور عوامی رائے کو یقینی سچائی کے بغیر چھوڑ دیا ہے۔ MH370 کا معاملہ عالمی فضائی کنٹرول سسٹمز کی حدود کو اجاگر کرتا ہے اور ہوابازی کی تاریخ میں ایک کھلا زخم رہتا ہے۔"
+        }
+      }
     },
     {
-      "title": "MH370: il mistero irrisolto dell’aviazione moderna (Video)",
-      "content": "Un approfondimento video sul mistero del volo MH370 della Malaysia Airlines, con analisi degli eventi e delle ipotesi più accreditate.",
-      "category": "Misteri",
+      "id": "mh370-video",
+      "category": "Mysteries",
       "type": "video",
       "date": "2026-02-01",
       "videoUrl": "https://www.youtube.com/embed/890wWM0lg94",
       "images": [
         "https://img.youtube.com/vi/890wWM0lg94/hqdefault.jpg"
-      ]
+      ],
+      "translations": {
+        "en": {
+          "title": "MH370: the unsolved mystery of modern aviation (Video)",
+          "content": "An in-depth video on the mystery of Malaysia Airlines flight MH370, with analysis of events and the most accredited hypotheses."
+        },
+        "it": {
+          "title": "MH370: il mistero irrisolto dell'aviazione moderna (Video)",
+          "content": "Un approfondimento video sul mistero del volo MH370 della Malaysia Airlines, con analisi degli eventi e delle ipotesi più accreditate."
+        },
+        "es": {
+          "title": "MH370: el misterio sin resolver de la aviación moderna (Video)",
+          "content": "Un video en profundidad sobre el misterio del vuelo MH370 de Malaysia Airlines, con análisis de eventos y las hipótesis más acreditadas."
+        },
+        "fr": {
+          "title": "MH370 : le mystère non résolu de l'aviation moderne (Vidéo)",
+          "content": "Une vidéo approfondie sur le mystère du vol MH370 de Malaysia Airlines, avec une analyse des événements et des hypothèses les plus accréditées."
+        },
+        "de": {
+          "title": "MH370: das ungelöste Rätsel der modernen Luftfahrt (Video)",
+          "content": "Ein ausführliches Video zum Rätsel um Malaysia-Airlines-Flug MH370 mit einer Analyse der Ereignisse und der am besten bewerteten Hypothesen."
+        },
+        "zh": {
+          "title": "MH370：现代航空的未解之谜（视频）",
+          "content": "关于马来西亚航空公司MH370航班之谜的深度视频，分析事件和最受认可的假设。"
+        },
+        "ar": {
+          "title": "MH370: اللغز غير المحلول للطيران الحديث (فيديو)",
+          "content": "فيديو متعمق حول لغز رحلة ماليزيا للخطوط الجوية MH370، مع تحليل للأحداث والفرضيات الأكثر مصداقية."
+        },
+        "ru": {
+          "title": "MH370: неразгаданная тайна современной авиации (Видео)",
+          "content": "Углубленное видео о загадке рейса MH370 авиакомпании Malaysia Airlines с анализом событий и наиболее авторитетных гипотез."
+        },
+        "ur": {
+          "title": "MH370: جدید ہوابازی کا حل نہ ہونے والا معمہ (ویڈیو)",
+          "content": "ملائیشیا ایئرلائنز کی پرواز MH370 کے معمے پر ایک گہرا ویڈیو، واقعات اور سب سے زیادہ معتبر مفروضوں کے تجزیے کے ساتھ۔"
+        }
+      }
     },
     {
-      "title": "Guerra in Palestina: civili sotto assedio e crisi umanitaria crescente",
-      "content": "La guerra in Palestina continua a colpire in modo devastante la popolazione civile. Bombardamenti su aree densamente abitate, distruzione di infrastrutture essenziali e restrizioni ai movimenti stanno creando una crisi umanitaria di proporzioni drammatiche. Ospedali al collasso, mancanza di elettricità, acqua potabile e medicinali rendono la vita quotidiana una lotta per la sopravvivenza.\nOrganizzazioni umanitarie internazionali denunciano l’uso sproporzionato della forza e violazioni sistematiche del diritto internazionale. La popolazione palestinese, in particolare donne e bambini, continua a pagare il prezzo più alto del conflitto. Nonostante gli appelli al cessate il fuoco e all’apertura di corridoi umanitari, la situazione resta critica.\nLa narrazione del conflitto appare spesso frammentata e incompleta, mentre sul campo si consuma una tragedia umana che rischia di diventare permanente. La guerra in Palestina non è solo un conflitto militare, ma una crisi morale e politica che interroga la comunità internazionale.",
-      "category": "Attualità",
+      "id": "palestine-war",
+      "category": "Current Affairs",
       "type": "news",
       "date": "2026-01-31",
       "images": [
-        "https://images.unsplash.com/photo-1621268409464-cc9dbb7a5336?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGFsZXN0aW5hfGVufDB8fDB8fHww"
-      ]
+        "https://images.unsplash.com/photo-1621268409464-cc9dbb7a5336?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGFsZXN0aW5lfGVufDB8fDB8fHww"
+      ],
+      "translations": {
+        "en": {
+          "title": "War in Palestine: civilians under siege and growing humanitarian crisis",
+          "content": "The war in Palestine continues to hit the civilian population in a devastating way. Bombings in densely populated areas, destruction of essential infrastructure and restrictions on movements are creating a humanitarian crisis of dramatic proportions. Hospitals collapsing, lack of electricity, drinking water and medicines make daily life a struggle for survival.\nInternational humanitarian organizations denounce the disproportionate use of force and systematic violations of international law. The Palestinian population, especially women and children, continues to pay the highest price of the conflict. Despite appeals for a ceasefire and the opening of humanitarian corridors, the situation remains critical.\nThe narrative of the conflict often appears fragmented and incomplete, while on the ground a human tragedy is unfolding that risks becoming permanent. The war in Palestine is not only a military conflict, but a moral and political crisis that questions the international community."
+        },
+        "it": {
+          "title": "Guerra in Palestina: civili sotto assedio e crisi umanitaria crescente",
+          "content": "La guerra in Palestina continua a colpire in modo devastante la popolazione civile. Bombardamenti su aree densamente abitate, distruzione di infrastrutture essenziali e restrizioni ai movimenti stanno creando una crisi umanitaria di proporzioni drammatiche. Ospedali al collasso, mancanza di elettricità, acqua potabile e medicinali rendono la vita quotidiana una lotta per la sopravvivenza.\nOrganizzazioni umanitarie internazionali denunciano l'uso sproporzionato della forza e violazioni sistematiche del diritto internazionale. La popolazione palestinese, in particolare donne e bambini, continua a pagare il prezzo più alto del conflitto. Nonostante gli appelli al cessate il fuoco e all'apertura di corridoi umanitari, la situazione resta critica.\nLa narrazione del conflitto appare spesso frammentata e incompleta, mentre sul campo si consuma una tragedia umana che rischia di diventare permanente. La guerra in Palestina non è solo un conflitto militare, ma una crisi morale e politica che interroga la comunità internazionale."
+        },
+        "es": {
+          "title": "Guerra en Palestina: civiles bajo asedio y creciente crisis humanitaria",
+          "content": "La guerra en Palestina continúa golpeando de manera devastadora a la población civil. Bombardeos en áreas densamente pobladas, destrucción de infraestructuras esenciales y restricciones a los movimientos están creando una crisis humanitaria de proporciones dramáticas. Hospitales colapsados, falta de electricidad, agua potable y medicamentos hacen de la vida diaria una lucha por la supervivencia.\nOrganizaciones humanitarias internacionales denuncian el uso desproporcionado de la fuerza y las violaciones sistemáticas del derecho internacional. La población palestina, especialmente mujeres y niños, continúa pagando el precio más alto del conflicto. A pesar de los llamamientos al cese al fuego y a la apertura de corredores humanitarios, la situación sigue siendo crítica.\nLa narrativa del conflicto a menudo parece fragmentada e incompleta, mientras que en el terreno se desarrolla una tragedia humana que corre el riesgo de volverse permanente. La guerra en Palestina no es solo un conflicto militar, sino una crisis moral y política que interroga a la comunidad internacional."
+        },
+        "fr": {
+          "title": "Guerre en Palestine : civils assiégés et crise humanitaire grandissante",
+          "content": "La guerre en Palestine continue de frapper la population civile de manière dévastatrice. Des bombardements dans des zones densément peuplées, la destruction d'infrastructures essentielles et des restrictions aux mouvements créent une crise humanitaire aux proportions dramatiques. Des hôpitaux en déliquescence, le manque d'électricité, d'eau potable et de médicaments font de la vie quotidienne une lutte pour la survie.\nLes organisations humanitaires internationales dénoncent l'utilisation disproportionnée de la force et les violations systématiques du droit international. La population palestinienne, en particulier les femmes et les enfants, continue de payer le prix le plus élevé du conflit. Malgré les appels au cessez-le-feu et à l'ouverture de couloirs humanitaires, la situation reste critique.\nLe récit du conflit apparaît souvent fragmenté et incomplet, tandis que sur le terrain se déroule une tragédie humaine qui risque de devenir permanente. La guerre en Palestine n'est pas seulement un conflit militaire, mais une crise morale et politique qui interroge la communauté internationale."
+        },
+        "de": {
+          "title": "Krieg in Palästina: Zivilisten unter Belagerung und wachsende humanitäre Krise",
+          "content": "Der Krieg in Palästina trifft die Zivilbevölkerung weiterhin auf verheerende Weise. Bombardierungen in dicht besiedelten Gebieten, die Zerstörung lebenswichtiger Infrastrukturen und Bewegungsbeschränkungen schaffen eine humanitäre Krise dramatischen Ausmaßes. Zusammenbrechende Krankenhäuser, Mangel an Strom, Trinkwasser und Medikamenten machen das tägliche Leben zu einem Überlebenskampf.\nInternationale humanitäre Organisationen prangern den unverhältnismäßigen Einsatz von Gewalt und systematische Verstöße gegen das Völkerrecht an. Die palästinensische Bevölkerung, insbesondere Frauen und Kinder, zahlt weiterhin den höchsten Preis des Konflikts. Trotz Appellen zu einer Waffenruhe und der Öffnung humanitärer Korridore bleibt die Situation kritisch.\nDie Darstellung des Konflikts wirkt oft fragmentiert und unvollständig, während sich vor Ort eine menschliche Tragödie abspielt, die dauerhaft zu werden droht. Der Krieg in Palästina ist nicht nur ein militärischer Konflikt, sondern eine moralische und politische Krise, die die internationale Gemeinschaft in Frage stellt."
+        },
+        "zh": {
+          "title": "巴勒斯坦战争：平民被困及日益增长的人道危机",
+          "content": "巴勒斯坦战争继续以毁灭性方式袭击平民。在人口密集地区轰炸、破坏重要基础设施和行动限制正在造成规模巨大的人道主义危机。医院崩溃、电力、饮用水和药品短缺使日常生活成为生存斗争。\n国际人道主义组织谴责不成比例地使用武力和系统性违反国际法。巴勒斯坦人民，特别是妇女和儿童，继续为冲突付出最高代价。尽管呼吁停火和开放人道走廊，情况仍然危急。\n冲突的叙述常常显得碎片化和不完整，而实地发生的人间悲剧有可能变成永久性的。巴勒斯坦战争不仅是军事冲突，也是质问国际社会的道德和政治危机。"
+        },
+        "ar": {
+          "title": "الحرب في فلسطين: المدنيون تحت الحصار وأزمة إنسانية متزايدة",
+          "content": "تواصل الحرب في فلسطين ضرب السكان المدنيين بطريقة مدمرة. القصف في المناطق المكتظة بالسكان، وتدمير البنية التحتية الأساسية والقيود على الحركات تخلق أزمة إنسانية ذات أبعاد درامية. المستشفيات المنهارة، ونقص الكهرباء ومياه الشرب والأدوية تجعل الحياة اليومية صراعاً من أجل البقاء.\nتدين المنظمات الإنسانية الدولية الاستخدام غير المتناسب للقوة والانتهاكات المنهجية للقانون الدولي. يواصل السكان الفلسطينيون، وخاصة النساء والأطفال، دفع الثمن الأعلى للنزاع. على الرغم من الدعوات لوقف إطلاق النار وفتح ممرات إنسانية، تظل الوضع حرجة.\nغالباً ما يبدو سرد النزاع مجزأً وغير مكتمل، بينما على الأرض تتكشف مأساة إنسانية تخاطر بأن تصبح دائمة. الحرب في فلسطين ليست فقط صراعاً عسكرياً، بل أزمة أخلاقية وسياسية تستجوب المجتمع الدولي."
+        },
+        "ru": {
+          "title": "Война в Палестине: гражданские лица в осаде и растущий гуманитарный кризис",
+          "content": "Война в Палестине продолжает наносить сокрушительный удар по гражданскому населению. Бомбардировки в густонаселенных районах, разрушение жизненно важной инфраструктуры и ограничения на передвижение создают гуманитарный кризис драматических масштабов. Разрушающиеся больницы, нехватка электричества, питьевой воды и лекарств превращают повседневную жизнь в борьбу за выживание.\nМеждународные гуманитарные организации осуждают непропорциональное применение силы и систематические нарушения международного права. Палестинское население, особенно женщины и дети, продолжают платить самую высокую цену конфликта. Несмотря на призывы к прекращению огня и открытию гуманитарных коридоров, ситуация остается критической.\nИзложение конфликта часто кажется фрагментированным и неполным, в то время как на месте разворачивается человеческая трагедия, которая рискует стать постоянной. Война в Палестине — это не только военный конфликт, но и моральный и политический кризис, ставящий под вопрос международное сообщество."
+        },
+        "ur": {
+          "title": "فلسطین میں جنگ: محاصرے کے تحت شہری اور بڑھتا ہوا انسانی بحران",
+          "content": "فلسطین میں جنگ شہری آبادی کو تباہ کن طریقے سے مارتی رہتی ہے۔ گنجان آباد علاقوں میں بمباری، ضروری بنیادی ڈھانچے کی تباہی اور تحریکات پر پابندیاں ڈرامائی تناسب کا انسانی بحران پیدا کر رہی ہیں۔ ہسپتال گر رہے ہیں، بجلی، پینے کے پانی اور دوائیوں کی کمی روزمرہ کی زندگی کو بقا کی جدوجہد بنا دیتی ہے۔\nبین الاقوامی انسانی تنظیمیں طاقت کے غیر متناسب استعمال اور بین الاقوامی قانون کی منظم خلاف ورزیوں کی مذمت کرتی ہیں۔ فلسطینی آبادی، خاص طور پر خواتین اور بچے، تنازعے کی سب سے زیادہ قیمت ادا کرتی رہتی ہے۔ جنگ بندی اور انسانی راہداریوں کو کھولنے کی اپیلوں کے باوجود، صورت حال خطرناک رہتی ہے۔\nتنازعے کی بیان بازی اکثر ٹوٹی پھوٹی اور نامکمل نظر آتی ہے، جب کہ میدان پر ایک انسانی سانحہ پھیل رہا ہے جو مستقل بننے کا خطرہ ہے۔ فلسطین میں جنگ صرف ایک فوجی تنازعہ نہیں ہے، بلکہ ایک اخلاقی اور سیاسی بحران ہے جو بین الاقوامی برادری سے سوال کرتا ہے۔"
+        }
+      }
     },
     {
-      "title": "Dopo la Venezuela, Trump torna a far discutere: nuove dichiarazioni sulla Groenlandia",
-      "content": "Dopo la Venezuela, Donald Trump è tornato a far parlare di sé con nuove dichiarazioni riguardanti la Groenlandia, riaccendendo un dibattito geopolitico già sollevato durante la sua presidenza. Le sue parole hanno suscitato reazioni immediate da parte della Danimarca e delle autorità groenlandesi, che hanno ribadito la propria sovranità territoriale.\nAnalisti internazionali interpretano queste dichiarazioni come parte di una visione strategica legata al controllo delle rotte artiche e delle risorse naturali emergenti, sempre più accessibili a causa dello scioglimento dei ghiacci. La Groenlandia è infatti considerata un punto chiave negli equilibri geopolitici futuri.\nLe uscite di Trump evidenziano come l’Artico stia diventando una nuova area di competizione globale, sollevando interrogativi sul futuro delle relazioni internazionali e sulle tensioni che potrebbero emergere nei prossimi anni.",
-      "category": "Attualità",
+      "id": "trump-greenland",
+      "category": "Current Affairs",
       "type": "news",
       "date": "2026-01-31",
       "images": [
         "https://images.unsplash.com/photo-1573995975633-faee0123f31f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JvZW5sYW5kaWF8ZW58MHx8MHx8fDA%3D"
-      ]
+      ],
+      "translations": {
+        "en": {
+          "title": "After Venezuela, Trump back in the spotlight: new statements on Greenland",
+          "content": "After Venezuela, Donald Trump is back in the spotlight with new statements regarding Greenland, reigniting a geopolitical debate already raised during his presidency. His words sparked immediate reactions from Denmark and Greenlandic authorities, who reaffirmed their territorial sovereignty.\nInternational analysts interpret these statements as part of a strategic vision linked to the control of Arctic routes and emerging natural resources, increasingly accessible due to melting ice. Greenland is in fact considered a key point in future geopolitical balances.\nTrump's statements highlight how the Arctic is becoming a new area of global competition, raising questions about the future of international relations and the tensions that could emerge in the coming years."
+        },
+        "it": {
+          "title": "Dopo il Venezuela, Trump torna a far discutere: nuove dichiarazioni sulla Groenlandia",
+          "content": "Dopo il Venezuela, Donald Trump è tornato a far parlare di sé con nuove dichiarazioni riguardanti la Groenlandia, riaccendendo un dibattito geopolitico già sollevato durante la sua presidenza. Le sue parole hanno suscitato reazioni immediate da parte della Danimarca e delle autorità groenlandesi, che hanno ribadito la propria sovranità territoriale.\nAnalisti internazionali interpretano queste dichiarazioni come parte di una visione strategica legata al controllo delle rotte artiche e delle risorse naturali emergenti, sempre più accessibili a causa dello scioglimento dei ghiacci. La Groenlandia è infatti considerata un punto chiave negli equilibri geopolitici futuri.\nLe uscite di Trump evidenziano come l'Artico stia diventando una nuova area di competizione globale, sollevando interrogativi sul futuro delle relazioni internazionali e sulle tensioni che potrebbero emergere nei prossimi anni."
+        },
+        "es": {
+          "title": "Después de Venezuela, Trump vuelve a ser noticia: nuevas declaraciones sobre Groenlandia",
+          "content": "Después de Venezuela, Donald Trump vuelve a estar en el centro de atención con nuevas declaraciones sobre Groenlandia, reavivando un debate geopolítico ya planteado durante su presidencia. Sus palabras provocaron reacciones inmediatas por parte de Dinamarca y las autoridades groenlandesas, que reafirmaron su soberanía territorial.\nAnalistas internacionales interpretan estas declaraciones como parte de una visión estratégica vinculada al control de las rutas árticas y los recursos naturales emergentes, cada vez más accesibles debido al deshielo. Groenlandia es considerada de hecho un punto clave en los futuros equilibrios geopolíticos.\nLas declaraciones de Trump destacan cómo el Ártico se está convirtiendo en una nueva área de competencia global, planteando preguntas sobre el futuro de las relaciones internacionales y las tensiones que podrían surgir en los próximos años."
+        },
+        "fr": {
+          "title": "Après le Venezuela, Trump de nouveau sous les projecteurs : nouvelles déclarations sur le Groenland",
+          "content": "Après le Venezuela, Donald Trump est de nouveau sous les projecteurs avec de nouvelles déclarations concernant le Groenland, ravivant un débat géopolitique déjà soulevé durant sa présidence. Ses paroles ont provoqué des réactions immédiates de la part du Danemark et des autorités groenlandaises, qui ont réaffirmé leur souveraineté territoriale.\nLes analystes internationaux interprètent ces déclarations comme faisant partie d'une vision stratégique liée au contrôle des routes arctiques et des ressources naturelles émergentes, de plus en plus accessibles en raison de la fonte des glaces. Le Groenland est en effet considéré comme un point clé dans les futurs équilibres géopolitiques.\nLes sorties de Trump soulignent comment l'Arctique devient une nouvelle zone de compétition mondiale, soulevant des questions sur l'avenir des relations internationales et les tensions qui pourraient émerger dans les années à venir."
+        },
+        "de": {
+          "title": "Nach Venezuela ist Trump wieder im Rampenlicht: neue Aussagen zu Grönland",
+          "content": "Nach Venezuela ist Donald Trump mit neuen Aussagen zu Grönland wieder im Rampenlicht und entfacht eine geopolitische Debatte neu, die bereits während seiner Präsidentschaft aufgekommen war. Seine Worte lösten unmittelbare Reaktionen Dänemarks und der grönländischen Behörden aus, die ihre territoriale Souveränität bekräftigten.\nInternationale Analysten interpretieren diese Aussagen als Teil einer strategischen Vision, die mit der Kontrolle der arktischen Routen und der aufstrebenden natürlichen Ressourcen verbunden ist, die aufgrund der Eisschmelze immer zugänglicher werden. Grönland gilt in der Tat als ein Schlüsselpunkt in den künftigen geopolitischen Gleichgewichten.\nTrumps Auftritte unterstreichen, wie die Arktis zu einem neuen Bereich globalen Wettbewerbs wird, und werfen Fragen über die Zukunft der internationalen Beziehungen und die Spannungen auf, die in den kommenden Jahren auftreten könnten."
+        },
+        "zh": {
+          "title": "继委内瑞拉之后，特朗普再次成为焦点：关于格陵兰岛的新声明",
+          "content": "继委内瑞拉之后，唐纳德·特朗普因关于格陵兰岛的新声明再次成为焦点，重新点燃了他在任期间已经提出的地缘政治辩论。他的话立即引起丹麦和格陵兰当局的反应，他们重申了其领土主权。\n国际分析人士将这些声明解释为与北极航线控制和新兴自然资源相关的战略愿景的一部分，由于冰层融化，这些资源越来越容易获取。事实上，格陵兰岛被认为是未来地缘政治平衡的关键点。\n特朗普的言论突显了北极如何成为全球竞争的新领域，引发了关于国际关系未来以及未来几年可能出现紧张局势的疑问。"
+        },
+        "ar": {
+          "title": "بعد فنزويلا، ترامب يعود إلى دائرة الضوء: تصريحات جديدة حول جرينلاند",
+          "content": "بعد فنزويلا، عاد دونالد ترامب إلى دائرة الضوء بتصريحات جديدة تتعلق بجرينلاند، مما أعاد إشعال نقاش جيوسياسي أثير بالفعل خلال رئاسته. أثارت كلماته ردود فعل فورية من الدنمارك والسلطات الجرينلاندية، التي أكدت سيادتها الإقليمية.\nيفسر المحللون الدوليون هذه التصريحات على أنها جزء من رؤية استراتيجية مرتبطة بالسيطرة على الطرق القطبية الشمالية والموارد الطبيعية الناشئة، التي أصبحت متاحة بشكل متزايد بسبب ذوبان الجليد. تعتبر جرينلاند في الواقع نقطة محورية في التوازنات الجيوسياسية المستقبلية.\nتسلط تصريحات ترامب الضوء على كيفية تحول القطب الشمالي إلى منطقة جديدة للمنافسة العالمية، مما يثير تساؤلات حول مستقبل العلاقات الدولية والتوترات التي قد تظهر في السنوات المقبلة."
+        },
+        "ru": {
+          "title": "После Венесуэлы Трамп снова в центре внимания: новые заявления о Гренландии",
+          "content": "После Венесуэлы Дональд Трамп снова оказался в центре внимания с новыми заявлениями относительно Гренландии, разжигая геополитические дебаты, уже поднятые во время его президентства. Его слова вызвали немедленные реакции со стороны Дании и гренландских властей, которые подтвердили свой территориальный суверенитет.\nМеждународные аналитики интерпретируют эти заявления как часть стратегического видения, связанного с контролем над арктическими маршрутами и возникающими природными ресурсами, которые становятся все более доступными из-за таяния льда. Гренландия действительно считается ключевой точкой в будущих геополитических балансах.\nВыходы Трампа подчеркивают, как Арктика становится новой зоной глобальной конкуренции, поднимая вопросы о будущем международных отношений и напряженности, которая может возникнуть в ближайшие годы."
+        },
+        "ur": {
+          "title": "وینزویلا کے بعد، ٹرمپ دوبارہ توجہ کا مرکز: گرین لینڈ پر نئی بیان بازی",
+          "content": "وینزویلا کے بعد، ڈونلڈ ٹرمپ گرین لینڈ کے حوالے سے نئی بیان بازی کے ساتھ دوبارہ توجہ کا مرکز بن گئے ہیں، جس سے ان کی صدارت کے دوران پہلے ہی اٹھائے گئے ایک جیو پولیٹیکل مباحثے کو دوبارہ بھڑکا دیا گیا ہے۔ ان کے الفاظ نے ڈنمارک اور گرین لینڈ کی اتھارٹیز کی طرف سے فوری رد عمل پیدا کیا، جنہوں نے اپنی علاقائی خود مختاری کی تصدیق کی۔\nبین الاقوامی تجزیہ کار ان بیان کو ایک اسٹریٹجک وژن کے حصے کے طور پر تشریح کرتے ہیں جو آرکٹک راستوں اور ابھرتے ہوئے قدرتی وسائل کے کنٹرول سے منسلک ہے، جو برف پگھلنے کی وجہ سے تیزی سے قابل رسائی ہوتے جا رہے ہیں۔ درحقیقت گرین لینڈ مستقبل کے جیو پولیٹیکل توازن میں ایک اہم نقطہ سمجھا جاتا ہے۔\nٹرمپ کے بیانات اس بات پر روشنی ڈالتے ہیں کہ کس طرح آرکٹک عالمی مسابقت کا ایک نیا علاقہ بن رہا ہے، جو بین الاقوامی تعلقات کے مستقبل اور آنے والے سالوں میں ابھرنے والے تناؤ کے بارے میں سوالات اٹھاتا ہے۔"
+        }
+      }
     }
   ]
 }
