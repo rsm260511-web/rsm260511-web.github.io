@@ -1390,6 +1390,320 @@
             margin-top: 15px;
             text-align: center;
         }
+
+        /* STILI SEZIONE AI */
+        .ai-section {
+            background: var(--card-dark);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            margin-top: 40px;
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .ai-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2065&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+        }
+
+        .ai-header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .ai-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #fff, #e2b0ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .ai-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .ai-capabilities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            background: rgba(10, 10, 15, 0.5);
+        }
+
+        .ai-capability {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius-sm);
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .ai-capability:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(155, 89, 182, 0.3);
+        }
+
+        .ai-capability-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: rgba(155, 89, 182, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            color: var(--accent-purple);
+        }
+
+        .ai-capability-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .ai-capability-desc {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .ai-chat-container {
+            padding: 40px;
+            background: rgba(17, 17, 24, 0.8);
+        }
+
+        .ai-chat-box {
+            background: var(--secondary-dark);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ai-chat-header {
+            background: var(--gradient-purple);
+            padding: 25px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .ai-chat-title {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .ai-chat-title i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .ai-chat-messages {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            background: rgba(10, 10, 15, 0.6);
+        }
+
+        .ai-message {
+            max-width: 85%;
+            padding: 25px;
+            border-radius: 25px;
+            position: relative;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            animation: messageAppear 0.4s ease;
+        }
+
+        .ai-message.user {
+            align-self: flex-end;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-bottom-right-radius: 8px;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .ai-message.bot {
+            align-self: flex-start;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border-bottom-left-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .ai-message-time {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-top: 12px;
+            text-align: right;
+        }
+
+        .ai-chat-input-container {
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            background: var(--card-dark);
+        }
+
+        .ai-chat-input-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        #aiChatInput {
+            flex: 1;
+            padding: 20px 30px;
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            outline: none;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        #aiChatInput:focus {
+            border-color: var(--accent-purple);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 0 5px rgba(155, 89, 182, 0.2);
+        }
+
+        #aiChatSend {
+            padding: 20px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            white-space: nowrap;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        #aiChatSend:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .ai-examples {
+            padding: 40px;
+            background: rgba(26, 26, 36, 0.5);
+        }
+
+        .ai-examples-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-primary);
+            font-weight: 800;
+            background: linear-gradient(45deg, #fff, #b19cd9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .ai-examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .ai-example {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius-sm);
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .ai-example:hover {
+            transform: translateY(-8px);
+            background: rgba(155, 89, 182, 0.15);
+            border-color: rgba(155, 89, 182, 0.3);
+        }
+
+        .ai-example-command {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            font-family: monospace;
+            color: #e2b0ff;
+            border-left: 4px solid var(--accent-purple);
+        }
+
+        .ai-example-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .ai-footer {
+            padding: 40px;
+            text-align: center;
+            background: rgba(10, 10, 15, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ai-footer-text {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .ai-powered {
+            margin-top: 30px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #667eea, #764ba2, #ff6b9d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
     </style>
     <!-- Webpushr -->
 <script>
@@ -1457,6 +1771,9 @@
             <a class="nav-link" onclick="showSection('categories')" id="navCategories">
                 <i class="fas fa-folder"></i> <span>Categories</span>
             </a>
+            <a class="nav-link" onclick="showSection('ai')" id="navAI">
+                <i class="fas fa-robot"></i> <span>AI Assistant</span>
+            </a>
             <a class="nav-link" onclick="showSection('about')" id="navAbout">
                 <i class="fas fa-info-circle"></i> <span>About Us</span>
             </a>
@@ -1512,36 +1829,12 @@
             </div>
         </div>
 
-        <!-- Chatbot -->
-        <div class="chatbot-container">
+        <!-- Chatbot Button (rimosso, ora c'è la sezione AI) -->
+        <div class="chatbot-container" style="display: none;">
             <button id="chatToggle">
                 <i class="fas fa-robot"></i>
                 <span id="chatBtnText">AI Assistant</span>
             </button>
-            
-            <div id="chatBox">
-                <div class="chat-header">
-                    <div class="chat-title">
-                        <i class="fas fa-robot"></i>
-                        <span id="chatTitle">RSM AI Assistant</span>
-                    </div>
-                    <button id="chatClose" title="Close Chat">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                
-                <div id="chatMessages"></div>
-                
-                <div class="chat-input-container">
-                    <div class="chat-input-wrapper">
-                        <input id="chatInput" type="text" placeholder="Type your message..." autocomplete="off">
-                        <button id="chatSend">
-                            <i class="fas fa-paper-plane"></i>
-                            <span id="sendBtnText">Send</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
         </div>
     </nav>
 
@@ -1747,6 +2040,110 @@
             <div class="categories-grid" id="categoriesGrid"></div>
         </section>
 
+        <!-- AI Assistant Section (Tipo DeepSeek) -->
+        <section id="ai" class="hidden">
+            <div class="ai-section">
+                <div class="ai-header">
+                    <div class="ai-header-content">
+                        <h1 class="ai-title" id="aiMainTitle">RSM AI Assistant</h1>
+                        <p class="ai-subtitle" id="aiSubtitle">Your intelligent companion for exploring mysteries, analyzing content, and answering questions in 9 languages</p>
+                    </div>
+                </div>
+                
+                <div class="ai-capabilities">
+                    <div class="ai-capability">
+                        <div class="ai-capability-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="ai-capability-title" id="aiCap1Title">Wikipedia Search</h3>
+                        <p class="ai-capability-desc" id="aiCap1Desc">Search Wikipedia in multiple languages for comprehensive information on any topic.</p>
+                    </div>
+                    
+                    <div class="ai-capability">
+                        <div class="ai-capability-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="ai-capability-title" id="aiCap2Title">Content Summarization</h3>
+                        <p class="ai-capability-desc" id="aiCap2Desc">Get concise summaries of articles, videos, and news for quick understanding.</p>
+                    </div>
+                    
+                    <div class="ai-capability">
+                        <div class="ai-capability-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="ai-capability-title" id="aiCap3Title">Multilingual Support</h3>
+                        <p class="ai-capability-desc" id="aiCap3Desc">Communicate in 9 languages including English, Italian, Spanish, French, German, Chinese, Arabic, Russian, and Urdu.</p>
+                    </div>
+                    
+                    <div class="ai-capability">
+                        <div class="ai-capability-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="ai-capability-title" id="aiCap4Title">Intelligent Analysis</h3>
+                        <p class="ai-capability-desc" id="aiCap4Desc">Analyze mysteries, current affairs, and complex topics with advanced reasoning.</p>
+                    </div>
+                </div>
+                
+                <div class="ai-chat-container">
+                    <div class="ai-chat-box">
+                        <div class="ai-chat-header">
+                            <div class="ai-chat-title">
+                                <i class="fas fa-robot"></i>
+                                <span id="aiChatTitle">Chat with RSM AI</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ai-chat-messages" id="aiChatMessages">
+                            <!-- Messages will be added here -->
+                        </div>
+                        
+                        <div class="ai-chat-input-container">
+                            <div class="ai-chat-input-wrapper">
+                                <input type="text" id="aiChatInput" placeholder="Type your message here..." autocomplete="off">
+                                <button id="aiChatSend">
+                                    <i class="fas fa-paper-plane"></i>
+                                    <span id="aiSendText">Send</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ai-examples">
+                    <h2 class="ai-examples-title" id="aiExamplesTitle">Try These Examples</h2>
+                    <div class="ai-examples-grid">
+                        <div class="ai-example" onclick="insertExample('Search for information about artificial intelligence')">
+                            <div class="ai-example-command">"Search artificial intelligence"</div>
+                            <p class="ai-example-desc" id="aiEx1Desc">Search Wikipedia for AI information</p>
+                        </div>
+                        
+                        <div class="ai-example" onclick="insertExample('What is quantum computing?')">
+                            <div class="ai-example-command">"What is quantum computing?"</div>
+                            <p class="ai-example-desc" id="aiEx2Desc">Get explanation of complex topics</p>
+                        </div>
+                        
+                        <div class="ai-example" onclick="insertExample('Summarize the latest article')">
+                            <div class="ai-example-command">"Summarize this article"</div>
+                            <p class="ai-example-desc" id="aiEx3Desc">Get quick summary of content</p>
+                        </div>
+                        
+                        <div class="ai-example" onclick="insertExample('Tell me about yourself')">
+                            <div class="ai-example-command">"Tell me about yourself"</div>
+                            <p class="ai-example-desc" id="aiEx4Desc">Learn about the AI assistant</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ai-footer">
+                    <p class="ai-footer-text" id="aiFooterText">
+                        RSM AI Assistant uses advanced natural language processing to understand and respond to your queries. 
+                        It can search information, analyze content, and provide insights in 9 different languages.
+                    </p>
+                    <div class="ai-powered" id="aiPowered">Powered by RSM Intelligence</div>
+                </div>
+            </div>
+        </section>
+
         <!-- About Section -->
         <section id="about" class="hidden">
             <div class="card">
@@ -1869,6 +2266,7 @@
                     <li><a onclick="showSection('videos')"><i class="fas fa-chevron-right"></i> <span id="footerVideos">Videos</span></a></li>
                     <li><a onclick="showSection('news')"><i class="fas fa-chevron-right"></i> <span id="footerNews">News</span></a></li>
                     <li><a onclick="showSection('categories')"><i class="fas fa-chevron-right"></i> <span id="footerCategories">Categories</span></a></li>
+                    <li><a onclick="showSection('ai')"><i class="fas fa-chevron-right"></i> <span id="footerAI">AI Assistant</span></a></li>
                 </ul>
             </div>
             
@@ -1934,6 +2332,7 @@
                 navVideos: "Videos",
                 navNews: "News",
                 navCategories: "Categories",
+                navAI: "AI Assistant",
                 navAbout: "About Us",
                 navContacts: "Contacts",
                 searchPlaceholder: "Search articles, videos, news...",
@@ -1960,6 +2359,7 @@
                 footerVideos: "Videos",
                 footerNews: "News",
                 footerCategories: "Categories",
+                footerAI: "AI Assistant",
                 footerPrivacy: "Privacy Policy",
                 footerTerms: "Terms of Service",
                 footerCookies: "Cookie Policy",
@@ -1978,7 +2378,26 @@
                 videosLabel: "Videos",
                 newsLabel: "News",
                 languagesLabel: "Languages",
-                botHello: "🤖 **Hello! I'm your RSM AI Assistant!**\n\nI can help you with:\n\n🔍 **Search Wikipedia** - Search information in multiple languages\n📝 **Summarize articles** - Create summaries of text content\n🗺️ **Navigate RSM** - Open sections and find content\n💬 **Answer questions** - About myself, future, and general knowledge\n🌍 **Multilingual** - 9 languages available\n\n💡 **Try these commands:**\n• 'search artificial intelligence'\n• 'what is quantum computing?'\n• 'summarize current article'\n• 'open videos section'\n• 'tell me about yourself'\n• 'what's the future of AI?'"
+                botHello: "🤖 **Hello! I'm your RSM AI Assistant!**\n\nI can help you with:\n\n🔍 **Search Wikipedia** - Search information in multiple languages\n📝 **Summarize articles** - Create summaries of text content\n🗺️ **Navigate RSM** - Open sections and find content\n💬 **Answer questions** - About myself, future, and general knowledge\n🌍 **Multilingual** - 9 languages available\n\n💡 **Try these commands:**\n• 'search artificial intelligence'\n• 'what is quantum computing?'\n• 'summarize current article'\n• 'open videos section'\n• 'tell me about yourself'\n• 'what's the future of AI?'",
+                aiMainTitle: "RSM AI Assistant",
+                aiSubtitle: "Your intelligent companion for exploring mysteries, analyzing content, and answering questions in 9 languages",
+                aiCap1Title: "Wikipedia Search",
+                aiCap1Desc: "Search Wikipedia in multiple languages for comprehensive information on any topic.",
+                aiCap2Title: "Content Summarization",
+                aiCap2Desc: "Get concise summaries of articles, videos, and news for quick understanding.",
+                aiCap3Title: "Multilingual Support",
+                aiCap3Desc: "Communicate in 9 languages including English, Italian, Spanish, French, German, Chinese, Arabic, Russian, and Urdu.",
+                aiCap4Title: "Intelligent Analysis",
+                aiCap4Desc: "Analyze mysteries, current affairs, and complex topics with advanced reasoning.",
+                aiChatTitle: "Chat with RSM AI",
+                aiSendText: "Send",
+                aiExamplesTitle: "Try These Examples",
+                aiEx1Desc: "Search Wikipedia for AI information",
+                aiEx2Desc: "Get explanation of complex topics",
+                aiEx3Desc: "Get quick summary of content",
+                aiEx4Desc: "Learn about the AI assistant",
+                aiFooterText: "RSM AI Assistant uses advanced natural language processing to understand and respond to your queries. It can search information, analyze content, and provide insights in 9 different languages.",
+                aiPowered: "Powered by RSM Intelligence"
             }
         },
         it: {
@@ -1993,6 +2412,7 @@
                 navVideos: "Video",
                 navNews: "Notizie",
                 navCategories: "Categorie",
+                navAI: "Assistente AI",
                 navAbout: "Chi Siamo",
                 navContacts: "Contatti",
                 searchPlaceholder: "Cerca articoli, video, notizie...",
@@ -2019,6 +2439,7 @@
                 footerVideos: "Video",
                 footerNews: "Notizie",
                 footerCategories: "Categorie",
+                footerAI: "Assistente AI",
                 footerPrivacy: "Privacy Policy",
                 footerTerms: "Termini di Servizio",
                 footerCookies: "Cookie Policy",
@@ -2037,7 +2458,26 @@
                 videosLabel: "Video",
                 newsLabel: "Notizie",
                 languagesLabel: "Lingue",
-                botHello: "🤖 **Ciao! Sono il tuo Assistente AI RSM!**\n\nPosso aiutarti con:\n\n🔍 **Cerca su Wikipedia** - Cerca informazioni in più lingue\n📝 **Riassumi articoli** - Crea riassunti di contenuti testuali\n🗺️ **Naviga RSM** - Apri sezioni e trova contenuti\n💬 **Rispondi a domande** - Su di me, futuro e conoscenza generale\n🌍 **Multilingue** - 9 lingue disponibili\n\n💡 **Prova questi comandi:**\n• 'cerca intelligenza artificiale'\n• 'cos'è il quantum computing?'\n• 'riassumi articolo corrente'\n• 'apri sezione video'\n• 'parlami di te'\n• 'qual è il futuro dell'AI?'"
+                botHello: "🤖 **Ciao! Sono il tuo Assistente AI RSM!**\n\nPosso aiutarti con:\n\n🔍 **Cerca su Wikipedia** - Cerca informazioni in più lingue\n📝 **Riassumi articoli** - Crea riassunti di contenuti testuali\n🗺️ **Naviga RSM** - Apri sezioni e trova contenuti\n💬 **Rispondi a domande** - Su di me, futuro e conoscenza generale\n🌍 **Multilingue** - 9 lingue disponibili\n\n💡 **Prova questi comandi:**\n• 'cerca intelligenza artificiale'\n• 'cos'è il quantum computing?'\n• 'riassumi articolo corrente'\n• 'apri sezione video'\n• 'parlami di te'\n• 'qual è il futuro dell'AI?'",
+                aiMainTitle: "Assistente AI RSM",
+                aiSubtitle: "Il tuo compagno intelligente per esplorare misteri, analizzare contenuti e rispondere a domande in 9 lingue",
+                aiCap1Title: "Ricerca Wikipedia",
+                aiCap1Desc: "Cerca su Wikipedia in più lingue per informazioni complete su qualsiasi argomento.",
+                aiCap2Title: "Riassunto Contenuti",
+                aiCap2Desc: "Ottieni riassunti concisi di articoli, video e notizie per una rapida comprensione.",
+                aiCap3Title: "Supporto Multilingue",
+                aiCap3Desc: "Comunica in 9 lingue incluso inglese, italiano, spagnolo, francese, tedesco, cinese, arabo, russo e urdu.",
+                aiCap4Title: "Analisi Intelligente",
+                aiCap4Desc: "Analizza misteri, attualità e argomenti complessi con ragionamento avanzato.",
+                aiChatTitle: "Chatta con RSM AI",
+                aiSendText: "Invia",
+                aiExamplesTitle: "Prova Questi Esempi",
+                aiEx1Desc: "Cerca informazioni sull'AI su Wikipedia",
+                aiEx2Desc: "Ottieni spiegazioni di argomenti complessi",
+                aiEx3Desc: "Ottieni un rapido riassunto dei contenuti",
+                aiEx4Desc: "Scopri l'assistente AI",
+                aiFooterText: "L'Assistente AI RSM utilizza l'elaborazione avanzata del linguaggio naturale per comprendere e rispondere alle tue domande. Può cercare informazioni, analizzare contenuti e fornire approfondimenti in 9 lingue diverse.",
+                aiPowered: "Alimentato da RSM Intelligence"
             }
         },
         es: {
@@ -2052,6 +2492,7 @@
                 navVideos: "Vídeos",
                 navNews: "Noticias",
                 navCategories: "Categorías",
+                navAI: "Asistente IA",
                 navAbout: "Nosotros",
                 navContacts: "Contactos",
                 searchPlaceholder: "Buscar artículos, vídeos, noticias...",
@@ -2078,6 +2519,7 @@
                 footerVideos: "Vídeos",
                 footerNews: "Noticias",
                 footerCategories: "Categorías",
+                footerAI: "Asistente IA",
                 footerPrivacy: "Política de Privacidad",
                 footerTerms: "Términos de Servicio",
                 footerCookies: "Política de Cookies",
@@ -2096,7 +2538,26 @@
                 videosLabel: "Vídeos",
                 newsLabel: "Noticias",
                 languagesLabel: "Idiomas",
-                botHello: "🤖 **¡Hola! ¡Soy tu Asistente IA RSM!**\n\nPuedo ayudarte con:\n\n🔍 **Buscar en Wikipedia** - Buscar información en varios idiomas\n📝 **Resumir artículos** - Crear resúmenes de contenido textual\n🗺️ **Navegar RSM** - Abrir secciones y encontrar contenido\n💬 **Responder preguntas** - Sobre mí, futuro y conocimiento general\n🌍 **Multilingüe** - 9 idiomas disponibles\n\n💡 **Prueba estos comandos:**\n• 'buscar inteligencia artificial'\n• '¿qué es la computación cuántica?'\n• 'resumir artículo actual'\n• 'abrir sección de videos'\n• 'háblame de ti'\n• '¿cuál es el futuro de la IA?'"
+                botHello: "🤖 **¡Hola! ¡Soy tu Asistente IA RSM!**\n\nPuedo ayudarte con:\n\n🔍 **Buscar en Wikipedia** - Buscar información en varios idiomas\n📝 **Resumir artículos** - Crear resúmenes de contenido textual\n🗺️ **Navegar RSM** - Abrir secciones y encontrar contenido\n💬 **Responder preguntas** - Sobre mí, futuro y conocimiento general\n🌍 **Multilingüe** - 9 idiomas disponibles\n\n💡 **Prueba estos comandos:**\n• 'buscar inteligencia artificial'\n• '¿qué es la computación cuántica?'\n• 'resumir artículo actual'\n• 'abrir sección de videos'\n• 'háblame de ti'\n• '¿cuál es el futuro de la IA?'",
+                aiMainTitle: "Asistente IA RSM",
+                aiSubtitle: "Tu compañero inteligente para explorar misterios, analizar contenido y responder preguntas en 9 idiomas",
+                aiCap1Title: "Búsqueda en Wikipedia",
+                aiCap1Desc: "Busca en Wikipedia en múltiples idiomas para obtener información completa sobre cualquier tema.",
+                aiCap2Title: "Resumen de Contenido",
+                aiCap2Desc: "Obtén resúmenes concisos de artículos, vídeos y noticias para una comprensión rápida.",
+                aiCap3Title: "Soporte Multilingüe",
+                aiCap3Desc: "Comunícate en 9 idiomas incluyendo inglés, español, italiano, francés, alemán, chino, árabe, ruso y urdu.",
+                aiCap4Title: "Análisis Inteligente",
+                aiCap4Desc: "Analiza misterios, asuntos actuales y temas complejos con razonamiento avanzado.",
+                aiChatTitle: "Chatea con RSM IA",
+                aiSendText: "Enviar",
+                aiExamplesTitle: "Prueba Estos Ejemplos",
+                aiEx1Desc: "Buscar información sobre IA en Wikipedia",
+                aiEx2Desc: "Obtener explicaciones de temas complejos",
+                aiEx3Desc: "Obtener resumen rápido de contenido",
+                aiEx4Desc: "Conocer al asistente IA",
+                aiFooterText: "El Asistente IA RSM utiliza procesamiento avanzado de lenguaje natural para comprender y responder a tus consultas. Puede buscar información, analizar contenido y proporcionar información en 9 idiomas diferentes.",
+                aiPowered: "Impulsado por RSM Intelligence"
             }
         },
         fr: {
@@ -2111,6 +2572,7 @@
                 navVideos: "Vidéos",
                 navNews: "Actualités",
                 navCategories: "Catégories",
+                navAI: "Assistant IA",
                 navAbout: "À Propos",
                 navContacts: "Contacts",
                 searchPlaceholder: "Rechercher articles, vidéos, actualités...",
@@ -2137,6 +2599,7 @@
                 footerVideos: "Vidéos",
                 footerNews: "Actualités",
                 footerCategories: "Catégories",
+                footerAI: "Assistant IA",
                 footerPrivacy: "Politique de Confidentialité",
                 footerTerms: "Conditions d'Utilisation",
                 footerCookies: "Politique des Cookies",
@@ -2155,7 +2618,26 @@
                 videosLabel: "Vidéos",
                 newsLabel: "Actualités",
                 languagesLabel: "Langues",
-                botHello: "🤖 **Bonjour! Je suis votre Assistant IA RSM!**\n\nJe peux vous aider avec:\n\n🔍 **Rechercher sur Wikipedia** - Rechercher des informations en plusieurs langues\n📝 **Résumer des articles** - Créer des résumés de contenu textuel\n🗺️ **Naviguer RSM** - Ouvrir des sections et trouver du contenu\n💬 **Répondre aux questions** - Sur moi, l'avenir et la connaissance générale\n🌍 **Multilingue** - 9 langues disponibles\n\n💡 **Essayez ces commandes:**\n• 'rechercher intelligence artificielle'\n• 'qu'est-ce que l'informatique quantique?'\n• 'résumer l'article actuel'\n• 'ouvrir section vidéos'\n• 'parle-moi de toi'\n• 'quel est l'avenir de l'IA?'"
+                botHello: "🤖 **Bonjour! Je suis votre Assistant IA RSM!**\n\nJe peux vous aider avec:\n\n🔍 **Rechercher sur Wikipedia** - Rechercher des informations en plusieurs langues\n📝 **Résumer des articles** - Créer des résumés de contenu textuel\n🗺️ **Naviguer RSM** - Ouvrir des sections et trouver du contenu\n💬 **Répondre aux questions** - Sur moi, l'avenir et la connaissance générale\n🌍 **Multilingue** - 9 langues disponibles\n\n💡 **Essayez ces commandes:**\n• 'rechercher intelligence artificielle'\n• 'qu'est-ce que l'informatique quantique?'\n• 'résumer l'article actuel'\n• 'ouvrir section vidéos'\n• 'parle-moi de toi'\n• 'quel est l'avenir de l'IA?'",
+                aiMainTitle: "Assistant IA RSM",
+                aiSubtitle: "Votre compagnon intelligent pour explorer les mystères, analyser le contenu et répondre aux questions en 9 langues",
+                aiCap1Title: "Recherche Wikipedia",
+                aiCap1Desc: "Recherchez sur Wikipedia en plusieurs langues pour des informations complètes sur n'importe quel sujet.",
+                aiCap2Title: "Résumé de Contenu",
+                aiCap2Desc: "Obtenez des résumés concis d'articles, vidéos et actualités pour une compréhension rapide.",
+                aiCap3Title: "Support Multilingue",
+                aiCap3Desc: "Communiquez en 9 langues incluant anglais, français, espagnol, italien, allemand, chinois, arabe, russe et ourdou.",
+                aiCap4Title: "Analyse Intelligente",
+                aiCap4Desc: "Analysez les mystères, l'actualité et les sujets complexes avec un raisonnement avancé.",
+                aiChatTitle: "Discutez avec RSM IA",
+                aiSendText: "Envoyer",
+                aiExamplesTitle: "Essayez Ces Exemples",
+                aiEx1Desc: "Rechercher des informations sur l'IA sur Wikipedia",
+                aiEx2Desc: "Obtenir des explications sur des sujets complexes",
+                aiEx3Desc: "Obtenir un résumé rapide du contenu",
+                aiEx4Desc: "Découvrir l'assistant IA",
+                aiFooterText: "L'Assistant IA RSM utilise le traitement avancé du langage naturel pour comprendre et répondre à vos questions. Il peut rechercher des informations, analyser du contenu et fournir des informations en 9 langues différentes.",
+                aiPowered: "Propulsé par RSM Intelligence"
             }
         },
         de: {
@@ -2170,6 +2652,7 @@
                 navVideos: "Videos",
                 navNews: "Nachrichten",
                 navCategories: "Kategorien",
+                navAI: "KI-Assistent",
                 navAbout: "Über Uns",
                 navContacts: "Kontakte",
                 searchPlaceholder: "Artikel, Videos, Nachrichten suchen...",
@@ -2196,6 +2679,7 @@
                 footerVideos: "Videos",
                 footerNews: "Nachrichten",
                 footerCategories: "Kategorien",
+                footerAI: "KI-Assistent",
                 footerPrivacy: "Datenschutzrichtlinie",
                 footerTerms: "Nutzungsbedingungen",
                 footerCookies: "Cookie-Richtlinie",
@@ -2214,7 +2698,26 @@
                 videosLabel: "Videos",
                 newsLabel: "Nachrichten",
                 languagesLabel: "Sprachen",
-                botHello: "🤖 **Hallo! Ich bin Ihr RSM KI-Assistent!**\n\nIch kann Ihnen helfen mit:\n\n🔍 **Wikipedia durchsuchen** - Informationen in mehreren Sprachen suchen\n📝 **Artikel zusammenfassen** - Zusammenfassungen von Textinhalten erstellen\n🗺️ **RSM navigieren** - Abschnitte öffnen und Inhalte finden\n💬 **Fragen beantworten** - Über mich, Zukunft und Allgemeinwissen\n🌍 **Mehrsprachig** - 9 Sprachen verfügbar\n\n💡 **Probieren Sie diese Befehle:**\n• 'suche künstliche Intelligenz'\n• 'was ist Quantencomputing?'\n• 'aktuelle Artikel zusammenfassen'\n• 'Videobereich öffnen'\n• 'erzähl mir von dir'\n• 'was ist die Zukunft der KI?'"
+                botHello: "🤖 **Hallo! Ich bin Ihr RSM KI-Assistent!**\n\nIch kann Ihnen helfen mit:\n\n🔍 **Wikipedia durchsuchen** - Informationen in mehreren Sprachen suchen\n📝 **Artikel zusammenfassen** - Zusammenfassungen von Textinhalten erstellen\n🗺️ **RSM navigieren** - Abschnitte öffnen und Inhalte finden\n💬 **Fragen beantworten** - Über mich, Zukunft und Allgemeinwissen\n🌍 **Mehrsprachig** - 9 Sprachen verfügbar\n\n💡 **Probieren Sie diese Befehle:**\n• 'suche künstliche Intelligenz'\n• 'was ist Quantencomputing?'\n• 'aktuelle Artikel zusammenfassen'\n• 'Videobereich öffnen'\n• 'erzähl mir von dir'\n• 'was ist die Zukunft der KI?'",
+                aiMainTitle: "RSM KI-Assistent",
+                aiSubtitle: "Ihr intelligenter Begleiter zum Erkunden von Geheimnissen, Analysieren von Inhalten und Beantworten von Fragen in 9 Sprachen",
+                aiCap1Title: "Wikipedia-Suche",
+                aiCap1Desc: "Durchsuchen Sie Wikipedia in mehreren Sprachen für umfassende Informationen zu jedem Thema.",
+                aiCap2Title: "Inhaltszusammenfassung",
+                aiCap2Desc: "Erhalten Sie prägnante Zusammenfassungen von Artikeln, Videos und Nachrichten für schnelles Verständnis.",
+                aiCap3Title: "Mehrsprachige Unterstützung",
+                aiCap3Desc: "Kommunizieren Sie in 9 Sprachen einschließlich Deutsch, Englisch, Französisch, Spanisch, Italienisch, Chinesisch, Arabisch, Russisch und Urdu.",
+                aiCap4Title: "Intelligente Analyse",
+                aiCap4Desc: "Analysieren Sie Geheimnisse, aktuelle Angelegenheiten und komplexe Themen mit fortschrittlicher Argumentation.",
+                aiChatTitle: "Chatten Sie mit RSM KI",
+                aiSendText: "Senden",
+                aiExamplesTitle: "Probieren Sie Diese Beispiele",
+                aiEx1Desc: "Informationen zu KI auf Wikipedia suchen",
+                aiEx2Desc: "Erklärungen zu komplexen Themen erhalten",
+                aiEx3Desc: "Schnelle Inhaltszusammenfassung erhalten",
+                aiEx4Desc: "Den KI-Assistenten kennenlernen",
+                aiFooterText: "Der RSM KI-Assistent verwendet fortschrittliche Verarbeitung natürlicher Sprache, um Ihre Anfragen zu verstehen und zu beantworten. Er kann Informationen suchen, Inhalte analysieren und Erkenntnisse in 9 verschiedenen Sprachen liefern.",
+                aiPowered: "Angetrieben von RSM Intelligence"
             }
         },
         zh: {
@@ -2229,6 +2732,7 @@
                 navVideos: "视频",
                 navNews: "新闻",
                 navCategories: "分类",
+                navAI: "AI助手",
                 navAbout: "关于我们",
                 navContacts: "联系方式",
                 searchPlaceholder: "搜索文章、视频、新闻...",
@@ -2255,6 +2759,7 @@
                 footerVideos: "视频",
                 footerNews: "新闻",
                 footerCategories: "分类",
+                footerAI: "AI助手",
                 footerPrivacy: "隐私政策",
                 footerTerms: "服务条款",
                 footerCookies: "Cookie政策",
@@ -2273,7 +2778,26 @@
                 videosLabel: "视频",
                 newsLabel: "新闻",
                 languagesLabel: "语言",
-                botHello: "🤖 **你好！我是您的RSM AI助手！**\n\n我可以帮助您：\n\n🔍 **搜索维基百科** - 用多种语言搜索信息\n📝 **总结文章** - 创建文本内容摘要\n🗺️ **导航RSM** - 打开部分并查找内容\n💬 **回答问题** - 关于我、未来和一般知识\n🌍 **多语言** - 9种语言可用\n\n💡 **尝试这些命令：**\n• '搜索人工智能'\n• '什么是量子计算？'\n• '总结当前文章'\n• '打开视频部分'\n• '介绍一下你自己'\n• 'AI的未来是什么？'"
+                botHello: "🤖 **你好！我是您的RSM AI助手！**\n\n我可以帮助您：\n\n🔍 **搜索维基百科** - 用多种语言搜索信息\n📝 **总结文章** - 创建文本内容摘要\n🗺️ **导航RSM** - 打开部分并查找内容\n💬 **回答问题** - 关于我、未来和一般知识\n🌍 **多语言** - 9种语言可用\n\n💡 **尝试这些命令：**\n• '搜索人工智能'\n• '什么是量子计算？'\n• '总结当前文章'\n• '打开视频部分'\n• '介绍一下你自己'\n• 'AI的未来是什么？'",
+                aiMainTitle: "RSM AI助手",
+                aiSubtitle: "您的智能伴侣，用于探索奥秘、分析内容和回答9种语言的问题",
+                aiCap1Title: "维基百科搜索",
+                aiCap1Desc: "用多种语言搜索维基百科，获取任何主题的全面信息。",
+                aiCap2Title: "内容总结",
+                aiCap2Desc: "获取文章、视频和新闻的简明摘要，以便快速理解。",
+                aiCap3Title: "多语言支持",
+                aiCap3Desc: "使用9种语言进行交流，包括中文、英语、西班牙语、法语、德语、意大利语、阿拉伯语、俄语和乌尔都语。",
+                aiCap4Title: "智能分析",
+                aiCap4Desc: "用高级推理分析奥秘、时事和复杂主题。",
+                aiChatTitle: "与RSM AI聊天",
+                aiSendText: "发送",
+                aiExamplesTitle: "尝试这些示例",
+                aiEx1Desc: "在维基百科上搜索AI信息",
+                aiEx2Desc: "获取复杂主题的解释",
+                aiEx3Desc: "获取内容快速摘要",
+                aiEx4Desc: "了解AI助手",
+                aiFooterText: "RSM AI助手使用先进的自然语言处理来理解和回答您的查询。它可以在9种不同语言中搜索信息、分析内容和提供见解。",
+                aiPowered: "由RSM Intelligence提供支持"
             }
         },
         ar: {
@@ -2288,6 +2812,7 @@
                 navVideos: "الفيديوهات",
                 navNews: "الأخبار",
                 navCategories: "الفئات",
+                navAI: "مساعد الذكاء الاصطناعي",
                 navAbout: "من نحن",
                 navContacts: "اتصل بنا",
                 searchPlaceholder: "ابحث في المقالات، الفيديوهات، الأخبار...",
@@ -2314,6 +2839,7 @@
                 footerVideos: "الفيديوهات",
                 footerNews: "الأخبار",
                 footerCategories: "الفئات",
+                footerAI: "مساعد الذكاء الاصطناعي",
                 footerPrivacy: "سياسة الخصوصية",
                 footerTerms: "شروط الخدمة",
                 footerCookies: "سياسة الكوكيز",
@@ -2332,7 +2858,26 @@
                 videosLabel: "فيديوهات",
                 newsLabel: "أخبار",
                 languagesLabel: "لغات",
-                botHello: "🤖 **مرحباً! أنا مساعد RSM الذكي!**\n\nيمكنني مساعدتك في:\n\n🔍 **البحث في ويكيبيديا** - البحث عن معلومات بلغات متعددة\n📝 **تلخيص المقالات** - إنشاء ملخصات للمحتوى النصي\n🗺️ **التنقل في RSM** - فتح الأقسام والعثور على المحتوى\n💬 **الإجابة على الأسئلة** - عني، المستقوم والمعرفة العامة\n🌍 **متعدد اللغات** - 9 لغات متاحة\n\n💡 **جرب هذه الأوامر:**\n• 'ابحث عن الذكاء الاصطناعي'\n• 'ما هو الحوسبة الكمية؟'\n• 'لخص المقال الحالي'\n• 'افتح قسم الفيديوهات'\n• 'اخبرني عن نفسك'\n• 'ما هو مستقبل الذكاء الاصطناعي؟'"
+                botHello: "🤖 **مرحباً! أنا مساعد RSM الذكي!**\n\nيمكنني مساعدتك في:\n\n🔍 **البحث في ويكيبيديا** - البحث عن معلومات بلغات متعددة\n📝 **تلخيص المقالات** - إنشاء ملخصات للمحتوى النصي\n🗺️ **التنقل في RSM** - فتح الأقسام والعثور على المحتوى\n💬 **الإجابة على الأسئلة** - عني، المستقوم والمعرفة العامة\n🌍 **متعدد اللغات** - 9 لغات متاحة\n\n💡 **جرب هذه الأوامر:**\n• 'ابحث عن الذكاء الاصطناعي'\n• 'ما هو الحوسبة الكمية؟'\n• 'لخص المقال الحالي'\n• 'افتح قسم الفيديوهات'\n• 'اخبرني عن نفسك'\n• 'ما هو مستقبل الذكاء الاصطناعي؟'",
+                aiMainTitle: "مساعد RSM الذكي",
+                aiSubtitle: "رفيقك الذكي لاستكشاف الأسرار وتحليل المحتوى والإجابة على الأسئلة بـ9 لغات",
+                aiCap1Title: "بحث ويكيبيديا",
+                aiCap1Desc: "ابحث في ويكيبيديا بلغات متعددة للحصول على معلومات شاملة حول أي موضوع.",
+                aiCap2Title: "تلخيص المحتوى",
+                aiCap2Desc: "احصل على ملخصات موجزة للمقالات والفيديوهات والأخبار لفهم سريع.",
+                aiCap3Title: "دعم متعدد اللغات",
+                aiCap3Desc: "تواصل بـ9 لغات تشمل العربية والإنجليزية والإسبانية والفرنسية والألمانية والإيطالية والصينية والروسية والأردية.",
+                aiCap4Title: "تحليل ذكي",
+                aiCap4Desc: "حلل الأسرار والشؤون الجارية والمواضيع المعقدة باستخدام التفكير المتقدم.",
+                aiChatTitle: "دردش مع RSM الذكي",
+                aiSendText: "إرسال",
+                aiExamplesTitle: "جرب هذه الأمثلة",
+                aiEx1Desc: "ابحث عن معلومات الذكاء الاصطناعي في ويكيبيديا",
+                aiEx2Desc: "احصل على تفسيرات للمواضيع المعقدة",
+                aiEx3Desc: "احصل على ملخص سريع للمحتوى",
+                aiEx4Desc: "تعرف على المساعد الذكي",
+                aiFooterText: "يستخدم مساعد RSM الذكي معالجة متقدمة للغة الطبيعية لفهم واستجابة استفساراتك. يمكنه البحث عن المعلومات وتحليل المحتوى وتقديم رؤى بـ9 لغات مختلفة.",
+                aiPowered: "مدعوم بـ RSM Intelligence"
             }
         },
         ru: {
@@ -2347,6 +2892,7 @@
                 navVideos: "Видео",
                 navNews: "Новости",
                 navCategories: "Категории",
+                navAI: "ИИ-Ассистент",
                 navAbout: "О Нас",
                 navContacts: "Контакты",
                 searchPlaceholder: "Поиск статей, видео, новостей...",
@@ -2373,6 +2919,7 @@
                 footerVideos: "Видео",
                 footerNews: "Новости",
                 footerCategories: "Категории",
+                footerAI: "ИИ-Ассистент",
                 footerPrivacy: "Политика Конфиденциальности",
                 footerTerms: "Условия Использования",
                 footerCookies: "Политика Cookie",
@@ -2391,7 +2938,26 @@
                 videosLabel: "Видео",
                 newsLabel: "Новости",
                 languagesLabel: "Языки",
-                botHello: "🤖 **Привет! Я ваш ИИ-Ассистент RSM!**\n\nЯ могу помочь вам с:\n\n🔍 **Поиск в Википедии** - Поиск информации на нескольких языках\n📝 **Суммаризация статей** - Создание резюме текстового контента\n🗺️ **Навигация по RSM** - Открытие разделов и поиск контента\n💬 **Ответы на вопросы** - Обо мне, будущем и общих знаниях\n🌍 **Многоязычный** - Доступно 9 языков\n\n💡 **Попробуйте эти команды:**\n• 'поиск искусственного интеллекта'\n• 'что такое квантовые вычисления?'\n• 'суммировать текущую статью'\n• 'открыть раздел видео'\n• 'расскажи о себе'\n• 'каково будущее ИИ?'"
+                botHello: "🤖 **Привет! Я ваш ИИ-Ассистент RSM!**\n\nЯ могу помочь вам с:\n\n🔍 **Поиск в Википедии** - Поиск информации на нескольких языках\n📝 **Суммаризация статей** - Создание резюме текстового контента\n🗺️ **Навигация по RSM** - Открытие разделов и поиск контента\n💬 **Ответы на вопросы** - Обо мне, будущем и общих знаниях\n🌍 **Многоязычный** - Доступно 9 языков\n\n💡 **Попробуйте эти команды:**\n• 'поиск искусственного интеллекта'\n• 'что такое квантовые вычисления?'\n• 'суммировать текущую статью'\n• 'открыть раздел видео'\n• 'расскажи о себе'\n• 'каково будущее ИИ?'",
+                aiMainTitle: "ИИ-Ассистент RSM",
+                aiSubtitle: "Ваш интеллектуальный компаньон для изучения тайн, анализа контента и ответов на вопросы на 9 языках",
+                aiCap1Title: "Поиск в Википедии",
+                aiCap1Desc: "Ищите в Википедии на нескольких языках для получения полной информации по любой теме.",
+                aiCap2Title: "Суммаризация контента",
+                aiCap2Desc: "Получайте краткие резюме статей, видео и новостей для быстрого понимания.",
+                aiCap3Title: "Многоязычная поддержка",
+                aiCap3Desc: "Общайтесь на 9 языках, включая русский, английский, испанский, французский, немецкий, итальянский, китайский, арабский и урду.",
+                aiCap4Title: "Интеллектуальный анализ",
+                aiCap4Desc: "Анализируйте тайны, текущие события и сложные темы с помощью продвинутого мышления.",
+                aiChatTitle: "Чат с RSM ИИ",
+                aiSendText: "Отправить",
+                aiExamplesTitle: "Попробуйте Эти Примеры",
+                aiEx1Desc: "Поиск информации об ИИ в Википедии",
+                aiEx2Desc: "Получение объяснений сложных тем",
+                aiEx3Desc: "Получение краткого резюме контента",
+                aiEx4Desc: "Узнайте об ИИ-ассистенте",
+                aiFooterText: "ИИ-ассистент RSM использует расширенную обработку естественного языка для понимания и ответа на ваши запросы. Он может искать информацию, анализировать контент и предоставлять информацию на 9 различных языках.",
+                aiPowered: "При поддержке RSM Intelligence"
             }
         },
         ur: {
@@ -2406,6 +2972,7 @@
                 navVideos: "ویڈیوز",
                 navNews: "خبریں",
                 navCategories: "زمرے",
+                navAI: "AI اسسٹنٹ",
                 navAbout: "ہمارے بارے میں",
                 navContacts: "رابطے",
                 searchPlaceholder: "مقالات، ویڈیوز، خبریں تلاش کریں...",
@@ -2432,6 +2999,7 @@
                 footerVideos: "ویڈیوز",
                 footerNews: "خبریں",
                 footerCategories: "زمرے",
+                footerAI: "AI اسسٹنٹ",
                 footerPrivacy: "پرائیویسی پالیسی",
                 footerTerms: "خدمات کی شرائط",
                 footerCookies: "کوکی پالیسی",
@@ -2450,7 +3018,26 @@
                 videosLabel: "ویڈیوز",
                 newsLabel: "خبریں",
                 languagesLabel: "زبانیں",
-                botHello: "🤖 **ہیلو! میں آپ کا RSM AI اسسٹنٹ ہوں!**\n\nمیں آپ کی مدد کر سکتا ہوں:\n\n🔍 **ویکیپیڈیا میں تلاش کریں** - متعدد زبانوں میں معلومات تلاش کریں\n📝 **مضامین کا خلاصہ کریں** - متن مواد کے خلاصے بنائیں\n🗺️ **RSM نیویگیٹ کریں** - سیکشن کھولیں اور مواد تلاش کریں\n💬 **سوالات کے جوابات دیں** - میرے بارے میں، مستقبل اور عمومی معلومات\n🌍 **کثیر لسانی** - 9 زبانیں دستیاب ہیں\n\n💡 **ان کمانڈز کو آزمائیں:**\n• 'مصنوعی ذہانت تلاش کریں'\n• 'کوانٹم کمپیوٹنگ کیا ہے؟'\n• 'موجودہ مضمون کا خلاصہ کریں'\n• 'ویڈیوز سیکشن کھولیں'\n• 'اپنے بارے میں بتائیں'\n• 'AI کا مستقبل کیا ہے؟'"
+                botHello: "🤖 **ہیلو! میں آپ کا RSM AI اسسٹنٹ ہوں!**\n\nمیں آپ کی مدد کر سکتا ہوں:\n\n🔍 **ویکیپیڈیا میں تلاش کریں** - متعدد زبانوں میں معلومات تلاش کریں\n📝 **مضامین کا خلاصہ کریں** - متن مواد کے خلاصے بنائیں\n🗺️ **RSM نیویگیٹ کریں** - سیکشن کھولیں اور مواد تلاش کریں\n💬 **سوالات کے جوابات دیں** - میرے بارے میں، مستقبل اور عمومی معلومات\n🌍 **کثیر لسانی** - 9 زبانیں دستیاب ہیں\n\n💡 **ان کمانڈز کو آزمائیں:**\n• 'مصنوعی ذہانت تلاش کریں'\n• 'کوانٹم کمپیوٹنگ کیا ہے؟'\n• 'موجودہ مضمون کا خلاصہ کریں'\n• 'ویڈیوز سیکشن کھولیں'\n• 'اپنے بارے میں بتائیں'\n• 'AI کا مستقبل کیا ہے؟'",
+                aiMainTitle: "RSM AI اسسٹنٹ",
+                aiSubtitle: "آپ کا ذہین ساتھی اسرار کی تلاش، مواد کے تجزیہ اور 9 زبانوں میں سوالات کے جوابات دینے کے لیے",
+                aiCap1Title: "ویکیپیڈیا تلاش",
+                aiCap1Desc: "کسی بھی موضوع پر جامع معلومات کے لیے متعدد زبانوں میں ویکیپیڈیا تلاش کریں۔",
+                aiCap2Title: "مواد کا خلاصہ",
+                aiCap2Desc: "تیز سمجھ کے لیے مضامین، ویڈیوز اور خبروں کے مختصر خلاصے حاصل کریں۔",
+                aiCap3Title: "کثیر لسانی سپورٹ",
+                aiCap3Desc: "اردو، انگریزی، ہسپانوی، فرانسیسی، جرمن، اطالوی، چینی، عربی اور روسی سمیت 9 زبانوں میں بات چیت کریں۔",
+                aiCap4Title: "ذہین تجزیہ",
+                aiCap4Desc: "اعلیٰ درجے کی منطق کے ساتھ اسرار، موجودہ معاملات اور پیچیدہ موضوعات کا تجزیہ کریں۔",
+                aiChatTitle: "RSM AI کے ساتھ چیٹ کریں",
+                aiSendText: "بھیجیں",
+                aiExamplesTitle: "ان مثالوں کو آزمائیں",
+                aiEx1Desc: "ویکیپیڈیا پر AI معلومات تلاش کریں",
+                aiEx2Desc: "پیچیدہ موضوعات کی وضاحتیں حاصل کریں",
+                aiEx3Desc: "مواد کا تیز خلاصہ حاصل کریں",
+                aiEx4Desc: "AI اسسٹنٹ کے بارے میں جانیں",
+                aiFooterText: "RSM AI اسسٹنٹ آپ کے سوالات کو سمجھنے اور ان کا جواب دینے کے لیے اعلیٰ درجے کی قدرتی زبان کی پروسیسنگ کا استعمال کرتا ہے۔ یہ 9 مختلف زبانوں میں معلومات تلاش کر سکتا ہے، مواد کا تجزیہ کر سکتا ہے اور بصیرت فراہم کر سکتا ہے۔",
+                aiPowered: "RSM Intelligence کے ذریعے طاقت ور"
             }
         }
     };
@@ -2459,7 +3046,6 @@
     function extractYouTubeID(url) {
         if (!url) return null;
         
-        // Handle different YouTube URL formats
         const patterns = [
             /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
             /^([a-zA-Z0-9_-]{11})$/
@@ -2563,11 +3149,10 @@
             return sentences.join('. ') + '.';
         }
         
-        // Simple scoring based on length and position
         const scoredSentences = sentences.map((sentence, index) => {
             const words = sentence.trim().split(/\s+/).length;
-            const positionScore = 1 - (index / sentences.length); // Earlier sentences get higher score
-            const lengthScore = Math.min(words / 20, 1); // Ideal sentence length
+            const positionScore = 1 - (index / sentences.length);
+            const lengthScore = Math.min(words / 20, 1);
             return { 
                 sentence: sentence.trim(), 
                 score: (positionScore * 0.6) + (lengthScore * 0.4) 
@@ -2586,29 +3171,22 @@
         try {
             updateLoadingText('Loading RSM Platform...');
             
-            // Load articles
             const response = await fetch('data.json');
             if (!response.ok) throw new Error('Failed to load content');
             
             const data = await response.json();
             articles = data.articles || [];
             
-            // Apply language
             await applyLanguage(currentLanguage);
             
-            // Update description
             document.getElementById('aboutDescription').textContent = data.description[currentLanguage] || data.description['en'];
             
-            // Initialize counts
             updateContentCounts();
             
-            // Render all content
             await renderAllContent();
             
-            // Initialize newsletter
             initNewsletter();
             
-            // Hide loading with delay
             setTimeout(() => {
                 document.getElementById('loadingOverlay').style.opacity = '0';
                 setTimeout(() => {
@@ -2616,10 +3194,9 @@
                 }, 500);
             }, 1000);
             
-            // Initialize chatbot
             setTimeout(() => {
-                if (document.getElementById('chatMessages').children.length === 0) {
-                    appendMessage('bot', languageData[currentLanguage].translations.botHello);
+                if (document.getElementById('aiChatMessages').children.length === 0) {
+                    appendAIMessage('bot', languageData[currentLanguage].translations.botHello);
                 }
             }, 1500);
             
@@ -2645,24 +3222,19 @@
             botLanguage = langCode;
             localStorage.setItem('rsm_language', langCode);
             
-            // Update UI
             await applyLanguage(langCode);
             toggleLanguageDropdown();
             
-            // Update content counts
             updateContentCounts();
             
-            // Re-render content
             await renderAllContent();
             
-            // Update chatbot welcome message
-            const chatMessages = document.getElementById('chatMessages');
-            if (chatMessages.children.length === 1) {
-                chatMessages.innerHTML = '';
-                appendMessage('bot', languageData[langCode].translations.botHello);
+            const aiChatMessages = document.getElementById('aiChatMessages');
+            if (aiChatMessages.children.length === 1) {
+                aiChatMessages.innerHTML = '';
+                appendAIMessage('bot', languageData[langCode].translations.botHello);
             }
             
-            // Show notification
             showNotification(`Language changed to ${languageData[langCode].name}`);
         }
     }
@@ -2671,14 +3243,12 @@
         const lang = languageData[langCode];
         if (!lang) return;
         
-        // Update language selector
         document.getElementById('currentLangFlag').textContent = lang.flag;
         document.getElementById('currentLangCode').textContent = langCode.toUpperCase();
         document.documentElement.lang = langCode;
         
         const t = lang.translations;
         
-        // Update all translatable elements
         const elements = {
             'siteTitle': t.siteTitle,
             'siteTagline': t.siteTagline,
@@ -2687,6 +3257,7 @@
             'navVideos': t.navVideos,
             'navNews': t.navNews,
             'navCategories': t.navCategories,
+            'navAI': t.navAI,
             'navAbout': t.navAbout,
             'navContacts': t.navContacts,
             'latestNewsTitle': t.latestNewsTitle,
@@ -2711,6 +3282,7 @@
             'footerVideos': t.footerVideos,
             'footerNews': t.footerNews,
             'footerCategories': t.footerCategories,
+            'footerAI': t.footerAI,
             'footerPrivacy': t.footerPrivacy,
             'footerTerms': t.footerTerms,
             'footerCookies': t.footerCookies,
@@ -2728,7 +3300,26 @@
             'articlesLabel': t.articlesLabel,
             'videosLabel': t.videosLabel,
             'newsLabel': t.newsLabel,
-            'languagesLabel': t.languagesLabel
+            'languagesLabel': t.languagesLabel,
+            'aiMainTitle': t.aiMainTitle,
+            'aiSubtitle': t.aiSubtitle,
+            'aiCap1Title': t.aiCap1Title,
+            'aiCap1Desc': t.aiCap1Desc,
+            'aiCap2Title': t.aiCap2Title,
+            'aiCap2Desc': t.aiCap2Desc,
+            'aiCap3Title': t.aiCap3Title,
+            'aiCap3Desc': t.aiCap3Desc,
+            'aiCap4Title': t.aiCap4Title,
+            'aiCap4Desc': t.aiCap4Desc,
+            'aiChatTitle': t.aiChatTitle,
+            'aiSendText': t.aiSendText,
+            'aiExamplesTitle': t.aiExamplesTitle,
+            'aiEx1Desc': t.aiEx1Desc,
+            'aiEx2Desc': t.aiEx2Desc,
+            'aiEx3Desc': t.aiEx3Desc,
+            'aiEx4Desc': t.aiEx4Desc,
+            'aiFooterText': t.aiFooterText,
+            'aiPowered': t.aiPowered
         };
         
         for (const [id, text] of Object.entries(elements)) {
@@ -2738,12 +3329,10 @@
             }
         }
         
-        // Update placeholders
         document.getElementById('searchInput').placeholder = t.searchPlaceholder;
-        document.getElementById('chatInput').placeholder = t.chatPlaceholder;
+        document.getElementById('aiChatInput').placeholder = t.chatPlaceholder;
         document.getElementById('newsletterEmail').placeholder = t.subscribeText + '...';
         
-        // Update loading text
         updateLoadingText('Loading content...');
     }
 
@@ -2757,7 +3346,6 @@
     }
 
     async function renderHomeContent() {
-        // Get latest news
         const newsItems = articles.filter(a => a.type === "news");
         if (newsItems.length > 0) {
             const latestNews = newsItems.sort((a, b) => new Date(b.date) - new Date(a.date))[0];
@@ -2770,7 +3358,6 @@
             document.getElementById('home').querySelector('.feature-card.news').dataset.articleId = latestNews.id;
         }
         
-        // Get latest video
         const videoItems = articles.filter(a => a.type === "video");
         if (videoItems.length > 0) {
             const latestVideo = videoItems.sort((a, b) => new Date(b.date) - new Date(a.date))[0];
@@ -3050,7 +3637,6 @@
             const videoId = extractYouTubeID(article.videoUrl);
             
             if (videoId) {
-                // FIXED: Use correct YouTube embed URL
                 const iframe = document.createElement('iframe');
                 iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
                 iframe.width = "100%";
@@ -3061,7 +3647,6 @@
                 iframe.style.borderRadius = "var(--border-radius)";
                 mediaContainer.appendChild(iframe);
             } else {
-                // If not a YouTube URL, show as link
                 const link = document.createElement('a');
                 link.href = article.videoUrl;
                 link.target = "_blank";
@@ -3110,10 +3695,8 @@
                 newsletterButton.disabled = true;
                 newsletterButton.innerHTML = '<div class="loading" style="display:inline-block;"></div>';
                 
-                // Simulate sending to rsm260511@gmail.com
                 await new Promise(resolve => setTimeout(resolve, 1500));
                 
-                // Save subscription
                 const subscribers = JSON.parse(localStorage.getItem('rsm_subscribers') || '[]');
                 subscribers.push({
                     email: email,
@@ -3156,11 +3739,10 @@
     }
 
     // ============ INTELLIGENT AI RESPONSE FUNCTION ============
-    async function botResponse(msg) {
+    async function aiBotResponse(msg) {
         const m = msg.toLowerCase().trim();
         const t = languageData[botLanguage].translations;
         
-        // 1. GREETINGS
         const greetings = {
             'en': ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening', 'how are you'],
             'it': ['ciao', 'salve', 'buongiorno', 'buonasera', 'come stai', 'come va'],
@@ -3183,7 +3765,7 @@
                 'de': ["Hallo! 👋 Wie kann ich Ihnen heute helfen?", "Hallo! Bereit, Ihnen zu helfen.", "Guten Tag! Was kann ich für Sie tun?"],
                 'zh': ["你好！👋 今天我能为你做什么？", "你好！准备好帮助你。", "问候！我能为你做什么？"],
                 'ar': ["مرحباً! 👋 كيف يمكنني مساعدتك اليوم؟", "أهلاً! جاهز لمساعدتك.", "تحيات! ماذا يمكنني أن أفعل من أجلك؟"],
-                'ru': ["Привет! 👋 Как я могу вам помочь сегодня?", "Здравствуйте! Готов помочь вам.", "Приветствую! Что я могу для вас сделать?"],
+                'ru': ["Привет! 👋 Как я могу вам помочь сегодня?", "Здравствуйте! Готов помочь вам.", "Приветствую! Что я могу для вас сделать؟"],
                 'ur': ["ہیلو! 👋 آج میں آپ کی کیسے مدد کر سکتا ہوں؟", "ہیلو! آپ کی مدد کے لیے تیار.", "سلام! میں آپ کے لیے کیا کر سکتا ہوں؟"]
             };
             
@@ -3191,7 +3773,6 @@
             return responses[Math.floor(Math.random() * responses.length)];
         }
         
-        // 2. PERSONAL QUESTIONS
         if (m.includes('come ti chiami') || m.includes('tu come ti chiami') || m.includes('qual è il tuo nome') || 
             m.includes('hai un nome') || m.includes('your name') || m.includes('what is your name') ||
             m.includes('como te llamas') || m.includes('comment tu t\'appelles') || m.includes('wie heißt du') ||
@@ -3211,7 +3792,6 @@
             return responses[botLanguage] || responses['en'];
         }
         
-        // 3. WHAT CAN YOU DO
         if (m.includes('cosa puoi fare') || m.includes('what can you do') || m.includes('qué puedes hacer') || 
             m.includes('que peux-tu faire') || m.includes('was kannst du tun') || m.includes('你能做什么') ||
             m.includes('ماذا يمكنك أن تفعل') || m.includes('что ты умеешь') || m.includes('آپ کیا کر سکتے ہیں')) {
@@ -3219,7 +3799,6 @@
             return t.botHello;
         }
         
-        // 4. SEARCH COMMANDS - REAL WIKIPEDIA SEARCH
         const searchKeywords = ['search', 'cerca', 'buscar', 'rechercher', 'suchen', '搜索', 'بحث', 'поиск', 'تلاش'];
         const whatIsKeywords = ['what is', 'cos\'è', 'qué es', 'qu\'est-ce que', 'was ist', '什么是', 'ما هو', 'что такое', 'کیا ہے'];
         const whoIsKeywords = ['who is', 'chi è', 'quién es', 'qui est', 'wer ist', '谁是', 'من هو', 'кто такой', 'کون ہے'];
@@ -3227,7 +3806,6 @@
         let searchQuery = '';
         let shouldSearch = false;
         
-        // Check for search commands
         for (const keyword of searchKeywords) {
             if (m.includes(keyword)) {
                 searchQuery = m.replace(keyword, '').trim();
@@ -3236,7 +3814,6 @@
             }
         }
         
-        // Check for "what is" questions
         for (const keyword of whatIsKeywords) {
             if (m.includes(keyword)) {
                 searchQuery = m.replace(keyword, '').trim();
@@ -3245,7 +3822,6 @@
             }
         }
         
-        // Check for "who is" questions
         for (const keyword of whoIsKeywords) {
             if (m.includes(keyword)) {
                 searchQuery = m.replace(keyword, '').trim();
@@ -3254,18 +3830,15 @@
             }
         }
         
-        // If it's a question with "?"
         if (m.includes('?') && !shouldSearch && m.length > 5) {
             searchQuery = m.replace(/[?.,!]/g, '').trim();
             shouldSearch = true;
         }
         
-        // Perform Wikipedia search if needed
         if (shouldSearch && searchQuery.length > 2) {
             return await wikipediaSearch(searchQuery, botLanguage);
         }
         
-        // 5. SUMMARIZE CURRENT ARTICLE
         const summarizeKeywords = {
             'en': ['summarize', 'summary', 'brief', 'overview'],
             'it': ['riassumi', 'sintetizza', 'riassunto'],
@@ -3314,7 +3887,6 @@
             }
         }
         
-        // 6. FUTURE QUESTIONS
         if (m.includes('future') || m.includes('futuro') || m.includes('futuro') || m.includes('avenir') || 
             m.includes('zukunft') || m.includes('未来') || m.includes('مستقبل') || m.includes('будущее') || m.includes('مستقبل')) {
             
@@ -3322,7 +3894,7 @@
                 'en': "🔮 **The Future of AI:**\n\nBased on current trends, AI will become more integrated into daily life. We'll see:\n• More personalized assistants like me\n• Better multilingual support\n• Advanced content understanding\n• Real-time information processing\n\nAt RSM, we're working to stay at the forefront of these developments!",
                 'it': "🔮 **Il Futuro dell'AI:**\n\nSulla base delle tendenze attuali, l'AI diventerà più integrata nella vita quotidiana. Vedremo:\n• Più assistenti personalizzati come me\n• Miglior supporto multilingue\n• Comprensione avanzata dei contenuti\n• Elaborazione delle informazioni in tempo reale\n\nIn RSM, stiamo lavorando per restare all'avanguardia in questi sviluppi!",
                 'es': "🔮 **El Futuro de la IA:**\n\nBasado en las tendencias actuales, la IA se integrará más en la vida diaria. Veremos:\n• Más asistentes personalizados como yo\n• Mejor soporte multilingüe\n• Comprensión avanzada de contenido\n• Procesamiento de información en tiempo real\n\n¡En RSM, estamos trabajando para mantenernos a la vanguardia de estos desarrollos!",
-                'fr': "🔮 **L'Avenir de l'IA:**\n\nBasé sur les tendances actuelles, l'IA s'intégrera davantage dans la vie quotidienne. Nous verrons:\n• Plus d'assistants personnalisés comme moi\n• Meilleur support multilingue\n• Compréhension avancée du contenu\n• Traitement de l'information en temps réel\n\nChez RSM, nous travaillons pour rester à la pointe de ces développements!",
+                'fr': "🔮 **L'Avenir de l'IA:**\n\nBasé sur las tendencias actuales, l'IA s'intégrera davantage dans la vie quotidienne. Nous verrons:\n• Plus d'assistants personnalisés como moi\n• Meilleur support multilingue\n• Compréhension avancée du contenu\n• Traitement de l'information en temps réel\n\nChez RSM, nous travaillons pour rester à la pointe de ces développements!",
                 'de': "🔮 **Die Zukunft der KI:**\n\nBasierend auf aktuellen Trends wird KI stärker in den Alltag integriert. Wir werden sehen:\n• Mehr personalisierte Assistenten wie mich\n• Bessere mehrsprachige Unterstützung\n• Erweitertes Inhaltsverständnis\n• Echtzeit-Informationsverarbeitung\n\nBei RSM arbeiten wir daran, bei diesen Entwicklungen an vorderster Front zu bleiben!",
                 'zh': "🔮 **AI的未来：**\n\n基于当前趋势，AI将更融入日常生活。我们将看到：\n• 更多像我这样的个性化助手\n• 更好的多语言支持\n• 高级内容理解\n• 实时信息处理\n\n在RSM，我们正努力保持在这些发展的前沿！",
                 'ar': "🔮 **مستقبل الذكاء الاصطناعي:**\n\nاستناداً إلى الاتجاهات الحالية، سيتكامل الذكاء الاصطناعي أكثر في الحياة اليومية. سنرى:\n• المزيد من المساعدين الشخصيين مثلي\n• دعم متعدد اللغات أفضل\n• فهم محتوى متقدم\n• معالجة المعلومات في الوقت الحقيقي\n\nفي RSM، نحن نعمل للبقاء في طليعة هذه التطورات!",
@@ -3332,7 +3904,6 @@
             return futureResponses[botLanguage];
         }
         
-        // 7. NAVIGATION COMMANDS
         const navigationCommands = {
             'home': {keywords: ['home', 'inicio', 'accueil', 'startseite', '首页', 'الرئيسية', 'главная', 'ہوم']},
             'articles': {keywords: ['articles', 'articoli', 'artículos', 'articles', 'artikel', '文章', 'مقالات', 'статьи', 'مقالات']},
@@ -3363,7 +3934,6 @@
             }
         }
         
-        // 8. DEFAULT RESPONSE
         const defaultResponses = {
             'en': [
                 "I'm here to help! You can ask me to:\n• Search Wikipedia for information\n• Summarize articles\n• Navigate RSM sections\n• Answer questions about AI\n\nTry: 'search artificial intelligence' or 'open videos section'",
@@ -3388,7 +3958,7 @@
             'de': [
                 "Ich bin hier, um zu helfen! Sie können mich bitten:\n• Auf Wikipedia nach Informationen zu suchen\n• Artikel zusammenzufassen\n• Durch RSM-Bereiche zu navigieren\n• Fragen zu KI zu beantworten\n\nProbieren Sie: 'KI suchen' oder 'Videobereich öffnen'",
                 "Brauchen Sie Hilfe? Ich kann auf Wikipedia suchen, Inhalte zusammenfassen und Ihnen helfen, durch RSM zu navigieren. Was möchten Sie tun?",
-                "Ich bin Ihr KI-Assistent! Ich kann Informationen suchen, Zusammenfassungen erstellen und Sie durch RSM führen. Sagen Sie mir einfach, was Sie brauchen!"
+                "Ich bin Ihr KI-Assistent! Ich kann Informationen suchen, Zusammenfassungen erstellen und Sie durch RSM führen. Sagen Sie mir einfach, что Sie brauchen!"
             ],
             'zh': [
                 "我在这里帮忙！你可以让我：\n• 在维基百科上搜索信息\n• 总结文章\n• 导航RSM部分\n• 回答关于AI的问题\n\n试试：'搜索人工智能'或'打开视频部分'",
@@ -3414,6 +3984,62 @@
         
         const responses = defaultResponses[botLanguage] || defaultResponses['en'];
         return responses[Math.floor(Math.random() * responses.length)];
+    }
+
+    // ============ AI SECTION FUNCTIONS ============
+    function insertExample(text) {
+        document.getElementById('aiChatInput').value = text;
+        document.getElementById('aiChatInput').focus();
+    }
+
+    function appendAIMessage(sender, text) {
+        const div = document.createElement('div');
+        div.className = `ai-message ${sender}`;
+        div.innerHTML = text.replace(/\n/g, '<br>');
+        
+        const time = document.createElement('div');
+        time.className = 'ai-message-time';
+        time.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        
+        div.appendChild(time);
+        document.getElementById('aiChatMessages').appendChild(div);
+        document.getElementById('aiChatMessages').scrollTop = document.getElementById('aiChatMessages').scrollHeight;
+    }
+
+    async function sendAIMessage() {
+        const msg = document.getElementById('aiChatInput').value.trim();
+        if (!msg) return;
+        
+        appendAIMessage('user', msg);
+        document.getElementById('aiChatInput').value = '';
+        
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'ai-message bot';
+        typingDiv.innerHTML = '<div class="loading" style="display:inline-block; width:20px;height:20px;"></div>';
+        document.getElementById('aiChatMessages').appendChild(typingDiv);
+        
+        try {
+            const response = await aiBotResponse(msg);
+            typingDiv.remove();
+            appendAIMessage('bot', response);
+        } catch (error) {
+            console.error('AI chat error:', error);
+            typingDiv.remove();
+            const errorMsg = {
+                'en': "⚠️ An error occurred. Please try again.",
+                'it': "⚠️ Si è verificato un errore. Riprova.",
+                'es': "⚠️ Ocurrió un error. Inténtalo de nuevo.",
+                'fr': "⚠️ Une erreur s'est produite. Veuillez réessayer.",
+                'de': "⚠️ Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+                'zh': "⚠️ 发生错误。请重试。",
+                'ar': "⚠️ حدث خطأ. يرجى المحاولة مرة أخرى.",
+                'ru': "⚠️ Произошла ошибка. Пожалуйста, попробуйте еще раз.",
+                'ur': "⚠️ ایک خرابی پیش آئی۔ براہ کرم دوبارہ کوشش کریں۔"
+            };
+            appendAIMessage('bot', errorMsg[botLanguage] || errorMsg['en']);
+        }
+        
+        document.getElementById('aiChatInput').focus();
     }
 
     // ============ HELPER FUNCTIONS ============
@@ -3460,87 +4086,6 @@
         }, 3000);
     }
 
-    // ============ CHATBOT FUNCTIONS ============
-    const chatToggle = document.getElementById('chatToggle');
-    const chatBox = document.getElementById('chatBox');
-    const chatMessages = document.getElementById('chatMessages');
-    const chatInput = document.getElementById('chatInput');
-    const chatSend = document.getElementById('chatSend');
-    const chatClose = document.getElementById('chatClose');
-
-    chatToggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const isVisible = chatBox.style.display === 'flex';
-        chatBox.style.display = isVisible ? 'none' : 'flex';
-        
-        if (!isVisible) {
-            chatInput.focus();
-            if (chatMessages.children.length === 0) {
-                appendMessage('bot', languageData[currentLanguage].translations.botHello);
-            }
-        }
-    });
-
-    chatClose.addEventListener('click', function(e) {
-        e.stopPropagation();
-        chatBox.style.display = 'none';
-    });
-
-    function appendMessage(sender, text) {
-        const div = document.createElement('div');
-        div.className = `message ${sender}`;
-        div.innerHTML = text.replace(/\n/g, '<br>');
-        
-        const time = document.createElement('div');
-        time.className = 'message-time';
-        time.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-        
-        div.appendChild(time);
-        chatMessages.appendChild(div);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    async function sendMessage() {
-        const msg = chatInput.value.trim();
-        if (!msg) return;
-        
-        appendMessage('user', msg);
-        chatInput.value = '';
-        
-        const typingDiv = document.createElement('div');
-        typingDiv.className = 'message bot';
-        typingDiv.innerHTML = '<div class="loading" style="display:inline-block; width:20px;height:20px;"></div>';
-        chatMessages.appendChild(typingDiv);
-        
-        try {
-            const response = await botResponse(msg);
-            typingDiv.remove();
-            appendMessage('bot', response);
-        } catch (error) {
-            console.error('Chat error:', error);
-            typingDiv.remove();
-            const errorMsg = {
-                'en': "⚠️ An error occurred. Please try again.",
-                'it': "⚠️ Si è verificato un errore. Riprova.",
-                'es': "⚠️ Ocurrió un error. Inténtalo de nuevo.",
-                'fr': "⚠️ Une erreur s'est produite. Veuillez réessayer.",
-                'de': "⚠️ Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
-                'zh': "⚠️ 发生错误。请重试。",
-                'ar': "⚠️ حدث خطأ. يرجى المحاولة مرة أخرى.",
-                'ru': "⚠️ Произошла ошибка. Пожалуйста, попробуйте еще раз.",
-                'ur': "⚠️ ایک خرابی پیش آئی۔ براہ کرم دوبارہ کوشش کریں۔"
-            };
-            appendMessage('bot', errorMsg[botLanguage] || errorMsg['en']);
-        }
-        
-        chatInput.focus();
-    }
-
-    chatSend.addEventListener('click', sendMessage);
-    chatInput.addEventListener('keypress', e => {
-        if (e.key === 'Enter') sendMessage();
-    });
-
     // ============ GLOBAL FUNCTIONS ============
     window.showSection = showSection;
     window.openContent = function(articleId) {
@@ -3570,6 +4115,7 @@
         }
     };
     window.goBack = () => showSection(currentSection);
+    window.insertExample = insertExample;
     window.searchAll = async function() {
         const query = document.getElementById('searchInput').value.toLowerCase().trim();
         const resultsContainer = document.getElementById('searchResults');
@@ -3659,9 +4205,27 @@
 
     // Initialize app
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initApp);
+        document.addEventListener('DOMContentLoaded', function() {
+            initApp();
+            
+            // Setup AI chat
+            document.getElementById('aiChatSend').addEventListener('click', sendAIMessage);
+            document.getElementById('aiChatInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendAIMessage();
+                }
+            });
+        });
     } else {
         initApp();
+        
+        // Setup AI chat
+        document.getElementById('aiChatSend').addEventListener('click', sendAIMessage);
+        document.getElementById('aiChatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendAIMessage();
+            }
+        });
     }
     </script>
 </body>
