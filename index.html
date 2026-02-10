@@ -91,6 +91,12 @@
             background: linear-gradient(135deg, #ff2e43 0%, #ff4757 100%);
         }
 
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         header {
             background: 
                 linear-gradient(rgba(10, 10, 15, 0.92), rgba(10, 10, 15, 0.98)),
@@ -212,6 +218,15 @@
             gap: 20px;
         }
 
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
         .nav-links {
             display: flex;
             gap: 8px;
@@ -258,10 +273,15 @@
             box-shadow: 0 5px 20px rgba(255, 71, 87, 0.3);
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         .search-container {
             position: relative;
             min-width: 350px;
-            margin: 0 20px;
         }
 
         .search-box {
@@ -353,7 +373,6 @@
 
         .language-selector {
             position: relative;
-            margin-right: 15px;
         }
 
         .language-btn {
@@ -414,197 +433,9 @@
             transform: translateX(8px);
         }
 
-        .chatbot-container {
-            position: relative;
-        }
-
-        #chatToggle {
-            padding: 14px 30px;
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: var(--transition);
-            box-shadow: var(--shadow-md);
-            font-size: 1rem;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        #chatToggle:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(255, 71, 87, 0.4);
-        }
-
-        #chatBox {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            width: 420px;
-            height: 650px;
-            background: var(--card-dark);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
-            display: none;
-            flex-direction: column;
-            z-index: 1000;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            overflow: hidden;
-            animation: slideInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(20px);
-        }
-
-        .chat-header {
-            background: var(--gradient-dark);
-            padding: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            position: relative;
-        }
-
-        .chat-title {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-weight: 800;
-            font-size: 1.3rem;
-        }
-
-        #chatClose {
-            background: var(--accent-red);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            transition: var(--transition);
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 2;
-        }
-
-        #chatClose:hover {
-            transform: rotate(90deg) scale(1.1);
-            background: #ff2e43;
-            box-shadow: 0 5px 20px rgba(255, 71, 87, 0.4);
-        }
-
-        #chatMessages {
-            flex: 1;
-            padding: 25px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            background: rgba(10, 10, 15, 0.6);
-        }
-
-        .message {
-            max-width: 88%;
-            padding: 18px 25px;
-            border-radius: 25px;
-            word-wrap: break-word;
-            animation: messageAppear 0.4s ease;
-            position: relative;
-            line-height: 1.6;
-            font-size: 1.05rem;
-        }
-
-        .message.user {
-            align-self: flex-end;
-            background: var(--gradient-secondary);
-            color: white;
-            border-bottom-right-radius: 8px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .message.bot {
-            align-self: flex-start;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(10px);
-            border-bottom-left-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .message-time {
-            font-size: 0.75rem;
-            opacity: 0.8;
-            margin-top: 8px;
-            text-align: right;
-            font-weight: 500;
-        }
-
-        .chat-input-container {
-            padding: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            background: var(--secondary-dark);
-        }
-
-        .chat-input-wrapper {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        #chatInput {
-            flex: 1;
-            padding: 18px 25px;
-            background: rgba(255, 255, 255, 0.08);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            border-radius: 50px;
-            outline: none;
-            transition: var(--transition);
-            font-size: 1.05rem;
-            backdrop-filter: blur(10px);
-        }
-
-        #chatInput:focus {
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 5px rgba(46, 134, 222, 0.2);
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        #chatSend {
-            padding: 18px 35px;
-            background: var(--gradient-secondary);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            white-space: nowrap;
-            box-shadow: var(--shadow-sm);
-            font-size: 1.05rem;
-        }
-
-        #chatSend:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(46, 134, 222, 0.35);
-        }
-
         main {
-            max-width: 1400px;
             margin: 60px auto;
-            padding: 0 40px;
+            padding: 0 20px;
         }
 
         .card {
@@ -1213,6 +1044,17 @@
             }
         }
 
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @keyframes slideInUp {
             from {
                 opacity: 0;
@@ -1248,147 +1090,6 @@
 
         @keyframes spin {
             to { transform: rotate(360deg); }
-        }
-
-        @media (max-width: 992px) {
-            nav { 
-                flex-direction: column; 
-                gap: 20px; 
-                padding: 15px 25px;
-            }
-            .nav-links { 
-                order: 3; 
-                width: 100%; 
-                justify-content: center;
-                gap: 5px;
-            }
-            .nav-link { 
-                padding: 12px 20px;
-                font-size: 0.95rem;
-            }
-            .search-container { 
-                order: 2; 
-                width: 100%; 
-                margin: 10px 0;
-                min-width: auto;
-            }
-            .language-selector, .chatbot-container { 
-                order: 1; 
-                margin: 5px; 
-            }
-            header { 
-                padding: 100px 20px 60px; 
-                min-height: 60vh; 
-            }
-            header h1 { font-size: 3.5rem; }
-            .feature-cards { grid-template-columns: 1fr; }
-            .header-stats { gap: 20px; }
-            .stat-item { 
-                min-width: 130px; 
-                padding: 20px 25px;
-            }
-            .stat-number { font-size: 2.5rem; }
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 3rem; }
-            header .tagline { font-size: 1.4rem; }
-            .header-stats { 
-                gap: 15px;
-                margin-top: 40px;
-            }
-            .stat-item { 
-                min-width: 110px; 
-                padding: 15px 20px;
-            }
-            .stat-number { font-size: 2.2rem; }
-            .section-title { 
-                font-size: 2rem;
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-            .nav-link { 
-                padding: 10px 15px; 
-                font-size: 0.9rem;
-                gap: 8px;
-            }
-            .nav-link i { font-size: 1.1rem; }
-            .content-grid { 
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-            main { padding: 0 25px; }
-        }
-
-        .newsletter-form {
-            margin-top: 20px;
-        }
-
-        .newsletter-input {
-            width: 100%;
-            padding: 16px 25px;
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 50px;
-            color: white;
-            font-size: 1.05rem;
-            margin-bottom: 15px;
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
-        }
-
-        .newsletter-input:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            background: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 0 0 5px rgba(46, 134, 222, 0.2);
-        }
-
-        .newsletter-button {
-            width: 100%;
-            padding: 16px 25px;
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.05rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .newsletter-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.3);
-        }
-
-        .newsletter-success {
-            display: none;
-            padding: 15px 25px;
-            background: rgba(16, 172, 132, 0.2);
-            border: 2px solid var(--accent-green);
-            border-radius: var(--border-radius-sm);
-            color: var(--accent-green);
-            font-weight: 600;
-            margin-top: 15px;
-            text-align: center;
-        }
-
-        .newsletter-error {
-            display: none;
-            padding: 15px 25px;
-            background: rgba(255, 71, 87, 0.2);
-            border: 2px solid var(--accent-red);
-            border-radius: var(--border-radius-sm);
-            color: var(--accent-red);
-            font-weight: 600;
-            margin-top: 15px;
-            text-align: center;
         }
 
         /* STILI SEZIONE AI */
@@ -1704,25 +1405,176 @@
             background-clip: text;
             color: transparent;
         }
+
+        /* MEDIA QUERIES */
+        @media (max-width: 1200px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                order: 2;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-right {
+                order: 1;
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .search-container {
+                min-width: 300px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            nav {
+                padding: 15px 25px;
+            }
+            
+            .nav-links {
+                gap: 5px;
+            }
+            
+            .nav-link {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
+            
+            header {
+                padding: 100px 20px 60px;
+                min-height: 60vh;
+            }
+            
+            header h1 {
+                font-size: 3.5rem;
+            }
+            
+            .feature-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-stats {
+                gap: 20px;
+            }
+            
+            .stat-item {
+                min-width: 130px;
+                padding: 20px 25px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+            
+            header .tagline {
+                font-size: 1.4rem;
+            }
+            
+            .header-stats {
+                gap: 15px;
+                margin-top: 40px;
+            }
+            
+            .stat-item {
+                min-width: 110px;
+                padding: 15px 20px;
+            }
+            
+            .stat-number {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .nav-link {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                gap: 8px;
+            }
+            
+            .nav-link i {
+                font-size: 1.1rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .search-container {
+                min-width: 250px;
+            }
+            
+            .ai-title {
+                font-size: 2.5rem;
+            }
+            
+            .ai-chat-box {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-right {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .search-container {
+                min-width: 100%;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
     <!-- Webpushr -->
-<script>
-(function(w,d,s,id){
-  if(typeof(w.webpushr)!=='undefined') return;
-  w.webpushr=w.webpushr||function(){
-    (w.webpushr.q=w.webpushr.q||[]).push(arguments)
-  };
-  var js,fjs=d.getElementsByTagName(s)[0];
-  js=d.createElement(s); js.id=id; js.async=1;
-  js.src="https://cdn.webpushr.com/app.min.js";
-  js.onload=function(){
-    webpushr('setup',{
-      'key':'BKdp3zSvl_w5aJH_c9naFADnGMJxh9khCwh0THm4hfU-PGhMZN8V5XpQt0nAqFULqVBjWSUk6lWblBhDYRbhWt4'
-    });
-  };
-  fjs.parentNode.appendChild(js);
-}(window,document,'script','webpushr-jssdk'));
-</script>
+    <script>
+    (function(w,d,s,id){
+      if(typeof(w.webpushr)!=='undefined') return;
+      w.webpushr=w.webpushr||function(){
+        (w.webpushr.q=w.webpushr.q||[]).push(arguments)
+      };
+      var js,fjs=d.getElementsByTagName(s)[0];
+      js=d.createElement(s); js.id=id; js.async=1;
+      js.src="https://cdn.webpushr.com/app.min.js";
+      js.onload=function(){
+        webpushr('setup',{
+          'key':'BKdp3zSvl_w5aJH_c9naFADnGMJxh9khCwh0THm4hfU-PGhMZN8V5XpQt0nAqFULqVBjWSUk6lWblBhDYRbhWt4'
+        });
+      };
+      fjs.parentNode.appendChild(js);
+    }(window,document,'script','webpushr-jssdk'));
+    </script>
 </head>
 
 <body>
@@ -1755,86 +1607,82 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="nav-links">
-            <a class="nav-link active" onclick="showSection('home')" id="navHome">
-                <i class="fas fa-home"></i> <span>Home</span>
-            </a>
-            <a class="nav-link" onclick="showSection('articles')" id="navArticles">
-                <i class="fas fa-newspaper"></i> <span>Articles</span>
-            </a>
-            <a class="nav-link" onclick="showSection('videos')" id="navVideos">
-                <i class="fas fa-play-circle"></i> <span>Videos</span>
-            </a>
-            <a class="nav-link" onclick="showSection('news')" id="navNews">
-                <i class="fas fa-bullhorn"></i> <span>News</span>
-            </a>
-            <a class="nav-link" onclick="showSection('categories')" id="navCategories">
-                <i class="fas fa-folder"></i> <span>Categories</span>
-            </a>
-            <a class="nav-link" onclick="showSection('ai')" id="navAI">
-                <i class="fas fa-robot"></i> <span>AI Assistant</span>
-            </a>
-            <a class="nav-link" onclick="showSection('about')" id="navAbout">
-                <i class="fas fa-info-circle"></i> <span>About Us</span>
-            </a>
-            <a class="nav-link" onclick="showSection('contacts')" id="navContacts">
-                <i class="fas fa-address-book"></i> <span>Contacts</span>
-            </a>
-        </div>
-
-        <!-- Search Box -->
-        <div class="search-container">
-            <div class="search-box">
-                <i class="fas fa-search search-icon"></i>
-                <input id="searchInput" placeholder="Search articles, videos, news..." oninput="searchAll()">
-                <div id="searchResults"></div>
+        <div class="nav-container">
+            <div class="nav-links">
+                <a class="nav-link active" onclick="showSection('home')" id="navHome">
+                    <i class="fas fa-home"></i> <span>Home</span>
+                </a>
+                <a class="nav-link" onclick="showSection('articles')" id="navArticles">
+                    <i class="fas fa-newspaper"></i> <span>Articles</span>
+                </a>
+                <a class="nav-link" onclick="showSection('videos')" id="navVideos">
+                    <i class="fas fa-play-circle"></i> <span>Videos</span>
+                </a>
+                <a class="nav-link" onclick="showSection('news')" id="navNews">
+                    <i class="fas fa-bullhorn"></i> <span>News</span>
+                </a>
+                <a class="nav-link" onclick="showSection('categories')" id="navCategories">
+                    <i class="fas fa-folder"></i> <span>Categories</span>
+                </a>
+                <a class="nav-link" onclick="showSection('ai')" id="navAI">
+                    <i class="fas fa-robot"></i> <span>AI Assistant</span>
+                </a>
+                <a class="nav-link" onclick="showSection('about')" id="navAbout">
+                    <i class="fas fa-info-circle"></i> <span>About Us</span>
+                </a>
+                <a class="nav-link" onclick="showSection('contacts')" id="navContacts">
+                    <i class="fas fa-address-book"></i> <span>Contacts</span>
+                </a>
             </div>
-        </div>
 
-        <!-- Language Selector -->
-        <div class="language-selector">
-            <button class="language-btn" onclick="toggleLanguageDropdown()">
-                <span id="currentLangFlag">🌐</span>
-                <span id="currentLangCode">EN</span>
-                <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="language-dropdown" id="languageDropdown">
-                <div class="language-option current-lang" onclick="changeLanguage('en')">
-                    <span>🇺🇸</span> <span>English</span>
+            <div class="nav-right">
+                <!-- Search Box -->
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input id="searchInput" placeholder="Search articles, videos, news..." oninput="searchAll()">
+                        <div id="searchResults"></div>
+                    </div>
                 </div>
-                <div class="language-option" onclick="changeLanguage('it')">
-                    <span>🇮🇹</span> <span>Italiano</span>
-                </div>
-                <div class="language-option" onclick="changeLanguage('es')">
-                    <span>🇪🇸</span> <span>Español</span>
-                </div>
-                <div class="language-option" onclick="changeLanguage('fr')">
-                    <span>🇫🇷</span> <span>Français</span>
-                </div>
-                <div class="language-option" onclick="changeLanguage('de')">
-                    <span>🇩🇪</span> <span>Deutsch</span>
-                </div>
-                <div class="language-option" onclick="changeLanguage('zh')">
-                    <span>🇨🇳</span> <span>中文</span>
-                </div>
-                <div class="language-option" onclick="changeLanguage('ar')">
-                    <span>🇸🇦</span> <span>العربية</span>
-                </div>
-                <div class="language-option" onclick="changeLanguage('ru')">
-                    <span>🇷🇺</span> <span>Русский</span>
-                </div>
-                <div class="language-option" onclick="changeLanguage('ur')">
-                    <span>🇵🇰</span> <span>اردو</span>
+
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <button class="language-btn" onclick="toggleLanguageDropdown()">
+                        <span id="currentLangFlag">🌐</span>
+                        <span id="currentLangCode">EN</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option current-lang" onclick="changeLanguage('en')">
+                            <span>🇺🇸</span> <span>English</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('it')">
+                            <span>🇮🇹</span> <span>Italiano</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('es')">
+                            <span>🇪🇸</span> <span>Español</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('fr')">
+                            <span>🇫🇷</span> <span>Français</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('de')">
+                            <span>🇩🇪</span> <span>Deutsch</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('zh')">
+                            <span>🇨🇳</span> <span>中文</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('ar')">
+                            <span>🇸🇦</span> <span>العربية</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('ru')">
+                            <span>🇷🇺</span> <span>Русский</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('ur')">
+                            <span>🇵🇰</span> <span>اردو</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Chatbot Button (rimosso, ora c'è la sezione AI) -->
-        <div class="chatbot-container" style="display: none;">
-            <button id="chatToggle">
-                <i class="fas fa-robot"></i>
-                <span id="chatBtnText">AI Assistant</span>
-            </button>
         </div>
     </nav>
 
@@ -1948,7 +1796,7 @@
     </div>
 
     <!-- Main Content -->
-    <main>
+    <main class="container">
         <!-- Home Section -->
         <section id="home">
             <div class="section-header">
@@ -2040,7 +1888,7 @@
             <div class="categories-grid" id="categoriesGrid"></div>
         </section>
 
-        <!-- AI Assistant Section (Tipo DeepSeek) -->
+        <!-- AI Assistant Section -->
         <section id="ai" class="hidden">
             <div class="ai-section">
                 <div class="ai-header">
@@ -2278,24 +2126,6 @@
                     <li><a onclick="openModal('cookiesModal')"><i class="fas fa-chevron-right"></i> <span id="footerCookies">Cookie Policy</span></a></li>
                     <li><a onclick="showSection('contacts')"><i class="fas fa-chevron-right"></i> <span id="footerContact">Contact Us</span></a></li>
                 </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3 id="newsletterTitle">Newsletter</h3>
-                <p id="newsletterText">Subscribe to get updates on new content and features.</p>
-                <div class="newsletter-form">
-                    <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Your email address">
-                    <button id="newsletterButton" class="newsletter-button">
-                        <i class="fas fa-paper-plane"></i>
-                        <span id="subscribeText">Subscribe</span>
-                    </button>
-                    <div id="newsletterSuccess" class="newsletter-success">
-                        <i class="fas fa-check-circle"></i> Thank you for subscribing!
-                    </div>
-                    <div id="newsletterError" class="newsletter-error">
-                        <i class="fas fa-exclamation-circle"></i> Please enter a valid email
-                    </div>
-                </div>
             </div>
         </div>
         
@@ -2593,7 +2423,7 @@
                 videosSectionTitle: "Toutes les Vidéos",
                 newsSectionTitle: "Toutes les Actualités",
                 categoriesSectionTitle: "Parcourir par Catégorie",
-                backButtonText: "Retour au Contenu",
+                backButtonText: "Retour au Contenido",
                 footerHome: "Accueil",
                 footerArticles: "Articles",
                 footerVideos: "Vidéos",
@@ -3185,8 +3015,6 @@
             
             await renderAllContent();
             
-            initNewsletter();
-            
             setTimeout(() => {
                 document.getElementById('loadingOverlay').style.opacity = '0';
                 setTimeout(() => {
@@ -3331,7 +3159,6 @@
         
         document.getElementById('searchInput').placeholder = t.searchPlaceholder;
         document.getElementById('aiChatInput').placeholder = t.chatPlaceholder;
-        document.getElementById('newsletterEmail').placeholder = t.subscribeText + '...';
         
         updateLoadingText('Loading content...');
     }
@@ -3675,69 +3502,6 @@
             `<p>${translation.content.replace(/\n/g, '<br><br>')}</p>`;
     }
 
-    // ============ NEWSLETTER FUNCTIONS ============
-    function initNewsletter() {
-        const newsletterButton = document.getElementById('newsletterButton');
-        const newsletterEmail = document.getElementById('newsletterEmail');
-        const newsletterSuccess = document.getElementById('newsletterSuccess');
-        const newsletterError = document.getElementById('newsletterError');
-        
-        newsletterButton.addEventListener('click', async () => {
-            const email = newsletterEmail.value.trim();
-            
-            if (!validateEmail(email)) {
-                newsletterError.style.display = 'block';
-                newsletterSuccess.style.display = 'none';
-                return;
-            }
-            
-            try {
-                newsletterButton.disabled = true;
-                newsletterButton.innerHTML = '<div class="loading" style="display:inline-block;"></div>';
-                
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                const subscribers = JSON.parse(localStorage.getItem('rsm_subscribers') || '[]');
-                subscribers.push({
-                    email: email,
-                    date: new Date().toISOString(),
-                    language: currentLanguage
-                });
-                localStorage.setItem('rsm_subscribers', JSON.stringify(subscribers));
-                
-                newsletterSuccess.style.display = 'block';
-                newsletterError.style.display = 'none';
-                newsletterEmail.value = '';
-                
-                showNotification('Subscription saved!');
-                
-            } catch (error) {
-                newsletterError.textContent = 'Subscription failed. Please try again.';
-                newsletterError.style.display = 'block';
-                newsletterSuccess.style.display = 'none';
-            } finally {
-                newsletterButton.disabled = false;
-                newsletterButton.innerHTML = `<i class="fas fa-paper-plane"></i><span>${languageData[currentLanguage].translations.subscribeText}</span>`;
-                
-                setTimeout(() => {
-                    newsletterSuccess.style.display = 'none';
-                    newsletterError.style.display = 'none';
-                }, 5000);
-            }
-        });
-        
-        newsletterEmail.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                newsletterButton.click();
-            }
-        });
-    }
-
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-
     // ============ INTELLIGENT AI RESPONSE FUNCTION ============
     async function aiBotResponse(msg) {
         const m = msg.toLowerCase().trim();
@@ -3958,7 +3722,7 @@
             'de': [
                 "Ich bin hier, um zu helfen! Sie können mich bitten:\n• Auf Wikipedia nach Informationen zu suchen\n• Artikel zusammenzufassen\n• Durch RSM-Bereiche zu navigieren\n• Fragen zu KI zu beantworten\n\nProbieren Sie: 'KI suchen' oder 'Videobereich öffnen'",
                 "Brauchen Sie Hilfe? Ich kann auf Wikipedia suchen, Inhalte zusammenfassen und Ihnen helfen, durch RSM zu navigieren. Was möchten Sie tun?",
-                "Ich bin Ihr KI-Assistent! Ich kann Informationen suchen, Zusammenfassungen erstellen und Sie durch RSM führen. Sagen Sie mir einfach, что Sie brauchen!"
+                "Ich bin Ihr KI-Assistent! Ich can Informationen suchen, Zusammenfassungen erstellen und Sie durch RSM führen. Sagen Sie mir einfach, was Sie brauchen!"
             ],
             'zh': [
                 "我在这里帮忙！你可以让我：\n• 在维基百科上搜索信息\n• 总结文章\n• 导航RSM部分\n• 回答关于AI的问题\n\n试试：'搜索人工智能'或'打开视频部分'",
