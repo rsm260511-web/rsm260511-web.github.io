@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>RSM</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="RSM - Platform for mysteries, current affairs and little-known stories in 9 languages">
     <meta name="keywords" content="RSM, mysteries, news, articles, videos, investigations">
     <meta property="og:title" content="RSM Multimedia Platform">
@@ -56,6 +56,9 @@
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
+            width: 100%;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
         }
 
         body::before {
@@ -95,6 +98,7 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
+            width: 100%;
         }
 
         header {
@@ -132,11 +136,12 @@
             z-index: 2;
             max-width: 1000px;
             animation: fadeInUp 1.2s ease-out;
+            width: 100%;
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 5rem;
+            font-size: clamp(2.5rem, 10vw, 5rem);
             font-weight: 800;
             margin-bottom: 25px;
             background: linear-gradient(45deg, #fff 0%, #ff9f9f 30%, #ffb8b8 70%, #fff 100%);
@@ -146,10 +151,11 @@
             text-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             line-height: 1.1;
             letter-spacing: 1px;
+            word-break: break-word;
         }
 
         header .tagline {
-            font-size: 1.6rem;
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
             color: var(--text-secondary);
             margin-bottom: 40px;
             font-weight: 400;
@@ -157,6 +163,7 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            padding: 0 10px;
         }
 
         .header-stats {
@@ -176,6 +183,8 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             min-width: 150px;
             transition: var(--transition);
+            flex: 1 1 auto;
+            max-width: 200px;
         }
 
         .stat-item:hover {
@@ -185,7 +194,7 @@
         }
 
         .stat-number {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 800;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
@@ -196,7 +205,7 @@
         }
 
         .stat-label {
-            font-size: 1rem;
+            font-size: clamp(0.8rem, 2vw, 1rem);
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -225,6 +234,8 @@
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .nav-links {
@@ -232,6 +243,7 @@
             gap: 8px;
             flex-wrap: wrap;
             flex: 1;
+            justify-content: center;
         }
 
         .nav-link {
@@ -243,13 +255,14 @@
             transition: var(--transition);
             position: relative;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: clamp(0.8rem, 2vw, 1rem);
             display: flex;
             align-items: center;
             gap: 12px;
             letter-spacing: 0.8px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid transparent;
+            white-space: nowrap;
         }
 
         .nav-link i {
@@ -277,15 +290,20 @@
             display: flex;
             align-items: center;
             gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .search-container {
             position: relative;
             min-width: 350px;
+            width: 100%;
+            max-width: 400px;
         }
 
         .search-box {
             position: relative;
+            width: 100%;
         }
 
         #searchInput {
@@ -472,7 +490,7 @@
 
         .feature-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 35px;
             margin-top: 35px;
         }
@@ -500,6 +518,7 @@
             align-items: center;
             gap: 20px;
             margin-bottom: 25px;
+            flex-wrap: wrap;
         }
 
         .feature-card-icon {
@@ -513,6 +532,7 @@
             background: rgba(255, 71, 87, 0.15);
             color: var(--accent-red);
             box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
         }
 
         .feature-card-title {
@@ -546,10 +566,12 @@
             margin-bottom: 35px;
             padding-bottom: 25px;
             border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 800;
             background: linear-gradient(45deg, #fff, var(--accent-blue));
             -webkit-background-clip: text;
@@ -558,6 +580,7 @@
             display: flex;
             align-items: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         .section-count {
@@ -568,11 +591,12 @@
             color: var(--text-primary);
             border: 2px solid rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
+            white-space: nowrap;
         }
 
         .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 35px;
             margin-top: 35px;
         }
@@ -587,6 +611,8 @@
             position: relative;
             height: 100%;
             backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
         }
 
         .content-item:hover {
@@ -631,6 +657,7 @@
 
         .content-item-content {
             padding: 30px;
+            flex: 1;
         }
 
         .content-item h3 {
@@ -639,6 +666,7 @@
             line-height: 1.4;
             color: var(--text-primary);
             font-weight: 700;
+            word-break: break-word;
         }
 
         .content-item p {
@@ -656,6 +684,8 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-muted);
             font-size: 0.95rem;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .meta-item {
@@ -672,7 +702,7 @@
 
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
         }
 
@@ -697,6 +727,7 @@
             align-items: center;
             gap: 20px;
             margin-bottom: 25px;
+            flex-wrap: wrap;
         }
 
         .category-icon {
@@ -710,12 +741,14 @@
             background: rgba(46, 134, 222, 0.15);
             color: var(--accent-blue);
             box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
         }
 
         .category-title {
             font-size: 1.5rem;
             font-weight: 800;
             color: var(--text-primary);
+            word-break: break-word;
         }
 
         .category-items {
@@ -734,6 +767,7 @@
             align-items: center;
             gap: 15px;
             font-weight: 600;
+            word-break: break-word;
         }
 
         .category-item:hover {
@@ -833,6 +867,7 @@
             border-radius: var(--border-radius-sm);
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            flex-wrap: wrap;
         }
 
         .contact-item:hover {
@@ -852,6 +887,7 @@
             background: rgba(46, 134, 222, 0.15);
             color: var(--accent-blue);
             box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
         }
 
         .contact-details h4 {
@@ -931,7 +967,7 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 50px;
             margin-bottom: 50px;
         }
@@ -980,6 +1016,7 @@
             gap: 15px;
             font-weight: 600;
             padding: 8px 0;
+            cursor: pointer;
         }
 
         .footer-links a:hover {
@@ -991,6 +1028,7 @@
             display: flex;
             gap: 15px;
             margin-top: 25px;
+            flex-wrap: wrap;
         }
 
         .social-link {
@@ -1130,7 +1168,7 @@
         }
 
         .ai-title {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 800;
             background: linear-gradient(45deg, #fff, #e2b0ff);
             -webkit-background-clip: text;
@@ -1140,7 +1178,7 @@
         }
 
         .ai-subtitle {
-            font-size: 1.4rem;
+            font-size: clamp(1rem, 3vw, 1.4rem);
             color: var(--text-secondary);
             max-width: 800px;
             margin: 0 auto 30px;
@@ -1149,7 +1187,7 @@
 
         .ai-capabilities {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             padding: 40px;
             background: rgba(10, 10, 15, 0.5);
@@ -1249,6 +1287,7 @@
             line-height: 1.7;
             font-size: 1.1rem;
             animation: messageAppear 0.4s ease;
+            word-wrap: break-word;
         }
 
         .ai-message.user {
@@ -1285,6 +1324,7 @@
             display: flex;
             gap: 20px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         #aiChatInput {
@@ -1298,6 +1338,7 @@
             font-size: 1.1rem;
             transition: var(--transition);
             backdrop-filter: blur(10px);
+            min-width: 200px;
         }
 
         #aiChatInput:focus {
@@ -1334,7 +1375,7 @@
         }
 
         .ai-examples-title {
-            font-size: 2.2rem;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
             text-align: center;
             margin-bottom: 40px;
             color: var(--text-primary);
@@ -1347,7 +1388,7 @@
 
         .ai-examples-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 25px;
         }
 
@@ -1449,10 +1490,6 @@
                 min-height: 60vh;
             }
             
-            header h1 {
-                font-size: 3.5rem;
-            }
-            
             .feature-cards {
                 grid-template-columns: 1fr;
             }
@@ -1465,19 +1502,29 @@
                 min-width: 130px;
                 padding: 20px 25px;
             }
-            
-            .stat-number {
-                font-size: 2.5rem;
-            }
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 3rem;
+            .nav-links {
+                overflow-x: auto;
+                padding-bottom: 8px;
+                justify-content: flex-start;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                gap: 4px;
             }
             
-            header .tagline {
-                font-size: 1.4rem;
+            .nav-links::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .nav-link {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .nav-link i {
+                font-size: 1rem;
             }
             
             .header-stats {
@@ -1486,33 +1533,17 @@
             }
             
             .stat-item {
-                min-width: 110px;
-                padding: 15px 20px;
-            }
-            
-            .stat-number {
-                font-size: 2.2rem;
+                min-width: 100px;
+                padding: 15px 15px;
             }
             
             .section-title {
-                font-size: 2rem;
                 flex-direction: column;
                 gap: 10px;
                 text-align: center;
             }
             
-            .nav-link {
-                padding: 10px 15px;
-                font-size: 0.9rem;
-                gap: 8px;
-            }
-            
-            .nav-link i {
-                font-size: 1.1rem;
-            }
-            
             .content-grid {
-                grid-template-columns: 1fr;
                 gap: 25px;
             }
             
@@ -1520,40 +1551,76 @@
                 min-width: 250px;
             }
             
-            .ai-title {
-                font-size: 2.5rem;
-            }
-            
             .ai-chat-box {
                 height: 500px;
+            }
+            
+            .ai-chat-input-wrapper {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            #aiChatSend {
+                justify-content: center;
+            }
+            
+            .ai-examples-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .category-icon {
+                margin: 0 auto;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-details {
+                text-align: center;
             }
         }
 
         @media (max-width: 576px) {
-            header h1 {
-                font-size: 2.5rem;
+            .nav-right {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+            
+            .search-container {
+                min-width: 100%;
+                max-width: 100%;
+            }
+            
+            .language-selector {
+                width: 100%;
+            }
+            
+            .language-btn {
+                width: 100%;
             }
             
             .header-stats {
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .nav-right {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .search-container {
-                min-width: 100%;
+            .stat-item {
+                max-width: none;
             }
             
             .footer-content {
                 grid-template-columns: 1fr;
+            }
+            
+            .ai-message {
+                max-width: 95%;
             }
         }
     </style>
@@ -2147,8 +2214,9 @@
     let currentLanguage = localStorage.getItem('rsm_language') || 'en';
     let botLanguage = currentLanguage;
     let currentSection = 'home';
+    let activeRiddle = null; // per gestire indovinelli attivi
 
-    // ============ LANGUAGE DATA ============
+    // ============ LANGUAGE DATA (COMPLETA PER 9 LINGUE) ============
     const languageData = {
         en: {
             name: "English",
@@ -2996,7 +3064,680 @@
         return bestSentences.map(s => s.sentence).join('. ') + '.';
     }
 
-    // ============ INITIALIZATION ============
+    // ============ API MULTILINGUALI PER IL CHAT BOT ============
+    
+    // Database barzellette per tutte le lingue
+    const jokesDB = {
+        en: [
+            "Why do programmers prefer dark mode? Because light attracts bugs! 🐞",
+            "What do you call a fake noodle? An impasta! 🍝",
+            "Why don't scientists trust atoms? Because they make up everything! ⚛️",
+            "What's orange and sounds like a parrot? A carrot! 🥕",
+            "Why did the scarecrow win an award? Because he was outstanding in his field! 🌾",
+            "What do you call a bear with no teeth? A gummy bear! 🐻",
+            "Why can't you give Elsa a balloon? Because she will let it go! 🎈",
+            "What do you call a sleeping bull? A bulldozer! 🐂"
+        ],
+        it: [
+            "Perché i programmatori preferiscono la modalità scura? Perché la luce attira i bug! 🐞",
+            "Cosa dice un pollo rivolto verso l'altro? Po-uollo! 🐔",
+            "Qual è il colmo per un elettricista? Avere una moglie resistente! ⚡",
+            "Due atomi si incontrano: - Ho perso un elettrone! - Sei sicuro? - Sono positivo! ⚛️",
+            "Perché gli scienziati non credono negli atomi? Perché sono fatti di teoria! 🔬",
+            "Cosa fa un pesce quando è triste? Piange! 🐟",
+            "Qual è il colmo per un calzino? Essere bucato! 🧦",
+            "Perché il libro di matematica è triste? Perché ha troppi problemi! 📚"
+        ],
+        es: [
+            "¿Por qué los programadores prefieren el modo oscuro? ¡Porque la luz atrae a los bugs! 🐞",
+            "¿Cómo se llama un fideo falso? ¡Una impasta! 🍝",
+            "¿Por qué los científicos no creen en los átomos? ¡Porque lo componen todo! ⚛️",
+            "¿Qué está naranja y suena como un loro? ¡Una zanahoria! 🥕",
+            "¿Por qué ganó un premio el espantapájaros? ¡Porque era excelente en su campo! 🌾"
+        ],
+        fr: [
+            "Pourquoi les programmeurs préfèrent-ils le mode sombre ? Parce que la lumière attire les bugs ! 🐞",
+            "Comment appelle-t-on une fausse nouille ? Une impasta ! 🍝",
+            "Pourquoi les scientifiques ne croient-ils pas aux atomes ? Parce qu'ils composent tout ! ⚛️",
+            "Qu'est-ce qui est orange et ressemble à un perroquet ? Une carotte ! 🥕",
+            "Pourquoi l'épouvantail a-t-il gagné un prix ? Parce qu'il était remarquable dans son domaine ! 🌾"
+        ],
+        de: [
+            "Warum bevorzugen Programmierer den Dunkelmodus? Weil Licht Bugs anzieht! 🐞",
+            "Wie nennt man eine falsche Nudel? Eine Impasta! 🍝",
+            "Warum glauben Wissenschaftler nicht an Atome? Weil sie alles ausmachen! ⚛️",
+            "Was ist orange und klingt wie ein Papagei? Eine Karotte! 🥕",
+            "Warum hat die Vogelscheuche einen Preis gewonnen? Weil sie herausragend auf ihrem Feld war! 🌾"
+        ],
+        zh: [
+            "为什么程序员喜欢深色模式？因为光会吸引虫子！🐞",
+            "假面条叫什么？意大利假面！🍝",
+            "为什么科学家不相信原子？因为它们构成了一切！⚛️",
+            "什么东西是橙色的，听起来像鹦鹉？胡萝卜！🥕",
+            "稻草人为什么得奖？因为他在自己的领域表现出色！🌾"
+        ],
+        ar: [
+            "لماذا يفضل المبرمجون الوضع المظلم؟ لأن الضوء يجذب الحشرات! 🐞",
+            "ماذا تسمي المعكرونة المزيفة؟ معكرونة مزيفة! 🍝",
+            "لماذا لا يثق العلماء في الذرات؟ لأنها تتكون من كل شيء! ⚛️",
+            "ما هو البرتقالي ويبدو مثل الببغاء؟ جزرة! 🥕",
+            "لماذا فاز الفزاعة بجائزة؟ لأنه كان ممتازًا في مجاله! 🌾"
+        ],
+        ru: [
+            "Почему программисты предпочитают темный режим? Потому что свет привлекает ошибки! 🐞",
+            "Как называют фальшивую лапшу? Импаста! 🍝",
+            "Почему ученые не верят в атомы? Потому что они составляют все! ⚛️",
+            "Что оранжевое и звучит как попугай? Морковь! 🥕",
+            "Почему чучело получило награду? Потому что оно было выдающимся в своей области! 🌾"
+        ],
+        ur: [
+            "پروگرامرز ڈارک موڈ کو کیوں پسند کرتے ہیں؟ کیونکہ روشنی بگز کو اپنی طرف کھینچتی ہے! 🐞",
+            "جعلی نوڈل کو کیا کہتے ہیں؟ امپاستا! 🍝",
+            "سائنسدان ایٹموں پر کیوں یقین نہیں کرتے؟ کیونکہ وہ سب کچھ بناتے ہیں! ⚛️",
+            "کون سی چیز نارنجی ہے اور طوطے کی طرح لگتی ہے؟ گاجر! 🥕",
+            "ڈراؤنے کو ایوارڈ کیوں ملا؟ کیونکہ وہ اپنے میدان میں بہترین تھا! 🌾"
+        ]
+    };
+
+    // Database indovinelli multilingue
+    const riddlesDB = {
+        en: [
+            { question: "I have keys but no locks. I have space but no room. What am I?", answer: "piano", hint: "Musical instrument" },
+            { question: "The more you take, the more you leave behind. What are they?", answer: "footsteps", hint: "You make them when walking" },
+            { question: "What has a head and a tail but no body?", answer: "coin", hint: "You spend it" },
+            { question: "What can run but never walks, has a mouth but never talks?", answer: "river", hint: "Flows" },
+            { question: "What has to be broken before you can use it?", answer: "egg", hint: "Breakfast food" }
+        ],
+        it: [
+            { question: "Ha chiavi ma non apre porte, ha spazio ma non è una stanza. Cosa sono?", answer: "pianoforte", hint: "Strumento musicale" },
+            { question: "Più ne togli, più diventa grande. Cosa sono?", answer: "buco", hint: "Lo fai nel muro" },
+            { question: "Ha testa e coda ma non ha corpo. Cosa sono?", answer: "moneta", hint: "Si usa per pagare" },
+            { question: "Può correre ma non camminare, ha una bocca ma non parlare. Cosa sono?", answer: "fiume", hint: "Scorre" },
+            { question: "Cosa devi rompere prima di usarlo?", answer: "uovo", hint: "Colazione" }
+        ],
+        es: [
+            { question: "Tengo llaves pero no cerraduras. Tengo espacio pero no habitación. ¿Qué soy?", answer: "piano", hint: "Instrumento musical" },
+            { question: "Cuanto más tomas, más dejas atrás. ¿Qué son?", answer: "huellas", hint: "Las haces al caminar" },
+            { question: "¿Qué tiene cabeza y cola pero no cuerpo?", answer: "moneda", hint: "La gastas" }
+        ],
+        fr: [
+            { question: "J'ai des clés mais pas de serrures. J'ai de l'espace mais pas de pièce. Qui suis-je?", answer: "piano", hint: "Instrument de musique" },
+            { question: "Plus tu en prends, plus tu en laisses derrière toi. Que sont-ils?", answer: "empreintes", hint: "Tu les fais en marchant" }
+        ],
+        de: [
+            { question: "Ich habe Schlüssel, aber keine Schlösser. Ich habe Platz, aber kein Zimmer. Was bin ich?", answer: "klavier", hint: "Musikinstrument" },
+            { question: "Je mehr du nimmst, desto mehr lässt du zurück. Was sind sie?", answer: "fußabdrücke", hint: "Du machst sie beim Gehen" }
+        ]
+    };
+
+    // Funzione per ottenere barzelletta nella lingua corrente
+    function getJoke() {
+        const lang = botLanguage;
+        const jokes = jokesDB[lang] || jokesDB.en;
+        return jokes[Math.floor(Math.random() * jokes.length)];
+    }
+
+    // Funzione per ottenere indovinello nella lingua corrente
+    function getRandomRiddle() {
+        const lang = botLanguage;
+        const riddles = riddlesDB[lang] || riddlesDB.en;
+        const riddle = riddles[Math.floor(Math.random() * riddles.length)];
+        activeRiddle = riddle;
+        
+        const messages = {
+            en: `🧩 **Riddle:**\n\n${riddle.question}\n\n(Type your answer or ask for a 'hint')`,
+            it: `🧩 **Indovinello:**\n\n${riddle.question}\n\n(Scrivi la tua risposta o chiedi un 'suggerimento')`,
+            es: `🧩 **Adivinanza:**\n\n${riddle.question}\n\n(Escribe tu respuesta o pide una 'pista')`,
+            fr: `🧩 **Devinette:**\n\n${riddle.question}\n\n(Écrivez votre réponse ou demandez un 'indice')`,
+            de: `🧩 **Rätsel:**\n\n${riddle.question}\n\n(Schreibe deine Antwort oder bitte um einen 'Hinweis')`,
+            zh: `🧩 **谜语:**\n\n${riddle.question}\n\n(输入你的答案或请求'提示')`,
+            ar: `🧩 **لغز:**\n\n${riddle.question}\n\n(اكتب إجابتك أو اطلب 'تلميح')`,
+            ru: `🧩 **Загадка:**\n\n${riddle.question}\n\n(Напишите свой ответ или попросите 'подсказку')`,
+            ur: `🧩 **پہیلی:**\n\n${riddle.question}\n\n(اپنا جواب لکھیں یا 'اشارہ' مانگیں)`
+        };
+        return messages[lang] || messages.en;
+    }
+
+    // Funzione per controllare risposta indovinello
+    function checkRiddleAnswer(userAnswer) {
+        if (!activeRiddle) return null;
+        
+        const lang = botLanguage;
+        const normalizedUser = userAnswer.toLowerCase().trim().replace(/[!?.,]/g, '');
+        const normalizedCorrect = activeRiddle.answer.toLowerCase().trim();
+        
+        const correctMessages = {
+            en: "✅ **Correct!** You got it! 🎉\n\nWant another riddle? Ask me 'another riddle'.",
+            it: "✅ **Esatto!** Hai indovinato! 🎉\n\nVuoi un altro indovinello? Chiedimi 'un altro indovinello'.",
+            es: "✅ **¡Correcto!** ¡Lo tienes! 🎉\n\n¿Quieres otra adivinanza? Pídeme 'otra adivinanza'.",
+            fr: "✅ **Correct!** Vous l'avez! 🎉\n\nVous voulez une autre devinette? Demandez-moi 'une autre devinette'.",
+            de: "✅ **Richtig!** Du hast es! 🎉\n\nMöchtest du ein weiteres Rätsel? Frag mich 'ein weiteres Rätsel'.",
+            zh: "✅ **正确！** 你猜对了！🎉\n\n想要另一个谜语吗？问我'另一个谜语'。",
+            ar: "✅ **صحيح!** لقد حصلت عليها! 🎉\n\nهل تريد لغزًا آخر؟ اسألني 'لغز آخر'.",
+            ru: "✅ **Верно!** Вы угадали! 🎉\n\nХотите еще одну загадку? Спросите меня 'еще загадку'.",
+            ur: "✅ **صحیح!** آپ نے کر لیا! 🎉\n\nکیا آپ ایک اور پہیلی چاہتے ہیں؟ مجھ سے 'ایک اور پہیلی' پوچھیں۔"
+        };
+        
+        const wrongMessages = {
+            en: "❌ **Not correct.** Try again or ask for a hint.",
+            it: "❌ **Non è corretto.** Riprova o chiedi un suggerimento.",
+            es: "❌ **No es correcto.** Inténtalo de nuevo o pide una pista.",
+            fr: "❌ **Pas correct.** Réessayez ou demandez un indice.",
+            de: "❌ **Nicht richtig.** Versuche es erneut oder bitte um einen Hinweis.",
+            zh: "❌ **不正确。** 再试一次或请求提示。",
+            ar: "❌ **غير صحيح.** حاول مرة أخرى أو اطلب تلميحًا.",
+            ru: "❌ **Неверно.** Попробуйте еще раз или попросите подсказку.",
+            ur: "❌ **غلط۔** دوبارہ کوشش کریں یا اشارہ مانگیں۔"
+        };
+        
+        if (normalizedUser.includes(normalizedCorrect) || normalizedCorrect.includes(normalizedUser)) {
+            activeRiddle = null;
+            return correctMessages[lang] || correctMessages.en;
+        } else {
+            return wrongMessages[lang] || wrongMessages.en;
+        }
+    }
+
+    // Funzione per suggerimento
+    function getRiddleHint() {
+        const lang = botLanguage;
+        if (!activeRiddle) {
+            const noRiddle = {
+                en: "No active riddle. Ask me for a riddle!",
+                it: "Nessun indovinello attivo. Chiedimi un indovinello!",
+                es: "No hay adivinanza activa. ¡Pídeme una adivinanza!",
+                fr: "Pas de devinette active. Demandez-moi une devinette!",
+                de: "Kein aktives Rätsel. Frag mich nach einem Rätsel!",
+                zh: "没有活跃的谜语。问我要一个谜语！",
+                ar: "لا يوجد لغز نشط. اطلب مني لغزًا!",
+                ru: "Нет активной загадки. Попросите меня загадать загадку!",
+                ur: "کوئی فعال پہیلی نہیں۔ مجھ سے ایک پہیلی مانگیں!"
+            };
+            return noRiddle[lang] || noRiddle.en;
+        }
+        return `💡 **Hint / Suggerimento:** ${activeRiddle.hint}`;
+    }
+
+    // Funzione per calcoli
+    function calculate(expression) {
+        try {
+            const sanitized = expression.replace(/[^0-9+\-*/()., ]/g, '').replace(/,/g, '.');
+            // eslint-disable-next-line no-eval
+            const result = eval(sanitized);
+            if (isNaN(result) || !isFinite(result)) return "Calcolo non valido";
+            
+            const messages = {
+                en: `🧮 **Result:** ${result}`,
+                it: `🧮 **Risultato:** ${result}`,
+                es: `🧮 **Resultado:** ${result}`,
+                fr: `🧮 **Résultat:** ${result}`,
+                de: `🧮 **Ergebnis:** ${result}`,
+                zh: `🧮 **结果:** ${result}`,
+                ar: `🧮 **النتيجة:** ${result}`,
+                ru: `🧮 **Результат:** ${result}`,
+                ur: `🧮 **نتیجہ:** ${result}`
+            };
+            return messages[botLanguage] || messages.en;
+        } catch {
+            const errorMsg = {
+                en: "Can't calculate that. Use numbers and operators (+, -, *, /).",
+                it: "Non riesco a calcolarlo. Usa numeri e operatori (+, -, *, /).",
+                es: "No puedo calcularlo. Usa números y operadores (+, -, *, /).",
+                fr: "Impossible de calculer. Utilisez des nombres et des opérateurs (+, -, *, /).",
+                de: "Kann das nicht berechnen. Verwenden Sie Zahlen und Operatoren (+, -, *, /).",
+                zh: "无法计算。使用数字和运算符（+、-、*、/）。",
+                ar: "لا يمكنني حساب ذلك. استخدم الأرقام والعمليات (+، -، *، /).",
+                ru: "Не могу вычислить. Используйте числа и операторы (+, -, *, /).",
+                ur: "اس کا حساب نہیں کر سکتا۔ نمبرز اور آپریٹرز استعمال کریں (+، -، *، /)۔"
+            };
+            return errorMsg[botLanguage] || errorMsg.en;
+        }
+    }
+
+    // Funzione per curiosità
+    function getFunFact() {
+        const facts = {
+            en: [
+                "Bees can recognize human faces! 🐝",
+                "A day on Venus is longer than a year on Venus. 🌍",
+                "Octopuses have three hearts. 🐙",
+                "Bananas are berries, strawberries aren't. 🍌",
+                "Polar bears are left-handed. 🐻‍❄️",
+                "Clouds can weigh like an airplane. ☁️",
+                "Cats have 32 muscles in each ear. 🐱",
+                "Honey never spoils. 🍯"
+            ],
+            it: [
+                "Le api possono riconoscere i volti umani! 🐝",
+                "Un giorno su Venere è più lungo di un anno su Venere. 🌍",
+                "I polpi hanno tre cuori. 🐙",
+                "Le banane sono bacche, le fragole no. 🍌",
+                "Gli orsi polari sono mancini. 🐻‍❄️",
+                "Le nuvole possono pesare come un aereo. ☁️",
+                "I gatti hanno 32 muscoli per ogni orecchio. 🐱",
+                "Il miele non scade mai. 🍯"
+            ],
+            es: [
+                "¡Las abejas pueden reconocer rostros humanos! 🐝",
+                "Un día en Venus es más largo que un año en Venus. 🌍",
+                "Los pulpos tienen tres corazones. 🐙",
+                "Los plátanos son bayas, las fresas no. 🍌",
+                "Los osos polares son zurdos. 🐻‍❄️",
+                "Las nubes pueden pesar como un avión. ☁️",
+                "Los gatos tienen 32 músculos en cada oreja. 🐱",
+                "La miel nunca se estropea. 🍯"
+            ],
+            fr: [
+                "Les abeilles peuvent reconnaître les visages humains! 🐝",
+                "Un jour sur Vénus est plus long qu'une année sur Vénus. 🌍",
+                "Les poulpes ont trois cœurs. 🐙",
+                "Les bananes sont des baies, les fraises non. 🍌",
+                "Les ours polaires sont gauchers. 🐻‍❄️",
+                "Les nuages peuvent peser comme un avion. ☁️",
+                "Les chats ont 32 muscles dans chaque oreille. 🐱",
+                "Le miel ne se gâte jamais. 🍯"
+            ]
+        };
+        const langFacts = facts[botLanguage] || facts.en;
+        return `📌 **Did you know? / Curiosità:**\n\n${langFacts[Math.floor(Math.random() * langFacts.length)]}`;
+    }
+
+    // ============ INTELLIGENT AI RESPONSE FUNCTION (MODIFICATA CON LE NUOVE API) ============
+    async function aiBotResponse(msg) {
+        const m = msg.toLowerCase().trim();
+        const t = languageData[botLanguage].translations;
+        
+        // Saluti multilingua
+        const greetings = {
+            'en': ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening', 'how are you'],
+            'it': ['ciao', 'salve', 'buongiorno', 'buonasera', 'come stai', 'come va'],
+            'es': ['hola', 'buenos días', 'buenas tardes', 'buenas noches', 'cómo estás'],
+            'fr': ['bonjour', 'salut', 'bonsoir', 'comment ça va'],
+            'de': ['hallo', 'guten tag', 'wie geht es dir'],
+            'zh': ['你好', '您好', '早上好', '下午好'],
+            'ar': ['مرحبا', 'السلام عليكم', 'صباح الخير'],
+            'ru': ['привет', 'здравствуйте', 'добрый день'],
+            'ur': ['ہیلو', 'السلام علیکم', 'صبح بخیر']
+        };
+        
+        const langGreetings = greetings[botLanguage] || greetings['en'];
+        if (langGreetings.some(greet => m.includes(greet.toLowerCase()))) {
+            const greetingResponses = {
+                'en': ["Hello! 👋 How can I help you today?", "Hi there! Ready to assist you.", "Greetings! What can I do for you?"],
+                'it': ["Ciao! 👋 Come posso aiutarti oggi?", "Salve! Pronto ad assisterti.", "Buongiorno! Cosa posso fare per te?"],
+                'es': ["¡Hola! 👋 ¿Cómo puedo ayudarte hoy?", "¡Hola! Listo para ayudarte.", "¡Saludos! ¿Qué puedo hacer por ti?"],
+                'fr': ["Bonjour ! 👋 Comment puis-je vous aider aujourd'hui ?", "Salut ! Prêt à vous aider.", "Bonsoir ! Que puis-je faire pour vous ?"],
+                'de': ["Hallo! 👋 Wie kann ich Ihnen heute helfen?", "Hallo! Bereit, Ihnen zu helfen.", "Guten Tag! Was kann ich für Sie tun?"],
+                'zh': ["你好！👋 今天我能为你做什么？", "你好！准备好帮助你。", "问候！我能为你做什么？"],
+                'ar': ["مرحباً! 👋 كيف يمكنني مساعدتك اليوم؟", "أهلاً! جاهز لمساعدتك.", "تحيات! ماذا يمكنني أن أفعل من أجلك؟"],
+                'ru': ["Привет! 👋 Как я могу вам помочь сегодня?", "Здравствуйте! Готов помочь вам.", "Приветствую! Что я могу для вас сделать؟"],
+                'ur': ["ہیلو! 👋 آج میں آپ کی کیسے مدد کر سکتا ہوں؟", "ہیلو! آپ کی مدد کے لیے تیار.", "سلام! میں آپ کے لیے کیا کر سکتا ہوں؟"]
+            };
+            const responses = greetingResponses[botLanguage] || greetingResponses['en'];
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+        
+        // Nome del bot
+        if (m.includes('come ti chiami') || m.includes('tu come ti chiami') || m.includes('qual è il tuo nome') || 
+            m.includes('hai un nome') || m.includes('your name') || m.includes('what is your name') ||
+            m.includes('como te llamas') || m.includes('comment tu t\'appelles') || m.includes('wie heißt du') ||
+            m.includes('你叫什么名字') || m.includes('ما اسمك') || m.includes('как тебя зовут') || m.includes('آپ کا نام کیا ہے')) {
+            
+            const responses = {
+                'en': "🤖 **My name is RSM AI Assistant!** I'm an intelligent assistant created to help you explore mysteries, current affairs, and various topics.",
+                'it': "🤖 **Mi chiamo Assistente AI RSM!** Sono un assistente intelligente creato per aiutarti a esplorare misteri, attualità e vari argomenti.",
+                'es': "🤖 **¡Mi nombre es Asistente IA RSM!** Soy un asistente inteligente creado para ayudarte a explorar misterios, actualidad y diversos temas.",
+                'fr': "🤖 **Je m'appelle Assistant IA RSM !** Je suis un assistant intelligent créé pour vous aider à explorer les mystères, l'actualité et divers sujets.",
+                'de': "🤖 **Mein Name ist RSM KI-Assistent!** Ich bin ein intelligenter Assistent, der Ihnen helfen soll, Mysterien, aktuelle Angelegenheiten und verschiedene Themen zu erkunden.",
+                'zh': "🤖 **我叫RSM AI助手！** 我是一个智能助手，旨在帮助您探索神秘事件、时事和各种主题。",
+                'ar': "🤖 **اسمي مساعد RSM الذكي!** أنا مساعد ذكي تم إنشاؤه لمساعدتك في استكشاف الأسرار والشؤون الجارية والمواضيع المختلفة.",
+                'ru': "🤖 **Меня зовут ИИ-Ассистент RSM!** Я интеллектуальный помощник, созданный, чтобы помочь вам исследовать тайны, текущие события и различные темы.",
+                'ur': "🤖 **میرا نام RSM AI اسسٹنٹ ہے!** میں ایک ذہین اسسٹنٹ ہوں جو آپ کو اسرار، حالات حاضرہ اور مختلف موضوعات کی تلاش میں مدد کرنے کے لیے بنایا گیا ہے۔"
+            };
+            return responses[botLanguage] || responses['en'];
+        }
+        
+        // Cosa puoi fare
+        if (m.includes('cosa puoi fare') || m.includes('what can you do') || m.includes('qué puedes hacer') || 
+            m.includes('que peux-tu faire') || m.includes('was kannst du tun') || m.includes('你能做什么') ||
+            m.includes('ماذا يمكنك أن تفعل') || m.includes('что ты умеешь') || m.includes('آپ کیا کر سکتے ہیں')) {
+            
+            return t.botHello;
+        }
+        
+        // RICHIESTE API SPECIFICHE (mantenendo Wikipedia e summarize originali)
+        
+        // Barzellette
+        if (m.includes('barzelletta') || m.includes('joke') || m.includes('battuta') || 
+            m.includes('risata') || m.includes('chiste') || m.includes('blague') || 
+            m.includes('witz') || m.includes('笑话') || m.includes('نكتة') || 
+            m.includes('шутка') || m.includes('لطیفہ')) {
+            return getJoke();
+        }
+        
+        // Indovinelli
+        if (m.includes('indovinello') || m.includes('riddle') || m.includes('adivinanza') || 
+            m.includes('devinette') || m.includes('rätsel') || m.includes('谜语') || 
+            m.includes('لغز') || m.includes('загадка') || m.includes('پہیلی')) {
+            
+            if (m.includes('altro') || m.includes('another') || m.includes('otra') || 
+                m.includes('encore') || m.includes('weitere') || m.includes('另一个')) {
+                return getRandomRiddle();
+            }
+            return getRandomRiddle();
+        }
+        
+        // Suggerimento per indovinello
+        if ((m.includes('suggerimento') || m.includes('hint') || m.includes('pista') || 
+             m.includes('indice') || m.includes('hinweis') || m.includes('提示') || 
+             m.includes('تلميح') || m.includes('подсказка') || m.includes('اشارہ')) && activeRiddle) {
+            return getRiddleHint();
+        }
+        
+        // Verifica risposta indovinello (se c'è un indovinello attivo)
+        if (activeRiddle) {
+            const result = checkRiddleAnswer(msg);
+            if (result) return result;
+        }
+        
+        // Calcoli
+        if (m.match(/[0-9+\-*/().]/) && 
+            (m.includes('calcola') || m.includes('calculate') || m.includes('quanto fa') || 
+             m.includes('how much') || m.includes('cuánto es') || m.includes('combien') || 
+             m.includes('wie viel') || m.includes('多少') || m.includes('كم') || 
+             m.includes('сколько') || m.includes('کتنا') || m.includes('+') || 
+             m.includes('-') || m.includes('*') || m.includes('/'))) {
+            
+            // Estrai espressione
+            const expr = msg.replace(/[^0-9+\-*/()., ]/g, '');
+            if (expr.length > 0) {
+                return calculate(expr);
+            }
+        }
+        
+        // Curiosità
+        if (m.includes('curiosità') || m.includes('curiosity') || m.includes('fact') || 
+            m.includes('did you know') || m.includes('sapevi che') || m.includes('sabías que') || 
+            m.includes('le saviez-vous') || m.includes('wusstest du') || m.includes('你知道吗') || 
+            m.includes('هل تعلم') || m.includes('знаете ли вы') || m.includes('کیا آپ جانتے ہیں')) {
+            return getFunFact();
+        }
+        
+        // Ricerca Wikipedia (originale)
+        const searchKeywords = ['search', 'cerca', 'buscar', 'rechercher', 'suchen', '搜索', 'بحث', 'поиск', 'تلاش'];
+        const whatIsKeywords = ['what is', 'cos\'è', 'qué es', 'qu\'est-ce que', 'was ist', '什么是', 'ما هو', 'что такое', 'کیا ہے'];
+        const whoIsKeywords = ['who is', 'chi è', 'quién es', 'qui est', 'wer ist', '谁是', 'من هو', 'кто такой', 'کون ہے'];
+        
+        let searchQuery = '';
+        let shouldSearch = false;
+        
+        for (const keyword of searchKeywords) {
+            if (m.includes(keyword)) {
+                searchQuery = m.replace(keyword, '').trim();
+                shouldSearch = true;
+                break;
+            }
+        }
+        
+        for (const keyword of whatIsKeywords) {
+            if (m.includes(keyword)) {
+                searchQuery = m.replace(keyword, '').trim();
+                shouldSearch = true;
+                break;
+            }
+        }
+        
+        for (const keyword of whoIsKeywords) {
+            if (m.includes(keyword)) {
+                searchQuery = m.replace(keyword, '').trim();
+                shouldSearch = true;
+                break;
+            }
+        }
+        
+        if (m.includes('?') && !shouldSearch && m.length > 5) {
+            searchQuery = m.replace(/[?.,!]/g, '').trim();
+            shouldSearch = true;
+        }
+        
+        if (shouldSearch && searchQuery.length > 2) {
+            return await wikipediaSearch(searchQuery, botLanguage);
+        }
+        
+        // Summarize (originale)
+        const summarizeKeywords = {
+            'en': ['summarize', 'summary', 'brief', 'overview'],
+            'it': ['riassumi', 'sintetizza', 'riassunto'],
+            'es': ['resume', 'resumen', 'sintetiza'],
+            'fr': ['résume', 'synthétise', 'résumé'],
+            'de': ['zusammenfassen', 'zusammenfassung'],
+            'zh': ['总结', '概括', '摘要'],
+            'ar': ['لخص', 'ملخص', 'تلخيص'],
+            'ru': ['суммируй', 'сводка', 'резюме'],
+            'ur': ['خلاصہ کریں', 'خلاصہ', 'سمری']
+        };
+        
+        const langSummarize = summarizeKeywords[botLanguage] || summarizeKeywords['en'];
+        for (const keyword of langSummarize) {
+            if (m.includes(keyword)) {
+                if (!document.getElementById('single').classList.contains('hidden')) {
+                    const articleContent = document.getElementById('singleContent').innerText;
+                    if (articleContent && articleContent.length > 50) {
+                        const summary = summarizeText(articleContent);
+                        const responses = {
+                            'en': `📝 **Summary:**\n\n${summary}`,
+                            'it': `📝 **Riassunto:**\n\n${summary}`,
+                            'es': `📝 **Resumen:**\n\n${summary}`,
+                            'fr': `📝 **Résumé:**\n\n${summary}`,
+                            'de': `📝 **Zusammenfassung:**\n\n${summary}`,
+                            'zh': `📝 **总结:**\n\n${summary}`,
+                            'ar': `📝 **ملخص:**\n\n${summary}`,
+                            'ru': `📝 **Сводка:**\n\n${summary}`,
+                            'ur': `📝 **خلاصہ:**\n\n${summary}`
+                        };
+                        return responses[botLanguage];
+                    }
+                }
+                const noArticleMsg = {
+                    'en': "To summarize an article, please open an article first or tell me which article you want summarized.",
+                    'it': "Per riassumere un articolo, apri prima un articolo o dimmi quale articolo vuoi riassumere.",
+                    'es': "Para resumir un artículo, abre un artículo primero o dime qué artículo quieres resumir.",
+                    'fr': "Pour résumer un article, ouvrez d'abord un article ou dites-moi quel article vous voulez résumer.",
+                    'de': "Um einen Artikel zusammenzufassen, öffnen Sie bitte zuerst einen Artikel oder sagen Sie mir, welchen Artikel Sie zusammengefasst haben möchten.",
+                    'zh': "要总结文章，请先打开一篇文章或告诉我您要总结哪篇文章。",
+                    'ar': "لتلخيص مقال، يرجى فتح مقال أولاً أو أخبرني أي مقال تريد تلخيصه.",
+                    'ru': "Чтобы суммировать статью, сначала откройте статью или скажите, какую статью вы хотите суммировать.",
+                    'ur': "کسی مضمون کا خلاصہ کرنے کے لیے، براہ کرم پہلے کوئی مضمون کھولیں یا مجھے بتائیں کہ آپ کون سا مضمون خلاصہ کرنا چاہتے ہیں۔"
+                };
+                return noArticleMsg[botLanguage];
+            }
+        }
+        
+        // Navigazione RSM (originale)
+        const navigationCommands = {
+            'home': {keywords: ['home', 'inicio', 'accueil', 'startseite', '首页', 'الرئيسية', 'главная', 'ہوم']},
+            'articles': {keywords: ['articles', 'articoli', 'artículos', 'articles', 'artikel', '文章', 'مقالات', 'статьи', 'مقالات']},
+            'videos': {keywords: ['videos', 'video', 'vídeos', 'vidéos', 'videos', '视频', 'فيديوهات', 'видео', 'ویڈیوز']},
+            'news': {keywords: ['news', 'notizie', 'noticias', 'actualités', 'nachrichten', '新闻', 'أخبار', 'новости', 'خبریں']},
+            'categories': {keywords: ['categories', 'categorie', 'categorías', 'catégories', 'kategorien', '分类', 'فئات', 'категории', 'زمرے']},
+            'about': {keywords: ['about', 'chi siamo', 'nosotros', 'à propos', 'über uns', '关于', 'من نحن', 'о нас', 'ہمارے بارے میں']},
+            'contacts': {keywords: ['contacts', 'contatti', 'contactos', 'contacts', 'kontakte', '联系方式', 'اتصل بنا', 'контакты', 'رابطے']}
+        };
+        
+        for (const [section, data] of Object.entries(navigationCommands)) {
+            for (const keyword of data.keywords) {
+                if (m.includes(keyword)) {
+                    showSection(section);
+                    const confirmMsg = {
+                        'en': `✅ **${section.charAt(0).toUpperCase() + section.slice(1)} section opened!**`,
+                        'it': `✅ **Sezione ${section} aperta!**`,
+                        'es': `✅ **¡Sección de ${section} abierta!**`,
+                        'fr': `✅ **Section ${section} ouverte!**`,
+                        'de': `✅ **${section.charAt(0).toUpperCase() + section.slice(1)} Bereich geöffnet!**`,
+                        'zh': `✅ **${section}部分已打开！**`,
+                        'ar': `✅ **تم فتح قسم ${section}!**`,
+                        'ru': `✅ **Раздел ${section} открыт!**`,
+                        'ur': `✅ **${section} سیکشن کھلا!**`
+                    };
+                    return confirmMsg[botLanguage];
+                }
+            }
+        }
+        
+        // Default response (originale)
+        const defaultResponses = {
+            'en': [
+                "I'm here to help! You can ask me to:\n• Search Wikipedia\n• Tell jokes\n• Solve riddles\n• Do calculations\n• Share fun facts\n\nTry: 'tell me a joke' or 'give me a riddle'",
+                "Need assistance? I can search Wikipedia, tell jokes, solve riddles, calculate, and more!",
+                "I'm your AI assistant! Ask me anything - jokes, riddles, calculations, or Wikipedia searches."
+            ],
+            'it': [
+                "Sono qui per aiutarti! Puoi chiedermi:\n• Cercare su Wikipedia\n• Raccontare barzellette\n• Indovinelli\n• Calcoli\n• Curiosità\n\nProva: 'racconta una barzelletta' o 'un indovinello'",
+                "Hai bisogno di aiuto? Posso cercare su Wikipedia, raccontare barzellette, indovinelli, calcoli e altro!",
+                "Sono il tuo assistente AI! Chiedimi qualsiasi cosa - barzellette, indovinelli, calcoli o ricerche Wikipedia."
+            ],
+            'es': [
+                "¡Estoy aquí para ayudar! Puedes pedirme:\n• Buscar en Wikipedia\n• Contar chistes\n• Adivinanzas\n• Cálculos\n• Curiosidades\n\nPrueba: 'cuenta un chiste' o 'una adivinanza'",
+                "¿Necesitas ayuda? Puedo buscar en Wikipedia, contar chistes, adivinanzas, cálculos y más!",
+                "¡Soy tu asistente IA! Pregúntame cualquier cosa: chistes, adivinanzas, cálculos o búsquedas en Wikipedia."
+            ],
+            'fr': [
+                "Je suis là pour vous aider! Vous pouvez me demander:\n• Rechercher sur Wikipedia\n• Raconter des blagues\n• Devinettes\n• Calculs\n• Curiosités\n\nEssayez: 'raconte une blague' ou 'une devinette'",
+                "Besoin d'aide? Je peux rechercher sur Wikipedia, raconter des blagues, devinettes, calculs et plus!",
+                "Je suis votre assistant IA! Demandez-moi n'importe quoi - blagues, devinettes, calculs ou recherches Wikipedia."
+            ],
+            'de': [
+                "Ich bin hier, um zu helfen! Sie können mich bitten:\n• Wikipedia durchsuchen\n• Witze erzählen\n• Rätsel lösen\n• Berechnungen\n• Wissenswertes\n\nProbieren Sie: 'erzähl einen Witz' oder 'ein Rätsel'",
+                "Brauchen Sie Hilfe? Ich kann Wikipedia durchsuchen, Witze erzählen, Rätsel lösen, berechnen und mehr!",
+                "Ich bin Ihr KI-Assistent! Fragen Sie mich alles - Witze, Rätsel, Berechnungen oder Wikipedia-Suchen."
+            ],
+            'zh': [
+                "我在这里帮忙！你可以让我：\n• 搜索维基百科\n• 讲笑话\n• 出谜语\n• 计算\n• 趣闻\n\n试试：'讲个笑话'或'出个谜语'",
+                "需要帮助吗？我可以搜索维基百科、讲笑话、出谜语、计算等等！",
+                "我是您的AI助手！问我任何问题 - 笑话、谜语、计算或维基百科搜索。"
+            ],
+            'ar': [
+                "أنا هنا للمساعدة! يمكنك أن تطلب مني:\n• البحث في ويكيبيديا\n• إلقاء النكات\n• الألغاز\n• العمليات الحسابية\n• حقائق ممتعة\n\nجرب: 'أخبرني نكتة' أو 'أعطني لغزًا'",
+                "هل تحتاج إلى مساعدة؟ يمكنني البحث في ويكيبيديا، إلقاء النكات، الألغاز، الحسابات والمزيد!",
+                "أنا مساعدك الذكي! اسألني أي شيء - نكات، ألغاز، حسابات أو بحث في ويكيبيديا."
+            ],
+            'ru': [
+                "Я здесь, чтобы помочь! Вы можете попросить меня:\n• Искать в Википедии\n• Рассказывать шутки\n• Загадки\n• Вычисления\n• Интересные факты\n\nПопробуйте: 'расскажи шутку' или 'загадай загадку'",
+                "Нужна помощь? Я могу искать в Википедии, рассказывать шутки, загадывать загадки, вычислять и многое другое!",
+                "Я ваш ИИ-помощник! Спросите меня о чем угодно - шутки, загадки, вычисления или поиск в Википедии."
+            ],
+            'ur': [
+                "میں مدد کے لیے یہاں ہوں! آپ مجھ سے کہہ سکتے ہیں:\n• ویکیپیڈیا تلاش کریں\n• لطیفے سنائیں\n• پہیلیاں\n• حسابات\n• دلچسپ حقائق\n\nآزمائیں: 'مجھے ایک لطیفہ سناؤ' یا 'مجھے ایک پہیلی دو'",
+                "کیا آپ کو مدد کی ضرورت ہے؟ میں ویکیپیڈیا تلاش کر سکتا ہوں، لطیفے سنا سکتا ہوں، پہیلیاں حل کر سکتا ہوں، حساب کر سکتا ہوں اور بہت کچھ!",
+                "میں آپ کا AI اسسٹنٹ ہوں! مجھ سے کچھ بھی پوچھیں - لطیفے، پہیلیاں، حسابات یا ویکیپیڈیا تلاش۔"
+            ]
+        };
+        
+        const responses = defaultResponses[botLanguage] || defaultResponses['en'];
+        return responses[Math.floor(Math.random() * responses.length)];
+    }
+
+    // ============ AI SECTION FUNCTIONS ============
+    function insertExample(text) {
+        document.getElementById('aiChatInput').value = text;
+        document.getElementById('aiChatInput').focus();
+    }
+
+    function appendAIMessage(sender, text) {
+        const div = document.createElement('div');
+        div.className = `ai-message ${sender}`;
+        div.innerHTML = text.replace(/\n/g, '<br>');
+        
+        const time = document.createElement('div');
+        time.className = 'ai-message-time';
+        time.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        
+        div.appendChild(time);
+        document.getElementById('aiChatMessages').appendChild(div);
+        document.getElementById('aiChatMessages').scrollTop = document.getElementById('aiChatMessages').scrollHeight;
+    }
+
+    async function sendAIMessage() {
+        const msg = document.getElementById('aiChatInput').value.trim();
+        if (!msg) return;
+        
+        appendAIMessage('user', msg);
+        document.getElementById('aiChatInput').value = '';
+        
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'ai-message bot';
+        typingDiv.innerHTML = '<div class="loading" style="display:inline-block; width:20px;height:20px;"></div>';
+        document.getElementById('aiChatMessages').appendChild(typingDiv);
+        
+        try {
+            const response = await aiBotResponse(msg);
+            typingDiv.remove();
+            appendAIMessage('bot', response);
+        } catch (error) {
+            console.error('AI chat error:', error);
+            typingDiv.remove();
+            const errorMsg = {
+                'en': "⚠️ An error occurred. Please try again.",
+                'it': "⚠️ Si è verificato un errore. Riprova.",
+                'es': "⚠️ Ocurrió un error. Inténtalo de nuevo.",
+                'fr': "⚠️ Une erreur s'est produite. Veuillez réessayer.",
+                'de': "⚠️ Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+                'zh': "⚠️ 发生错误。请重试。",
+                'ar': "⚠️ حدث خطأ. يرجى المحاولة مرة أخرى.",
+                'ru': "⚠️ Произошла ошибка. Пожалуйста, попробуйте еще раз.",
+                'ur': "⚠️ ایک خرابی پیش آئی۔ براہ کرم دوبارہ کوشش کریں۔"
+            };
+            appendAIMessage('bot', errorMsg[botLanguage] || errorMsg['en']);
+        }
+        
+        document.getElementById('aiChatInput').focus();
+    }
+
+    // ============ HELPER FUNCTIONS (invariate) ============
+    function updateContentCounts() {
+        const articlesCount = articles.filter(a => a.type === "article").length;
+        const videosCount = articles.filter(a => a.type === "video").length;
+        const newsCount = articles.filter(a => a.type === "news").length;
+        
+        document.getElementById('articlesCount').textContent = articlesCount;
+        document.getElementById('videosCount').textContent = videosCount;
+        document.getElementById('newsCount').textContent = newsCount;
+    }
+
+    function updateLoadingText(text) {
+        const loadingText = document.getElementById('loadingText');
+        if (loadingText) {
+            loadingText.textContent = text;
+        }
+    }
+
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: var(--border-radius-sm);
+            z-index: 9999;
+            box-shadow: var(--shadow-lg);
+            animation: fadeInUp 0.3s ease;
+            max-width: 300px;
+            font-weight: 600;
+        `;
+        
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'fadeInUp 0.3s ease reverse';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+
+    // ============ INITIALIZATION (invariata) ============
     async function initApp() {
         try {
             updateLoadingText('Loading RSM Platform...');
@@ -3038,7 +3779,7 @@
         }
     }
 
-    // ============ LANGUAGE FUNCTIONS ============
+    // ============ LANGUAGE FUNCTIONS (invariate) ============
     function toggleLanguageDropdown() {
         const dropdown = document.getElementById('languageDropdown');
         dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
@@ -3163,7 +3904,7 @@
         updateLoadingText('Loading content...');
     }
 
-    // ============ CONTENT RENDERING ============
+    // ============ CONTENT RENDERING (invariate) ============
     async function renderAllContent() {
         await renderHomeContent();
         await renderArticlesSection();
@@ -3369,7 +4110,7 @@
         }
     }
 
-    // ============ CONTENT NAVIGATION ============
+    // ============ CONTENT NAVIGATION (invariate) ============
     function showSection(sectionId) {
         document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
         
@@ -3502,355 +4243,7 @@
             `<p>${translation.content.replace(/\n/g, '<br><br>')}</p>`;
     }
 
-    // ============ INTELLIGENT AI RESPONSE FUNCTION ============
-    async function aiBotResponse(msg) {
-        const m = msg.toLowerCase().trim();
-        const t = languageData[botLanguage].translations;
-        
-        const greetings = {
-            'en': ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening', 'how are you'],
-            'it': ['ciao', 'salve', 'buongiorno', 'buonasera', 'come stai', 'come va'],
-            'es': ['hola', 'buenos días', 'buenas tardes', 'buenas noches', 'cómo estás'],
-            'fr': ['bonjour', 'salut', 'bonsoir', 'comment ça va'],
-            'de': ['hallo', 'guten tag', 'wie geht es dir'],
-            'zh': ['你好', '您好', '早上好', '下午好'],
-            'ar': ['مرحبا', 'السلام عليكم', 'صباح الخير'],
-            'ru': ['привет', 'здравствуйте', 'добрый день'],
-            'ur': ['ہیلو', 'السلام علیکم', 'صبح بخیر']
-        };
-        
-        const langGreetings = greetings[botLanguage] || greetings['en'];
-        if (langGreetings.some(greet => m.includes(greet.toLowerCase()))) {
-            const greetingResponses = {
-                'en': ["Hello! 👋 How can I help you today?", "Hi there! Ready to assist you.", "Greetings! What can I do for you?"],
-                'it': ["Ciao! 👋 Come posso aiutarti oggi?", "Salve! Pronto ad assisterti.", "Buongiorno! Cosa posso fare per te?"],
-                'es': ["¡Hola! 👋 ¿Cómo puedo ayudarte hoy?", "¡Hola! Listo para ayudarte.", "¡Saludos! ¿Qué puedo hacer por ti?"],
-                'fr': ["Bonjour ! 👋 Comment puis-je vous aider aujourd'hui ?", "Salut ! Prêt à vous aider.", "Bonsoir ! Que puis-je faire pour vous ?"],
-                'de': ["Hallo! 👋 Wie kann ich Ihnen heute helfen?", "Hallo! Bereit, Ihnen zu helfen.", "Guten Tag! Was kann ich für Sie tun?"],
-                'zh': ["你好！👋 今天我能为你做什么？", "你好！准备好帮助你。", "问候！我能为你做什么？"],
-                'ar': ["مرحباً! 👋 كيف يمكنني مساعدتك اليوم؟", "أهلاً! جاهز لمساعدتك.", "تحيات! ماذا يمكنني أن أفعل من أجلك؟"],
-                'ru': ["Привет! 👋 Как я могу вам помочь сегодня?", "Здравствуйте! Готов помочь вам.", "Приветствую! Что я могу для вас сделать؟"],
-                'ur': ["ہیلو! 👋 آج میں آپ کی کیسے مدد کر سکتا ہوں؟", "ہیلو! آپ کی مدد کے لیے تیار.", "سلام! میں آپ کے لیے کیا کر سکتا ہوں؟"]
-            };
-            
-            const responses = greetingResponses[botLanguage] || greetingResponses['en'];
-            return responses[Math.floor(Math.random() * responses.length)];
-        }
-        
-        if (m.includes('come ti chiami') || m.includes('tu come ti chiami') || m.includes('qual è il tuo nome') || 
-            m.includes('hai un nome') || m.includes('your name') || m.includes('what is your name') ||
-            m.includes('como te llamas') || m.includes('comment tu t\'appelles') || m.includes('wie heißt du') ||
-            m.includes('你叫什么名字') || m.includes('ما اسمك') || m.includes('как тебя зовут') || m.includes('آپ کا نام کیا ہے')) {
-            
-            const responses = {
-                'en': "🤖 **My name is RSM AI Assistant!** I'm an intelligent assistant created to help you explore mysteries, current affairs, and various topics.",
-                'it': "🤖 **Mi chiamo Assistente AI RSM!** Sono un assistente intelligente creato per aiutarti a esplorare misteri, attualità e vari argomenti.",
-                'es': "🤖 **¡Mi nombre es Asistente IA RSM!** Soy un asistente inteligente creado para ayudarte a explorar misterios, actualidad y diversos temas.",
-                'fr': "🤖 **Je m'appelle Assistant IA RSM !** Je suis un assistant intelligent créé pour vous aider à explorer les mystères, l'actualité et divers sujets.",
-                'de': "🤖 **Mein Name ist RSM KI-Assistent!** Ich bin ein intelligenter Assistent, der Ihnen helfen soll, Mysterien, aktuelle Angelegenheiten und verschiedene Themen zu erkunden.",
-                'zh': "🤖 **我叫RSM AI助手！** 我是一个智能助手，旨在帮助您探索神秘事件、时事和各种主题。",
-                'ar': "🤖 **اسمي مساعد RSM الذكي!** أنا مساعد ذكي تم إنشاؤه لمساعدتك في استكشاف الأسرار والشؤون الجارية والمواضيع المختلفة.",
-                'ru': "🤖 **Меня зовут ИИ-Ассистент RSM!** Я интеллектуальный помощник, созданный, чтобы помочь вам исследовать тайны, текущие события и различные темы.",
-                'ur': "🤖 **میرا نام RSM AI اسسٹنٹ ہے!** میں ایک ذہین اسسٹنٹ ہوں جو آپ کو اسرار، حالات حاضرہ اور مختلف موضوعات کی تلاش میں مدد کرنے کے لیے بنایا گیا ہے۔"
-            };
-            return responses[botLanguage] || responses['en'];
-        }
-        
-        if (m.includes('cosa puoi fare') || m.includes('what can you do') || m.includes('qué puedes hacer') || 
-            m.includes('que peux-tu faire') || m.includes('was kannst du tun') || m.includes('你能做什么') ||
-            m.includes('ماذا يمكنك أن تفعل') || m.includes('что ты умеешь') || m.includes('آپ کیا کر سکتے ہیں')) {
-            
-            return t.botHello;
-        }
-        
-        const searchKeywords = ['search', 'cerca', 'buscar', 'rechercher', 'suchen', '搜索', 'بحث', 'поиск', 'تلاش'];
-        const whatIsKeywords = ['what is', 'cos\'è', 'qué es', 'qu\'est-ce que', 'was ist', '什么是', 'ما هو', 'что такое', 'کیا ہے'];
-        const whoIsKeywords = ['who is', 'chi è', 'quién es', 'qui est', 'wer ist', '谁是', 'من هو', 'кто такой', 'کون ہے'];
-        
-        let searchQuery = '';
-        let shouldSearch = false;
-        
-        for (const keyword of searchKeywords) {
-            if (m.includes(keyword)) {
-                searchQuery = m.replace(keyword, '').trim();
-                shouldSearch = true;
-                break;
-            }
-        }
-        
-        for (const keyword of whatIsKeywords) {
-            if (m.includes(keyword)) {
-                searchQuery = m.replace(keyword, '').trim();
-                shouldSearch = true;
-                break;
-            }
-        }
-        
-        for (const keyword of whoIsKeywords) {
-            if (m.includes(keyword)) {
-                searchQuery = m.replace(keyword, '').trim();
-                shouldSearch = true;
-                break;
-            }
-        }
-        
-        if (m.includes('?') && !shouldSearch && m.length > 5) {
-            searchQuery = m.replace(/[?.,!]/g, '').trim();
-            shouldSearch = true;
-        }
-        
-        if (shouldSearch && searchQuery.length > 2) {
-            return await wikipediaSearch(searchQuery, botLanguage);
-        }
-        
-        const summarizeKeywords = {
-            'en': ['summarize', 'summary', 'brief', 'overview'],
-            'it': ['riassumi', 'sintetizza', 'riassunto'],
-            'es': ['resume', 'resumen', 'sintetiza'],
-            'fr': ['résume', 'synthétise', 'résumé'],
-            'de': ['zusammenfassen', 'zusammenfassung'],
-            'zh': ['总结', '概括', '摘要'],
-            'ar': ['لخص', 'ملخص', 'تلخيص'],
-            'ru': ['суммируй', 'сводка', 'резюме'],
-            'ur': ['خلاصہ کریں', 'خلاصہ', 'سمری']
-        };
-        
-        const langSummarize = summarizeKeywords[botLanguage] || summarizeKeywords['en'];
-        for (const keyword of langSummarize) {
-            if (m.includes(keyword)) {
-                if (!document.getElementById('single').classList.contains('hidden')) {
-                    const articleContent = document.getElementById('singleContent').innerText;
-                    if (articleContent && articleContent.length > 50) {
-                        const summary = summarizeText(articleContent);
-                        const responses = {
-                            'en': `📝 **Summary:**\n\n${summary}`,
-                            'it': `📝 **Riassunto:**\n\n${summary}`,
-                            'es': `📝 **Resumen:**\n\n${summary}`,
-                            'fr': `📝 **Résumé:**\n\n${summary}`,
-                            'de': `📝 **Zusammenfassung:**\n\n${summary}`,
-                            'zh': `📝 **总结:**\n\n${summary}`,
-                            'ar': `📝 **ملخص:**\n\n${summary}`,
-                            'ru': `📝 **Сводка:**\n\n${summary}`,
-                            'ur': `📝 **خلاصہ:**\n\n${summary}`
-                        };
-                        return responses[botLanguage];
-                    }
-                }
-                const noArticleMsg = {
-                    'en': "To summarize an article, please open an article first or tell me which article you want summarized.",
-                    'it': "Per riassumere un articolo, apri prima un articolo o dimmi quale articolo vuoi riassumere.",
-                    'es': "Para resumir un artículo, abre un artículo primero o dime qué artículo quieres resumir.",
-                    'fr': "Pour résumer un article, ouvrez d'abord un article ou dites-moi quel article vous voulez résumer.",
-                    'de': "Um einen Artikel zusammenzufassen, öffnen Sie bitte zuerst einen Artikel oder sagen Sie mir, welchen Artikel Sie zusammengefasst haben möchten.",
-                    'zh': "要总结文章，请先打开一篇文章或告诉我您要总结哪篇文章。",
-                    'ar': "لتلخيص مقال، يرجى فتح مقال أولاً أو أخبرني أي مقال تريد تلخيصه.",
-                    'ru': "Чтобы суммировать статью, сначала откройте статью или скажите, какую статью вы хотите суммировать.",
-                    'ur': "کسی مضمون کا خلاصہ کرنے کے لیے، براہ کرم پہلے کوئی مضمون کھولیں یا مجھے بتائیں کہ آپ کون سا مضمون خلاصہ کرنا چاہتے ہیں۔"
-                };
-                return noArticleMsg[botLanguage];
-            }
-        }
-        
-        if (m.includes('future') || m.includes('futuro') || m.includes('futuro') || m.includes('avenir') || 
-            m.includes('zukunft') || m.includes('未来') || m.includes('مستقبل') || m.includes('будущее') || m.includes('مستقبل')) {
-            
-            const futureResponses = {
-                'en': "🔮 **The Future of AI:**\n\nBased on current trends, AI will become more integrated into daily life. We'll see:\n• More personalized assistants like me\n• Better multilingual support\n• Advanced content understanding\n• Real-time information processing\n\nAt RSM, we're working to stay at the forefront of these developments!",
-                'it': "🔮 **Il Futuro dell'AI:**\n\nSulla base delle tendenze attuali, l'AI diventerà più integrata nella vita quotidiana. Vedremo:\n• Più assistenti personalizzati come me\n• Miglior supporto multilingue\n• Comprensione avanzata dei contenuti\n• Elaborazione delle informazioni in tempo reale\n\nIn RSM, stiamo lavorando per restare all'avanguardia in questi sviluppi!",
-                'es': "🔮 **El Futuro de la IA:**\n\nBasado en las tendencias actuales, la IA se integrará más en la vida diaria. Veremos:\n• Más asistentes personalizados como yo\n• Mejor soporte multilingüe\n• Comprensión avanzada de contenido\n• Procesamiento de información en tiempo real\n\n¡En RSM, estamos trabajando para mantenernos a la vanguardia de estos desarrollos!",
-                'fr': "🔮 **L'Avenir de l'IA:**\n\nBasé sur las tendencias actuales, l'IA s'intégrera davantage dans la vie quotidienne. Nous verrons:\n• Plus d'assistants personnalisés como moi\n• Meilleur support multilingue\n• Compréhension avancée du contenu\n• Traitement de l'information en temps réel\n\nChez RSM, nous travaillons pour rester à la pointe de ces développements!",
-                'de': "🔮 **Die Zukunft der KI:**\n\nBasierend auf aktuellen Trends wird KI stärker in den Alltag integriert. Wir werden sehen:\n• Mehr personalisierte Assistenten wie mich\n• Bessere mehrsprachige Unterstützung\n• Erweitertes Inhaltsverständnis\n• Echtzeit-Informationsverarbeitung\n\nBei RSM arbeiten wir daran, bei diesen Entwicklungen an vorderster Front zu bleiben!",
-                'zh': "🔮 **AI的未来：**\n\n基于当前趋势，AI将更融入日常生活。我们将看到：\n• 更多像我这样的个性化助手\n• 更好的多语言支持\n• 高级内容理解\n• 实时信息处理\n\n在RSM，我们正努力保持在这些发展的前沿！",
-                'ar': "🔮 **مستقبل الذكاء الاصطناعي:**\n\nاستناداً إلى الاتجاهات الحالية، سيتكامل الذكاء الاصطناعي أكثر في الحياة اليومية. سنرى:\n• المزيد من المساعدين الشخصيين مثلي\n• دعم متعدد اللغات أفضل\n• فهم محتوى متقدم\n• معالجة المعلومات في الوقت الحقيقي\n\nفي RSM، نحن نعمل للبقاء في طليعة هذه التطورات!",
-                'ru': "🔮 **Будущее ИИ:**\n\nОсновываясь на текущих тенденциях, ИИ станет более интегрированным в повседневную жизнь. Мы увидим:\n• Больше персонализированных помощников, таких как я\n• Лучшая многоязычная поддержка\n• Расширенное понимание контента\n• Обработка информации в реальном времени\n\nВ RSM мы работаем над тем, чтобы оставаться на переднем крае этих разработок!",
-                'ur': "🔮 **AI کا مستقبل:**\n\nموجودہ رجحانات کی بنیاد پر، AI روزمرہ کی زندگی میں زیادہ ضم ہو جائے گا۔ ہم دیکھیں گے:\n• میرے جیسے زیادہ ذاتی اسسٹنٹ\n• بہتر کثیر لسانی سپورٹ\n• اعلی درجے کی مواد کی سمجھ\n• ریئل ٹائم معلومات کی پروسیسنگ\n\nRSM میں، ہم ان ترقیوں کے پیش قدمی میں رہنے کے لیے کام کر رہے ہیں!"
-            };
-            return futureResponses[botLanguage];
-        }
-        
-        const navigationCommands = {
-            'home': {keywords: ['home', 'inicio', 'accueil', 'startseite', '首页', 'الرئيسية', 'главная', 'ہوم']},
-            'articles': {keywords: ['articles', 'articoli', 'artículos', 'articles', 'artikel', '文章', 'مقالات', 'статьи', 'مقالات']},
-            'videos': {keywords: ['videos', 'video', 'vídeos', 'vidéos', 'videos', '视频', 'فيديوهات', 'видео', 'ویڈیوز']},
-            'news': {keywords: ['news', 'notizie', 'noticias', 'actualités', 'nachrichten', '新闻', 'أخبار', 'новости', 'خبریں']},
-            'categories': {keywords: ['categories', 'categorie', 'categorías', 'catégories', 'kategorien', '分类', 'فئات', 'категории', 'زمرے']},
-            'about': {keywords: ['about', 'chi siamo', 'nosotros', 'à propos', 'über uns', '关于', 'من نحن', 'о нас', 'ہمارے بارے میں']},
-            'contacts': {keywords: ['contacts', 'contatti', 'contactos', 'contacts', 'kontakte', '联系方式', 'اتصل بنا', 'контакты', 'رابطے']}
-        };
-        
-        for (const [section, data] of Object.entries(navigationCommands)) {
-            for (const keyword of data.keywords) {
-                if (m.includes(keyword)) {
-                    showSection(section);
-                    const confirmMsg = {
-                        'en': `✅ **${section.charAt(0).toUpperCase() + section.slice(1)} section opened!**`,
-                        'it': `✅ **Sezione ${section} aperta!**`,
-                        'es': `✅ **¡Sección de ${section} abierta!**`,
-                        'fr': `✅ **Section ${section} ouverte!**`,
-                        'de': `✅ **${section.charAt(0).toUpperCase() + section.slice(1)} Bereich geöffnet!**`,
-                        'zh': `✅ **${section}部分已打开！**`,
-                        'ar': `✅ **تم فتح قسم ${section}!**`,
-                        'ru': `✅ **Раздел ${section} открыт!**`,
-                        'ur': `✅ **${section} سیکشن کھلا!**`
-                    };
-                    return confirmMsg[botLanguage];
-                }
-            }
-        }
-        
-        const defaultResponses = {
-            'en': [
-                "I'm here to help! You can ask me to:\n• Search Wikipedia for information\n• Summarize articles\n• Navigate RSM sections\n• Answer questions about AI\n\nTry: 'search artificial intelligence' or 'open videos section'",
-                "Need assistance? I can search Wikipedia, summarize content, and help you navigate RSM. What would you like to do?",
-                "I'm your AI assistant! I can search information, create summaries, and guide you through RSM. Just tell me what you need!"
-            ],
-            'it': [
-                "Sono qui per aiutarti! Puoi chiedermi di:\n• Cercare informazioni su Wikipedia\n• Riassumere articoli\n• Navigare nelle sezioni RSM\n• Rispondere a domande sull'AI\n\nProva: 'cerca intelligenza artificiale' o 'apri sezione video'",
-                "Hai bisogno di assistenza? Posso cercare su Wikipedia, riassumere contenuti e aiutarti a navigare in RSM. Cosa vorresti fare?",
-                "Sono il tuo assistente AI! Posso cercare informazioni, creare riassunti e guidarti attraverso RSM. Dimmi solo cosa ti serve!"
-            ],
-            'es': [
-                "¡Estoy aquí para ayudar! Puedes pedirme que:\n• Busque información en Wikipedia\n• Resuma artículos\n• Navegue por las secciones de RSM\n• Responda preguntas sobre IA\n\nPrueba: 'buscar inteligencia artificial' o 'abrir sección de videos'",
-                "¿Necesitas ayuda? Puedo buscar en Wikipedia, resumir contenido y ayudarte a navegar por RSM. ¿Qué te gustaría hacer?",
-                "¡Soy tu asistente de IA! Puedo buscar información, crear resúmenes y guiarte a través de RSM. ¡Solo dime lo que necesitas!"
-            ],
-            'fr': [
-                "Je suis là pour vous aider! Vous pouvez me demander de:\n• Rechercher des informations sur Wikipedia\n• Résumer des articles\n• Naviguer dans les sections RSM\n• Répondre aux questions sur l'IA\n\nEssayez: 'rechercher intelligence artificielle' ou 'ouvrir section vidéos'",
-                "Besoin d'aide? Je peux rechercher sur Wikipedia, résumer du contenu et vous aider à naviguer dans RSM. Que souhaitez-vous faire?",
-                "Je suis votre assistant IA! Je peux rechercher des informations, créer des résumés et vous guider à travers RSM. Dites-moi simplement ce dont vous avez besoin!"
-            ],
-            'de': [
-                "Ich bin hier, um zu helfen! Sie können mich bitten:\n• Auf Wikipedia nach Informationen zu suchen\n• Artikel zusammenzufassen\n• Durch RSM-Bereiche zu navigieren\n• Fragen zu KI zu beantworten\n\nProbieren Sie: 'KI suchen' oder 'Videobereich öffnen'",
-                "Brauchen Sie Hilfe? Ich kann auf Wikipedia suchen, Inhalte zusammenfassen und Ihnen helfen, durch RSM zu navigieren. Was möchten Sie tun?",
-                "Ich bin Ihr KI-Assistent! Ich can Informationen suchen, Zusammenfassungen erstellen und Sie durch RSM führen. Sagen Sie mir einfach, was Sie brauchen!"
-            ],
-            'zh': [
-                "我在这里帮忙！你可以让我：\n• 在维基百科上搜索信息\n• 总结文章\n• 导航RSM部分\n• 回答关于AI的问题\n\n试试：'搜索人工智能'或'打开视频部分'",
-                "需要帮助吗？我可以在维基百科上搜索、总结内容并帮助您导航RSM。您想做什么？",
-                "我是您的AI助手！我可以搜索信息、创建摘要并引导您使用RSM。只需告诉我您需要什么！"
-            ],
-            'ar': [
-                "أنا هنا للمساعدة! يمكنك أن تطلب مني:\n• البحث عن المعلومات على ويكيبيديا\n• تلخيص المقالات\n• التنقل في أقسام RSM\n• الإجابة على الأسئلة حول الذكاء الاصطناعي\n\nجرب: 'ابحث عن الذكاء الاصطناعي' أو 'افتح قسم الفيديوهات'",
-                "هل تحتاج إلى مساعدة؟ يمكنني البحث على ويكيبيديا، تلخيص المحتوى ومساعدتك في التنقل في RSM. ماذا تريد أن تفعل؟",
-                "أنا مساعدك الذكي! يمكنني البحث عن المعلومات، إنشاء ملخصات وإرشادك عبر RSM. فقط أخبرني ما تحتاجه!"
-            ],
-            'ru': [
-                "Я здесь, чтобы помочь! Вы можете попросить меня:\n• Искать информацию в Википедии\n• Суммировать статьи\n• Навигация по разделам RSM\n• Отвечать на вопросы об ИИ\n\nПопробуйте: 'поиск искусственного интеллекта' или 'открыть раздел видео'",
-                "Нужна помощь? Я могу искать в Википедии, суммировать контент и помогать вам ориентироваться в RSM. Что бы вы хотели сделать?",
-                "Я ваш ИИ-помощник! Я могу искать информацию, создавать сводки и проводить вас через RSM. Просто скажите мне, что вам нужно!"
-            ],
-            'ur': [
-                "میں مدد کے لیے یہاں ہوں! آپ مجھ سے کہہ سکتے ہیں:\n• ویکیپیڈیا پر معلومات تلاش کریں\n• مضامین کا خلاصہ کریں\n• RSM کے حصوں میں نیویگیٹ کریں\n• AI کے بارے میں سوالات کے جوابات دیں\n\nآزمائیں: 'مصنوعی ذہانت تلاش کریں' یا 'ویڈیوز سیکشن کھولیں'",
-                "کیا آپ کو مدد کی ضرورت ہے؟ میں ویکیپیڈیا پر تلاش کر سکتا ہوں، مواد کا خلاصہ کر سکتا ہوں اور آپ کو RSM میں نیویگیٹ کرنے میں مدد کر سکتا ہوں۔ آپ کیا کرنا چاہیں گے؟",
-                "میں آپ کا AI اسسٹنٹ ہوں! میں معلومات تلاش کر سکتا ہوں، خلاصے بنا سکتا ہوں اور آپ کو RSM کے ذریعے رہنمائی کر سکتا ہوں۔ بس مجھے بتائیں کہ آپ کو کیا چاہیے!"
-            ]
-        };
-        
-        const responses = defaultResponses[botLanguage] || defaultResponses['en'];
-        return responses[Math.floor(Math.random() * responses.length)];
-    }
-
-    // ============ AI SECTION FUNCTIONS ============
-    function insertExample(text) {
-        document.getElementById('aiChatInput').value = text;
-        document.getElementById('aiChatInput').focus();
-    }
-
-    function appendAIMessage(sender, text) {
-        const div = document.createElement('div');
-        div.className = `ai-message ${sender}`;
-        div.innerHTML = text.replace(/\n/g, '<br>');
-        
-        const time = document.createElement('div');
-        time.className = 'ai-message-time';
-        time.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-        
-        div.appendChild(time);
-        document.getElementById('aiChatMessages').appendChild(div);
-        document.getElementById('aiChatMessages').scrollTop = document.getElementById('aiChatMessages').scrollHeight;
-    }
-
-    async function sendAIMessage() {
-        const msg = document.getElementById('aiChatInput').value.trim();
-        if (!msg) return;
-        
-        appendAIMessage('user', msg);
-        document.getElementById('aiChatInput').value = '';
-        
-        const typingDiv = document.createElement('div');
-        typingDiv.className = 'ai-message bot';
-        typingDiv.innerHTML = '<div class="loading" style="display:inline-block; width:20px;height:20px;"></div>';
-        document.getElementById('aiChatMessages').appendChild(typingDiv);
-        
-        try {
-            const response = await aiBotResponse(msg);
-            typingDiv.remove();
-            appendAIMessage('bot', response);
-        } catch (error) {
-            console.error('AI chat error:', error);
-            typingDiv.remove();
-            const errorMsg = {
-                'en': "⚠️ An error occurred. Please try again.",
-                'it': "⚠️ Si è verificato un errore. Riprova.",
-                'es': "⚠️ Ocurrió un error. Inténtalo de nuevo.",
-                'fr': "⚠️ Une erreur s'est produite. Veuillez réessayer.",
-                'de': "⚠️ Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
-                'zh': "⚠️ 发生错误。请重试。",
-                'ar': "⚠️ حدث خطأ. يرجى المحاولة مرة أخرى.",
-                'ru': "⚠️ Произошла ошибка. Пожалуйста, попробуйте еще раз.",
-                'ur': "⚠️ ایک خرابی پیش آئی۔ براہ کرم دوبارہ کوشش کریں۔"
-            };
-            appendAIMessage('bot', errorMsg[botLanguage] || errorMsg['en']);
-        }
-        
-        document.getElementById('aiChatInput').focus();
-    }
-
-    // ============ HELPER FUNCTIONS ============
-    function updateContentCounts() {
-        const articlesCount = articles.filter(a => a.type === "article").length;
-        const videosCount = articles.filter(a => a.type === "video").length;
-        const newsCount = articles.filter(a => a.type === "news").length;
-        
-        document.getElementById('articlesCount').textContent = articlesCount;
-        document.getElementById('videosCount').textContent = videosCount;
-        document.getElementById('newsCount').textContent = newsCount;
-    }
-
-    function updateLoadingText(text) {
-        const loadingText = document.getElementById('loadingText');
-        if (loadingText) {
-            loadingText.textContent = text;
-        }
-    }
-
-    function showNotification(message) {
-        const notification = document.createElement('div');
-        notification.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: var(--gradient-primary);
-            color: white;
-            padding: 15px 25px;
-            border-radius: var(--border-radius-sm);
-            z-index: 9999;
-            box-shadow: var(--shadow-lg);
-            animation: fadeInUp 0.3s ease;
-            max-width: 300px;
-            font-weight: 600;
-        `;
-        
-        notification.textContent = message;
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.style.animation = 'fadeInUp 0.3s ease reverse';
-            setTimeout(() => notification.remove(), 300);
-        }, 3000);
-    }
-
-    // ============ GLOBAL FUNCTIONS ============
+    // ============ GLOBAL FUNCTIONS (invariate) ============
     window.showSection = showSection;
     window.openContent = function(articleId) {
         const article = articles.find(a => a.id === articleId);
