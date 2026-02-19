@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>RSM</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="description" content="RSM - Platform for mysteries, current affairs and little-known stories in 9 languages">
     <meta name="keywords" content="RSM, mysteries, news, articles, videos, investigations">
     <meta property="og:title" content="RSM Multimedia Platform">
@@ -61,6 +61,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* NUOVA IMMAGINE DI SOTTOSFONDO PIÙ BELLA */
         body::before {
             content: '';
             position: fixed;
@@ -69,11 +70,16 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 10% 20%, rgba(255, 71, 87, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(46, 134, 222, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(155, 89, 182, 0.05) 0%, transparent 60%);
+                radial-gradient(circle at 30% 40%, rgba(255, 71, 87, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 80% 70%, rgba(46, 134, 222, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 20% 80%, rgba(155, 89, 182, 0.12) 0%, transparent 50%),
+                url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center 30%;
+            background-blend-mode: overlay;
             z-index: -1;
             pointer-events: none;
+            opacity: 0.25;
         }
 
         ::-webkit-scrollbar {
@@ -1447,7 +1453,7 @@
             color: transparent;
         }
 
-        /* MEDIA QUERIES */
+        /* MEDIA QUERIES MIGLIORATE PER TELEFONO */
         @media (max-width: 1200px) {
             .nav-container {
                 flex-direction: column;
@@ -3139,34 +3145,95 @@
         ]
     };
 
-    // Database indovinelli multilingue
+    // Database indovinelli multilingue (MOLTI PIÙ INDOVINELLI)
     const riddlesDB = {
         en: [
             { question: "I have keys but no locks. I have space but no room. What am I?", answer: "piano", hint: "Musical instrument" },
             { question: "The more you take, the more you leave behind. What are they?", answer: "footsteps", hint: "You make them when walking" },
             { question: "What has a head and a tail but no body?", answer: "coin", hint: "You spend it" },
             { question: "What can run but never walks, has a mouth but never talks?", answer: "river", hint: "Flows" },
-            { question: "What has to be broken before you can use it?", answer: "egg", hint: "Breakfast food" }
+            { question: "What has to be broken before you can use it?", answer: "egg", hint: "Breakfast food" },
+            { question: "I’m tall when I’m young, and I’m short when I’m old. What am I?", answer: "candle", hint: "You light it" },
+            { question: "What has a face and two hands but no arms or legs?", answer: "clock", hint: "Tells time" },
+            { question: "What is full of holes but still holds water?", answer: "sponge", hint: "Used for cleaning" },
+            { question: "What has a neck but no head?", answer: "bottle", hint: "Holds drinks" },
+            { question: "What has words but never speaks?", answer: "book", hint: "You read it" },
+            { question: "What is so fragile that saying its name breaks it?", answer: "silence", hint: "Opposite of noise" },
+            { question: "What has an eye but cannot see?", answer: "needle", hint: "Sewing tool" },
+            { question: "What has a thumb and four fingers but is not a hand?", answer: "glove", hint: "Keeps hands warm" },
+            { question: "What gets wetter as it dries?", answer: "towel", hint: "After a shower" },
+            { question: "What can you catch but never throw?", answer: "cold", hint: "Sneeze" },
+            { question: "What has a ring but no finger?", answer: "phone", hint: "Rings when someone calls" },
+            { question: "What has a bank but no money?", answer: "river", hint: "Its sides" },
+            { question: "What has a heart that doesn't beat?", answer: "artichoke", hint: "Vegetable" },
+            { question: "What begins with T, ends with T, and has T in it?", answer: "teapot", hint: "Contains tea" },
+            { question: "What is black when you buy it, red when you use it, and gray when you throw it away?", answer: "charcoal", hint: "Used for grilling" },
+            { question: "What has a head, a tail, is brown, and has no legs?", answer: "penny", hint: "Copper coin" },
+            { question: "What has to be broken before you can use it?", answer: "egg", hint: "Crack it open" },
+            { question: "What has a mouth but never eats?", answer: "river", hint: "Flows into sea" },
+            { question: "What has a bed but never sleeps?", answer: "river", hint: "Riverbed" },
+            { question: "What has a bark but no bite?", answer: "tree", hint: "Wood" },
+            { question: "What has a face but cannot smile?", answer: "clock", hint: "Numbers" },
+            { question: "What has a spine but no bones?", answer: "book", hint: "Pages" },
+            { question: "What has a cap but no head?", answer: "pen", hint: "Writing" },
+            { question: "What has a tongue but cannot taste?", answer: "shoe", hint: "Tie it" }
         ],
         it: [
             { question: "Ha chiavi ma non apre porte, ha spazio ma non è una stanza. Cosa sono?", answer: "pianoforte", hint: "Strumento musicale" },
             { question: "Più ne togli, più diventa grande. Cosa sono?", answer: "buco", hint: "Lo fai nel muro" },
             { question: "Ha testa e coda ma non ha corpo. Cosa sono?", answer: "moneta", hint: "Si usa per pagare" },
             { question: "Può correre ma non camminare, ha una bocca ma non parlare. Cosa sono?", answer: "fiume", hint: "Scorre" },
-            { question: "Cosa devi rompere prima di usarlo?", answer: "uovo", hint: "Colazione" }
+            { question: "Cosa devi rompere prima di usarlo?", answer: "uovo", hint: "Colazione" },
+            { question: "Sono alto quando sono giovane e basso quando sono vecchio. Cosa sono?", answer: "candela", hint: "Si accende" },
+            { question: "Ha un viso e due mani ma niente braccia o gambe. Cosa sono?", answer: "orologio", hint: "Segna il tempo" },
+            { question: "Cosa è pieno di buchi ma tiene ancora l'acqua?", answer: "spugna", hint: "Per pulire" },
+            { question: "Ha un collo ma niente testa. Cosa sono?", answer: "bottiglia", hint: "Contiene bevande" },
+            { question: "Ha parole ma non parla mai. Cosa sono?", answer: "libro", hint: "Lo leggi" },
+            { question: "Cosa è così fragile che pronunciare il suo nome lo rompe?", answer: "silenzio", hint: "Opposto del rumore" },
+            { question: "Ha un occhio ma non vede. Cosa sono?", answer: "ago", hint: "Strumento da cucito" },
+            { question: "Ha un pollice e quattro dita ma non è una mano. Cosa sono?", answer: "guanto", hint: "Scalda le mani" },
+            { question: "Cosa diventa più bagnato mentre si asciuga?", answer: "asciugamano", hint: "Dopo la doccia" },
+            { question: "Cosa puoi prendere ma non lanciare?", answer: "raffreddore", hint: "Starnuto" },
+            { question: "Ha un anello ma niente dito. Cosa sono?", answer: "telefono", hint: "Squilla" },
+            { question: "Ha una banca ma niente soldi. Cosa sono?", answer: "fiume", hint: "Le sue rive" },
+            { question: "Ha un cuore che non batte. Cosa sono?", answer: "carciofo", hint: "Verdura" },
+            { question: "Comincia con T, finisce con T, e dentro ha T. Cosa sono?", answer: "teiera", hint: "Contiene tè" },
+            { question: "Cosa è nero quando lo compri, rosso quando lo usi e grigio quando lo butti?", answer: "carbone", hint: "Per grigliare" },
+            { question: "Ha testa, coda, è marrone e non ha gambe. Cosa sono?", answer: "centesimo", hint: "Moneta di rame" },
+            { question: "Cosa devi rompere prima di usarlo?", answer: "uovo", hint: "Rompi il guscio" },
+            { question: "Ha una bocca ma non mangia mai.", answer: "fiume", hint: "Sfocia nel mare" },
+            { question: "Ha un letto ma non dorme mai.", answer: "fiume", hint: "Letto del fiume" },
+            { question: "Ha corteccia ma non morde.", answer: "albero", hint: "Legno" },
+            { question: "Ha una faccia ma non può sorridere.", answer: "orologio", hint: "Numeri" },
+            { question: "Ha una spina dorsale ma niente ossa.", answer: "libro", hint: "Pagine" },
+            { question: "Ha un cappuccio ma niente testa.", answer: "penna", hint: "Scrivere" },
+            { question: "Ha una lingua ma non può assaggiare.", answer: "scarpa", hint: "Allacciare" }
         ],
         es: [
             { question: "Tengo llaves pero no cerraduras. Tengo espacio pero no habitación. ¿Qué soy?", answer: "piano", hint: "Instrumento musical" },
             { question: "Cuanto más tomas, más dejas atrás. ¿Qué son?", answer: "huellas", hint: "Las haces al caminar" },
-            { question: "¿Qué tiene cabeza y cola pero no cuerpo?", answer: "moneda", hint: "La gastas" }
+            { question: "¿Qué tiene cabeza y cola pero no cuerpo?", answer: "moneda", hint: "La gastas" },
+            { question: "¿Qué puede correr pero nunca camina, tiene boca pero nunca habla?", answer: "río", hint: "Fluye" },
+            { question: "¿Qué hay que romper antes de usarlo?", answer: "huevo", hint: "Desayuno" },
+            { question: "Soy alto cuando joven y bajo cuando viejo. ¿Qué soy?", answer: "vela", hint: "Se enciende" },
+            { question: "Tengo cara y dos manos pero no brazos ni piernas. ¿Qué soy?", answer: "reloj", hint: "Da la hora" },
+            { question: "¿Qué está lleno de agujeros pero aún sostiene agua?", answer: "esponja", hint: "Limpia" },
+            { question: "Tengo cuello pero no cabeza. ¿Qué soy?", answer: "botella", hint: "Contiene líquidos" },
+            { question: "Tengo palabras pero nunca hablo. ¿Qué soy?", answer: "libro", hint: "Lo lees" }
         ],
         fr: [
             { question: "J'ai des clés mais pas de serrures. J'ai de l'espace mais pas de pièce. Qui suis-je?", answer: "piano", hint: "Instrument de musique" },
-            { question: "Plus tu en prends, plus tu en laisses derrière toi. Que sont-ils?", answer: "empreintes", hint: "Tu les fais en marchant" }
+            { question: "Plus tu en prends, plus tu en laisses derrière toi. Que sont-ils?", answer: "empreintes", hint: "Tu les fais en marchant" },
+            { question: "Qui a une tête et une queue mais pas de corps?", answer: "pièce", hint: "Monnaie" },
+            { question: "Qui court mais ne marche jamais, a une bouche mais ne parle jamais?", answer: "rivière", hint: "Coule" },
+            { question: "Que faut-il casser avant de l'utiliser?", answer: "œuf", hint: "Petit-déjeuner" }
         ],
         de: [
             { question: "Ich habe Schlüssel, aber keine Schlösser. Ich habe Platz, aber kein Zimmer. Was bin ich?", answer: "klavier", hint: "Musikinstrument" },
-            { question: "Je mehr du nimmst, desto mehr lässt du zurück. Was sind sie?", answer: "fußabdrücke", hint: "Du machst sie beim Gehen" }
+            { question: "Je mehr du nimmst, desto mehr lässt du zurück. Was sind sie?", answer: "fußabdrücke", hint: "Du machst sie beim Gehen" },
+            { question: "Was hat einen Kopf und einen Schwanz, aber keinen Körper?", answer: "münze", hint: "Geld" },
+            { question: "Was kann laufen, aber nicht gehen, hat einen Mund, aber nicht sprechen?", answer: "fluss", hint: "Fließt" },
+            { question: "Was muss zerbrochen werden, bevor man es benutzen kann?", answer: "ei", hint: "Frühstück" }
         ]
     };
 
