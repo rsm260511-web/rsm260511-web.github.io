@@ -199,6 +199,54 @@
         }
       }
     },
+     {
+      "id": "RSM|Official Trailer",
+      "category": "Mysteries",
+      "type": "video",
+      "date": "2026-02-01",
+      "videoUrl": "https://www.youtube.com/shorts/Tt16JW-0P9Q",
+      "images": [
+        "https://i.ytimg.com/vi/Tt16JW-0P9Q/oardefault.jpg?sqp=-oaymwEoCIwDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLCpDp34UAMxOwKkeVvPYjlUy6hKng&usqp=CCk"
+      ],
+      "translations": {
+        "en": {
+          "title": "The Strange World of RSM | Official Trailer",
+          "content": "Exploring mysteries, history, and global events beyond the headlines."
+        },
+        "it": {
+          "title": "The Strange World of RSM | Trailer Ufficiale",
+          "content": "Esplorando misteri, storia ed eventi globali oltre i titoli delle notizie."
+        },
+        "es": {
+          "title": "The Strange World of RSM | Tráiler Oficial",
+          "content": "Explorando misterios, historia y eventos globales más allá de los titulares."
+        },
+        "fr": {
+          "title": "The Strange World of RSM | Bande-annonce Officielle",
+          "content": "Exploration de mystères, d’histoire et d’événements mondiaux au-delà des gros titres."
+        },
+        "de": {
+          "title": "The Strange World of RSM | Offizieller Trailer",
+          "content": "Erkundung von Mysterien, Geschichte und globalen Ereignissen jenseits der Schlagzeilen."
+        },
+        "zh": {
+          "title": "The Strange World of RSM | 官方预告片",
+          "content": "探索谜团、历史和全球事件，超越新闻标题。"
+        },
+        "ar": {
+          "title": "The Strange World of RSM | العرض الدعائي الرسمي",
+          "content": "استكشاف الغموض والتاريخ والأحداث العالمية بعيداً عن العناوين."
+        },
+        "ru": {
+          "title": "The Strange World of RSM | Официальный трейлер",
+          "content": "Исследование тайн, истории и мировых событий за пределами заголовков."
+        },
+        "ur": {
+          "title": "The Strange World of RSM | سرکاری ٹریلر",
+          "content": "اسرار، تاریخ اور عالمی واقعات کی تلاش خبروں کی سرخیوں سے آگے۔"
+        }
+      }
+    },
     {
       "id": "mh370-mystery",
       "category": "Mysteries",
@@ -247,10 +295,10 @@
       }
     },
     {
-      "id": "mh370-video",
+      "id": "RSM|Official Trailer",
       "category": "Mysteries",
       "type": "video",
-      "date": "2026-02-01",
+      "date": "2026-03-06",
       "videoUrl": "https://www.youtube.com/embed/890wWM0lg94",
       "images": [
         "https://img.youtube.com/vi/890wWM0lg94/hqdefault.jpg"
