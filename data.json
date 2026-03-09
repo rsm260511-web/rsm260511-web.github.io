@@ -11,6 +11,53 @@
     "ur": "RSM پراسرار باتوں، موجودہ واقعات اور کم معلوم کہانیوں کی تلاش کے لیے وقف ایک جگہ ہے۔ مقصد ایسے واقعات کے بارے میں تنقیدی سوچ کو آگاہ کرنا، تجسس پیدا کرنا اور حوصلہ افزائی کرنا ہے جو اکثر روایتی معلومات کے کنارے پر رہ جاتے ہیں۔"
   },
   "articles": [
+  {
+  "id": "iran-new-leader-war",
+  "category": "Guerra in Iran",
+  "type": "news",
+  "date": "2026-03-09",
+  "images": [
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3wkD857-s6J7Fxj5qU5-zky2eQcTeIC4pYQ&s"
+  ],
+  "translations": {
+    "en": {
+      "title": "Iran appoints Mojtaba Khamenei as new leader amid escalating war",
+      "content": "In recent days Iran has found itself at the center of a harsh conflict following the start of a large military operation launched by the United States and Israel on February 28, 2026, which struck numerous military and political infrastructures across the country. During these attacks the Iranian supreme leader Ali Khamenei was killed, an event that marked a dramatic turning point in the war.\nDespite the blow, Iran has shown that it does not intend to surrender. The country responded with missile strikes and drones against military targets and infrastructure belonging to its opponents in the region, stating that it is defending its sovereignty and national security.\nAfter Khamenei's death, Iran quickly appointed a new leader, Mojtaba Khamenei, with the goal of maintaining political stability and continuing resistance against external pressure.\nMany Iranians see this war as an attempt by Western powers to weaken the country and its influence in the region. For this reason, the Iranian government claims that its military response is not only a strategic decision but also a defense of national dignity and independence.\nThe war has already caused many casualties and destabilized the Middle East, but for Iran the struggle also represents a symbol of resistance against what it considers external aggression."
+    },
+    "it": {
+      "title": "L'Iran nomina Mojtaba Khamenei come nuovo leader mentre la guerra si intensifica",
+      "content": "Negli ultimi giorni l’Iran si trova al centro di un duro conflitto dopo l’inizio di una grande operazione militare lanciata da Stati Uniti e Israele il 28 febbraio 2026, che ha colpito numerose infrastrutture militari e politiche del paese. Durante questi attacchi è stato ucciso anche la guida suprema iraniana Ali Khamenei, evento che ha segnato una svolta drammatica nella guerra.\n\nNonostante il colpo subito, l’Iran ha dimostrato di non voler cedere. Il paese ha reagito con attacchi missilistici e con droni contro obiettivi militari e infrastrutture degli avversari nella regione, affermando di difendere la propria sovranità e la propria sicurezza nazionale.\n\nDopo la morte di Khamenei, l’Iran ha rapidamente nominato un nuovo leader, Mojtaba Khamenei, con l’obiettivo di mantenere stabilità politica e continuare la resistenza contro le pressioni esterne.\n\nMolti iraniani vedono questa guerra come un tentativo delle potenze occidentali di indebolire il paese e la sua influenza nella regione. Per questo motivo, il governo iraniano sostiene che la risposta militare non sia solo una scelta strategica, ma anche una difesa della dignità e dell’indipendenza nazionale.\n\nLa guerra ha già causato molte vittime e ha destabilizzato il Medio Oriente, ma per l’Iran la lotta rappresenta anche un simbolo di resistenza contro ciò che considera aggressioni esterne."
+    },
+    "es": {
+      "title": "Irán nombra a Mojtaba Khamenei como nuevo líder mientras la guerra se intensifica",
+      "content": "En los últimos días Irán se encuentra en el centro de un duro conflicto tras el inicio de una gran operación militar lanzada por Estados Unidos e Israel el 28 de febrero de 2026. Durante estos ataques murió el líder supremo iraní Ali Khamenei, un evento que marcó un punto de inflexión dramático en la guerra.\nA pesar del golpe, Irán ha demostrado que no tiene intención de rendirse. El país respondió con ataques con misiles y drones contra objetivos militares e infraestructuras de sus adversarios en la región.\nTras la muerte de Khamenei, Irán nombró rápidamente a un nuevo líder, Mojtaba Khamenei, con el objetivo de mantener la estabilidad política.\nMuchos iraníes ven esta guerra como un intento de las potencias occidentales de debilitar al país.\nLa guerra ya ha causado muchas víctimas y ha desestabilizado Oriente Medio."
+    },
+    "fr": {
+      "title": "L'Iran nomme Mojtaba Khamenei nouveau dirigeant au milieu de la guerre",
+      "content": "Ces derniers jours, l'Iran s'est retrouvé au centre d'un conflit intense après le lancement d'une grande opération militaire par les États-Unis et Israël le 28 février 2026.\nLors de ces attaques, le guide suprême Ali Khamenei a été tué, marquant un tournant dramatique dans la guerre.\nMalgré ce coup dur, l'Iran a répondu par des frappes de missiles et de drones contre des cibles militaires dans la région.\nAprès la mort de Khamenei, Mojtaba Khamenei a été rapidement nommé nouveau dirigeant.\nLa guerre a déjà causé de nombreuses victimes et déstabilisé le Moyen-Orient."
+    },
+    "de": {
+      "title": "Iran ernennt Mojtaba Khamenei zum neuen Führer während der Krieg eskaliert",
+      "content": "In den letzten Tagen steht Iran im Zentrum eines schweren Konflikts nach einer großen Militäroperation der USA und Israels am 28. Februar 2026.\nBei diesen Angriffen wurde der oberste Führer Ali Khamenei getötet.\nTrotz dieses Schlags reagierte Iran mit Raketen- und Drohnenangriffen gegen militärische Ziele.\nNach Khameneis Tod wurde Mojtaba Khamenei schnell zum neuen Führer ernannt.\nDer Krieg hat bereits viele Opfer gefordert und den Nahen Osten destabilisiert."
+    },
+    "zh": {
+      "title": "伊朗任命穆杰塔巴·哈梅内伊为新领导人 战争持续升级",
+      "content": "最近几天，伊朗因2026年2月28日美国和以色列发动的大规模军事行动而陷入严重冲突。\n在这些袭击中，伊朗最高领袖阿里·哈梅内伊被杀，这一事件成为战争的重大转折点。\n尽管遭受打击，伊朗仍然通过导弹和无人机袭击进行回应。\n随后伊朗迅速任命穆杰塔巴·哈梅内伊为新的领导人。\n这场战争已经造成大量人员伤亡，并使中东局势更加不稳定。"
+    },
+    "ar": {
+      "title": "إيران تعين مجتبى خامنئي زعيماً جديداً وسط تصاعد الحرب",
+      "content": "في الأيام الأخيرة وجدت إيران نفسها في قلب صراع شديد بعد عملية عسكرية كبيرة شنتها الولايات المتحدة وإسرائيل في 28 فبراير 2026.\nخلال هذه الهجمات قُتل المرشد الأعلى علي خامنئي، وهو حدث شكل نقطة تحول في الحرب.\nردت إيران بهجمات صاروخية وطائرات مسيرة ضد أهداف عسكرية.\nبعد وفاته تم تعيين مجتبى خامنئي قائداً جديداً بسرعة.\nالحرب تسببت بالفعل في العديد من الضحايا وزعزعت استقرار الشرق الأوسط."
+    },
+    "ru": {
+      "title": "Иран назначил Моджтабу Хаменеи новым лидером на фоне войны",
+      "content": "В последние дни Иран оказался в центре крупного конфликта после начала военной операции США и Израиля 28 февраля 2026 года.\nВ ходе атак был убит верховный лидер Али Хаменеи.\nИран ответил ракетными ударами и беспилотниками по военным объектам.\nПосле его смерти новым лидером был назначен Моджтаба Хаменеи.\nВойна уже привела к многочисленным жертвам и дестабилизировала Ближний Восток."
+    },
+    "ur": {
+      "title": "ایران نے مجتبیٰ خامنہ ای کو نیا رہنما مقرر کر دیا",
+      "content": "حالیہ دنوں میں ایران ایک شدید تنازع کے مرکز میں آ گیا ہے جب 28 فروری 2026 کو امریکہ اور اسرائیل نے بڑی فوجی کارروائی شروع کی۔\nان حملوں میں سپریم لیڈر علی خامنہ ای ہلاک ہو گئے۔\nایران نے میزائلوں اور ڈرون حملوں سے جواب دیا۔\nان کی موت کے بعد مجتبیٰ خامنہ ای کو نیا رہنما مقرر کیا گیا۔\nیہ جنگ پہلے ہی بہت سی جانیں لے چکی ہے اور مشرق وسطیٰ کو غیر مستحکم کر رہی ہے۔"
+    }
+  }
+}
     {
       "id": "iran-resistance",
       "category": "Guerra in Iran",
