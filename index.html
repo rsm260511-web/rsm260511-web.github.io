@@ -1,28 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>RSM | Echoes in the Dark</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="description" content="RSM - Unspoken truths and forgotten tales">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>RSM - The Strange World of RSM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="description" content="RSM - Platform for mysteries, current affairs and little-known stories">
+    <meta name="keywords" content="RSM, mysteries, news, articles, videos, investigations">
+    <meta property="og:title" content="RSM Multimedia Platform">
+    <meta property="og:description" content="Explore mysteries and current affairs">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕯️</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-dark: #050505;
+            --secondary-dark: #0a0a0a;
+            --card-dark: #0f0f0f;
+            --accent-red: #3a1a1a;
+            --accent-red-bright: #6a2a2a;
+            --text-primary: #d4d4d4;
+            --text-secondary: #9a9a9a;
+            --text-muted: #6a6a6a;
+            --border-color: #2a2a2a;
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.6);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.5);
+            --shadow-sm: 0 5px 12px rgba(0, 0, 0, 0.4);
+            --border-radius: 16px;
+            --border-radius-sm: 10px;
+            --transition: all 0.3s ease;
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
         body {
-            background: #030303;
-            color: #bcbcbc;
             font-family: 'Montserrat', sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-primary);
             line-height: 1.65;
+            overflow-x: hidden;
             min-height: 100vh;
         }
 
-        /* Dark gritty background */
         body::before {
             content: '';
             position: fixed;
@@ -30,11 +51,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background: url('https://images.pexels.com/photos/2398354/pexels-photo-2398354.jpeg?auto=compress&cs=tinysrgb&w=1600');
             background-size: cover;
             background-position: center;
-            opacity: 0.08;
-            filter: grayscale(100%) contrast(1.2);
+            opacity: 0.1;
+            filter: grayscale(100%) brightness(0.3);
             z-index: -2;
             pointer-events: none;
         }
@@ -46,80 +67,104 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 30% 40%, rgba(0,0,0,0.7) 0%, #000000 95%);
+            background: radial-gradient(circle at 30% 40%, rgba(0,0,0,0.8) 0%, #000000 95%);
             z-index: -1;
             pointer-events: none;
         }
 
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: var(--accent-red-bright); border-radius: 3px; }
 
-        /* Header - dark and heavy */
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; width: 100%; }
+
+        /* Header */
         header {
-            background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(5,5,5,0.95) 100%), url('https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(5,5,5,0.95) 100%), url('https://images.pexels.com/photos/1578119/pexels-photo-1578119.jpeg?auto=compress&cs=tinysrgb&w=1600');
             background-size: cover;
-            background-position: center 30%;
+            background-position: center;
             padding: 100px 20px 70px;
             text-align: center;
-            border-bottom: 1px solid #2a1a1a;
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
         }
+
+        .header-content { position: relative; z-index: 2; max-width: 1000px; width: 100%; }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 12vw, 5.5rem);
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
             font-weight: 700;
-            color: #d4d4d4;
+            margin-bottom: 20px;
+            color: var(--text-primary);
             letter-spacing: -0.02em;
-            text-shadow: 0 0 20px rgba(0,0,0,0.8);
         }
 
-        .tagline {
-            color: #8a8a8a;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            margin-top: 15px;
-            border-top: 1px solid #3a2a2a;
-            border-bottom: 1px solid #3a2a2a;
+        header .tagline {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            border-top: 1px solid var(--accent-red);
+            border-bottom: 1px solid var(--accent-red);
             display: inline-block;
             padding: 8px 25px;
         }
 
-        .stats {
+        .header-stats {
             display: flex;
             justify-content: center;
             gap: 40px;
-            margin-top: 60px;
+            margin-top: 50px;
             flex-wrap: wrap;
         }
 
-        .stat {
-            background: rgba(20,15,15,0.7);
-            padding: 15px 30px;
-            border: 1px solid #2a2a2a;
-            transition: 0.2s;
+        .stat-item {
+            text-align: center;
+            padding: 18px 28px;
+            background: rgba(15, 15, 15, 0.7);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            min-width: 120px;
         }
 
-        .stat:hover { border-color: #6a2a2a; }
-        .stat-number { font-size: 2rem; font-weight: 700; color: #e0e0e0; }
-        .stat-label { font-size: 0.7rem; text-transform: uppercase; color: #7a7a7a; letter-spacing: 2px; }
+        .stat-item:hover { border-color: var(--accent-red-bright); transform: translateY(-3px); }
+
+        .stat-number {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
 
         /* Navigation */
         nav {
-            background: #0a0a0a;
+            background: rgba(8, 8, 8, 0.98);
             padding: 12px 24px;
             position: sticky;
             top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #2a1a1a;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .nav-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
             flex-wrap: wrap;
             gap: 15px;
         }
@@ -128,319 +173,625 @@
             display: flex;
             gap: 5px;
             flex-wrap: wrap;
+            flex: 1;
         }
 
         .nav-link {
-            color: #9a9a9a;
-            padding: 10px 20px;
+            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.85rem;
             font-weight: 500;
-            transition: 0.2s;
+            padding: 10px 22px;
+            border-radius: 0;
+            transition: var(--transition);
             cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             border: 1px solid transparent;
         }
 
-        .nav-link i { margin-right: 8px; }
-        .nav-link:hover { color: #aa4a4a; border-color: #4a2a2a; background: rgba(100,40,40,0.1); }
-        .nav-link.active { color: #c0c0c0; border-color: #6a2a2a; background: #1a0f0f; }
+        .nav-link i { font-size: 1rem; }
 
-        /* Search */
-        .search-area {
+        .nav-link:hover {
+            color: var(--accent-red-bright);
+            border-color: var(--accent-red-bright);
+            background: rgba(106, 42, 42, 0.1);
+        }
+
+        .nav-link.active {
+            background: var(--accent-red);
+            color: var(--text-primary);
+            border-color: var(--accent-red-bright);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .search-container {
             position: relative;
-            min-width: 260px;
+            min-width: 280px;
         }
 
         #searchInput {
             width: 100%;
-            padding: 10px 15px 10px 40px;
-            background: #111;
-            border: 1px solid #2a2a2a;
-            color: #ddd;
-            font-size: 0.85rem;
+            padding: 10px 18px 10px 42px;
+            border: 1px solid var(--border-color);
+            background: var(--secondary-dark);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            transition: var(--transition);
         }
 
-        #searchInput:focus { border-color: #6a2a2a; outline: none; }
-        .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #6a6a6a; }
+        #searchInput:focus {
+            outline: none;
+            border-color: var(--accent-red-bright);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
 
         #searchResults {
             position: absolute;
             top: 100%;
             left: 0;
             right: 0;
-            background: #111;
-            border: 1px solid #2a2a2a;
+            background: var(--card-dark);
+            margin-top: 5px;
             display: none;
-            z-index: 200;
-            max-height: 300px;
+            z-index: 1000;
+            max-height: 400px;
             overflow-y: auto;
+            border: 1px solid var(--border-color);
         }
 
-        .search-result {
-            padding: 10px 15px;
+        .search-item {
+            padding: 12px 18px;
             cursor: pointer;
-            border-bottom: 1px solid #222;
+            transition: var(--transition);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .search-result:hover { background: #1a1a1a; }
+        .search-item:hover { background: rgba(106, 42, 42, 0.2); }
 
-        /* Language */
-        .lang-selector { position: relative; }
-        .lang-btn {
-            background: #111;
-            border: 1px solid #2a2a2a;
-            padding: 8px 18px;
-            color: #aaa;
+        .language-selector { position: relative; }
+
+        .language-btn {
+            padding: 8px 20px;
+            background: var(--secondary-dark);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
             cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .lang-dropdown {
+
+        .language-btn:hover { border-color: var(--accent-red-bright); color: var(--accent-red-bright); }
+
+        .language-dropdown {
             position: absolute;
             top: 45px;
             right: 0;
-            background: #111;
-            border: 1px solid #2a2a2a;
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            padding: 8px 0;
+            min-width: 140px;
             display: none;
-            z-index: 101;
-            min-width: 130px;
+            z-index: 1001;
         }
-        .lang-option {
-            padding: 10px 15px;
-            cursor: pointer;
-            color: #aaa;
-        }
-        .lang-option:hover { background: #2a1a1a; color: #cc7a7a; }
 
-        /* Cards */
+        .language-option {
+            padding: 10px 18px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-secondary);
+        }
+
+        .language-option:hover { background: rgba(106, 42, 42, 0.2); color: var(--text-primary); }
+
+        /* Main Content */
+        main { margin: 50px auto; }
+
+        .card {
+            background: var(--card-dark);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .card:hover { border-color: var(--accent-red-bright); transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+
+        .hidden { display: none !important; }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-dark);
+            padding: 28px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-red-bright);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card-icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            background: rgba(106, 42, 42, 0.2);
+            color: var(--accent-red-bright);
+        }
+
+        .feature-card-title { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
+
+        .feature-card-content h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--text-primary); }
+        .feature-card-content p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
+
         .section-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin: 40px 0 25px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #2a2a2a;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .section-title {
-            font-size: 1.6rem;
+            font-size: clamp(1.4rem, 4vw, 2rem);
             font-weight: 600;
-            border-left: 3px solid #7a3a3a;
+            border-left: 3px solid var(--accent-red-bright);
             padding-left: 18px;
-            color: #e0e0e0;
+            color: var(--text-primary);
         }
 
-        .feature-grid, .content-grid, .cat-grid {
+        .section-count {
+            background: var(--secondary-dark);
+            padding: 8px 20px;
+            border: 1px solid var(--border-color);
+            font-size: 0.8rem;
+        }
+
+        .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
-            margin: 30px 0;
+            margin-top: 30px;
         }
 
-        .feature-card, .content-card, .cat-card {
-            background: #0c0c0c;
-            border: 1px solid #222;
-            padding: 25px;
-            transition: 0.25s;
+        .content-item {
+            background: var(--card-dark);
+            overflow: hidden;
+            transition: var(--transition);
             cursor: pointer;
-        }
-
-        .feature-card:hover, .content-card:hover, .cat-card:hover {
-            border-color: #6a3a3a;
-            transform: translateY(-4px);
-        }
-
-        .card-badge {
-            display: inline-block;
-            background: #2a1a1a;
-            padding: 4px 12px;
-            font-size: 0.7rem;
-            margin-bottom: 15px;
-            color: #aa8a8a;
-        }
-
-        .card-title { font-size: 1.3rem; margin: 12px 0; color: #e0e0e0; }
-        .card-excerpt { color: #8a8a8a; font-size: 0.9rem; line-height: 1.5; }
-        .card-meta { margin-top: 15px; padding-top: 12px; border-top: 1px solid #222; font-size: 0.75rem; color: #6a6a6a; }
-
-        /* Single view */
-        .single-media {
-            margin: 30px 0;
-        }
-        .single-media img { max-width: 100%; max-height: 500px; object-fit: cover; border: 1px solid #3a2a2a; }
-        .single-media iframe { width: 100%; height: 500px; border: 1px solid #3a2a2a; }
-        .back-btn {
-            display: inline-block;
-            background: #111;
-            border: 1px solid #3a2a2a;
-            padding: 8px 22px;
-            color: #aaa;
-            cursor: pointer;
-            margin: 20px 0;
-        }
-        .back-btn:hover { border-color: #7a3a3a; }
-
-        /* AI Section */
-        .ai-wrapper {
-            background: #080808;
-            border: 1px solid #2a2a2a;
-            margin: 30px 0;
-        }
-        .ai-header {
-            background: #0f0f0f;
-            padding: 30px;
-            text-align: center;
-            border-bottom: 1px solid #2a2a2a;
-        }
-        .ai-header h2 { font-size: 2rem; color: #d0d0d0; }
-        .ai-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 30px;
-            background: #050505;
-        }
-        .ai-feat {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #222;
-        }
-        .ai-feat i { font-size: 2rem; color: #7a4a4a; margin-bottom: 12px; display: block; }
-        .chat-box {
-            background: #030303;
-            border-top: 1px solid #2a2a2a;
-            border-bottom: 1px solid #2a2a2a;
-            height: 450px;
+            border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
         }
-        .chat-messages {
+
+        .content-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-red-bright);
+            box-shadow: var(--shadow-md);
+        }
+
+        .content-item-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .content-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .content-item:hover .content-item-image img { transform: scale(1.05); }
+
+        .content-item-badge {
+            display: inline-block;
+            background: var(--accent-red);
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            margin: 15px 0 8px 0;
+        }
+
+        .content-item-content { padding: 20px; flex: 1; }
+
+        .content-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .content-item p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .content-item-meta {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 15px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: var(--card-dark);
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .category-card:hover { border-color: var(--accent-red-bright); transform: translateY(-3px); }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            background: rgba(106, 42, 42, 0.2);
+            color: var(--accent-red-bright);
+        }
+
+        .category-title { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
+
+        .category-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .category-item {
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.03);
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .category-item:hover {
+            background: rgba(106, 42, 42, 0.2);
+            transform: translateX(8px);
+            color: var(--accent-red-bright);
+        }
+
+        /* Single View */
+        #single .media-container { margin: 30px 0; }
+        #single img { width: 100%; max-height: 450px; object-fit: cover; border: 1px solid var(--border-color); }
+        #single iframe { width: 100%; height: 450px; border: 1px solid var(--border-color); }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 28px;
+            background: var(--secondary-dark);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 20px 0;
+        }
+
+        .back-button:hover { border-color: var(--accent-red-bright); transform: translateX(-5px); }
+
+        /* AI Section */
+        .ai-section {
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+        }
+
+        .ai-header {
+            background: var(--secondary-dark);
+            padding: 35px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .ai-title { font-size: 2rem; font-weight: 700; color: var(--text-primary); }
+        .ai-subtitle { color: var(--text-secondary); margin-top: 10px; }
+
+        .ai-capabilities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            padding: 35px;
+        }
+
+        .ai-capability {
+            text-align: center;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+        }
+
+        .ai-capability-icon { font-size: 2rem; color: var(--accent-red-bright); margin-bottom: 15px; }
+
+        .ai-chat-container { padding: 35px; }
+        .ai-chat-box {
+            background: var(--primary-dark);
+            border: 1px solid var(--border-color);
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ai-chat-header {
+            background: var(--secondary-dark);
+            padding: 18px 25px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .ai-chat-messages {
             flex: 1;
-            overflow-y: auto;
             padding: 20px;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-        .message {
+
+        .ai-message {
             max-width: 85%;
             padding: 12px 18px;
-            background: #111;
-            border-left: 3px solid #6a3a3a;
+            background: var(--secondary-dark);
+            border-left: 3px solid var(--accent-red-bright);
             font-size: 0.9rem;
+            line-height: 1.6;
         }
-        .message.user { align-self: flex-end; border-left-color: #4a4a4a; }
-        .chat-input-area {
+
+        .ai-message.user { align-self: flex-end; border-left-color: var(--text-muted); }
+
+        .ai-chat-input-container {
             padding: 18px;
-            border-top: 1px solid #222;
+            border-top: 1px solid var(--border-color);
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
         }
-        #aiInput {
+
+        #aiChatInput {
             flex: 1;
-            background: #111;
-            border: 1px solid #2a2a2a;
-            padding: 12px 15px;
-            color: #ddd;
+            padding: 12px 18px;
+            background: var(--secondary-dark);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
         }
-        #aiSend, #uploadBtn {
-            background: #1a1a1a;
-            border: 1px solid #3a2a2a;
-            padding: 0 20px;
-            color: #ccc;
+
+        #aiChatInput:focus { border-color: var(--accent-red-bright); outline: none; }
+
+        #aiChatSend {
+            padding: 12px 28px;
+            background: var(--accent-red);
+            border: 1px solid var(--accent-red-bright);
+            color: var(--text-primary);
             cursor: pointer;
+            transition: var(--transition);
         }
-        #aiSend:hover, #uploadBtn:hover { background: #2a2a2a; border-color: #7a4a4a; }
-        .examples {
+
+        #aiChatSend:hover { background: var(--accent-red-bright); }
+
+        .ai-examples {
             padding: 25px;
-            background: #0a0a0a;
+            background: var(--secondary-dark);
+            border-top: 1px solid var(--border-color);
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
         }
-        .example {
-            background: #111;
-            border: 1px solid #2a2a2a;
-            padding: 8px 18px;
-            font-size: 0.8rem;
-            cursor: pointer;
-        }
-        .example:hover { border-color: #7a4a4a; }
 
-        /* Cookie banner */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #0a0a0a;
-            border-top: 1px solid #4a2a2a;
-            padding: 15px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            z-index: 1000;
+        .ai-example {
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            padding: 8px 20px;
             font-size: 0.8rem;
-        }
-        .cookie-banner button {
-            background: #2a1a1a;
-            border: 1px solid #5a3a3a;
-            padding: 6px 18px;
-            color: #ccc;
             cursor: pointer;
+            transition: var(--transition);
         }
+
+        .ai-example:hover { border-color: var(--accent-red-bright); }
 
         /* Footer */
         footer {
-            background: #050505;
-            border-top: 1px solid #2a2a2a;
-            margin-top: 70px;
-            padding: 50px 30px 30px;
+            background: var(--secondary-dark);
+            border-top: 1px solid var(--border-color);
+            margin-top: 80px;
+            padding: 60px 40px 35px;
         }
-        .footer-grid {
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 45px;
         }
-        .social-icons {
+
+        .social-links {
             display: flex;
             gap: 15px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
-        .social-icon {
-            width: 38px;
-            height: 38px;
+
+        .social-link {
+            width: 42px;
+            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #111;
-            border: 1px solid #2a2a2a;
-            color: #aaa;
-            transition: 0.2s;
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            transition: var(--transition);
         }
-        .social-icon:hover { border-color: #7a4a4a; color: #cc8a8a; transform: translateY(-3px); }
-        .footer-links { list-style: none; }
-        .footer-links li { margin: 12px 0; }
-        .footer-links a { color: #8a8a8a; text-decoration: none; cursor: pointer; }
-        .footer-links a:hover { color: #aa6a6a; padding-left: 5px; }
-        .footer-bottom { text-align: center; padding-top: 25px; border-top: 1px solid #222; font-size: 0.7rem; color: #6a6a6a; }
 
-        .hidden { display: none !important; }
-        .loading { width: 20px; height: 20px; border: 2px solid #333; border-top-color: #8a4a4a; border-radius: 50%; animation: spin 0.6s linear infinite; display: inline-block; }
+        .social-link:hover {
+            border-color: var(--accent-red-bright);
+            color: var(--accent-red-bright);
+            transform: translateY(-3px);
+        }
+
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .footer-links a:hover { color: var(--accent-red-bright); padding-left: 5px; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .legal-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .legal-content {
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            max-width: 550px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .legal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--border-color);
+            border-top-color: var(--accent-red-bright);
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        @media (max-width: 750px) {
-            .container { padding: 0 18px; }
-            .nav-links { display: none; width: 100%; flex-direction: column; background: #0a0a0a; padding: 15px; margin-top: 10px; }
-            .nav-links.show { display: flex; }
-            .hamburger { display: block; background: none; border: none; color: #aaa; font-size: 1.5rem; cursor: pointer; }
-            .stats { gap: 15px; }
-            .stat { padding: 10px 18px; }
+        /* Mobile */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            cursor: pointer;
         }
-        .hamburger { display: none; }
+
+        @media (max-width: 900px) {
+            .hamburger { display: block; }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background: var(--secondary-dark);
+                padding: 15px;
+                margin-top: 12px;
+                border-top: 1px solid var(--border-color);
+            }
+            .nav-links.show { display: flex; }
+            .nav-container { flex-direction: row; flex-wrap: wrap; }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 16px; }
+            .header-stats { gap: 12px; }
+            .stat-item { padding: 12px 16px; }
+            .content-grid { grid-template-columns: 1fr; }
+            .categories-grid { grid-template-columns: 1fr; }
+        }
     </style>
     <script>
     (function(w,d,s,id){
@@ -461,389 +812,519 @@
 <body>
 
 <header>
-    <div class="container">
-        <h1>RSM</h1>
-        <div class="tagline">BENEATH THE SURFACE</div>
-        <div class="stats">
-            <div class="stat"><div class="stat-number" id="statArticles">0</div><div class="stat-label">Articles</div></div>
-            <div class="stat"><div class="stat-number" id="statVideos">0</div><div class="stat-label">Videos</div></div>
-            <div class="stat"><div class="stat-number" id="statNews">0</div><div class="stat-label">News</div></div>
-            <div class="stat"><div class="stat-number">2</div><div class="stat-label">Tongues</div></div>
+    <div class="header-content">
+        <h1 id="siteTitle">RSM</h1>
+        <p class="tagline" id="siteTagline">The Strange World of RSM</p>
+        <div class="header-stats">
+            <div class="stat-item"><div class="stat-number" id="articlesCount">0</div><div class="stat-label">Articles</div></div>
+            <div class="stat-item"><div class="stat-number" id="videosCount">0</div><div class="stat-label">Videos</div></div>
+            <div class="stat-item"><div class="stat-number" id="newsCount">0</div><div class="stat-label">News</div></div>
+            <div class="stat-item"><div class="stat-number" id="languagesCount">2</div><div class="stat-label">Languages</div></div>
         </div>
     </div>
 </header>
 
 <nav>
-    <div class="container nav-container">
-        <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+    <div class="nav-container">
+        <button class="hamburger" id="hamburgerBtn"><i class="fas fa-skull"></i></button>
         <div class="nav-links" id="navLinks">
             <a class="nav-link active" onclick="showSection('home')"><i class="fas fa-home"></i> Home</a>
             <a class="nav-link" onclick="showSection('articles')"><i class="fas fa-newspaper"></i> Articles</a>
-            <a class="nav-link" onclick="showSection('videos')"><i class="fas fa-play"></i> Videos</a>
+            <a class="nav-link" onclick="showSection('videos')"><i class="fas fa-play-circle"></i> Videos</a>
             <a class="nav-link" onclick="showSection('news')"><i class="fas fa-bullhorn"></i> News</a>
             <a class="nav-link" onclick="showSection('categories')"><i class="fas fa-folder"></i> Categories</a>
-            <a class="nav-link" onclick="showSection('ai')"><i class="fas fa-robot"></i> AI</a>
-            <a class="nav-link" onclick="showSection('about')"><i class="fas fa-info"></i> About</a>
-            <a class="nav-link" onclick="showSection('contacts')"><i class="fas fa-envelope"></i> Contacts</a>
+            <a class="nav-link" onclick="showSection('ai')"><i class="fas fa-robot"></i> AI Assistant</a>
+            <a class="nav-link" onclick="showSection('about')"><i class="fas fa-info-circle"></i> About</a>
+            <a class="nav-link" onclick="showSection('contacts')"><i class="fas fa-address-book"></i> Contacts</a>
         </div>
-        <div class="search-area">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" id="searchInput" placeholder="Search...">
-            <div id="searchResults"></div>
-        </div>
-        <div class="lang-selector">
-            <button class="lang-btn" onclick="toggleLang()"><span id="currentFlag">🇬🇧</span> <span id="currentLangLabel">EN</span></button>
-            <div class="lang-dropdown" id="langDropdown">
-                <div class="lang-option" onclick="setLang('en')">🇬🇧 English</div>
-                <div class="lang-option" onclick="setLang('ur')">🇵🇰 اردو</div>
+        <div class="nav-right">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input id="searchInput" placeholder="Search articles, videos, news..." oninput="searchAll()">
+                <div id="searchResults"></div>
+            </div>
+            <div class="language-selector">
+                <button class="language-btn" onclick="toggleLanguageDropdown()">
+                    <span id="currentLangFlag">🇬🇧</span>
+                    <span id="currentLangCode">EN</span>
+                </button>
+                <div class="language-dropdown" id="languageDropdown">
+                    <div class="language-option" onclick="changeLanguage('en')">🇬🇧 English</div>
+                    <div class="language-option" onclick="changeLanguage('ur')">🇵🇰 اردو</div>
+                </div>
             </div>
         </div>
     </div>
 </nav>
 
+<div id="privacyModal" class="legal-modal">
+    <div class="legal-content">
+        <button class="legal-close" onclick="closeModal('privacyModal')"><i class="fas fa-times"></i></button>
+        <h2>Privacy Policy</h2>
+        <p style="margin-top:20px">We collect no personal data. Cookies only store your language preference. Your data remains yours.</p>
+        <p style="margin-top:15px">For inquiries: rsm260511@gmail.com</p>
+    </div>
+</div>
+
+<div id="termsModal" class="legal-modal">
+    <div class="legal-content">
+        <button class="legal-close" onclick="closeModal('termsModal')"><i class="fas fa-times"></i></button>
+        <h2>Terms of Service</h2>
+        <p style="margin-top:20px">By using RSM, you acknowledge that content may contain unsettling themes. Do not redistribute without permission.</p>
+    </div>
+</div>
+
+<div id="cookiesModal" class="legal-modal">
+    <div class="legal-content">
+        <button class="legal-close" onclick="closeModal('cookiesModal')"><i class="fas fa-times"></i></button>
+        <h2>Cookie Policy</h2>
+        <p style="margin-top:20px">We use a single cookie to remember your language preference. No tracking, no analytics.</p>
+    </div>
+</div>
+
 <main class="container">
-    <!-- Home -->
     <section id="home">
-        <div class="section-header"><h2 class="section-title">Featured</h2></div>
-        <div class="feature-grid">
-            <div class="feature-card" id="latestNewsCard" onclick="openLatestNews()">
-                <div class="card-badge"><i class="fas fa-skull"></i> Latest News</div>
-                <h3 class="card-title" id="latestNewsTitle">Loading...</h3>
-                <p class="card-excerpt" id="latestNewsExcerpt"></p>
+        <div class="section-header"><h2 class="section-title">Featured Content</h2></div>
+        <div class="feature-cards">
+            <div class="feature-card news" onclick="openLatestNews()">
+                <div class="feature-card-header">
+                    <div class="feature-card-icon"><i class="fas fa-fire"></i></div>
+                    <div><h3 class="feature-card-title">Latest News</h3><p>Click to read</p></div>
+                </div>
+                <div class="feature-card-content"><h3 id="latestTitle">Loading...</h3><p id="latestNewsExcerpt"></p></div>
             </div>
-            <div class="feature-card" id="latestVideoCard" onclick="openLatestVideo()">
-                <div class="card-badge"><i class="fas fa-eye"></i> Latest Video</div>
-                <h3 class="card-title" id="latestVideoTitle">Loading...</h3>
-                <p class="card-excerpt" id="latestVideoExcerpt"></p>
+            <div class="feature-card video" onclick="openLatestVideo()">
+                <div class="feature-card-header">
+                    <div class="feature-card-icon"><i class="fas fa-play-circle"></i></div>
+                    <div><h3 class="feature-card-title">Latest Video</h3><p>Click to watch</p></div>
+                </div>
+                <div class="feature-card-content"><h3 id="latestVideoTitle">Loading...</h3><p id="latestVideoExcerpt"></p></div>
             </div>
         </div>
     </section>
 
-    <section id="articles" class="hidden"><div class="section-header"><h2 class="section-title">Articles</h2><span id="articlesCountLabel">0</span></div><div class="content-grid" id="articlesGrid"></div></section>
-    <section id="videos" class="hidden"><div class="section-header"><h2 class="section-title">Videos</h2><span id="videosCountLabel">0</span></div><div class="content-grid" id="videosGrid"></div></section>
-    <section id="news" class="hidden"><div class="section-header"><h2 class="section-title">News</h2><span id="newsCountLabel">0</span></div><div class="content-grid" id="newsGrid"></div></section>
-    <section id="categories" class="hidden"><div class="section-header"><h2 class="section-title">Categories</h2></div><div class="cat-grid" id="categoriesGrid"></div></section>
+    <section id="articles" class="hidden">
+        <div class="section-header"><h2 class="section-title">All Articles</h2><div class="section-count" id="articlesTotal">0 articles</div></div>
+        <div class="content-grid" id="articlesGrid"></div>
+    </section>
 
-    <!-- AI Section -->
+    <section id="videos" class="hidden">
+        <div class="section-header"><h2 class="section-title">All Videos</h2><div class="section-count" id="videosTotal">0 videos</div></div>
+        <div class="content-grid" id="videosGrid"></div>
+    </section>
+
+    <section id="news" class="hidden">
+        <div class="section-header"><h2 class="section-title">All News</h2><div class="section-count" id="newsTotal">0 news</div></div>
+        <div class="content-grid" id="newsGrid"></div>
+    </section>
+
+    <section id="categories" class="hidden">
+        <div class="section-header"><h2 class="section-title">Browse by Category</h2></div>
+        <div class="categories-grid" id="categoriesGrid"></div>
+    </section>
+
     <section id="ai" class="hidden">
-        <div class="ai-wrapper">
-            <div class="ai-header"><h2><i class="fas fa-ghost"></i> The Whisperer</h2><p style="color:#7a7a7a">Speak. It listens.</p></div>
-            <div class="ai-features">
-                <div class="ai-feat"><i class="fas fa-globe"></i><h4>Web Search</h4><p>DuckDuckGo</p></div>
-                <div class="ai-feat"><i class="fas fa-palette"></i><h4>Image Forge</h4><p>Pollinations.ai</p></div>
-                <div class="ai-feat"><i class="fas fa-image"></i><h4>Vision</h4><p>Upload & see</p></div>
+        <div class="ai-section">
+            <div class="ai-header"><h1 class="ai-title">RSM AI Assistant</h1><p class="ai-subtitle">Your companion for exploring mysteries and answering questions</p></div>
+            <div class="ai-capabilities">
+                <div class="ai-capability"><div class="ai-capability-icon"><i class="fas fa-search"></i></div><h3>Wikipedia Search</h3><p>Search in multiple languages</p></div>
+                <div class="ai-capability"><div class="ai-capability-icon"><i class="fas fa-file-alt"></i></div><h3>Summarization</h3><p>Get concise summaries</p></div>
+                <div class="ai-capability"><div class="ai-capability-icon"><i class="fas fa-globe"></i></div><h3>Multilingual</h3><p>English & Urdu</p></div>
             </div>
-            <div class="chat-box">
-                <div class="chat-messages" id="chatMessages"></div>
-                <div class="chat-input-area">
-                    <input type="text" id="aiInput" placeholder="Type your message...">
-                    <button id="aiSend"><i class="fas fa-paper-plane"></i> Send</button>
-                    <button id="uploadBtn"><i class="fas fa-upload"></i> Image</button>
-                    <input type="file" id="imageFile" accept="image/*" style="display:none">
+            <div class="ai-chat-container">
+                <div class="ai-chat-box">
+                    <div class="ai-chat-header"><i class="fas fa-robot"></i> Chat with RSM AI</div>
+                    <div class="ai-chat-messages" id="aiChatMessages"></div>
+                    <div class="ai-chat-input-container">
+                        <input type="text" id="aiChatInput" placeholder="Type your message..." autocomplete="off">
+                        <button id="aiChatSend">Send</button>
+                    </div>
                 </div>
             </div>
-            <div class="examples">
-                <div class="example" onclick="sendExample('search ancient mysteries')">🔍 search ancient mysteries</div>
-                <div class="example" onclick="sendExample('generate dark forest')">🎨 generate dark forest</div>
-                <div class="example" onclick="sendExample('tell me a riddle')">🕯️ riddle</div>
-                <div class="example" onclick="sendExample('what is quantum physics')">❓ what is quantum physics</div>
+            <div class="ai-examples">
+                <div class="ai-example" onclick="insertExample('Search for information about artificial intelligence')">Search Wikipedia</div>
+                <div class="ai-example" onclick="insertExample('What is quantum computing?')">Ask a question</div>
+                <div class="ai-example" onclick="insertExample('Summarize the latest article')">Summarize</div>
+                <div class="ai-example" onclick="insertExample('Tell me about yourself')">About AI</div>
             </div>
         </div>
     </section>
 
     <section id="about" class="hidden">
-        <div class="section-header"><h2 class="section-title">About RSM</h2></div>
-        <div style="background:#0c0c0c; border:1px solid #222; padding:35px;">
-            <p style="margin-bottom:20px">RSM is a digital archive of forgotten stories, unexplained phenomena, and the thin spaces between reality and shadow.</p>
-            <p>Founded in 2023, we explore mysteries across cultures, presenting them in English and Urdu. Our mission is to preserve the strange, the lost, and the whispered.</p>
-            <p style="margin-top:25px"><i class="fas fa-skull"></i> What you seek is already watching you.</p>
-        </div>
+        <div class="card"><h2 class="section-title">About RSM</h2><p id="aboutDescription">Loading description...</p></div>
     </section>
 
     <section id="contacts" class="hidden">
-        <div class="section-header"><h2 class="section-title">Contact</h2></div>
-        <div style="background:#0c0c0c; border:1px solid #222; padding:35px;">
-            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> rsm260511@gmail.com</p>
-            <p style="margin-top:15px"><i class="fab fa-youtube"></i> <strong>YouTube:</strong> <a href="https://www.youtube.com/@RehanAhmed-26051w" target="_blank" style="color:#aa6a6a">@RehanAhmed-26051w</a></p>
-            <p style="margin-top:15px"><i class="fab fa-instagram"></i> <strong>Instagram:</strong> <a href="https://www.instagram.com/rsm260511/" target="_blank" style="color:#aa6a6a">@rsm260511</a></p>
-            <p style="margin-top:15px"><i class="fab fa-twitter"></i> <strong>X (Twitter):</strong> <a href="https://x.com/rsm260511/" target="_blank" style="color:#aa6a6a">@rsm260511</a></p>
-            <p style="margin-top:15px"><i class="fab fa-facebook"></i> <strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61564548573497" target="_blank" style="color:#aa6a6a">RSM Page</a></p>
-            <p style="margin-top:25px; color:#7a7a7a; border-top:1px solid #2a2a2a; padding-top:20px">For inquiries, collaborations, or to share a mystery, reach out.</p>
+        <div class="card">
+            <h2 class="section-title">Get in Touch</h2>
+            <div style="margin-top:25px">
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> rsm260511@gmail.com</p>
+                <p style="margin-top:15px"><i class="fab fa-youtube"></i> <strong>YouTube:</strong> <a href="https://www.youtube.com/@RehanAhmed-26051w" target="_blank" style="color:#aa6a6a">@RehanAhmed-26051w</a></p>
+                <p style="margin-top:10px"><i class="fab fa-instagram"></i> <strong>Instagram:</strong> <a href="https://www.instagram.com/rsm260511/" target="_blank" style="color:#aa6a6a">@rsm260511</a></p>
+                <p style="margin-top:10px"><i class="fab fa-twitter"></i> <strong>X (Twitter):</strong> <a href="https://x.com/rsm260511/" target="_blank" style="color:#aa6a6a">@rsm260511</a></p>
+                <p style="margin-top:10px"><i class="fab fa-facebook"></i> <strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61564548573497" target="_blank" style="color:#aa6a6a">RSM Page</a></p>
+                <p style="margin-top:25px; color:#7a7a7a">For partnerships, advertising, or media inquiries, contact us at rsm260511@gmail.com</p>
+            </div>
         </div>
     </section>
 
     <section id="single" class="hidden">
-        <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back</button>
-        <div style="background:#0c0c0c; border:1px solid #222; padding:35px;">
-            <h2 id="singleTitle" style="margin-bottom:20px"></h2>
-            <div id="singleMeta" style="color:#7a7a7a; margin-bottom:20px"></div>
-            <div id="singleMedia"></div>
-            <div id="singleContent" style="margin-top:25px; line-height:1.7"></div>
-        </div>
+        <button class="back-button" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back to Content</button>
+        <div class="card"><h2 id="singleTitle">Loading...</h2><div id="singleMeta" class="content-item-meta" style="border: none; padding: 15px 0;"></div><div id="singleImage" class="media-container"></div><div id="singleContent"></div></div>
     </section>
 </main>
 
 <footer>
-    <div class="container">
-        <div class="footer-grid">
-            <div>
-                <h3 style="margin-bottom:20px; color:#c0c0c0">RSM</h3>
-                <div class="social-icons">
-                    <a href="https://www.youtube.com/@RehanAhmed-26051w" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/rsm260511/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://x.com/rsm260511/" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61564548573497" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                </div>
-            </div>
-            <div>
-                <h3 style="margin-bottom:15px">Explore</h3>
-                <ul class="footer-links">
-                    <li><a onclick="showSection('articles')">Articles</a></li>
-                    <li><a onclick="showSection('videos')">Videos</a></li>
-                    <li><a onclick="showSection('news')">News</a></li>
-                    <li><a onclick="showSection('ai')">AI Whisperer</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 style="margin-bottom:15px">Legal</h3>
-                <ul class="footer-links">
-                    <li><a onclick="openModal('privacy')">Privacy Policy</a></li>
-                    <li><a onclick="openModal('terms')">Terms of Service</a></li>
-                    <li><a onclick="openModal('cookies')">Cookie Policy</a></li>
-                </ul>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>RSM Platform</h3>
+            <p>Leading multimedia platform delivering premium content across various topics and formats.</p>
+            <div class="social-links">
+                <a href="https://www.youtube.com/@RehanAhmed-26051w" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/rsm260511/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/rsm260511/" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61564548573497" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
-        <div class="footer-bottom">© RSM — Echoes remain</div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a onclick="showSection('home')">Home</a></li>
+                <li><a onclick="showSection('articles')">Articles</a></li>
+                <li><a onclick="showSection('videos')">Videos</a></li>
+                <li><a onclick="showSection('news')">News</a></li>
+                <li><a onclick="showSection('categories')">Categories</a></li>
+                <li><a onclick="showSection('ai')">AI Assistant</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Legal</h3>
+            <ul class="footer-links">
+                <li><a onclick="openModal('privacyModal')">Privacy Policy</a></li>
+                <li><a onclick="openModal('termsModal')">Terms of Service</a></li>
+                <li><a onclick="openModal('cookiesModal')">Cookie Policy</a></li>
+                <li><a onclick="showSection('contacts')">Contact Us</a></li>
+            </ul>
+        </div>
     </div>
+    <div class="footer-bottom"><p>© 2025 – <strong>RSM Multimedia Platform</strong> | All rights reserved</p></div>
 </footer>
 
-<div id="privacyModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); align-items:center; justify-content:center; z-index:2000;"><div style="background:#0f0f0f; border:1px solid #3a2a2a; max-width:500px; padding:35px; margin:20px;"><button onclick="closeModal('privacyModal')" style="float:right; background:none; border:none; color:#aaa; font-size:1.2rem; cursor:pointer;">✕</button><h3 style="margin-bottom:20px">Privacy Policy</h3><p>We collect no personal data. Cookies only remember your language preference. Your whispers remain yours.</p><p style="margin-top:15px">For inquiries: rsm260511@gmail.com</p></div></div>
-<div id="termsModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); align-items:center; justify-content:center; z-index:2000;"><div style="background:#0f0f0f; border:1px solid #3a2a2a; max-width:500px; padding:35px; margin:20px;"><button onclick="closeModal('termsModal')" style="float:right; background:none; border:none; color:#aaa; font-size:1.2rem; cursor:pointer;">✕</button><h3 style="margin-bottom:20px">Terms of Service</h3><p>By using RSM, you acknowledge that content may contain unsettling themes. Do not redistribute without credit.</p></div></div>
-<div id="cookiesModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); align-items:center; justify-content:center; z-index:2000;"><div style="background:#0f0f0f; border:1px solid #3a2a2a; max-width:500px; padding:35px; margin:20px;"><button onclick="closeModal('cookiesModal')" style="float:right; background:none; border:none; color:#aaa; font-size:1.2rem; cursor:pointer;">✕</button><h3 style="margin-bottom:20px">Cookie Policy</h3><p>We use a single cookie to remember your language. No tracking, no analytics.</p></div></div>
-
-<div id="loadingOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#000; display:flex; align-items:center; justify-content:center; z-index:9999;"><div class="loading"></div><p style="margin-left:15px">Loading...</p></div>
+<div id="loadingOverlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:var(--primary-dark);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;"><div class="loading" style="width:50px;height:50px;"></div><p style="margin-top:20px;color:var(--text-secondary);">Loading RSM Platform...</p></div>
 
 <script>
 let articles = [];
-let currentLang = localStorage.getItem('rsm_lang') || 'en';
+let currentLanguage = localStorage.getItem('rsm_language') || 'en';
 let currentSection = 'home';
-let activeUpload = null;
 
-const translations = {
-    en: { articles: "Articles", videos: "Videos", news: "News", searchPlaceholder: "Search..." },
-    ur: { articles: "مضامین", videos: "ویڈیوز", news: "خبریں", searchPlaceholder: "تلاش..." }
+const languageData = {
+    en: { name: "English", flag: "🇬🇧", wikipediaCode: "en", translations: {
+        siteTitle: "RSM", siteTagline: "The Strange World of RSM", navHome: "Home", navArticles: "Articles",
+        navVideos: "Videos", navNews: "News", navCategories: "Categories", navAI: "AI Assistant",
+        navAbout: "About Us", navContacts: "Contacts", searchPlaceholder: "Search articles, videos, news...",
+        aboutTitle: "About RSM", articlesLabel: "Articles", videosLabel: "Videos", newsLabel: "News",
+        botHello: "🕯️ I am the RSM AI Assistant.\n\nI can help you with:\n\n🔍 **Search Wikipedia** - Search information\n📝 **Summarize articles** - Create summaries\n🗺️ **Navigate RSM** - Open sections\n💬 **Answer questions**\n\nTry: 'search artificial intelligence' or 'what is quantum computing?'"
+    }},
+    ur: { name: "اردو", flag: "🇵🇰", wikipediaCode: "ur", translations: {
+        siteTitle: "RSM", siteTagline: "The Strange World of RSM", navHome: "ہوم", navArticles: "مضامین",
+        navVideos: "ویڈیوز", navNews: "خبریں", navCategories: "زمرے", navAI: "AI اسسٹنٹ",
+        navAbout: "ہمارے بارے میں", navContacts: "رابطے", searchPlaceholder: "مضامین، ویڈیوز، خبریں تلاش کریں...",
+        aboutTitle: "RSM کے بارے میں", articlesLabel: "مضامین", videosLabel: "ویڈیوز", newsLabel: "خبریں",
+        botHello: "🕯️ میں RSM AI اسسٹنٹ ہوں۔\n\nمیں مدد کر سکتا ہوں:\n\n🔍 **ویکیپیڈیا تلاش**\n📝 **خلاصہ**\n🗺️ **نیویگیشن**\n💬 **سوالات**\n\nمثال: 'مصنوعی ذہانت تلاش کریں'"
+    }}
 };
 
-function t(key) { return translations[currentLang][key] || translations.en[key]; }
+function extractYouTubeID(url) {
+    if (!url) return null;
+    const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/);
+    return match ? match[1] : null;
+}
 
-// Load data
-async function loadData() {
+async function wikipediaSearch(query, langCode = currentLanguage) {
     try {
-        let res = await fetch('data.json');
-        let data = await res.json();
+        const wikiLang = languageData[langCode]?.wikipediaCode || 'en';
+        const searchUrl = `https://${wikiLang}.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*&srlimit=2`;
+        const searchResponse = await fetch(searchUrl);
+        const searchData = await searchResponse.json();
+        if (!searchData.query?.search?.length) return `🔍 No results found for "${query}" on Wikipedia.`;
+        let resultText = '';
+        for (const result of searchData.query.search.slice(0, 2)) {
+            const contentUrl = `https://${wikiLang}.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&exsentences=3&titles=${encodeURIComponent(result.title)}&format=json&origin=*`;
+            const contentResponse = await fetch(contentUrl);
+            const contentData = await contentResponse.json();
+            const pages = contentData.query.pages;
+            const pageId = Object.keys(pages)[0];
+            if (pageId !== "-1" && pages[pageId].extract) {
+                resultText += `📚 **${result.title}**\n${pages[pageId].extract}\n\n`;
+            }
+        }
+        if (resultText) return resultText;
+        return `🔍 Found results but couldn't extract content.`;
+    } catch (error) {
+        return `⚠️ Unable to search Wikipedia at the moment. Please try again later.`;
+    }
+}
+
+function summarizeText(text, maxSentences = 3) {
+    if (!text) return '';
+    text = text.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 20);
+    if (sentences.length <= maxSentences) return sentences.join('. ') + '.';
+    return sentences.slice(0, maxSentences).join('. ') + '.';
+}
+
+async function aiBotResponse(msg) {
+    const m = msg.toLowerCase().trim();
+    const t = languageData[currentLanguage].translations;
+    
+    if (m.includes('search') || m.includes('what is') || m.includes('who is') || m.includes('tell me about')) {
+        let query = m.replace(/search|what is|who is|tell me about/gi, '').trim();
+        if (query.length > 2) return await wikipediaSearch(query, currentLanguage);
+    }
+    
+    if (m.includes('summarize') || m.includes('summary') || m.includes('riassumi')) {
+        const singleSection = document.getElementById('single');
+        if (!singleSection.classList.contains('hidden')) {
+            const content = document.getElementById('singleContent').innerText;
+            if (content && content.length > 50) {
+                const summary = summarizeText(content);
+                return `📝 **Summary:**\n\n${summary}`;
+            }
+        }
+        return `📝 To summarize, please open an article or video first.`;
+    }
+    
+    if (m.includes('open') && (m.includes('home') || m.includes('articles') || m.includes('videos') || m.includes('news') || m.includes('categories') || m.includes('ai') || m.includes('about') || m.includes('contacts'))) {
+        let section = '';
+        if (m.includes('home')) section = 'home';
+        else if (m.includes('articles')) section = 'articles';
+        else if (m.includes('videos')) section = 'videos';
+        else if (m.includes('news')) section = 'news';
+        else if (m.includes('categories')) section = 'categories';
+        else if (m.includes('ai')) section = 'ai';
+        else if (m.includes('about')) section = 'about';
+        else if (m.includes('contacts')) section = 'contacts';
+        if (section) { showSection(section); return `✅ **${section.charAt(0).toUpperCase() + section.slice(1)} section opened!**`; }
+    }
+    
+    if (m.includes('hello') || m.includes('hi') || m.includes('hey')) return `🕯️ Greetings. I am the RSM AI Assistant. How can I help?`;
+    if (m.includes('your name')) return `🕯️ I am the RSM AI Assistant.`;
+    if (m.includes('thank')) return `🕯️ You are welcome.`;
+    
+    return t.botHello;
+}
+
+function insertExample(text) {
+    document.getElementById('aiChatInput').value = text;
+    sendAIMessage();
+}
+
+function appendAIMessage(sender, text) {
+    const div = document.createElement('div');
+    div.className = `ai-message ${sender}`;
+    div.innerHTML = text.replace(/\n/g, '<br>');
+    document.getElementById('aiChatMessages').appendChild(div);
+    document.getElementById('aiChatMessages').scrollTop = document.getElementById('aiChatMessages').scrollHeight;
+}
+
+async function sendAIMessage() {
+    const msg = document.getElementById('aiChatInput').value.trim();
+    if (!msg) return;
+    appendAIMessage('user', msg);
+    document.getElementById('aiChatInput').value = '';
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'ai-message bot';
+    typingDiv.innerHTML = '<div class="loading"></div>';
+    document.getElementById('aiChatMessages').appendChild(typingDiv);
+    try {
+        const response = await aiBotResponse(msg);
+        typingDiv.remove();
+        appendAIMessage('bot', response);
+    } catch (error) {
+        typingDiv.remove();
+        appendAIMessage('bot', '⚠️ An error occurred. Please try again.');
+    }
+}
+
+function updateContentCounts() {
+    document.getElementById('articlesCount').textContent = articles.filter(a => a.type === "article").length;
+    document.getElementById('videosCount').textContent = articles.filter(a => a.type === "video").length;
+    document.getElementById('newsCount').textContent = articles.filter(a => a.type === "news").length;
+}
+
+async function initApp() {
+    try {
+        const response = await fetch('data.json');
+        if (!response.ok) throw new Error('Failed to load content');
+        const data = await response.json();
         articles = data.articles || [];
-        updateStats();
-        renderAll();
+        await applyLanguage(currentLanguage);
+        document.getElementById('aboutDescription').textContent = data.description?.[currentLanguage] || data.description?.en || 'RSM is a platform exploring mysteries and current affairs.';
+        updateContentCounts();
+        await renderAllContent();
+        setTimeout(() => { document.getElementById('loadingOverlay').style.display = 'none'; }, 800);
+        setTimeout(() => { if (document.getElementById('aiChatMessages').children.length === 0) appendAIMessage('bot', languageData[currentLanguage].translations.botHello); }, 1000);
+    } catch (error) {
         document.getElementById('loadingOverlay').style.display = 'none';
-        if(document.getElementById('chatMessages').children.length === 0) addMessage('bot', '🕯️ I am the Whisperer. Search, generate, or ask. Try "search dark forest" or "generate abandoned house".');
-    } catch(e) { console.error(e); document.getElementById('loadingOverlay').style.display = 'none'; }
-}
-
-function updateStats() {
-    document.getElementById('statArticles').innerText = articles.filter(a=>a.type==='article').length;
-    document.getElementById('statVideos').innerText = articles.filter(a=>a.type==='video').length;
-    document.getElementById('statNews').innerText = articles.filter(a=>a.type==='news').length;
-}
-
-function renderAll() { renderHome(); renderSection('articles', 'article'); renderSection('videos', 'video'); renderSection('news', 'news'); renderCategories(); }
-
-function renderHome() {
-    let newsItems = articles.filter(a=>a.type==='news').sort((a,b)=>new Date(b.date)-new Date(a.date));
-    if(newsItems.length) { let t=newsItems[0].translations[currentLang]||newsItems[0].translations.en; document.getElementById('latestNewsTitle').innerText = t.title; document.getElementById('latestNewsExcerpt').innerText = t.content.substring(0,120)+'...'; }
-    let videoItems = articles.filter(a=>a.type==='video').sort((a,b)=>new Date(b.date)-new Date(a.date));
-    if(videoItems.length) { let t=videoItems[0].translations[currentLang]||videoItems[0].translations.en; document.getElementById('latestVideoTitle').innerText = t.title; document.getElementById('latestVideoExcerpt').innerText = t.content.substring(0,120)+'...'; }
-}
-
-function renderSection(sectionId, type) {
-    let grid = document.getElementById(sectionId+'Grid');
-    if(!grid) return;
-    let items = articles.filter(a=>a.type===type).slice(0,12);
-    grid.innerHTML = '';
-    items.forEach(art => {
-        let tr = art.translations[currentLang] || art.translations.en;
-        let div = document.createElement('div');
-        div.className = 'content-card';
-        div.innerHTML = `<div class="card-badge">${type}</div><h3 class="card-title">${tr.title}</h3><p class="card-excerpt">${tr.content.substring(0,100)}...</p><div class="card-meta">${art.date || ''}</div>`;
-        div.onclick = () => openContent(art.id);
-        grid.appendChild(div);
-    });
-    let countSpan = document.getElementById(sectionId+'CountLabel');
-    if(countSpan) countSpan.innerText = items.length;
-}
-
-function renderCategories() {
-    let cats = [...new Set(articles.map(a=>a.category).filter(c=>c))];
-    let grid = document.getElementById('categoriesGrid');
-    if(grid) grid.innerHTML = cats.slice(0,8).map(cat => `<div class="cat-card" onclick="showSection('articles')"><h3>${cat}</h3><p style="color:#7a7a7a; margin-top:8px">${articles.filter(a=>a.category===cat).length} entries</p></div>`).join('');
-}
-
-function openContent(id) {
-    let art = articles.find(a=>a.id===id);
-    if(!art) return;
-    let tr = art.translations[currentLang] || art.translations.en;
-    showSection('single');
-    document.getElementById('singleTitle').innerText = tr.title;
-    document.getElementById('singleMeta').innerHTML = `<span>${art.date || ''}</span> | <span>${art.category || 'Unknown'}</span> | <span>${art.type}</span>`;
-    let mediaDiv = document.getElementById('singleMedia');
-    mediaDiv.innerHTML = '';
-    if(art.type === 'video' && art.videoUrl) {
-        let vidId = art.videoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/)?.[1];
-        if(vidId) mediaDiv.innerHTML = `<iframe src="https://www.youtube.com/embed/${vidId}" frameborder="0" allowfullscreen></iframe>`;
-        else mediaDiv.innerHTML = `<a href="${art.videoUrl}" target="_blank" style="color:#aa6a6a">Watch video</a>`;
-    } else if(art.images && art.images[0]) {
-        mediaDiv.innerHTML = `<img src="${art.images[0]}" alt="${tr.title}">`;
     }
-    document.getElementById('singleContent').innerHTML = `<p>${tr.content.replace(/\n/g,'<br>')}</p>`;
 }
 
-function showSection(id) {
+function toggleLanguageDropdown() {
+    const dropdown = document.getElementById('languageDropdown');
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+async function changeLanguage(langCode) {
+    if (languageData[langCode]) {
+        currentLanguage = langCode;
+        localStorage.setItem('rsm_language', langCode);
+        await applyLanguage(langCode);
+        toggleLanguageDropdown();
+        updateContentCounts();
+        await renderAllContent();
+        document.getElementById('aiChatMessages').innerHTML = '';
+        appendAIMessage('bot', languageData[langCode].translations.botHello);
+    }
+}
+
+async function applyLanguage(langCode) {
+    const lang = languageData[langCode];
+    if (!lang) return;
+    document.getElementById('currentLangFlag').textContent = lang.flag;
+    document.getElementById('currentLangCode').textContent = langCode.toUpperCase();
+    const t = lang.translations;
+    const elements = ['siteTitle', 'siteTagline', 'navHome', 'navArticles', 'navVideos', 'navNews', 'navCategories', 'navAI', 'navAbout', 'navContacts', 'aboutTitle'];
+    elements.forEach(id => { const el = document.getElementById(id); if (el) el.textContent = t[id] || t[id.replace('nav','').toLowerCase()] || el.textContent; });
+    document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+    document.getElementById('aiChatInput').placeholder = "Type your message...";
+}
+
+async function renderAllContent() {
+    await renderHomeContent();
+    await renderSection('articles', 'article', 'articlesGrid', 'articlesTotal');
+    await renderSection('videos', 'video', 'videosGrid', 'videosTotal');
+    await renderSection('news', 'news', 'newsGrid', 'newsTotal');
+    await renderCategories();
+}
+
+async function renderHomeContent() {
+    const newsItems = articles.filter(a => a.type === "news").sort((a, b) => new Date(b.date) - new Date(a.date));
+    if (newsItems.length) {
+        const tr = newsItems[0].translations[currentLanguage] || newsItems[0].translations.en;
+        document.getElementById('latestTitle').textContent = tr.title;
+        document.getElementById('latestNewsExcerpt').textContent = tr.content.substring(0, 130) + '...';
+    }
+    const videoItems = articles.filter(a => a.type === "video").sort((a, b) => new Date(b.date) - new Date(a.date));
+    if (videoItems.length) {
+        const tr = videoItems[0].translations[currentLanguage] || videoItems[0].translations.en;
+        document.getElementById('latestVideoTitle').textContent = tr.title;
+        document.getElementById('latestVideoExcerpt').textContent = tr.content.substring(0, 130) + '...';
+    }
+}
+
+async function renderSection(sectionId, type, gridId, countId) {
+    const container = document.getElementById(gridId);
+    const items = articles.filter(a => a.type === type).slice(0, 12);
+    if (countId) document.getElementById(countId).textContent = `${items.length} ${languageData[currentLanguage].translations[type + 'sLabel']?.toLowerCase() || type + 's'}`;
+    container.innerHTML = '';
+    for (const item of items) {
+        const tr = item.translations[currentLanguage] || item.translations.en;
+        const div = document.createElement('div');
+        div.className = 'content-item';
+        div.innerHTML = `${item.images?.[0] ? `<div class="content-item-image"><img src="${item.images[0]}" loading="lazy"></div>` : ''}<div class="content-item-content"><div class="content-item-badge">${type}</div><h3>${tr.title}</h3><p>${tr.content.substring(0, 100)}...</p><div class="content-item-meta"><span>${item.date || ''}</span><span>${item.category || ''}</span></div></div>`;
+        div.onclick = () => openContent(item.id);
+        container.appendChild(div);
+    }
+}
+
+async function renderCategories() {
+    const container = document.getElementById('categoriesGrid');
+    const categories = [...new Set(articles.map(a => a.category).filter(c => c))];
+    container.innerHTML = '';
+    for (const category of categories.slice(0, 8)) {
+        const categoryArticles = articles.filter(a => a.category === category).slice(0, 5);
+        const card = document.createElement('div');
+        card.className = 'category-card';
+        card.innerHTML = `<div class="category-header"><div class="category-icon"><i class="fas fa-folder"></i></div><h3 class="category-title">${category}</h3></div><div class="category-items">${categoryArticles.map(art => { const tr = art.translations[currentLanguage] || art.translations.en; return `<div class="category-item" onclick="openContent(${art.id})"><i class="fas fa-chevron-right"></i><span>${tr.title}</span></div>`; }).join('')}</div>`;
+        container.appendChild(card);
+    }
+}
+
+function showSection(sectionId) {
     document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
-    let sec = document.getElementById(id);
-    if(sec) sec.classList.remove('hidden');
-    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-    let activeLink = Array.from(document.querySelectorAll('.nav-link')).find(l => l.getAttribute('onclick')?.includes(id));
-    if(activeLink) activeLink.classList.add('active');
-    currentSection = id;
-    window.scrollTo(0,0);
+    document.getElementById(sectionId)?.classList.remove('hidden');
+    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+    const activeLink = Array.from(document.querySelectorAll('.nav-link')).find(l => l.getAttribute('onclick')?.includes(sectionId));
+    if (activeLink) activeLink.classList.add('active');
+    currentSection = sectionId;
+    window.scrollTo({ top: 0 });
 }
 
-window.openLatestNews = () => {
-    let news = articles.filter(a=>a.type==='news').sort((a,b)=>new Date(b.date)-new Date(a.date));
-    if(news.length) openContent(news[0].id);
-};
-window.openLatestVideo = () => {
-    let videos = articles.filter(a=>a.type==='video').sort((a,b)=>new Date(b.date)-new Date(a.date));
-    if(videos.length) openContent(videos[0].id);
-};
-window.goBack = () => showSection(currentSection);
-
-// Language
-function toggleLang() { let d=document.getElementById('langDropdown'); d.style.display = d.style.display==='block'?'none':'block'; }
-function setLang(lang) { currentLang=lang; localStorage.setItem('rsm_lang',lang); document.getElementById('currentFlag').innerText = lang==='en'?'🇬🇧':'🇵🇰'; document.getElementById('currentLangLabel').innerText = lang.toUpperCase(); document.getElementById('langDropdown').style.display='none'; renderAll(); document.getElementById('searchInput').placeholder = t('searchPlaceholder'); }
-window.toggleLang = toggleLang;
-window.setLang = setLang;
-
-// Search
-document.getElementById('searchInput').addEventListener('input', function() {
-    let q = this.value.toLowerCase().trim();
-    let results = [];
-    articles.forEach(art => {
-        let tr = art.translations[currentLang] || art.translations.en;
-        if(tr.title.toLowerCase().includes(q) || tr.content.toLowerCase().includes(q)) results.push({id:art.id, title:tr.title});
-    });
-    let resDiv = document.getElementById('searchResults');
-    if(!q || results.length===0) { resDiv.style.display='none'; return; }
-    resDiv.innerHTML = results.slice(0,6).map(r => `<div class="search-result" onclick="openContent(${r.id})">${r.title}</div>`).join('');
-    resDiv.style.display = 'block';
-});
-document.addEventListener('click', (e) => { if(!e.target.closest('.search-area')) document.getElementById('searchResults').style.display='none'; });
-
-// AI Functions
-async function duckSearch(query) {
-    try {
-        let res = await fetch(`https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_html=1`);
-        let data = await res.json();
-        if(data.AbstractText) return `🔍 ${data.AbstractText.substring(0,600)}`;
-        if(data.Definition) return `🔍 ${data.Definition}`;
-        return `🔍 No clear answer found.`;
-    } catch(e) { return `⚠️ Search failed.`; }
+function openContent(articleId) {
+    const article = articles.find(a => a.id === articleId);
+    if (!article) return;
+    const tr = article.translations[currentLanguage] || article.translations.en;
+    showSection('single');
+    document.getElementById('singleTitle').textContent = tr.title;
+    document.getElementById('singleMeta').innerHTML = `<span>${article.date || ''}</span><span>${article.category || ''}</span><span>${article.type}</span>`;
+    const mediaDiv = document.getElementById('singleImage');
+    mediaDiv.innerHTML = '';
+    if (article.type === 'video' && article.videoUrl) {
+        const vidId = extractYouTubeID(article.videoUrl);
+        if (vidId) mediaDiv.innerHTML = `<iframe src="https://www.youtube.com/embed/${vidId}" allowfullscreen></iframe>`;
+        else mediaDiv.innerHTML = `<a href="${article.videoUrl}" target="_blank" style="color:#aa6a6a">Watch video</a>`;
+    } else if (article.images?.[0]) mediaDiv.innerHTML = `<img src="${article.images[0]}" alt="${tr.title}">`;
+    document.getElementById('singleContent').innerHTML = `<p>${tr.content.replace(/\n/g, '<br><br>')}</p>`;
 }
 
-async function genImage(prompt) {
-    let url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=512&height=512&nologo=true`;
-    return `<img src="${url}" style="max-width:100%; border:1px solid #3a2a2a; margin-top:10px;" alt="generated">`;
+function openLatestNews() {
+    const news = articles.filter(a => a.type === "news").sort((a, b) => new Date(b.date) - new Date(a.date));
+    if (news.length) openContent(news[0].id);
 }
 
-async function aiRespond(msg) {
-    let m = msg.toLowerCase();
-    if(m.includes('search') || m.includes('what is') || m.includes('who is') || m.includes('tell me about')) {
-        let q = m.replace(/search|what is|who is|tell me about/,'').trim();
-        if(q.length>2) return await duckSearch(q);
+function openLatestVideo() {
+    const videos = articles.filter(a => a.type === "video").sort((a, b) => new Date(b.date) - new Date(a.date));
+    if (videos.length) openContent(videos[0].id);
+}
+
+function goBack() { showSection(currentSection); }
+
+function searchAll() {
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+    const resultsContainer = document.getElementById('searchResults');
+    if (!query) { resultsContainer.style.display = 'none'; return; }
+    const results = [];
+    for (const article of articles) {
+        const tr = article.translations[currentLanguage] || article.translations.en;
+        if (tr.title.toLowerCase().includes(query) || tr.content.toLowerCase().includes(query)) results.push(article);
     }
-    if(m.includes('generate') || m.includes('create') || m.includes('draw')) {
-        let p = m.replace(/generate|create|draw image|make/,'').trim();
-        if(p.length>2) return await genImage(p);
-    }
-    if(m.includes('riddle')) {
-        let riddles = ['I speak without a mouth. What am I? (echo)','The more you take, the more you leave. (footsteps)','I have keys but no locks. (piano)'];
-        return `🕯️ ${riddles[Math.floor(Math.random()*riddles.length)]}`;
-    }
-    if(m.includes('calc') || m.match(/[0-9+\-*/]/)) {
-        try { let res = eval(m.replace(/[^0-9+\-*/().]/g,'')); return `🕯️ ${res}`; } catch(e) {}
-    }
-    return "🕯️ I listen. Try: 'search ancient ruins', 'generate dark forest', or 'tell me a riddle'.";
+    if (results.length > 0) {
+        resultsContainer.innerHTML = results.slice(0, 8).map(r => { const tr = r.translations[currentLanguage] || r.translations.en; return `<div class="search-item" onclick="openContent(${r.id})"><strong>${tr.title}</strong><br><small>${r.type}</small></div>`; }).join('');
+        resultsContainer.style.display = 'block';
+    } else resultsContainer.style.display = 'none';
 }
 
-function addMessage(sender, text) {
-    let div = document.createElement('div');
-    div.className = `message ${sender}`;
-    div.innerHTML = text.replace(/\n/g,'<br>');
-    document.getElementById('chatMessages').appendChild(div);
-    div.scrollIntoView({behavior:'smooth'});
-}
+function openModal(modalId) { document.getElementById(modalId).style.display = 'flex'; }
+function closeModal(modalId) { document.getElementById(modalId).style.display = 'none'; }
 
-async function sendMessage() {
-    let inp = document.getElementById('aiInput');
-    let msg = inp.value.trim();
-    if(!msg) return;
-    addMessage('user', msg);
-    inp.value = '';
-    let typing = document.createElement('div');
-    typing.className = 'message bot';
-    typing.innerHTML = '<div class="loading"></div>';
-    document.getElementById('chatMessages').appendChild(typing);
-    let reply = await aiRespond(msg);
-    typing.remove();
-    addMessage('bot', reply);
-}
+document.addEventListener('click', (e) => { if (!e.target.closest('.search-container')) document.getElementById('searchResults').style.display = 'none'; });
+document.getElementById('hamburgerBtn').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('show'); });
+document.getElementById('aiChatSend').addEventListener('click', sendAIMessage);
+document.getElementById('aiChatInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') sendAIMessage(); });
 
-window.sendExample = async (txt) => {
-    document.getElementById('aiInput').value = txt;
-    await sendMessage();
-};
+window.showSection = showSection;
+window.openContent = openContent;
+window.openLatestNews = openLatestNews;
+window.openLatestVideo = openLatestVideo;
+window.goBack = goBack;
+window.searchAll = searchAll;
+window.toggleLanguageDropdown = toggleLanguageDropdown;
+window.changeLanguage = changeLanguage;
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.insertExample = insertExample;
 
-document.getElementById('aiSend').addEventListener('click', sendMessage);
-document.getElementById('aiInput').addEventListener('keypress', (e) => { if(e.key==='Enter') sendMessage(); });
-document.getElementById('uploadBtn').addEventListener('click', () => document.getElementById('imageFile').click());
-document.getElementById('imageFile').addEventListener('change', async (e) => {
-    if(e.target.files[0]) {
-        let file = e.target.files[0];
-        addMessage('user', `[Image uploaded: ${file.name}]`);
-        addMessage('bot', `🕯️ I see shadows in ${file.size} bytes. The shape suggests something watching.`);
-    }
-});
-
-// Modals
-window.openModal = (id) => { let m=document.getElementById(id+'Modal'); if(m) m.style.display='flex'; };
-window.closeModal = (id) => { let m=document.getElementById(id); if(m) m.style.display='none'; };
-
-// Cookie consent
-if(!localStorage.getItem('cookieConsent')) {
-    let banner = document.createElement('div');
-    banner.className = 'cookie-banner';
-    banner.innerHTML = `<span>🕯️ Shadows remember. Accept to continue.</span><div><button id="acceptCookie">Accept</button><button id="declineCookie">Refuse</button></div>`;
-    document.body.appendChild(banner);
-    document.getElementById('acceptCookie').onclick = () => { localStorage.setItem('cookieConsent','accepted'); banner.remove(); };
-    document.getElementById('declineCookie').onclick = () => { localStorage.setItem('cookieConsent','declined'); banner.remove(); };
-}
-
-// Hamburger
-document.getElementById('hamburgerBtn').addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('show');
-});
-
-loadData();
+initApp();
 </script>
 </body>
 </html>
-```
