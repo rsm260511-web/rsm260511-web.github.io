@@ -993,16 +993,29 @@ function newChat() {
 }
 
 function deleteChat(id) {
-    if (id === 'default') return;
+    if (!id || !conversations[id]) {
+        closeModal();
+        pendingDelete = null;
+        return;
+    }
+
     delete conversations[id];
     delete chatHistory[id];
     saveChats();
+
     if (currentChat === id) {
         let first = Object.keys(conversations)[0];
-        if (first) { currentChat = first; loadMessages(first); document.getElementById('chatTitle').innerText = conversations[first].title; }
-        else newChat();
+        if (first) {
+            currentChat = first;
+            loadMessages(first);
+            document.getElementById('chatTitle').innerText = conversations[first]?.title || 'Chat';
+        } else {
+            newChat();
+        }
     }
+
     renderChatList();
+    pendingDelete = null;
     closeModal();
 }
 
@@ -1023,7 +1036,14 @@ function createModal() {
     modal.className = 'modal';
     modal.innerHTML = `<div class="modal-content"><p id="modalMsg"></p><div class="modal-buttons"><button id="modalYes" class="confirm-yes">Yes</button><button id="modalNo" class="confirm-no">Cancel</button></div></div>`;
     document.body.appendChild(modal);
-    document.getElementById('modalYes').onclick = () => { if (pendingDelete) deleteChat(pendingDelete); closeModal(); };
+    document.getElementById('modalYes').onclick = () => {
+        if (pendingDelete) {
+            deleteChat(pendingDelete);
+        } else {
+            closeModal();
+        }
+        pendingDelete = null;
+    };
     document.getElementById('modalNo').onclick = () => { closeModal(); pendingDelete = null; };
 }
 
