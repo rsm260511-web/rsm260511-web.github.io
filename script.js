@@ -32,6 +32,22 @@ function getLangFromURL() {
     return 'en';
 }
 
+function updateURLFromLang() {
+    let path = window.location.pathname;
+    let newPath = '';
+    if (currentLang === 'en') {
+        newPath = path.replace(/^\/(ur|ur-roman)/, '');
+        if (newPath === '') newPath = '/';
+    } else if (currentLang === 'ur') {
+        newPath = '/ur' + (path === '/' ? '' : path);
+    } else if (currentLang === 'ur-roman') {
+        newPath = '/ur-roman' + (path === '/' ? '' : path);
+    }
+    if (newPath !== path && window.location.pathname !== newPath) {
+        window.history.pushState({}, '', newPath);
+    }
+}
+
 // ============ TRANSLATIONS ============
 const translations = {
     en: {
@@ -242,7 +258,7 @@ function showFallbackData() {
         { id: "sample1", type: "article", category: "Mysteries", date: "2025-01-01", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800", translations: { en: { title: "Sample Article", excerpt: "This is a sample article.", content: "<p>Sample content.</p>" } } }
     ];
     encyclopediaEntries = [
-        { title: "Sample Entry", description: "This is a sample encyclopedia entry." }
+        { translations: { en: { title: "Sample Entry", description: "This is a sample encyclopedia entry." } } }
     ];
     renderAll();
     updateStats();
@@ -434,12 +450,15 @@ function renderEncyclopedia() {
     const container = document.getElementById('encyclopediaResults');
     if (!container) return;
     
-    container.innerHTML = encyclopediaEntries.map(entry => `
-        <div class="encyclopedia-item">
-            <h3>${entry.title}</h3>
-            <p>${entry.description}</p>
-        </div>
-    `).join('');
+    container.innerHTML = encyclopediaEntries.map(entry => {
+        const trans = entry.translations?.[currentLang] || entry.translations?.en || { title: "Unknown", description: "No description available" };
+        return `
+            <div class="encyclopedia-item">
+                <h3>${trans.title}</h3>
+                <p>${trans.description}</p>
+            </div>
+        `;
+    }).join('');
 }
 
 function initEncyclopedia() {
@@ -448,21 +467,24 @@ function initEncyclopedia() {
     
     searchBtn?.addEventListener('click', () => {
         const query = searchInput.value.toLowerCase().trim();
+        const container = document.getElementById('encyclopediaResults');
         if (!query) {
             renderEncyclopedia();
             return;
         }
-        const filtered = encyclopediaEntries.filter(e => 
-            e.title.toLowerCase().includes(query) || 
-            e.description.toLowerCase().includes(query)
-        );
-        const container = document.getElementById('encyclopediaResults');
-        container.innerHTML = filtered.map(entry => `
-            <div class="encyclopedia-item">
-                <h3>${entry.title}</h3>
-                <p>${entry.description}</p>
-            </div>
-        `).join('');
+        const filtered = encyclopediaEntries.filter(entry => {
+            const trans = entry.translations?.[currentLang] || entry.translations?.en || { title: "", description: "" };
+            return trans.title.toLowerCase().includes(query) || trans.description.toLowerCase().includes(query);
+        });
+        container.innerHTML = filtered.map(entry => {
+            const trans = entry.translations?.[currentLang] || entry.translations?.en || { title: "Unknown", description: "No description available" };
+            return `
+                <div class="encyclopedia-item">
+                    <h3>${trans.title}</h3>
+                    <p>${trans.description}</p>
+                </div>
+            `;
+        }).join('');
     });
     
     searchInput?.addEventListener('keypress', (e) => {
@@ -480,13 +502,16 @@ function renderQuizCategories() {
         return;
     }
     
-    container.innerHTML = quizQuestions.map(cat => `
-        <div class="quiz-category" data-category="${cat.category}">
-            <i class="fas ${cat.icon || 'fa-question-circle'}"></i>
-            <h3>${cat.category}</h3>
-            <p>${cat.questions.length} questions</p>
-        </div>
-    `).join('');
+    container.innerHTML = quizQuestions.map(cat => {
+        const catTrans = cat.translations?.[currentLang] || { category: cat.category };
+        return `
+            <div class="quiz-category" data-category="${cat.category}">
+                <i class="fas ${cat.icon || 'fa-question-circle'}"></i>
+                <h3>${catTrans.category}</h3>
+                <p>${cat.questions.length} questions</p>
+            </div>
+        `;
+    }).join('');
     
     document.querySelectorAll('.quiz-category').forEach(cat => {
         cat.onclick = () => startQuiz(cat.dataset.category);
@@ -516,10 +541,11 @@ function showQuizQuestion() {
     }
     
     const q = category.questions[currentQuizIndex];
+    const trans = q.translations?.[currentLang] || q.translations?.en || { question: q.question, options: q.options, explanation: q.explanation };
     const t = translations[currentLang];
     
-    document.getElementById('quizQuestion').innerHTML = `<h3>${currentQuizIndex + 1}. ${q.question}</h3>`;
-    document.getElementById('quizOptions').innerHTML = q.options.map((opt, idx) => `
+    document.getElementById('quizQuestion').innerHTML = `<h3>${currentQuizIndex + 1}. ${trans.question}</h3>`;
+    document.getElementById('quizOptions').innerHTML = trans.options.map((opt, idx) => `
         <div class="quiz-option" data-opt="${idx}">${opt}</div>
     `).join('');
     document.getElementById('quizResult').innerHTML = '';
@@ -532,6 +558,7 @@ function showQuizQuestion() {
 function checkQuizAnswer(selected) {
     const category = quizQuestions.find(c => c.category === currentQuizCategory);
     const q = category.questions[currentQuizIndex];
+    const trans = q.translations?.[currentLang] || q.translations?.en || { options: q.options, explanation: q.explanation };
     const t = translations[currentLang];
     const isCorrect = selected === q.correct;
     
@@ -539,7 +566,7 @@ function checkQuizAnswer(selected) {
         quizScore++;
         document.getElementById('quizResult').innerHTML = `<p style="color: #4ade80;">✅ ${t.correct}</p>`;
     } else {
-        document.getElementById('quizResult').innerHTML = `<p style="color: #ef4444;">❌ ${t.incorrect} ${q.options[q.correct]}</p>`;
+        document.getElementById('quizResult').innerHTML = `<p style="color: #ef4444;">❌ ${t.incorrect} ${trans.options[q.correct]}</p>`;
     }
     
     document.querySelectorAll('.quiz-option').forEach(opt => {
@@ -796,22 +823,6 @@ function changeLang(lang) {
     if (currentPage === 'quiz') renderQuizCategories();
 }
 
-function updateURLFromLang() {
-    let path = window.location.pathname;
-    let newPath = '';
-    if (currentLang === 'en') {
-        newPath = path.replace(/^\/(ur|ur-roman)/, '');
-        if (newPath === '') newPath = '/';
-    } else if (currentLang === 'ur') {
-        newPath = '/ur' + (path === '/' ? '' : path);
-    } else if (currentLang === 'ur-roman') {
-        newPath = '/ur-roman' + (path === '/' ? '' : path);
-    }
-    if (newPath !== path && window.location.pathname !== newPath) {
-        window.history.pushState({}, '', newPath);
-    }
-}
-
 function applyLang(lang) {
     let t = translations[lang];
     document.getElementById('langBtn').innerHTML = `🌐 ${lang === 'ur' ? 'اردو' : (lang === 'ur-roman' ? 'UR' : 'EN')} <i class="fas fa-chevron-down"></i>`;
@@ -1043,11 +1054,8 @@ async function sendMsg() {
         const resTime = getTime();
         
         await typewriterEffect(response, (partial) => {
-            // remove previous partial
             const lastPartial = document.querySelector('#aiMessages .message.bot[data-typing="true"]');
             if (lastPartial) lastPartial.remove();
-            
-            // add new partial
             const tempDiv = document.createElement('div');
             tempDiv.className = 'message bot';
             tempDiv.setAttribute('data-typing', 'true');
@@ -1056,11 +1064,8 @@ async function sendMsg() {
             document.getElementById('aiMessages').scrollTop = document.getElementById('aiMessages').scrollHeight;
         });
         
-        // remove last partial
         const lastPartial = document.querySelector('#aiMessages .message.bot[data-typing="true"]');
         if (lastPartial) lastPartial.remove();
-        
-        // add full
         addMsg('bot', response, resTime);
         
         chatHistory[currentChat].push({ sender: 'bot', text: response, time: resTime });
@@ -1131,14 +1136,12 @@ function updateTitleFromMsg() {
 async function getAI(msg) {
     const lower = msg.toLowerCase().trim();
     
-    // Search Wikipedia
     if (lower.includes('search') || lower.includes('find') || lower.includes('look up') || lower.includes('tell me about') || lower.includes('what is')) {
         let query = msg.replace(/search|find|look up|tell me about|what is/gi, '').trim();
         if (!query) query = msg;
         return await wikiSearch(query);
     }
     
-    // Summarize
     if (lower.includes('summarize') || lower.includes('summary') || lower.includes('sum up')) {
         if (currentItem) {
             const content = getText(currentItem, 'content');
@@ -1151,7 +1154,6 @@ async function getAI(msg) {
         return "📄 Open an article or video first, then ask me to summarize it!";
     }
     
-    // Fun fact
     if (lower.includes('fact') || lower.includes('fun fact') || lower.includes('tell me a fact')) {
         const facts = [
             "🐝 **Bees** can recognize human faces! They remember you like a friend.",
@@ -1166,7 +1168,6 @@ async function getAI(msg) {
         return facts[Math.floor(Math.random() * facts.length)];
     }
     
-    // Calculate
     if (lower.includes('calculate') || lower.includes('calc') || lower.includes('+') || lower.includes('-') || lower.includes('*') || lower.includes('/') || lower.includes('×') || lower.includes('÷')) {
         try {
             let expr = msg.replace(/calculate|calc/gi, '').replace(/×/g, '*').replace(/÷/g, '/');
@@ -1177,18 +1178,15 @@ async function getAI(msg) {
         }
     }
     
-    // Greetings
     if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey')) {
         const name = currentUser ? currentUser.displayName?.split(' ')[0] || 'friend' : 'friend';
         return `👋 Hello ${name}! How can I help you today?\n\nYou can:\n• Ask me to search Wikipedia\n• Tell me a fun fact\n• Summarize articles\n• Calculate numbers\n• Ask any question!`;
     }
     
-    // Help
     if (lower.includes('help') || lower.includes('what can you do')) {
         return `🤖 **I can help you with:**\n\n🔍 **Search Wikipedia** - "Search for pyramids"\n📝 **Summarize content** - Open an article and say "Summarize this"\n✨ **Fun facts** - "Tell me a fun fact"\n🧮 **Calculate** - "Calculate 25 * 4"\n💬 **Answer questions** - Ask me anything!\n🌍 **3 languages** - English, Urdu, Roman Urdu\n\nWhat would you like to know?`;
     }
     
-    // Default response
     return `🤖 I'm here to help!\n\n**Try these:**\n• "Search Wikipedia for pyramids"\n• "Tell me a fun fact"\n• "Calculate 15 * 8"\n• "What is artificial intelligence?"\n• "Summarize this article" (open one first)\n\nOr ask me anything!`;
 }
 
@@ -1196,7 +1194,7 @@ async function wikiSearch(q) {
     const lang = currentLang === 'ur' ? 'ur' : 'en';
     try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 seconds timeout
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
         
         const url = `https://${lang}.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(q)}&format=json&origin=*&srlimit=1`;
         const res = await fetch(url, { signal: controller.signal });
