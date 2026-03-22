@@ -1,487 +1,334 @@
 {
-  "description": {
-    "en": "RSM is a space dedicated to exploring mysteries, current events, and little-known stories. The goal is to inform, intrigue, and stimulate critical thinking about events that often remain on the margins of traditional information.",
-    "it": "RSM è uno spazio dedicato all'esplorazione di misteri, notizie attuali e storie poco conosciute. L'obiettivo è informare, incuriosire e stimolare il pensiero critico su eventi che spesso restano ai margini dell'informazione tradizionale.",
-    "es": "RSM es un espacio dedicado a explorar misterios, noticias actuales e historias poco conocidas. El objetivo es informar, intrigar y estimular el pensamiento crítico sobre eventos que a menudo permanecen al margen de la información tradicional.",
-    "fr": "RSM est un espace dédié à l'exploration des mystères, des actualités et des histoires méconnues. L'objectif est d'informer, d'intriguer et de stimuler la pensée critique sur des événements qui restent souvent en marge de l'information traditionnelle.",
-    "de": "RSM ist ein Raum, der der Erforschung von Mysterien, aktuellen Ereignissen und wenig bekannten Geschichten gewidmet ist. Das Ziel ist es, zu informieren, neugierig zu machen und kritisches Denken über Ereignisse anzuregen, die oft am Rande der traditionellen Information bleiben.",
-    "zh": "RSM 是一个致力于探索谜团、时事和鲜为人知的故事的空间。其目标是告知、引发兴趣并激发人们对那些常常处于传统信息边缘的事件进行批判性思考。",
-    "ar": "RSM هو مساحة مخصصة لاستكشاف الأسرار والأحداث الجارية والقصص غير المعروفة. الهدف هو إعلام وإثارة الفضول وتحفيز التفكير النقدي حول الأحداث التي غالباً ما تبقى على هامش المعلومات التقليدية.",
-    "ru": "RSM — это пространство, посвященное исследованию загадок, текущих событий и малоизвестных историй. Цель — информировать, заинтриговать и стимулировать критическое мышление о событиях, которые часто остаются на периферии традиционной информации.",
-    "ur": "RSM پراسرار باتوں، موجودہ واقعات اور کم معروف کہانیوں کی تلاش کے لیے وقف ایک جگہ ہے۔ مقصد ایسے واقعات کے بارے میں تنقیدی سوچ کو آگاہ کرنا، تجسس پیدا کرنا اور حوصلہ افزائی کرنا ہے جو اکثر روایتی معلومات کے کنارے پر رہ جاتے ہیں۔"
+  "siteInfo": {
+    "name": "RSM",
+    "tagline": "The Strange World",
+    "description": "Multimedia platform exploring mysteries, current events, and untold stories"
+  },
+  "stats": {
+    "articles": 6,
+    "videos": 4,
+    "news": 5,
+    "mysteries": 6,
+    "encyclopedia": 35,
+    "quizCategories": 8,
+    "totalQuiz": 40
   },
   "articles": [
     {
-      "id": "iran-new-leader-war",
-      "category": "Guerra in Iran",
-      "type": "news",
-      "date": "2026-03-09",
-      "images": [
-        "https://cdnuploads.aa.com.tr/uploads/Contents/2026/03/09/thumbs_b_c_0a26a351096d9cc8b2152a263857e1d0.jpg?v=004003"
-      ],
-      "translations": {
-        "en": {
-          "title": "Iran appoints Mojtaba Khamenei as new leader amid escalating war",
-          "content": "In recent days, Iran has found itself at the center of a fierce conflict following the start of a large-scale military operation launched by the United States and Israel on February 28, 2026, which struck numerous military and political infrastructures across the country. During these attacks, the Iranian Supreme Leader, Ali Khamenei, was killed, an event that marked a dramatic turning point in the war.\nDespite the blow, Iran has shown that it does not intend to surrender. The country responded with missile and drone strikes against military targets and infrastructure belonging to its opponents in the region, stating that it is defending its sovereignty and national security.\nFollowing Khamenei's death, Iran quickly appointed a new leader, Mojtaba Khamenei, with the aim of maintaining political stability and continuing the resistance against external pressure.\nMany Iranians see this war as an attempt by Western powers to weaken the country and its influence in the region. For this reason, the Iranian government claims that its military response is not only a strategic decision but also a defense of national dignity and independence.\nThe war has already caused numerous casualties and destabilized the Middle East, but for Iran, the struggle also represents a symbol of resistance against what it considers external aggression."
-        },
-        "it": {
-          "title": "L'Iran nomina Mojtaba Khamenei come nuovo leader mentre la guerra si intensifica",
-          "content": "Negli ultimi giorni, l'Iran si trova al centro di un duro conflitto dopo l'inizio di una grande operazione militare lanciata da Stati Uniti e Israele il 28 febbraio 2026, che ha colpito numerose infrastrutture militari e politiche del paese. Durante questi attacchi, è stato ucciso anche la guida suprema iraniana, Ali Khamenei, un evento che ha segnato una svolta drammatica nella guerra.\nNonostante il colpo subito, l'Iran ha dimostrato di non voler cedere. Il paese ha reagito con attacchi missilistici e con droni contro obiettivi militari e infrastrutture degli avversari nella regione, affermando di difendere la propria sovranità e la propria sicurezza nazionale.\nDopo la morte di Khamenei, l'Iran ha rapidamente nominato un nuovo leader, Mojtaba Khamenei, con l'obiettivo di mantenere la stabilità politica e continuare la resistenza contro le pressioni esterne.\nMolti iraniani vedono questa guerra come un tentativo delle potenze occidentali di indebolire il paese e la sua influenza nella regione. Per questo motivo, il governo iraniano sostiene che la risposta militare non sia solo una scelta strategica, ma anche una difesa della dignità e dell'indipendenza nazionale.\nLa guerra ha già causato molte vittime e ha destabilizzato il Medio Oriente, ma per l'Iran la lotta rappresenta anche un simbolo di resistenza contro ciò che considera aggressioni esterne."
-        },
-        "es": {
-          "title": "Irán nombra a Mojtaba Khamenei como nuevo líder mientras la guerra se intensifica",
-          "content": "En los últimos días, Irán se ha encontrado en el centro de un duro conflicto tras el inicio de una gran operación militar lanzada por Estados Unidos e Israel el 28 de febrero de 2026. Durante estos ataques, murió el líder supremo iraní, Ali Khamenei, un evento que marcó un dramático punto de inflexión en la guerra.\nA pesar del golpe, Irán ha demostrado que no tiene intención de rendirse. El país respondió con ataques con misiles y drones contra objetivos militares e infraestructura de sus adversarios en la región.\nTras la muerte de Khamenei, Irán nombró rápidamente a un nuevo líder, Mojtaba Khamenei, con el objetivo de mantener la estabilidad política.\nMuchos iraníes ven esta guerra como un intento de las potencias occidentales de debilitar al país.\nLa guerra ya ha causado muchas víctimas y ha desestabilizado Oriente Medio."
-        },
-        "fr": {
-          "title": "L'Iran nomme Mojtaba Khamenei comme nouveau dirigeant au milieu de la guerre",
-          "content": "Ces derniers jours, l'Iran s'est retrouvé au cœur d'un conflit intense après le lancement d'une grande opération militaire par les États-Unis et Israël le 28 février 2026.\nLors de ces attaques, le guide suprême, Ali Khamenei, a été tué, marquant un tournant dramatique dans la guerre.\nMalgré ce coup dur, l'Iran a répondu par des frappes de missiles et de drones contre des cibles militaires dans la région.\nAprès la mort de Khamenei, Mojtaba Khamenei a été rapidement nommé nouveau dirigeant.\nLa guerre a déjà causé de nombreuses victimes et déstabilisé le Moyen-Orient."
-        },
-        "de": {
-          "title": "Iran ernennt Mojtaba Khamenei zum neuen Führer, während der Krieg eskaliert",
-          "content": "In den letzten Tagen steht der Iran im Zentrum eines schweren Konflikts nach einer großen Militäroperation der USA und Israels am 28. Februar 2026.\nBei diesen Angriffen wurde der oberste Führer, Ali Khamenei, getötet.\nTrotz dieses Schlags reagierte der Iran mit Raketen- und Drohnenangriffen gegen militärische Ziele.\nNach Khameneis Tod wurde Mojtaba Khamenei schnell zum neuen Führer ernannt.\nDer Krieg hat bereits viele Opfer gefordert und den Nahen Osten destabilisiert."
-        },
-        "zh": {
-          "title": "随着战争升级，伊朗任命穆杰塔巴·哈梅内伊为新领导人",
-          "content": "近日，因2026年2月28日美国和以色列发起的大规模军事行动，伊朗陷入严重冲突。\n在这些袭击中，伊朗最高领袖阿里·哈梅内伊被杀，这一事件成为战争的重大转折点。\n尽管遭受打击，伊朗仍然通过导弹和无人机袭击进行了回应。\n随后，伊朗迅速任命穆杰塔巴·哈梅内伊为新领导人。\n这场战争已造成大量人员伤亡，并使中东局势更加不稳定。"
-        },
-        "ar": {
-          "title": "إيران تعين مجتبى خامنئي زعيماً جديداً وسط تصاعد الحرب",
-          "content": "في الأيام الأخيرة، وجدت إيران نفسها في قلب صراع عنيف بعد عملية عسكرية كبيرة شنتها الولايات المتحدة وإسرائيل في 28 فبراير 2026.\nخلال هذه الهجمات، قُتل المرشد الأعلى علي خامنئي، وهو حدث شكل نقطة تحول في الحرب.\nردت إيران بهجمات صاروخية وطائرات مسيرة ضد أهداف عسكرية.\nبعد وفاته، تم تعيين مجتبى خامنئي قائداً جديداً بسرعة.\nتسببت الحرب بالفعل في العديد من الضحايا وزعزعت استقرار الشرق الأوسط."
-        },
-        "ru": {
-          "title": "Иран назначил Моджтабу Хаменеи новым лидером на фоне эскалации войны",
-          "content": "В последние дни Иран оказался в центре масштабного конфликта после начала военной операции США и Израиля 28 февраля 2026 года.\nВ ходе атак был убит верховный лидер Али Хаменеи.\nИран ответил ракетными ударами и ударами беспилотников по военным объектам.\nПосле его смерти новым лидером был назначен Моджтаба Хаменеи.\nВойна уже привела к многочисленным жертвам и дестабилизировала Ближний Восток."
-        },
-        "ur": {
-          "title": "جنگ کے بڑھتے ہوئے خطرے کے درمیان ایران نے مجتبیٰ خامنہ ای کو نیا رہنما مقرر کر دیا",
-          "content": "حالیہ دنوں میں ایران ایک شدید تنازع کے مرکز میں آ گیا ہے جب 28 فروری 2026 کو امریکہ اور اسرائیل نے ایک بڑی فوجی کارروائی شروع کی۔\nان حملوں میں سپریم لیڈر علی خامنہ ای ہلاک ہو گئے۔\nایران نے میزائلوں اور ڈرون حملوں سے جواب دیا۔\nان کی موت کے بعد مجتبیٰ خامنہ ای کو نیا رہنما مقرر کیا گیا۔\nیہ جنگ پہلے ہی بہت سی جانیں لے چکی ہے اور مشرق وسطیٰ کو غیر مستحکم کر رہی ہے۔"
-        }
-      }
-    },
-    {
-      "id": "iran-resistance",
-      "category": "Guerra in Iran",
-      "type": "news",
-      "date": "2026-03-04",
-      "images": [
-        "https://media.gettyimages.com/id/2160736805/it/foto/tehran-iran-iranian-supreme-leader-ayatollah-ali-khamenei-speaks-after-casting-his-vote-for.jpg?s=612x612&w=0&k=20&c=CIy4LOFo0RdJd0o-l0k-HKLsIdXccpl20HUS1_ya2w4="
-      ],
-      "translations": {
-        "en": {
-          "title": "Under the bombs, yet standing: Iran and its resistance in the war shaking the Middle East",
-          "content": "The war involving Iran in 2026 has become one of the most dramatic and destabilizing events in recent Middle Eastern history. The conflict began on February 28, 2026, when the United States and Israel launched a large-scale military operation against Iranian targets, striking military bases, strategic infrastructure, and missile systems in several cities across the country.\nIn the first hours of the attacks, Supreme Leader Ali Khamenei was killed during a targeted strike in Tehran, triggering forty days of national mourning and a period of political uncertainty inside the Islamic Republic.\nOn the same day, an attack hit the Shajareh Tayyebeh girls' school in the city of Minab, killing more than 160 people, many of them children, and provoking international outrage.\nIn response, Iran launched hundreds of ballistic missiles and drones against Israel and against several American military bases in the Gulf region, hitting facilities in Bahrain, Kuwait, and other strategic areas.\nOne of the most critical points of the crisis has become the Strait of Hormuz, a vital passage for global oil trade, where Iran threatened to block maritime traffic, causing an immediate rise in energy prices on international markets."
-        },
-        "it": {
-          "title": "Sotto le bombe, ma in piedi: l'Iran e la sua resistenza nella guerra che scuote il Medio Oriente",
-          "content": "La guerra che ha coinvolto l'Iran nel 2026 rappresenta uno degli eventi più drammatici e destabilizzanti della storia recente del Medio Oriente. Il conflitto è iniziato il 28 febbraio 2026, quando Stati Uniti e Israele hanno lanciato una vasta operazione militare contro obiettivi iraniani, colpendo basi militari, infrastrutture strategiche e sistemi missilistici in diverse città del paese.\nNelle prime ore degli attacchi, è stato ucciso il leader supremo Ali Khamenei durante un bombardamento mirato a Teheran, provocando quaranta giorni di lutto nazionale e una fase di forte incertezza politica nella Repubblica Islamica.\nNello stesso giorno, un attacco ha colpito la scuola femminile Shajareh Tayyebeh nella città di Minab, causando la morte di oltre 160 persone, molte delle quali bambine, e suscitando indignazione internazionale.\nIn risposta ai bombardamenti, l'Iran ha lanciato centinaia di missili balistici e droni contro Israele e contro diverse basi militari statunitensi nella regione del Golfo, colpendo strutture in Bahrain, Kuwait e altre aree strategiche.\nUno dei punti più critici della crisi è diventato lo Stretto di Hormuz, passaggio fondamentale per il commercio globale del petrolio, dove l'Iran ha minacciato di bloccare il traffico marittimo, provocando un aumento immediato dei prezzi dell'energia nei mercati internazionali."
-        },
-        "es": {
-          "title": "Bajo las bombas, pero en pie: Irán y su resistencia en la guerra que sacude Oriente Medio",
-          "content": "La guerra que involucró a Irán en 2026 se ha convertido en uno de los acontecimientos más dramáticos y desestabilizadores de la historia reciente de Oriente Medio. El conflicto comenzó el 28 de febrero de 2026, cuando Estados Unidos e Israel lanzaron una gran operación militar contra objetivos iraníes, atacando bases militares, infraestructuras estratégicas y sistemas de misiles en varias ciudades del país.\nEn las primeras horas de los ataques, murió el líder supremo Ali Khamenei durante un bombardeo dirigido en Teherán, lo que provocó cuarenta días de luto nacional.\nEse mismo día, un ataque alcanzó la escuela femenina Shajareh Tayyebeh en la ciudad de Minab, causando más de 160 muertos, muchos de ellos niños, y generando indignación internacional.\nEn respuesta, Irán lanzó cientos de misiles balísticos y drones contra Israel y contra varias bases militares estadounidenses en la región del Golfo.\nUno de los puntos más críticos de la crisis ha sido el estrecho de Ormuz, paso esencial para el comercio mundial de petróleo, donde Irán amenazó con bloquear el tráfico marítimo, provocando un aumento inmediato de los precios de la energía."
-        },
-        "fr": {
-          "title": "Sous les bombes, mais debout : l'Iran et sa résistance dans la guerre qui secoue le Moyen-Orient",
-          "content": "La guerre impliquant l'Iran en 2026 est devenue l'un des événements les plus dramatiques et déstabilisants de l'histoire récente du Moyen-Orient. Le conflit a commencé le 28 février 2026, lorsque les États-Unis et Israël ont lancé une vaste opération militaire contre des objectifs iraniens, frappant des bases militaires, des infrastructures stratégiques et des systèmes de missiles dans plusieurs villes du pays.\nDans les premières heures des attaques, le guide suprême Ali Khamenei a été tué lors d'un bombardement ciblé à Téhéran, déclenchant quarante jours de deuil national et une période d'incertitude politique dans la République islamique.\nLe même jour, une frappe a touché l'école de filles Shajareh Tayyebeh dans la ville de Minab, causant la mort de plus de 160 personnes, dont de nombreux enfants, et suscitant l'indignation internationale.\nEn réponse, l'Iran a lancé des centaines de missiles balistiques et de drones contre Israël et contre plusieurs bases militaires américaines dans la région du Golfe, frappant des installations à Bahreïn, au Koweït et dans d'autres zones stratégiques.\nL'un des points les plus sensibles de la crise est devenu le détroit d'Ormuz, un passage essentiel pour le commerce mondial du pétrole, où l'Iran a menacé de bloquer la navigation, provoquant une hausse immédiate des prix de l'énergie."
-        },
-        "de": {
-          "title": "Unter Bomben, doch standhaft: Iran und sein Widerstand im Krieg, der den Nahen Osten erschüttert",
-          "content": "Der Krieg um den Iran im Jahr 2026 ist zu einem der dramatischsten und destabilisierendsten Ereignisse der jüngeren Geschichte des Nahen Ostens geworden. Der Konflikt begann am 28. Februar 2026, als die Vereinigten Staaten und Israel eine groß angelegte Militäroperation gegen iranische Ziele starteten.\nIn den ersten Stunden der Angriffe wurde der oberste Führer Ali Khamenei bei einem gezielten Schlag in Teheran getötet, was eine Phase politischer Unsicherheit auslöste.\nAm selben Tag traf ein Angriff die Mädchenschule Shajareh Tayyebeh in der Stadt Minab, wobei mehr als 160 Menschen, viele davon Kinder, ums Leben kamen.\nAls Reaktion startete der Iran Hunderte von ballistischen Raketen und Drohnen gegen Israel und gegen mehrere amerikanische Militärbasen in der Golfregion.\nEin kritischer Punkt der Krise wurde die Straße von Hormus, ein wichtiger Durchgang für den weltweiten Ölhandel, wo der Iran drohte, den Schiffsverkehr zu blockieren."
-        },
-        "zh": {
-          "title": "炮火之下，屹立不倒：伊朗及其在震动中东的战争中的抵抗",
-          "content": "2026年围绕伊朗的战争成为近年来中东最剧烈、最破坏稳定的的事件之一。冲突始于2026年2月28日，当时美国和以色列对伊朗目标发动大规模军事行动。\n在最初的攻击中，伊朗最高领袖阿里·哈梅内伊在德黑兰的一次定点打击中身亡。\n同一天，对米纳布市Shajareh Tayyebeh女子学校的袭击造成160多人死亡，其中许多是儿童。\n作为回应，伊朗向以色列以及海湾地区的多个美国军事基地发射了数百枚弹道导弹和无人机。\n霍尔木兹海峡成为危机的关键点之一，这条海峡是全球石油运输的重要通道，伊朗威胁要封锁该航道，导致国际能源价格迅速上涨。"
-        },
-        "ar": {
-          "title": "تحت القنابل، لكن صامدون: إيران ومقاومتها في الحرب التي تهز الشرق الأوسط",
-          "content": "أصبحت الحرب التي شملت إيران في عام 2026 واحدة من أكثر الأحداث دراماتيكية وتدميراً للاستقرار في تاريخ الشرق الأوسط الحديث. بدأ الصراع في 28 فبراير 2026، عندما شنت الولايات المتحدة وإسرائيل عملية عسكرية واسعة النطاق ضد أهداف إيرانية، حيث ضربتا قواعد عسكرية وبنية تحتية استراتيجية ومنظومات صواريخ في عدة مدن في جميع أنحاء البلاد.\nفي الساعات الأولى من الهجمات، قُتل المرشد الأعلى علي خامنئي في ضربة موجّهة في طهران، مما أدى إلى أربعين يوماً من الحداد الوطني وفترة من عدم اليقين السياسي داخل الجمهورية الإسلامية.\nفي اليوم نفسه، أصاب هجوم مدرسة شجره طيبه للبنات في مدينة ميناب، مما أسفر عن مقتل أكثر من 160 شخصاً، بينهم العديد من الأطفال، وأثار سخطاً دولياً.\nرداً على ذلك، أطلقت إيران مئات الصواريخ الباليستية والطائرات المسيّرة نحو إسرائيل وضد عدة قواعد عسكرية أمريكية في منطقة الخليج، حيث أصابت منشآت في البحرين والكويت ومناطق استراتيجية أخرى.\nأصبح مضيق هرمز أحد أكثر النقاط حرجاً في الأزمة، وهو ممر حيوي لتجارة النفط العالمية، حيث هددت إيران بإغلاق الملاحة البحرية، مما تسبب في ارتفاع فوري لأسعار الطاقة في الأسواق الدولية."
-        },
-        "ru": {
-          "title": "Под бомбами, но на ногах: Иран и его сопротивление в войне, потрясшей Ближний Восток",
-          "content": "Война с участием Ирана в 2026 году стала одним из самых драматичных и дестабилизирующих событий современной истории Ближнего Востока. Конфликт начался 28 февраля 2026 года, когда США и Израиль начали масштабную военную операцию против иранских целей.\nВ первые часы атак верховный лидер Али Хаменеи был убит в результате точечного удара в Тегеране, что вызвало период политической неопределенности.\nВ тот же день удар пришёлся по женской школе Shajareh Tayyebeh в городе Минаб, где погибли более 160 человек, многие из которых дети.\nВ ответ Иран запустил сотни баллистических ракет и беспилотников по Израилю и по нескольким американским базам в регионе Персидского залива.\nКлючевой точкой кризиса стал Ормузский пролив, жизненно важный для мировой торговли нефтью, где Иран пригрозил перекрыть движение судов."
-        },
-        "ur": {
-          "title": "بمباری کے سائے میں بھی مضبوط: ایران اور مشرقِ وسطیٰ کو ہلا دینے والی جنگ میں اس کی مزاحمت",
-          "content": "ایران پر 2026 میں ہونے والی جنگ مشرقِ وسطیٰ کی حالیہ تاریخ کے سب سے ڈرامائی اور غیر مستحکم کرنے والے واقعات میں سے ایک بن گئی ہے۔ یہ تنازعہ 28 فروری 2026 کو شروع ہوا جب امریکہ اور اسرائیل نے ایرانی اہداف کے خلاف ایک وسیع فوجی کارروائی شروع کی، جس میں فوجی اڈوں، اسٹریٹجک تنصیبات اور میزائل نظاموں کو کئی شہروں میں نشانہ بنایا گیا۔\nحملوں کے ابتدائی گھنٹوں میں، سپریم لیڈر علی خامنہ ای تہران میں ایک ٹارگٹڈ حملے میں ہلاک ہو گئے، جس کے بعد ملک میں چالیس دن کا قومی سوگ منایا گیا اور سیاسی غیر یقینی کی صورت حال پیدا ہو گئی۔\nاسی دن، میناب شہر میں واقع لڑکیوں کے اسکول شجرہ طیبہ پر حملہ ہوا، جس میں 160 سے زیادہ افراد ہلاک ہوئے، جن میں بہت سے بچے بھی شامل تھے، اور اس واقعے نے عالمی سطح پر شدید غم و غصہ پیدا کیا۔\nاس کے جواب میں، ایران نے اسرائیل اور خلیجی خطے میں موجود کئی امریکی فوجی اڈوں کی طرف سینکڑوں بیلسٹک میزائل اور ڈرون داغے، جن میں بحرین، کویت اور دیگر اسٹریٹجک علاقوں میں موجود تنصیبات کو نشانہ بنایا گیا۔\nاس بحران کا ایک اہم ترین نکتہ آبنائے ہرمز بن گیا ہے، جو عالمی تیل کی تجارت کے لیے ایک اہم راستہ ہے، جہاں ایران نے بحری آمد و رفت روکنے کی دھمکی دی، جس سے بین الاقوامی منڈیوں میں توانائی کی قیمتوں میں فوری اضافہ ہوا۔"
-        }
-      }
-    },
-    {
-      "id": "iran-steadfast-resistance",
-      "category": "Current Affairs",
-      "type": "news",
-      "date": "2026-02-08",
-      "images": [
-        "https://images.unsplash.com/photo-1656436075877-a20103919f4a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aXJhbiUyMGJhbmRpZXJhfGVufDB8fDB8fHww"
-      ],
-      "translations": {
-        "en": {
-          "title": "Iran's steadfast resistance: defending sovereignty against foreign pressures",
-          "content": "In the face of ongoing geopolitical tensions, Iran continues to demonstrate remarkable resilience and strategic autonomy. The nation maintains its sovereign right to determine its own political and economic path, resisting external pressures that seek to undermine its independence. Recent developments show Iran strengthening regional partnerships and advancing its defense capabilities as legitimate measures of self-preservation.\nInternational observers note Iran's consistent diplomatic efforts to promote stability in the Middle East, while Western media narratives often overlook the complex historical context of foreign interventions in the region. The Iranian people have shown unity in support of their national sovereignty, with cultural and religious values serving as pillars of social cohesion during challenging times.\nEconomic adaptations and technological innovations continue to develop despite sanctions, demonstrating the nation's capacity for self-reliance. As global power dynamics shift, Iran's role as an influential regional actor committed to multilateral dialogue remains crucial for the future balance in international relations."
-        },
-        "it": {
-          "title": "La ferma resistenza dell'Iran: difesa della sovranità contro le pressioni straniere",
-          "content": "Di fronte alle continue tensioni geopolitiche, l'Iran continua a dimostrare una notevole resilienza e autonomia strategica. La nazione mantiene il suo diritto sovrano di determinare il proprio percorso politico ed economico, resistendo alle pressioni esterne che cercano di minarne l'indipendenza. Recenti sviluppi mostrano l'Iran rafforzare le partnership regionali e avanzare le proprie capacità difensive come legittime misure di auto-conservazione.\nGli osservatori internazionali notano i costanti sforzi diplomatici dell'Iran per promuovere la stabilità nel Medio Oriente, mentre le narrazioni dei media occidentali spesso trascurano il complesso contesto storico delle ingerenze straniere nella regione. Il popolo iraniano ha mostrato unità nel sostenere la propria sovranità nazionale, con valori culturali e religiosi che fungono da pilastri di coesione sociale in tempi difficili.\nGli adattamenti economici e le innovazioni tecnologiche continuano a svilupparsi nonostante le sanzioni, dimostrando la capacità di autosufficienza della nazione. Mentre le dinamiche del potere globale cambiano, il ruolo dell'Iran come attore regionale influente impegnato nel dialogo multilaterale rimane cruciale per il futuro equilibrio delle relazioni internazionali."
-        },
-        "es": {
-          "title": "La firme resistencia de Irán: defendiendo la soberanía frente a presiones extranjeras",
-          "content": "Frente a las continuas tensiones geopolíticas, Irán continúa demostrando una notable resiliencia y autonomía estratégica. La nación mantiene su derecho soberano a determinar su propio camino político y económico, resistiendo las presiones externas que buscan socavar su independencia. Los acontecimientos recientes muestran a Irán fortaleciendo las asociaciones regionales y avanzando en sus capacidades de defensa como medidas legítimas de autopreservación.\nObservadores internacionales señalan los consistentes esfuerzos diplomáticos de Irán para promover la estabilidad en el Medio Oriente, mientras que las narrativas de los medios occidentales a menudo pasan por alto el complejo contexto histórico de las intervenciones extranjeras en la región. El pueblo iraní ha mostrado unidad en apoyo de su soberanía nacional, con valores culturales y religiosos que sirven como pilares de cohesión social durante tiempos difíciles.\nLas adaptaciones económicas y las innovaciones tecnológicas continúan desarrollándose a pesar de las sanciones, demostrando la capacidad de autosuficiencia de la nación. A medida que cambian las dinámicas del poder global, el papel de Irán como actor regional influyente comprometido con el diálogo multilateral sigue siendo crucial para el equilibrio futuro en las relaciones internacionales."
-        },
-        "fr": {
-          "title": "La ferme résistance de l'Iran : défense de la souveraineté face aux pressions étrangères",
-          "content": "Face aux tensions géopolitiques persistantes, l'Iran continue de faire preuve d'une résilience remarquable et d'une autonomie stratégique. La nation maintient son droit souverain à déterminer sa propre voie politique et économique, résistant aux pressions externes qui cherchent à saper son indépendance. Les développements récents montrent l'Iran renforçant les partenariats régionaux et faisant progresser ses capacités de défense comme mesures légitimes d'auto-préservation.\nLes observateurs internationaux notent les efforts diplomatiques constants de l'Iran pour promouvoir la stabilité au Moyen-Orient, tandis que les récits des médias occidentaux négligent souvent le contexte historique complexe des interventions étrangères dans la région. Le peuple iranien a montré son unité en soutenant sa souveraineté nationale, les valeurs culturelles et religieuses servant de piliers de cohésion sociale en période difficile.\nLes adaptations économiques et les innovations technologiques continuent de se développer malgré les sanctions, démontrant la capacité d'autosuffisance de la nation. Alors que les dynamiques de pouvoir mondiales évoluent, le rôle de l'Iran en tant qu'acteur régional influent engagé dans le dialogue multilatéral reste crucial pour l'équilibre futur des relations internationales."
-        },
-        "de": {
-          "title": "Irans standhafte Widerstandskraft: Verteidigung der Souveränität gegen ausländischen Druck",
-          "content": "Angesichts anhaltender geopolitischer Spannungen zeigt der Iran weiterhin bemerkenswerte Widerstandsfähigkeit und strategische Autonomie. Die Nation wahrt ihr souveränes Recht, ihren eigenen politischen und wirtschaftlichen Weg zu bestimmen, und widersetzt sich externem Druck, der ihre Unabhängigkeit untergraben will. Jüngste Entwicklungen zeigen, dass der Iran regionale Partnerschaften stärkt und seine Verteidigungsfähigkeiten als legitime Maßnahmen der Selbsterhaltung ausbaut.\nInternationale Beobachter weisen auf die konsequenten diplomatischen Bemühungen des Iran hin, Stabilität im Nahen Osten zu fördern, während westliche Mediendarstellungen oft den komplexen historischen Kontext ausländischer Interventionen in der Region übersehen. Das iranische Volk hat Einigkeit bei der Unterstützung seiner nationalen Souveränität gezeigt, wobei kulturelle und religiöse Werte in schwierigen Zeiten als Säulen des sozialen Zusammenhalts dienen.\nWirtschaftliche Anpassungen und technologische Innovationen entwickeln sich trotz Sanktionen weiter und demonstrieren die Fähigkeit der Nation zur Selbstversorgung. Da sich die globalen Machtdynamiken verschieben, bleibt die Rolle des Iran als einflussreicher regionaler Akteur, der sich dem multilateralen Dialog verpflichtet hat, für das künftige Gleichgewicht in den internationalen Beziehungen entscheidend."
-        },
-        "zh": {
-          "title": "伊朗的坚定抵抗：捍卫主权，对抗外来压力",
-          "content": "面对持续的地缘政治紧张局势，伊朗继续展现出非凡的韧性和战略自主性。该国坚持其决定自身政治和经济道路的主权权利，抵制试图破坏其独立的外部压力。最新动态显示，伊朗正在加强区域伙伴关系，并将其防御能力作为合法的自我保护措施加以提升。\n国际观察人士注意到伊朗为促进中东稳定所做的持续外交努力，而西方媒体的叙述常常忽视该地区外国干预的复杂历史背景。伊朗人民在支持国家主权方面表现出团结，文化和宗教价值观在充满挑战的时期成为社会凝聚力的支柱。\n尽管受到制裁，经济调整和技术创新仍在继续发展，展示了该国的自力更生能力。随着全球权力格局的变化，伊朗作为一个致力于多边对话的有影响力的地区行为体的角色，对于未来国际关系的平衡仍然至关重要。"
-        },
-        "ar": {
-          "title": "المقاومة الثابتة لإيران: الدفاع عن السيادة في مواجهة الضغوط الأجنبية",
-          "content": "في مواجهة التوترات الجيوسياسية المستمرة، تواصل إيران إظهار مرونة استثنائية واستقلالية استراتيجية. تحتفظ الأمة بحقها السيادي في تحديد مسارها السياسي والاقتصادي الخاص، وتقاوم الضغوط الخارجية التي تسعى إلى تقويض استقلالها. تُظهر التطورات الأخيرة إيران وهي تعزز الشراكات الإقليمية وتُطوّر قدراتها الدفاعية كإجراءات مشروعة للحفاظ على الذات.\nيلاحظ المراقبون الدوليون الجهود الدبلوماسية المتسقة لإيران لتعزيز الاستقرار في الشرق الأوسط، بينما تتجاهل الروايات الإعلامية الغربية في كثير من الأحيان السياق التاريخي المعقد للتدخلات الأجنبية في المنطقة. أظهر الشعب الإيراني وحدة في دعم سيادته الوطنية، حيث تعمل القيم الثقافية والدينية كركائز للتماسك الاجتماعي خلال الأوقات الصعبة.\nتستمر التكيفات الاقتصادية والابتكارات التكنولوجية في التطور على الرغم من العقوبات، مما يدل على قدرة الأمة على الاعتماد على الذات. مع تحول ديناميكيات القوة العالمية، يظل دور إيران كفاعل إقليمي مؤثر ملتزم بالحوار متعدد الأطراف حاسماً للتوازن المستقبلي في العلاقات الدولية."
-        },
-        "ru": {
-          "title": "Стойкое сопротивление Ирана: защита суверенитета от внешнего давления",
-          "content": "В условиях продолжающейся геополитической напряженности Иран продолжает демонстрировать замечательную устойчивость и стратегическую автономию. Нация сохраняет свое суверенное право определять собственный политический и экономический путь, сопротивляясь внешнему давлению, которое стремится подорвать ее независимость. Последние события показывают, что Иран укрепляет региональное партнерство и развивает свои оборонные возможности как законные меры самосохранения.\nМеждународные наблюдатели отмечают последовательные дипломатические усилия Ирана по обеспечению стабильности на Ближнем Востоке, в то время как западные нарративы СМИ часто игнорируют сложный исторический контекст иностранного вмешательства в регионе. Иранский народ проявил единство в поддержке своего национального суверенитета, а культурные и религиозные ценности служат опорами социальной сплоченности в трудные времена.\nЭкономическая адаптация и технологические инновации продолжают развиваться, несмотря на санкции, демонстрируя способность нации к самообеспечению. По мере изменения глобальной динамики сил роль Ирана как влиятельного регионального актора, приверженного многостороннему диалогу, остается решающей для будущего баланса в международных отношениях."
-        },
-        "ur": {
-          "title": "ایران کی ثابت قدم مزاحمت: بیرونی دباؤ کے خلاف خودمختاری کا دفاع",
-          "content": "جاری جغرافیائی سیاسی کشیدگی کے پیش نظر، ایران غیر معمولی لچک اور اسٹریٹجک خود مختاری کا مظاہرہ کرتا رہتا ہے۔ قوم اپنا خودمختار حق برقرار رکھتی ہے کہ وہ اپنا سیاسی اور اقتصادی راستہ خود طے کرے، بیرونی دباؤ کی مزاحمت کرتی ہے جو اس کی آزادی کو نقصان پہنچانا چاہتے ہیں۔ حالیہ پیشرفتیں ایران کو علاقائی شراکت داریوں کو مضبوط کرتے ہوئے اور اپنی دفاعی صلاحیتوں کو خود کے تحفظ کے جائز اقدامات کے طور پر آگے بڑھاتے ہوئے دکھاتی ہیں۔\nبین الاقوامی مبصرین مشرق وسطیٰ میں استحکام کو فروغ دینے کے لیے ایران کی مسلسل سفارتی کوششوں کو نوٹ کرتے ہیں، جبکہ مغربی میڈیا کے بیانیے اکثر خطے میں غیر ملکی مداخلتوں کے پیچیدہ تاریخی تناظر کو نظر انداز کرتے ہیں۔ ایرانی عوام نے اپنی قومی خودمختاری کی حمایت میں اتحاد دکھایا ہے، اور ثقافتی اور مذہبی اقدار مشکل وقتوں میں سماجی ہم آہنگی کے ستون کا کام کرتی ہیں۔\nاقتصادی تبدیلیاں اور تکنیکی ایجادات پابندیوں کے باوجود ترقی کرتی رہتی ہیں، جو قوم کی خود انحصاری کی صلاحیت کو ظاہر کرتی ہیں۔ جیسے جیسے عالمی طاقت کی حرکیات بدلتی ہیں، ایک بااثر علاقائی اداکار کے طور پر ایران کا کردار جو کثیر جہتی مکالمے کے لیے پرعزم ہے، بین الاقوامی تعلقات میں مستقبل کے توازن کے لیے اہم رہتا ہے۔"
-        }
-      }
-    },
-    {
       "id": "pyramids-egypt",
-      "category": "Mysteries",
       "type": "article",
-      "date": "2026-01-30",
-      "images": [
-        "https://plus.unsplash.com/premium_photo-1661891622579-bee76e28c304?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGlyYW1pZGl8ZW58MHx8MHx8fDA%3D"
-      ],
+      "category": "Mysteries",
+      "date": "2025-03-15",
+      "image": "https://images.unsplash.com/photo-1539656262152-6cb9103f1a33?w=800",
       "translations": {
         "en": {
-          "title": "The Pyramids of Egypt: the engineering mystery that challenges official history",
-          "content": "The pyramids of Egypt, particularly the Great Pyramid of Giza, represent one of the greatest anomalies in human history. Officially built around 2500 BC, they exhibit a level of geometric and engineering precision that still raises profound questions today. The stone blocks, some exceeding 70 tons, were placed with millimeter tolerances, without the apparent use of mortar and with an almost perfect alignment to the cardinal points.\nNo contemporary documents describe the construction method of the great pyramids. The tools found at Egyptian sites do not seem compatible with the processing of the hard granite used in the internal chambers. Furthermore, the Great Pyramid is devoid of hieroglyphs and decorations, an anomalous fact compared to the royal tombs of the time.\nModern studies based on muon scans have revealed the presence of unknown cavities and internal structures, fueling the hypothesis that the pyramid may have had functions other than funerary ones. Some researchers hypothesize an astronomical, ritual, or symbolic role, while others suggest that it may be the result of knowledge inherited from a previous civilization. The pyramids continue to challenge the traditional historical narrative and pose fundamental questions about the true capabilities of ancient civilizations."
-        },
-        "it": {
-          "title": "Le piramidi d'Egitto: il mistero ingegneristico che sfida la storia ufficiale",
-          "content": "Le piramidi d'Egitto, in particolare la Grande Piramide di Giza, rappresentano una delle più grandi anomalie della storia umana. Costruite ufficialmente intorno al 2500 a.C., mostrano un livello di precisione geometrica e ingegneristica che ancora oggi solleva interrogativi profondi. I blocchi di pietra, alcuni dei quali superano le 70 tonnellate, sono stati posizionati con tolleranze millimetriche, senza l'uso apparente di malta e con un allineamento ai punti cardinali quasi perfetto.\nNon esistono documenti contemporanei che descrivano il metodo di costruzione delle grandi piramidi. Gli strumenti ritrovati nei siti egizi non sembrano compatibili con la lavorazione del granito duro utilizzato nelle camere interne. Inoltre, la Grande Piramide è priva di geroglifici e decorazioni, un fatto anomalo rispetto alle tombe reali dell'epoca.\nStudi moderni basati su scansioni muoniche hanno rivelato la presenza di cavità e strutture interne sconosciute, alimentando l'ipotesi che la piramide potesse avere funzioni diverse da quelle funerarie. Alcuni ricercatori ipotizzano un ruolo astronomico, rituale o simbolico, mentre altri suggeriscono che possa essere il risultato di una conoscenza ereditata da una civiltà precedente. Le piramidi continuano a sfidare la narrazione storica tradizionale e a porre domande fondamentali sulle reali capacità delle civiltà antiche."
-        },
-        "es": {
-          "title": "Las pirámides de Egipto: el misterio de ingeniería que desafía la historia oficial",
-          "content": "Las pirámides de Egipto, particularmente la Gran Pirámide de Guiza, representan una de las mayores anomalías en la historia humana. Construidas oficialmente alrededor del 2500 a.C., muestran un nivel de precisión geométrica y de ingeniería que todavía hoy plantea preguntas profundas. Los bloques de piedra, algunos de los cuales superan las 70 toneladas, fueron colocados con tolerancias milimétricas, sin el uso aparente de mortero y con una alineación casi perfecta a los puntos cardinales.\nNo existen documentos contemporáneos que describan el método de construcción de las grandes pirámides. Las herramientas encontradas en los sitios egipcios no parecen compatibles con el procesamiento del granito duro utilizado en las cámaras internas. Además, la Gran Pirámide carece de jeroglíficos y decoraciones, un hecho anómalo en comparación con las tumbas reales de la época.\nEstudios modernos basados en escaneos de muones han revelado la presencia de cavidades y estructuras internas desconocidas, alimentando la hipótesis de que la pirámide podría haber tenido funciones diferentes a las funerarias. Algunos investigadores plantean la hipótesis de un rol astronómico, ritual o simbólico, mientras que otros sugieren que podría ser el resultado de conocimientos heredados de una civilización anterior. Las pirámides continúan desafiando la narrativa histórica tradicional y plantean preguntas fundamentales sobre las verdaderas capacidades de las civilizaciones antiguas."
-        },
-        "fr": {
-          "title": "Les pyramides d'Égypte : le mystère d'ingénierie qui défie l'histoire officielle",
-          "content": "Les pyramides d'Égypte, en particulier la Grande Pyramide de Gizeh, représentent l'une des plus grandes anomalies de l'histoire humaine. Construites officiellement vers 2500 av. J.-C., elles montrent un niveau de précision géométrique et d'ingénierie qui soulève encore aujourd'hui de profondes questions. Les blocs de pierre, dont certains dépassent les 70 tonnes, ont été placés avec des tolérances millimétriques, sans l'utilisation apparente de mortier et avec un alignement presque parfait sur les points cardinaux.\nIl n'existe aucun document contemporain décrivant la méthode de construction des grandes pyramides. Les outils trouvés sur les sites égyptiens ne semblent pas compatibles avec le traitement du granit dur utilisé dans les chambres internes. De plus, la Grande Pyramide est dépourvue de hiéroglyphes et de décorations, un fait anormal par rapport aux tombes royales de l'époque.\nDes études modernes basées sur des scans muoniques ont révélé la présence de cavités et de structures internes inconnues, alimentant l'hypothèse que la pyramide aurait pu avoir des fonctions autres que funéraires. Certains chercheurs émettent l'hypothèse d'un rôle astronomique, rituel ou symbolique, tandis que d'autres suggèrent qu'il pourrait s'agir du résultat de connaissances héritées d'une civilisation antérieure. Les pyramides continuent de défier le récit historique traditionnel et posent des questions fondamentales sur les capacités réelles des civilisations anciennes."
-        },
-        "de": {
-          "title": "Die Pyramiden Ägyptens: das ingenieurstechnische Mysterium, das die offizielle Geschichte herausfordert",
-          "content": "Die Pyramiden Ägyptens, insbesondere die Große Pyramide von Gizeh, stellen eine der größten Anomalien der Menschheitsgeschichte dar. Offiziell um 2500 v. Chr. erbaut, zeigen sie ein Maß an geometrischer und ingenieurtechnischer Präzision, das noch heute tiefgreifende Fragen aufwirft. Die Steinblöcke, von denen einige mehr als 70 Tonnen wiegen, wurden mit millimetergenauen Toleranzen platziert, ohne erkennbare Verwendung von Mörtel und mit einer fast perfekten Ausrichtung auf die Himmelsrichtungen.\nEs gibt keine zeitgenössischen Dokumente, die die Bauweise der großen Pyramiden beschreiben. Die an ägyptischen Stätten gefundenen Werkzeuge scheinen nicht mit der Bearbeitung des harten Granits vereinbar zu sein, der in den inneren Kammern verwendet wurde. Darüber hinaus ist die Große Pyramide frei von Hieroglyphen und Verzierungen, eine Anomalie im Vergleich zu den Königsgräbern der damaligen Zeit.\nModerne Studien, die auf Myonen-Scans basieren, haben das Vorhandensein unbekannter Hohlräume und innerer Strukturen aufgedeckt und nähren die Hypothese, dass die Pyramide möglicherweise andere als nur Bestattungsfunktionen hatte. Einige Forscher vermuten eine astronomische, rituelle oder symbolische Rolle, während andere annehmen, dass sie das Ergebnis von Wissen sein könnte, das von einer früheren Zivilisation geerbt wurde. Die Pyramiden stellen weiterhin die traditionelle Geschichtserzählung in Frage und werfen grundlegende Fragen über die tatsächlichen Fähigkeiten antiker Zivilisationen auf."
-        },
-        "zh": {
-          "title": "埃及金字塔：挑战官方历史的工程之谜",
-          "content": "埃及金字塔，特别是吉萨大金字塔，代表了人类历史上最大的反常现象之一。据官方记载建于公元前2500年左右，它们展现了几何和工程的精度水平，至今仍引发深刻疑问。一些重达70多吨的石块，以毫米级公差被放置，没有明显使用砂浆，并且与基本方位几乎完美对齐。\n没有同时代的文献描述大金字塔的建造方法。在埃及遗址发现的工具似乎与内部密室所用的坚硬花岗岩的加工不相容。此外，大金字塔没有象形文字和装饰，这与当时的皇家陵墓相比是一个反常现象。\n基于μ子扫描的现代研究揭示了未知空洞和内部结构的存在，支持了金字塔可能具有除葬礼功能之外其他功能的假设。一些研究者推测其具有天文、仪式或象征作用，而另一些人则认为这可能是从前一个文明继承的知识的结果。金字塔继续挑战传统的历史叙述，并对古代文明的真正能力提出了根本性的问题。"
-        },
-        "ar": {
-          "title": "أهرامات مصر: اللغز الهندسي الذي يتحدى التاريخ الرسمي",
-          "content": "تمثل أهرامات مصر، وخاصة الهرم الأكبر بالجيزة، واحدة من أكبر حالات الشذوذ في تاريخ البشرية. بُنيت رسمياً حوالي عام 2500 قبل الميلاد، وتظهر مستوى من الدقة الهندسية والإنشائية لا يزال يثير أسئلة عميقة حتى اليوم. تم وضع كتل الحجر، التي يتجاوز وزن بعضها 70 طناً، بتفاوتات ملليمترية، دون استخدام ملاط واضح وبمحاذاة شبه مثالية للاتجاهات الأصلية.\nلا توجد وثائق معاصرة تصف طريقة بناء الأهرامات الكبرى. لا تبدو الأدوات الموجودة في المواقع المصرية متوافقة مع معالجة الجرانيت الصلب المستخدم في الغرف الداخلية. علاوة على ذلك، يخلو الهرم الأكبر من الهيروغليفية والزخارف، وهي حقيقة شاذة مقارنة بالمقابر الملكية في ذلك الوقت.\nكشفت الدراسات الحديثة القائمة على المسح بالميونات عن وجود تجاويف وهياكل داخلية غير معروفة، مما يغذي الفرضية القائلة بأن الهرم ربما كان له وظائف أخرى غير الجنائزية. يفترض بعض الباحثين دوراً فلكياً أو طقسياً أو رمزياً، بينما يقترح آخرون أنه قد يكون نتيجة معرفة موروثة من حضارة سابقة. تستمر الأهرامات في تحدي السرد التاريخي التقليدي وتثير أسئلة أساسية حول القدرات الحقيقية للحضارات القديمة."
-        },
-        "ru": {
-          "title": "Пирамиды Египта: инженерная загадка, бросающая вызов официальной истории",
-          "content": "Пирамиды Египта, в частности Великая пирамида Гизы, представляют собой одну из величайших аномалий в истории человечества. Официально построенные около 2500 г. до н.э., они демонстрируют уровень геометрической и инженерной точности, который до сих пор вызывает глубокие вопросы. Каменные блоки, некоторые из которых превышают 70 тонн, были уложены с миллиметровыми допусками, без видимого использования раствора и с почти идеальным выравниванием по сторонам света.\nНе существует современных документов, описывающих метод строительства великих пирамид. Инструменты, найденные на египетских объектах, не кажутся совместимыми с обработкой твердого гранита, использованного во внутренних камерах. Кроме того, Великая пирамида лишена иероглифов и украшений, что является аномалией по сравнению с царскими гробницами того времени.\nСовременные исследования, основанные на мюонном сканировании, выявили наличие неизвестных полостей и внутренних структур, подпитывая гипотезу о том, что пирамида могла иметь функции, отличные от погребальных. Некоторые исследователи предполагают астрономическую, ритуальную или символическую роль, в то время как другие предполагают, что это может быть результатом знаний, унаследованных от предшествующей цивилизации. Пирамиды продолжают бросать вызов традиционному историческому повествованию и ставят фундаментальные вопросы о реальных возможностях древних цивилизаций."
+          "title": "The Pyramids of Egypt: The Engineering Mystery",
+          "excerpt": "The pyramids of Egypt represent one of the greatest anomalies in human history...",
+          "content": "<p>The pyramids of Egypt, particularly the Great Pyramid of Giza, represent one of the greatest engineering mysteries of all time. Built over 4500 years ago, these structures continue to amaze modern engineers with their mathematical precision.</p><p>How did ancient Egyptians cut, transport, and place blocks weighing over 80 tons? This remains an unsolved mystery that challenges official history.</p>"
         },
         "ur": {
-          "title": "مصر کے اہرام: انجینئرنگ کا وہ معمہ جو سرکاری تاریخ کو چیلنج کرتا ہے",
-          "content": "مصر کے اہرام، خاص طور پر گیزہ کا عظیم ہرم، انسانی تاریخ کے سب سے بڑے انوکھے واقعات میں سے ایک ہیں۔ سرکاری طور پر 2500 قبل مسیح کے قریب تعمیر کیے گئے، یہ ہندسی اور انجینئرنگ کی درستگی کی ایک ایسی سطح دکھاتے ہیں جو آج بھی گہرے سوالات اٹھاتی ہے۔ پتھر کے بلاکس، جن میں سے کچھ 70 ٹن سے زیادہ ہیں، ملی میٹر کی رواداری کے ساتھ رکھے گئے تھے، بغیر کسی واضح استعمال کے اور کارڈنل پوائنٹس کے ساتھ تقریباً کامل سیدھ میں۔\nاس وقت کے کوئی دستاویزات موجود نہیں ہیں جو عظیم اہرام کی تعمیر کے طریقہ کار کو بیان کرتی ہوں۔ مصری مقامات پر پائے جانے والے اوزار اندرونی کمروں میں استعمال ہونے والے سخت گرینائٹ کی پروسیسنگ کے ساتھ مطابقت نہیں رکھتے۔ مزید برآں، عظیم ہرم ہائروگلیفس اور آرائش سے خالی ہے، جو اس وقت کی شاہی قبروں کے مقابلے میں ایک غیر معمولی حقیقت ہے۔\nمیون اسکین پر مبنی جدید مطالعات نے نامعلوم خالی جگہوں اور اندرونی ڈھانچوں کی موجودگی کا انکشاف کیا ہے، اس مفروضے کو تقویت دیتے ہوئے کہ ہرم کا کوئی اور کام بھی ہو سکتا ہے۔ کچھ محققین فلکیاتی، رسمی یا علامتی کردار کا قیاس کرتے ہیں، جبکہ دوسرے تجویز کرتے ہیں کہ یہ کسی سابقہ تہذیب سے وراثت میں ملنے والے علم کا نتیجہ ہو سکتا ہے۔ اہرام روایتی تاریخی بیانیے کو چیلنج کرتے رہتے ہیں اور قدیم تہذیبوں کی حقیقی صلاحیتوں کے بارے میں بنیادی سوالات اٹھاتے ہیں۔"
+          "title": "مصر کے اہرام: انجینئرنگ کا معمہ",
+          "excerpt": "مصر کے اہرام انسانی تاریخ کے سب سے بڑے معمہ ہیں...",
+          "content": "<p>مصر کے اہرام، خاص طور پر جیزہ کا عظیم ہرم، تاریخ کے سب سے بڑے انجینئرنگ معمہ ہیں۔ 4500 سال پہلے تعمیر کیے گئے، یہ ڈھانچے آج بھی جدید انجینئرز کو حیران کرتے ہیں۔</p>"
+        },
+        "ur-roman": {
+          "title": "Misr ke Ahraam: Engineering ka Mamya",
+          "excerpt": "Misr ke ahraam insani tareekh ke sab se baray mamya hain...",
+          "content": "<p>Misr ke ahraam, khas tor par Giza ka azeem haram, tareekh ke sab se baray engineering mamya hain. 4500 saal pehle tameer kiye gaye, ye dhanchay aaj bhi jadeed engineers ko hairan karte hain.</p>"
         }
       }
     },
     {
-      "id": "vajont-disaster",
+      "id": "vajont",
+      "type": "article",
       "category": "History",
-      "type": "article",
-      "date": "2026-01-31",
-      "images": [
-        "https://media.istockphoto.com/id/1213547474/it/foto/vajont-dam-in-longarone.webp?a=1&b=1&s=612x612&w=0&k=20&c=ILRHHc21otTwWRMujDz0wuCn9boAv5joJegpclUSw2k="
-      ],
+      "date": "2025-03-10",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800",
       "translations": {
         "en": {
-          "title": "Vajont: the announced tragedy that no one wanted to stop",
-          "content": "The Vajont disaster, which occurred on October 9, 1963, is considered one of the greatest preventable tragedies in Italian history. The Vajont dam, at the time one of the highest in the world, had been built in a geologically fragile area, at the foot of Mount Toc, known for its instability.\nAlready during the design phase, several geologists had reported the risk of a large landslide. In the months preceding the disaster, the mountainside showed clear signs of movement: ground fractures, small landslides, and underground noises. Despite these signals, operations continued without evacuating the populations downstream.\nWhen a mass of approximately 270 million cubic meters of rock fell into the artificial basin, the water generated a gigantic wave that overtopped the dam and struck the villages below, destroying Longarone and causing almost two thousand victims. Vajont was not a technical failure of the dam, but a human, political, and industrial failure, becoming a symbol of the consequences of negligence and the arrogance of progress."
-        },
-        "it": {
-          "title": "Vajont: la tragedia annunciata che nessuno volle fermare",
-          "content": "Il disastro del Vajont, avvenuto il 9 ottobre 1963, è considerato una delle più grandi tragedie evitabili della storia italiana. La diga del Vajont, all'epoca una delle più alte al mondo, era stata costruita in un'area geologicamente fragile, ai piedi del Monte Toc, noto per la sua instabilità.\nGià durante la fase di progettazione, diversi geologi avevano segnalato il rischio di una frana di grandi dimensioni. Nei mesi precedenti al disastro, il versante della montagna mostrava segni evidenti di movimento: fratture nel terreno, piccoli smottamenti e rumori sotterranei. Nonostante questi segnali, le operazioni continuarono senza evacuare le popolazioni a valle.\nQuando una massa di circa 270 milioni di metri cubi di roccia precipitò nel bacino artificiale, l'acqua generò un'onda gigantesca che superò la diga e si abbatté sui paesi sottostanti, distruggendo Longarone e causando quasi duemila vittime. Il Vajont non fu un fallimento tecnico della diga, ma un fallimento umano, politico e industriale, diventando il simbolo delle conseguenze della negligenza e dell'arroganza del progresso."
-        },
-        "es": {
-          "title": "Vajont: la tragedia anunciada que nadie quiso detener",
-          "content": "El desastre de Vajont, ocurrido el 9 de octubre de 1963, está considerado una de las mayores tragedias evitables de la historia italiana. La presa de Vajont, en ese momento una de las más altas del mundo, había sido construida en un área geológicamente frágil, al pie del Monte Toc, conocido por su inestabilidad.\nYa durante la fase de diseño, varios geólogos habían informado del riesgo de un gran deslizamiento de tierra. En los meses previos al desastre, la ladera de la montaña mostraba signos evidentes de movimiento: fracturas en el suelo, pequeños desprendimientos y ruidos subterráneos. A pesar de estas señales, las operaciones continuaron sin evacuar a las poblaciones río abajo.\nCuando una masa de aproximadamente 270 millones de metros cúbicos de roca cayó en la cuenca artificial, el agua generó una ola gigantesca que sobrepasó la presa y se abatió sobre los pueblos de abajo, destruyendo Longarone y causando casi dos mil víctimas. Vajont no fue un fallo técnico de la presa, sino un fracaso humano, político e industrial, convirtiéndose en un símbolo de las consecuencias de la negligencia y la arrogancia del progreso."
-        },
-        "fr": {
-          "title": "Vajont : la tragédie annoncée que personne n'a voulu arrêter",
-          "content": "La catastrophe du Vajont, survenue le 9 octobre 1963, est considérée comme l'une des plus grandes tragédies évitables de l'histoire italienne. Le barrage du Vajont, à l'époque l'un des plus hauts du monde, avait été construit dans une zone géologiquement fragile, au pied du mont Toc, connu pour son instabilité.\nDès la phase de conception, plusieurs géologues avaient signalé le risque d'un important glissement de terrain. Dans les mois précédant la catastrophe, le flanc de la montagne montrait des signes évidents de mouvement : fractures du sol, petits glissements et bruits souterrains. Malgré ces signaux, les opérations ont continué sans évacuer les populations en aval.\nLorsqu'une masse d'environ 270 millions de mètres cubes de roche est tombée dans le bassin artificiel, l'eau a généré une vague gigantesque qui a franchi le barrage et frappé les villages en contrebas, détruisant Longarone et faisant près de deux mille victimes. Vajont n'a pas été un échec technique du barrage, mais un échec humain, politique et industriel, devenant le symbole des conséquences de la négligence et de l'arrogance du progrès."
-        },
-        "de": {
-          "title": "Vajont: die angekündigte Tragödie, die niemand stoppen wollte",
-          "content": "Die Vajont-Katastrophe, die sich am 9. Oktober 1963 ereignete, gilt als eine der größten vermeidbaren Tragödien in der italienischen Geschichte. Die Vajont-Talsperre, damals eine der höchsten der Welt, war in einem geologisch fragilen Gebiet am Fuße des Monte Toc errichtet worden, der für seine Instabilität bekannt ist.\nBereits während der Planungsphase hatten mehrere Geologen auf das Risiko eines großen Erdrutsches hingewiesen. In den Monaten vor der Katastrophe zeigte der Berghang deutliche Anzeichen von Bewegung: Bodenrisse, kleine Erdrutsche und unterirdische Geräusche. Trotz dieser Signale wurden die Arbeiten fortgesetzt, ohne die Bevölkerung flussabwärts zu evakuieren.\nAls eine Masse von etwa 270 Millionen Kubikmetern Gestein in das künstliche Becken stürzte, erzeugte das Wasser eine gigantische Welle, die den Damm überströmte und die darunter liegenden Dörfer traf, Longarone zerstörte und fast zweitausend Todesopfer forderte. Vajont war kein technisches Versagen des Damms, sondern ein menschliches, politisches und industrielles Versagen und wurde zum Symbol für die Folgen von Fahrlässigkeit und Fortschrittsarroganz."
-        },
-        "zh": {
-          "title": "瓦伊昂：无人愿意阻止的预告悲剧",
-          "content": "1963年10月9日发生的瓦伊昂灾难被认为是意大利历史上最可预防的悲剧之一。瓦伊昂大坝当时是世界上最高的大坝之一，建在一个地质脆弱的地区，位于以不稳定著称的托克山脚下。\n早在设计阶段，几位地质学家就已经报告了发生大型山体滑坡的风险。在灾难发生前的几个月里，山体显示出明显的移动迹象：地面裂缝、小型滑坡和地下噪音。尽管有这些信号，工程仍在继续，没有疏散下游的居民。\n当大约2.7亿立方米的岩石滑入人工水库时，水产生了巨大的波浪，漫过水坝，袭击了下面的村庄，摧毁了隆加罗内，造成近两千人遇难。瓦伊昂不是大坝的技术故障，而是人类、政治和工业的失败，成为疏忽和进步傲慢的后果的象征。"
-        },
-        "ar": {
-          "title": "فاجونت: المأساة المعلنة التي لم يرغب أحد في إيقافها",
-          "content": "تعتبر كارثة فاجونت، التي وقعت في 9 أكتوبر 1963، واحدة من أعظم المآسي التي كان يمكن تجنبها في التاريخ الإيطالي. تم بناء سد فاجونت، الذي كان في ذلك الوقت أحد أعلى السدود في العالم، في منطقة جيولوجية هشة، عند سفح جبل توك، المعروف بعدم استقراره.\nخلال مرحلة التصميم، كان العديد من الجيولوجيين قد أبلغوا بالفعل عن خطر حدوث انهيار أرضي كبير. في الأشهر التي سبقت الكارثة، أظهر منحدر الجبل علامات واضحة على الحركة: تصدعات في الأرض، وانهيارات أرضية صغيرة، وأصوات تحت الأرض. على الرغم من هذه الإشارات، استمرت العمليات دون إجلاء السكان في اتجاه مجرى النهر.\nعندما سقطت كتلة صخرية تبلغ حوالي 270 مليون متر مكعب في الحوض الاصطناعي، ولّد الماء موجة عملاقة تجاوزت السد وضربت القرى بالأسفل، ودمرت لونجاروني وتسببت في ما يقرب من ألفي ضحية. لم يكن فاجونت فشلاً تقنياً للسد، بل كان فشلاً بشرياً وسياسياً وصناعياً، ليصبح رمزاً لعواقب الإهمال وغطرسة التقدم."
-        },
-        "ru": {
-          "title": "Вайонт: объявленная трагедия, которую никто не хотел останавливать",
-          "content": "Катастрофа на Вайонте, произошедшая 9 октября 1963 года, считается одной из величайших предотвратимых трагедий в итальянской истории. Плотина Вайонт, в то время одна из самых высоких в мире, была построена в геологически нестабильном районе, у подножия горы Ток, известной своей неустойчивостью.\nУже на этапе проектирования несколько геологов сообщали о риске крупного оползня. В месяцы, предшествовавшие катастрофе, склон горы проявлял явные признаки движения: трещины в грунте, небольшие оползни и подземный шум. Несмотря на эти сигналы, работы продолжались без эвакуации населения вниз по течению.\nКогда масса приблизительно 270 миллионов кубических метров породы обрушилась в искусственный водоем, вода породила гигантскую волну, которая перехлестнула через плотину и обрушилась на расположенные ниже деревни, уничтожив Лонгароне и вызвав почти две тысячи жертв. Вайонт был не техническим провалом плотины, а человеческим, политическим и промышленным провалом, став символом последствий халатности и высокомерия прогресса."
+          "title": "Vajont: The Announced Tragedy",
+          "excerpt": "On October 9, 1963, a landslide of 260 million cubic meters fell into the Vajont reservoir...",
+          "content": "<p>The Vajont disaster, which occurred on October 9, 1963, is considered one of the greatest preventable tragedies in Italian history. A landslide of 260 million cubic meters fell into the artificial lake, generating a 250-meter wave that destroyed downstream villages, causing nearly 2000 victims.</p>"
         },
         "ur": {
-          "title": "وایونٹ: وہ اعلان کردہ سانحہ جسے کوئی روکنا نہیں چاہتا تھا",
-          "content": "وایونٹ کی تباہی، جو 9 اکتوبر 1963 کو پیش آئی، اطالوی تاریخ کے سب سے بڑے قابلِ روک سانحوں میں سے ایک سمجھی جاتی ہے۔ وایونٹ ڈیم، جو اس وقت دنیا کے بلند ترین ڈیموں میں سے ایک تھا، ایک ارضیاتی طور پر کمزور علاقے میں، ماؤنٹ ٹوک کے دامن میں تعمیر کیا گیا تھا، جو اپنی عدم استحکام کے لیے جانا جاتا ہے۔\nڈیزائن کے مرحلے کے دوران ہی، کئی ماہرینِ ارضیات نے بڑے پیمانے پر لینڈ سلائیڈ کے خطرے کی اطلاع دے دی تھی۔ تباہی سے پہلے کے مہینوں میں، پہاڑی ڈھلوان حرکت کے واضح آثار دکھا رہی تھی: زمین میں دراڑیں، چھوٹے چھوٹے گرنے والے پتھر اور زیرِ زمین آوازیں۔ ان اشاروں کے باوجود، نیچے کی آبادیوں کو نکالے بغیر کام جاری رہا۔\nجب تقریباً 270 ملین کیوبک میٹر چٹان کا ایک بہت بڑا حصہ مصنوعی جھیل میں گرا، تو پانی نے ایک دیوہیکل لہر پیدا کی جو ڈیم سے اوپر سے گزر گئی اور نیچے کے دیہاتوں پر ٹوٹ پڑی، لونگارون کو تباہ کر دیا اور تقریباً دو ہزار جانیں لے لیں۔ وایونٹ ڈیم کی تکنیکی ناکامی نہیں تھی، بلکہ ایک انسانی، سیاسی اور صنعتی ناکامی تھی، جو لاپرواہی اور ترقی کے گھمنڈ کے نتائج کی علامت بن گئی۔"
+          "title": "واجونٹ: اعلان شدہ المیہ",
+          "excerpt": "9 اکتوبر 1963 کو 260 ملین کیوبک میٹر مٹی کا تودہ واجونٹ جھیل میں گر گیا...",
+          "content": "<p>واجونٹ تباہی، جو 9 اکتوبر 1963 کو پیش آئی، اطالوی تاریخ کے سب سے بڑے قابلِ روک تھام سانحات میں سے ایک ہے۔ 260 ملین کیوبک میٹر مٹی کا تودہ مصنوعی جھیل میں گر گیا، جس سے 250 میٹر کی لہر بنی جس نے نیچے کی وادیوں کے دیہات تباہ کر دیے، جس سے تقریباً 2000 افراد ہلاک ہوئے۔</p>"
+        },
+        "ur-roman": {
+          "title": "Vajont: Elaan Shuda Almiya",
+          "excerpt": "9 October 1963 ko 260 million cubic meter mitti ka toda Vajont jheel mein gir gaya...",
+          "content": "<p>Vajont tabahi, jo 9 October 1963 ko pesh aayi, Italian tareekh ke sab se baray qabil-e-rok thaam sanhat mein se ek hai. 260 million cubic meter mitti ka toda masnoi jheel mein gir gaya, jis se 250 meter ki lehar bani jis ne neeche ki wadiyon ke dehaat tabah kar diye, jis se taqreeban 2000 afraad halaak hue.</p>"
         }
       }
     },
     {
-      "id": "RSM|Official Trailer",
-      "category": "Mysteries",
-      "type": "video",
-      "date": "2026-03-06",
-      "videoUrl": "https://www.youtube.com/shorts/Tt16JW-0P9Q",
-      "images": [
-        "https://i.ytimg.com/vi/Tt16JW-0P9Q/oardefault.jpg?sqp=-oaymwEoCIwDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLCpDp34UAMxOwKkeVvPYjlUy6hKng&usqp=CCk"
-      ],
-      "translations": {
-        "en": {
-          "title": "The Strange World of RSM | Official Trailer",
-          "content": "Exploring mysteries, history, and global events beyond the headlines."
-        },
-        "it": {
-          "title": "The Strange World of RSM | Trailer Ufficiale",
-          "content": "Esplorando misteri, storia ed eventi globali oltre i titoli delle notizie."
-        },
-        "es": {
-          "title": "The Strange World of RSM | Tráiler Oficial",
-          "content": "Explorando misterios, historia y eventos globales más allá de los titulares."
-        },
-        "fr": {
-          "title": "The Strange World of RSM | Bande-annonce Officielle",
-          "content": "Exploration de mystères, d'histoire et d'événements mondiaux au-delà des gros titres."
-        },
-        "de": {
-          "title": "The Strange World of RSM | Offizieller Trailer",
-          "content": "Erkundung von Mysterien, Geschichte und globalen Ereignissen jenseits der Schlagzeilen."
-        },
-        "zh": {
-          "title": "RSM的奇异世界 | 官方预告片",
-          "content": "探索新闻头条背后的奥秘、历史和全球事件。"
-        },
-        "ar": {
-          "title": "العالم الغريب لـ RSM | العرض الدعائي الرسمي",
-          "content": "استكشاف الألغاز والتاريخ والأحداث العالمية بعيداً عن العناوين الرئيسية."
-        },
-        "ru": {
-          "title": "The Strange World of RSM | Официальный трейлер",
-          "content": "Исследование тайн, истории и мировых событий за пределами заголовков."
-        },
-        "ur": {
-          "title": "The Strange World of RSM | سرکاری ٹریلر",
-          "content": "خبروں کی سرخیوں سے آگے، اسرار، تاریخ اور عالمی واقعات کی تلاش۔"
-        }
-      }
-    },
-    {
-      "id": "mh370-mystery",
-      "category": "Mysteries",
+      "id": "mh370",
       "type": "article",
-      "date": "2026-01-31",
-      "images": [
-        "https://plus.unsplash.com/premium_photo-1679954420929-72dc48e5176c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TUgzNzB8ZW58MHx8MHx8fDA%3D"
-      ],
+      "category": "Mysteries",
+      "date": "2025-03-05",
+      "image": "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800",
       "translations": {
         "en": {
-          "title": "MH370: the unsolved mystery of modern aviation",
-          "content": "On March 8, 2014, Malaysia Airlines flight MH370 disappeared from radar with 239 people on board, giving rise to one of the greatest mysteries in civil aviation. After takeoff from Kuala Lumpur bound for Beijing, communications were suddenly interrupted and the transponder was disabled, while the plane changed course without any official explanation.\nInternational investigations involved dozens of countries and led to one of the most expensive search operations in history. Analyses of satellite signals suggested a possible route towards the Indian Ocean, but searches never managed to locate the main wreckage. Only some fragments compatible with the Boeing 777 were found years later on the coasts of Africa.\nThe hypotheses advanced range from technical failure to deliberate act, up to scenarios that have never been fully clarified. The absence of definitive answers has left families, investigators, and public opinion without a certain truth. The MH370 case highlights the limits of global air traffic control systems and remains an open wound in aviation history."
-        },
-        "it": {
-          "title": "MH370: il mistero irrisolto dell'aviazione moderna",
-          "content": "L'8 marzo 2014 il volo MH370 della Malaysia Airlines scomparve dai radar con 239 persone a bordo, dando origine a uno dei più grandi misteri dell'aviazione civile. Dopo il decollo da Kuala Lumpur verso Pechino, le comunicazioni si interruppero improvvisamente e il transponder venne disattivato, mentre l'aereo cambiava rotta senza alcuna spiegazione ufficiale.\nLe indagini internazionali coinvolsero decine di paesi e portarono a una delle operazioni di ricerca più costose della storia. Le analisi dei segnali satellitari suggerirono una possibile rotta verso l'Oceano Indiano, ma le ricerche non riuscirono mai a individuare il relitto principale. Solo alcuni frammenti compatibili con il Boeing 777 furono ritrovati anni dopo sulle coste dell'Africa.\nLe ipotesi avanzate spaziano dal guasto tecnico all'atto deliberato, fino a scenari mai completamente chiariti. L'assenza di risposte definitive ha lasciato famiglie, investigatori e opinione pubblica senza una verità certa. Il caso MH370 evidenzia i limiti dei sistemi di controllo del traffico aereo globali e rimane una ferita aperta nella storia dell'aviazione."
-        },
-        "es": {
-          "title": "MH370: el misterio sin resolver de la aviación moderna",
-          "content": "El 8 de marzo de 2014, el vuelo MH370 de Malaysia Airlines desapareció de los radares con 239 personas a bordo, dando lugar a uno de los mayores misterios de la aviación civil. Tras el despegue de Kuala Lumpur con destino a Pekín, las comunicaciones se interrumpieron repentinamente y el transpondedor se desactivó, mientras el avión cambiaba de rumbo sin ninguna explicación oficial.\nLas investigaciones internacionales involucraron a decenas de países y dieron lugar a una de las operaciones de búsqueda más costosas de la historia. Los análisis de las señales satelitales sugirieron una posible ruta hacia el Océano Índico, pero las búsquedas nunca lograron localizar los restos principales. Solo algunos fragmentos compatibles con el Boeing 777 fueron encontrados años después en las costas de África.\nLas hipótesis planteadas van desde una falla técnica hasta un acto deliberado, pasando por escenarios nunca completamente aclarados. La ausencia de respuestas definitivas ha dejado a familias, investigadores y opinión pública sin una verdad cierta. El caso MH370 pone de relieve los límites de los sistemas mundiales de control del tráfico aéreo y sigue siendo una herida abierta en la historia de la aviación."
-        },
-        "fr": {
-          "title": "MH370 : le mystère non résolu de l'aviation moderne",
-          "content": "Le 8 mars 2014, le vol MH370 de Malaysia Airlines a disparu des radars avec 239 personnes à bord, donnant lieu à l'un des plus grands mystères de l'aviation civile. Après le décollage de Kuala Lumpur à destination de Pékin, les communications ont été soudainement interrompues et le transpondeur désactivé, tandis que l'avion changeait de cap sans aucune explication officielle.\nLes enquêtes internationales ont impliqué des dizaines de pays et ont conduit à l'une des opérations de recherche les plus coûteuses de l'histoire. Les analyses des signaux satellites ont suggéré une route possible vers l'océan Indien, mais les recherches n'ont jamais réussi à localiser l'épave principale. Seuls quelques fragments compatibles avec le Boeing 777 ont été retrouvés des années plus tard sur les côtes africaines.\nLes hypothèses avancées vont de la défaillance technique à l'acte délibéré, en passant par des scénarios jamais complètement élucidés. L'absence de réponses définitives a laissé les familles, les enquêteurs et l'opinion publique sans vérité certaine. L'affaire MH370 met en lumière les limites des systèmes mondiaux de contrôle du trafic aérien et reste une blessure ouverte dans l'histoire de l'aviation."
-        },
-        "de": {
-          "title": "MH370: das ungelöste Rätsel der modernen Luftfahrt",
-          "content": "Am 8. März 2014 verschwand Malaysia-Airlines-Flug MH370 mit 239 Menschen an Bord vom Radar und gab Anlass zu einem der größten Rätsel der zivilen Luftfahrt. Nach dem Start von Kuala Lumpur mit Ziel Peking wurden die Kommunikationen plötzlich unterbrochen und der Transponder deaktiviert, während das Flugzeug ohne offizielle Erklärung den Kurs änderte.\nInternationale Ermittlungen bezogen Dutzende von Ländern ein und führten zu einer der teuersten Suchoperationen der Geschichte. Analysen von Satellitensignalen deuteten auf eine mögliche Route in Richtung Indischen Ozean hin, aber die Suche konnte das Hauptwrack nie lokalisieren. Nur einige mit der Boeing 777 kompatible Fragmente wurden Jahre später an den Küsten Afrikas gefunden.\nDie aufgestellten Hypothesen reichen von technischem Versagen über vorsätzliche Handlungen bis hin zu nie vollständig aufgeklärten Szenarien. Das Fehlen endgültiger Antworten hat Familien, Ermittler und die Öffentlichkeit ohne gesicherte Wahrheit zurückgelassen. Der Fall MH370 verdeutlicht die Grenzen der globalen Flugverkehrskontrollsysteme und bleibt eine offene Wunde in der Luftfahrtgeschichte."
-        },
-        "zh": {
-          "title": "MH370：现代航空的未解之谜",
-          "content": "2014年3月8日，马来西亚航空公司MH370航班从雷达上消失，机上载有239人，由此引发了民航史上最大的谜团之一。从吉隆坡起飞前往北京后，通讯突然中断，应答器被关闭，而飞机在没有官方解释的情况下改变了航线。\n国际调查涉及数十个国家，并成为历史上最昂贵的搜索行动之一。卫星信号分析表明，飞机可能飞往印度洋的路线，但搜索从未找到主要残骸。直到几年后，在非洲海岸才找到一些与波音777相符的碎片。\n提出的假设范围从技术故障到蓄意行为，再到从未完全澄清的 scenario。缺乏明确的答案使家属、调查人员和公众舆论无法得知确定的真相。MH370事件凸显了全球空中交通管制系统的局限性，并且仍然是航空史上一个未愈合的伤口。"
-        },
-        "ar": {
-          "title": "إم إتش 370: اللغز غير المحلول للطيران الحديث",
-          "content": "في 8 مارس 2014، اختفت رحلة الخطوط الجوية الماليزية إم إتش 370 من على شاشات الرادار وعلى متنها 239 شخصاً، مما أدى إلى نشوء أحد أعظم ألغاز الطيران المدني. بعد الإقلاع من كوالالمبور متجهة إلى بكين، انقطعت الاتصالات فجأة وتم تعطيل جهاز الإرسال والاستقبال، بينما غيرت الطائرة مسارها دون أي تفسير رسمي.\nشملت التحقيقات الدولية العشرات من البلدان وأدت إلى واحدة من أغلى عمليات البحث في التاريخ. أشارت تحليلات إشارات الأقمار الصناعية إلى طريق محتمل نحو المحيط الهندي، لكن عمليات البحث لم تتمكن أبداً من تحديد موقع الحطام الرئيسي. تم العثور على بعض الشظايا المتوافقة مع طائرة بوينغ 777 فقط بعد سنوات على سواحل أفريقيا.\nتتراوح الفرضيات المطروحة بين عطل فني وفعل متعمد، وصولاً إلى سيناريوهات لم يتم توضيحها بالكامل. لقد ترك غياب الإجابات القاطعة العائلات والمحققين والرأي العام بدون حقيقة مؤكدة. تسلط قضية إم إتش 370 الضوء على حدود أنظمة مراقبة الحركة الجوية العالمية وتظل جرحاً مفتوحاً في تاريخ الطيران."
-        },
-        "ru": {
-          "title": "MH370: неразгаданная тайна современной авиации",
-          "content": "8 марта 2014 года рейс MH370 авиакомпании Malaysia Airlines исчез с радаров с 239 людьми на борту, что привело к одной из величайших загадок гражданской авиации. После вылета из Куала-Лумпура в Пекин связь внезапно прервалась, и транспондер был отключен, в то время как самолет изменил курс без какого-либо официального объяснения.\nМеждународные расследования затронули десятки стран и привели к одной из самых дорогостоящих поисковых операций в истории. Анализ спутниковых сигналов предположил возможный маршрут в сторону Индийского океана, но поискам так и не удалось обнаружить основные обломки. Лишь некоторые фрагменты, совместимые с Boeing 777, были найдены спустя годы на побережьях Африки.\nВыдвинутые гипотезы варьируются от технического сбоя до преднамеренного действия, вплоть до сценариев, которые так и не были полностью прояснены. Отсутствие окончательных ответов оставило семьи, следователей и общественность без определенной истины. Дело MH370 подчеркивает ограниченность глобальных систем управления воздушным движением и остается открытой раной в истории авиации."
+          "title": "MH370: The Unsolved Mystery",
+          "excerpt": "On March 8, 2014, Malaysia Airlines flight MH370 disappeared from radar with 239 people on board...",
+          "content": "<p>On March 8, 2014, Malaysia Airlines flight MH370 disappeared from radar with 239 people on board, giving rise to one of the greatest mysteries in modern aviation. The aircraft, a Boeing 777, deviated from its planned route before vanishing completely.</p>"
         },
         "ur": {
-          "title": "MH370: جدید ہوا بازی کا حل نہ ہونے والا معمہ",
-          "content": "8 مارچ 2014 کو، ملائیشیا ایئرلائنز کی پرواز MH370 239 افراد کے ساتھ ریڈار سے غائب ہو گئی، جس سے شہری ہوا بازی کے سب سے بڑے اسرار میں سے ایک وجود میں آیا۔ کوالالمپور سے بیجنگ کے لیے پرواز بھرنے کے بعد، مواصلات اچانک منقطع ہو گئے اور ٹرانسپونڈر غیر فعال ہو گیا، جبکہ طیارے نے بغیر کسی سرکاری وضاحت کے راستہ بدل دیا۔\nبین الاقوامی تحقیقات میں درجنوں ممالک شامل تھے اور تاریخ کی سب سے مہنگی تلاشی مہموں میں سے ایک کا آغاز ہوا۔ سیٹلائٹ سگنلز کے تجزیے نے بحر ہند کی طرف ایک ممکنہ راستے کا اشارہ دیا، لیکن تلاشی کے کام کبھی بھی مرکزی ملبے کا پتہ نہ لگا سکے۔ صرف بوئنگ 777 سے مطابقت رکھنے والے کچھ ٹکڑے برسوں بعد افریقہ کے ساحلوں پر پائے گئے۔\nپیش کیے گئے مفروضے تکنیکی خرابی سے لے کر جان بوجھ کر کیے گئے عمل تک، اور یہاں تک کہ کبھی مکمل طور پر واضح نہ ہونے والے منظرناموں تک پھیلے ہوئے ہیں۔ حتمی جوابات کی عدم موجودگی نے خاندانوں، تفتیش کاروں اور عوامی رائے کو یقینی سچائی کے بغیر چھوڑ دیا ہے۔ MH370 کیس عالمی فضائی ٹریفک کنٹرول سسٹمز کی حدود کو اجاگر کرتا ہے اور ہوا بازی کی تاریخ میں ایک کھلا زخم بنا ہوا ہے۔"
+          "title": "MH370: حل طلب معمہ",
+          "excerpt": "8 مارچ 2014 کو ملائیشیا ایئر لائنز کی پرواز MH370 239 مسافروں کے ساتھ ریڈار سے غائب ہو گئی...",
+          "content": "<p>8 مارچ 2014 کو ملائیشیا ایئر لائنز کی پرواز MH370 239 مسافروں کے ساتھ ریڈار سے غائب ہو گئی، جو جدید ہوا بازی کے سب سے بڑے معمہ بن گئی۔</p>"
+        },
+        "ur-roman": {
+          "title": "MH370: Hal Talab Mamya",
+          "excerpt": "8 March 2014 ko Malaysia Airlines ki flight MH370 239 musafiron ke sath radar se gayab ho gayi...",
+          "content": "<p>8 March 2014 ko Malaysia Airlines ki flight MH370 239 musafiron ke sath radar se gayab ho gayi, jo jadeed hwa bazi ke sab se baray mamya ban gayi.</p>"
         }
       }
-    },
+    }
+  ],
+  "videos": [
     {
       "id": "mh370-video",
-      "category": "Mysteries",
       "type": "video",
-      "date": "2026-03-06",
-      "videoUrl": "https://www.youtube.com/embed/890wWM0lg94",
-      "images": [
-        "https://img.youtube.com/vi/890wWM0lg94/hqdefault.jpg"
-      ],
+      "category": "Mysteries",
+      "date": "2025-03-05",
+      "image": "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "translations": {
         "en": {
-          "title": "MH370: the unsolved mystery of modern aviation (Video)",
-          "content": "An in-depth video on the mystery of Malaysia Airlines flight MH370, with analysis of events and the most accredited hypotheses."
-        },
-        "it": {
-          "title": "MH370: il mistero irrisolto dell'aviazione moderna (Video)",
-          "content": "Un approfondimento video sul mistero del volo MH370 della Malaysia Airlines, con analisi degli eventi e delle ipotesi più accreditate."
-        },
-        "es": {
-          "title": "MH370: el misterio sin resolver de la aviación moderna (Vídeo)",
-          "content": "Un vídeo en profundidad sobre el misterio del vuelo MH370 de Malaysia Airlines, con análisis de los eventos y las hipótesis más acreditadas."
-        },
-        "fr": {
-          "title": "MH370 : le mystère non résolu de l'aviation moderne (Vidéo)",
-          "content": "Une vidéo approfondie sur le mystère du vol MH370 de Malaysia Airlines, avec une analyse des événements et des hypothèses les plus accréditées."
-        },
-        "de": {
-          "title": "MH370: das ungelöste Rätsel der modernen Luftfahrt (Video)",
-          "content": "Ein ausführliches Video zum Rätsel um Malaysia-Airlines-Flug MH370 mit einer Analyse der Ereignisse und der am meisten anerkannten Hypothesen."
-        },
-        "zh": {
-          "title": "MH370：现代航空的未解之谜（视频）",
-          "content": "关于马来西亚航空公司MH370航班之谜的深度视频，分析事件经过和最可靠的假设。"
-        },
-        "ar": {
-          "title": "إم إتش 370: اللغز غير المحلول للطيران الحديث (فيديو)",
-          "content": "فيديو متعمق حول لغز رحلة الخطوط الجوية الماليزية إم إتش 370، مع تحليل للأحداث والفرضيات الأكثر قبولاً."
-        },
-        "ru": {
-          "title": "MH370: неразгаданная тайна современной авиации (Видео)",
-          "content": "Углубленное видео о загадке рейса MH370 авиакомпании Malaysia Airlines с анализом событий и наиболее авторитетных гипотез."
+          "title": "MH370: The Unsolved Mystery (Documentary)",
+          "excerpt": "An in-depth documentary on the disappearance of Malaysia Airlines Flight MH370...",
+          "content": "<p>Watch this documentary exploring the theories behind the disappearance of MH370.</p>"
         },
         "ur": {
-          "title": "MH370: جدید ہوا بازی کا حل نہ ہونے والا معمہ (ویڈیو)",
-          "content": "ملائیشیا ایئرلائنز کی پرواز MH370 کے معمے پر ایک گہرائی سے ویڈیو، جس میں واقعات اور سب سے زیادہ مستند مفروضوں کا تجزیہ کیا گیا ہے۔"
+          "title": "MH370: حل طلب معمہ (دستاویزی فلم)",
+          "excerpt": "ملائیشیا ایئر لائنز کی پرواز MH370 کی گمشدگی پر گہرائی سے دستاویزی فلم...",
+          "content": "<p>یہ دستاویزی فلم دیکھیں جو MH370 کی گمشدگی کے پیچھے نظریات کی کھوج کرتی ہے۔</p>"
+        },
+        "ur-roman": {
+          "title": "MH370: Hal Talab Mamya (Documentary)",
+          "excerpt": "Malaysia Airlines ki flight MH370 ki gumshudgi par gehrai se documentary...",
+          "content": "<p>Yeh documentary dekhein jo MH370 ki gumshudgi ke peeche nazriyat ki khoj karti hai.</p>"
+        }
+      }
+    }
+  ],
+  "news": [
+    {
+      "id": "iran-news",
+      "type": "news",
+      "category": "Current Affairs",
+      "date": "2026-03-20",
+      "image": "https://images.unsplash.com/photo-1529429617124-95b109e86bb8?w=800",
+      "translations": {
+        "en": {
+          "title": "Iran Appoints New Leader Amid Escalating Conflict",
+          "excerpt": "In recent days, Iran has found itself at the center of a fierce conflict...",
+          "content": "<p>In recent days, Iran has found itself at the center of a fierce conflict following the start of a large-scale military operation. The country has announced the appointment of a new leader during this critical time.</p>"
+        },
+        "ur": {
+          "title": "بڑھتے ہوئے تنازع کے درمیان ایران میں نئے رہنما کا تقرر",
+          "excerpt": "پچھلے کچھ دنوں میں ایران ایک شدید تنازع کے مرکز میں ہے...",
+          "content": "<p>پچھلے کچھ دنوں میں ایران ایک شدید تنازع کے مرکز میں ہے۔ ایک بڑے فوجی آپریشن کے آغاز کے بعد، ملک نے اس نازک وقت میں نئے رہنما کے تقرر کا اعلان کیا ہے۔</p>"
+        },
+        "ur-roman": {
+          "title": "Barhtay Hue Tanazay Ke Darmiyan Iran Mein Naye Rehnuma Ka Taqarrur",
+          "excerpt": "Pichlay kuch dino mein Iran aik shadeed tanazay ke markaz mein hai...",
+          "content": "<p>Pichlay kuch dino mein Iran aik shadeed tanazay ke markaz mein hai. Aik baray fouji operation ke aghaz ke baad, mulk ne is nazuk waqt mein naye rehnuma ke taqarrur ka elaan kiya hai.</p>"
+        }
+      }
+    }
+  ],
+  "mysteries": [
+    {
+      "id": "bermuda",
+      "type": "mystery",
+      "category": "Unsolved",
+      "date": "2025-01-15",
+      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
+      "translations": {
+        "en": {
+          "title": "Bermuda Triangle",
+          "excerpt": "Ships and planes vanish without a trace in this mysterious region.",
+          "content": "<p>The Bermuda Triangle, also known as the Devil's Triangle, is a loosely defined region in the western part of the North Atlantic Ocean where a number of aircraft and ships are said to have disappeared under mysterious circumstances.</p>"
+        },
+        "ur": {
+          "title": "برمودا مثلث",
+          "excerpt": "اس پراسرار خطے میں بحری جہاز اور ہوائی جہاز بغیر نشان کے غائب ہو جاتے ہیں۔",
+          "content": "<p>برمودا مثلث، جسے شیطان کا مثلث بھی کہا جاتا ہے، شمالی بحر اوقیانوس کے مغربی حصے میں ایک خطہ ہے جہاں متعدد طیارے اور بحری جہاز پراسرار حالات میں غائب ہو گئے ہیں۔</p>"
+        },
+        "ur-roman": {
+          "title": "Bermuda Maslas",
+          "excerpt": "Is pur-asrar khatay mein behri jahaz aur hawai jahaz baghair nishan ke gayab ho jate hain.",
+          "content": "<p>Bermuda maslas, jise shaitan ka maslas bhi kaha jata hai, shumali behar-o-qiyanus ke maghribi hissay mein aik khatta hai jahan mutadid tayyaray aur behri jahaz pur-asrar halat mein gayab ho gaye hain.</p>"
         }
       }
     },
     {
-      "id": "palestine-war",
-      "category": "Current Affairs",
-      "type": "news",
-      "date": "2026-01-31",
-      "images": [
-        "https://images.unsplash.com/photo-1621268409464-cc9dbb7a5336?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGFsZXN0aW5lfGVufDB8fDB8fHww"
-      ],
+      "id": "area51",
+      "type": "mystery",
+      "category": "Conspiracy",
+      "date": "2025-01-10",
+      "image": "https://images.unsplash.com/photo-1548345680-f5475ea5df84?w=800",
       "translations": {
         "en": {
-          "title": "War in Palestine: civilians under siege and a growing humanitarian crisis",
-          "content": "The war in Palestine continues to hit the civilian population in a devastating way. Bombings in densely populated areas, destruction of essential infrastructure, and restrictions on movement are creating a humanitarian crisis of dramatic proportions. Collapsing hospitals, and lack of electricity, drinking water, and medicine make daily life a struggle for survival.\nInternational humanitarian organizations denounce the disproportionate use of force and systematic violations of international law. The Palestinian population, especially women and children, continues to pay the highest price of the conflict. Despite appeals for a ceasefire and the opening of humanitarian corridors, the situation remains critical.\nThe narrative of the conflict often appears fragmented and incomplete, while on the ground a human tragedy is unfolding that risks becoming permanent. The war in Palestine is not only a military conflict but a moral and political crisis that questions the international community."
-        },
-        "it": {
-          "title": "Guerra in Palestina: civili sotto assedio e crescente crisi umanitaria",
-          "content": "La guerra in Palestina continua a colpire in modo devastante la popolazione civile. Bombardamenti su aree densamente popolate, distruzione di infrastrutture essenziali e restrizioni ai movimenti stanno creando una crisi umanitaria di proporzioni drammatiche. Ospedali al collasso, mancanza di elettricità, acqua potabile e medicinali rendono la vita quotidiana una lotta per la sopravvivenza.\nLe organizzazioni umanitarie internazionali denunciano l'uso sproporzionato della forza e le sistematiche violazioni del diritto internazionale. La popolazione palestinese, in particolare donne e bambini, continua a pagare il prezzo più alto del conflitto. Nonostante gli appelli al cessate il fuoco e all'apertura di corridoi umanitari, la situazione resta critica.\nLa narrazione del conflitto appare spesso frammentata e incompleta, mentre sul campo si consuma una tragedia umana che rischia di diventare permanente. La guerra in Palestina non è solo un conflitto militare, ma una crisi morale e politica che interroga la comunità internazionale."
-        },
-        "es": {
-          "title": "Guerra en Palestina: civiles bajo asedio y creciente crisis humanitaria",
-          "content": "La guerra en Palestina continúa golpeando de manera devastadora a la población civil. Bombardeos en áreas densamente pobladas, destrucción de infraestructuras esenciales y restricciones a la circulación están creando una crisis humanitaria de proporciones dramáticas. Hospitales colapsados, falta de electricidad, agua potable y medicamentos convierten la vida diaria en una lucha por la supervivencia.\nOrganizaciones humanitarias internacionales denuncian el uso desproporcionado de la fuerza y las violaciones sistemáticas del derecho internacional. La población palestina, especialmente mujeres y niños, continúa pagando el precio más alto del conflicto. A pesar de los llamamientos al alto el fuego y a la apertura de corredores humanitarios, la situación sigue siendo crítica.\nLa narrativa del conflicto a menudo parece fragmentada e incompleta, mientras que sobre el terreno se desarrolla una tragedia humana que corre el riesgo de volverse permanente. La guerra en Palestina no es solo un conflicto militar, sino una crisis moral y política que interpela a la comunidad internacional."
-        },
-        "fr": {
-          "title": "Guerre en Palestine : civils assiégés et crise humanitaire grandissante",
-          "content": "La guerre en Palestine continue de frapper la population civile de manière dévastatrice. Des bombardements dans des zones densément peuplées, la destruction d'infrastructures essentielles et des restrictions de mouvement créent une crise humanitaire aux proportions dramatiques. Des hôpitaux qui s'effondrent, le manque d'électricité, d'eau potable et de médicaments font de la vie quotidienne une lutte pour la survie.\nLes organisations humanitaires internationales dénoncent l'usage disproportionné de la force et les violations systématiques du droit international. La population palestinienne, en particulier les femmes et les enfants, continue de payer le prix le plus élevé du conflit. Malgré les appels à un cessez-le-feu et à l'ouverture de couloirs humanitaires, la situation reste critique.\nLe récit du conflit apparaît souvent fragmenté et incomplet, tandis que sur le terrain se déroule une tragédie humaine qui risque de devenir permanente. La guerre en Palestine n'est pas seulement un conflit militaire, mais une crise morale et politique qui interroge la communauté internationale."
-        },
-        "de": {
-          "title": "Krieg in Palästina: Zivilisten unter Belagerung und wachsende humanitäre Krise",
-          "content": "Der Krieg in Palästina trifft die Zivilbevölkerung weiterhin auf verheerende Weise. Bombardierungen in dicht besiedelten Gebieten, die Zerstörung lebenswichtiger Infrastruktur und Bewegungseinschränkungen schaffen eine humanitäre Krise dramatischen Ausmaßes. Krankenhäuser, die zusammenbrechen, Mangel an Strom, Trinkwasser und Medikamenten machen das tägliche Leben zu einem Überlebenskampf.\nInternationale humanitäre Organisationen verurteilen den unverhältnismäßigen Einsatz von Gewalt und systematische Verstöße gegen das Völkerrecht. Die palästinensische Bevölkerung, insbesondere Frauen und Kinder, zahlt weiterhin den höchsten Preis des Konflikts. Trotz Aufrufen zu einer Waffenruhe und der Öffnung humanitärer Korridore bleibt die Situation kritisch.\nDie Darstellung des Konflikts wirkt oft fragmentiert und unvollständig, während sich vor Ort eine menschliche Tragödie abspielt, die dauerhaft zu werden droht. Der Krieg in Palästina ist nicht nur ein militärischer Konflikt, sondern eine moralische und politische Krise, die die internationale Gemeinschaft in Frage stellt."
-        },
-        "zh": {
-          "title": "巴勒斯坦战争：被围困的平民和日益严重的人道主义危机",
-          "content": "巴勒斯坦的战争继续以毁灭性的方式袭击平民。在人口稠密地区进行的轰炸、对重要基础设施的破坏以及对行动的限制正在造成规模巨大的人道主义危机。医院崩溃、电力、饮用水和药品的缺乏使日常生活成为生存的斗争。\n国际人道主义组织谴责不成比例地使用武力和系统性地违反国际法。巴勒斯坦人民，特别是妇女和儿童，继续为冲突付出最高代价。尽管呼吁停火和开放人道主义走廊，局势仍然危急。\n冲突的叙述往往显得支离破碎和不完整，而在实地，一场可能成为永久性的人间悲剧正在上演。巴勒斯坦战争不仅是军事冲突，也是一场质问国际社会的道德和政治危机。"
-        },
-        "ar": {
-          "title": "الحرب في فلسطين: مدنيون تحت الحصار وأزمة إنسانية متصاعدة",
-          "content": "تواصل الحرب في فلسطين ضرب السكان المدنيين بطريقة مدمرة. إن القصف في المناطق المكتظة بالسكان، وتدمير البنية التحتية الأساسية والقيود على الحركة تخلق أزمة إنسانية ذات أبعاد مأساوية. المستشفيات المنهارة، وانعدام الكهرباء ومياه الشرب والأدوية تجعل الحياة اليومية صراعاً من أجل البقاء.\nتدين المنظمات الإنسانية الدولية الاستخدام غير المتناسب للقوة والانتهاكات المنهجية للقانون الدولي. يواصل السكان الفلسطينيون، وخاصة النساء والأطفال، دفع الثمن الأكبر للصراع. على الرغم من الدعوات لوقف إطلاق النار وفتح ممرات إنسانية، لا يزال الوضع حرجاً.\nغالباً ما يبدو سرد النزاع مجزأً وغير مكتمل، بينما على الأرض تتكشف مأساة إنسانية تخاطر بأن تصبح دائمة. الحرب في فلسطين ليست مجرد صراع عسكري، بل هي أزمة أخلاقية وسياسية تستفز المجتمع الدولي."
-        },
-        "ru": {
-          "title": "Война в Палестине: гражданские лица в осаде и растущий гуманитарный кризис",
-          "content": "Война в Палестине продолжает наносить сокрушительный удар по гражданскому населению. Бомбардировки в густонаселенных районах, разрушение жизненно важной инфраструктуры и ограничения на передвижение создают гуманитарный кризис драматических масштабов. Разрушающиеся больницы, нехватка электричества, питьевой воды и лекарств превращают повседневную жизнь в борьбу за выживание.\nМеждународные гуманитарные организации осуждают непропорциональное применение силы и систематические нарушения международного права. Палестинское население, особенно женщины и дети, продолжает платить самую высокую цену за конфликт. Несмотря на призывы к прекращению огня и открытию гуманитарных коридоров, ситуация остается критической.\nИзложение конфликта часто кажется фрагментарным и неполным, в то время как на месте разворачивается человеческая трагедия, которая рискует стать перманентной. Война в Палестине — это не просто военный конфликт, а моральный и политический кризис, который ставит под вопрос международное сообщество."
+          "title": "Area 51",
+          "excerpt": "The secretive military base at the center of UFO conspiracy theories.",
+          "content": "<p>Area 51 is a highly classified United States Air Force facility within the Nevada Test and Training Range. The intense secrecy surrounding the base has made it the frequent subject of conspiracy theories.</p>"
         },
         "ur": {
-          "title": "فلسطین میں جنگ: محاصرے میں شہری اور بڑھتا ہوا انسانی بحران",
-          "content": "فلسطین میں جنگ شہری آبادی کو تباہ کن طریقے سے متاثر کر رہی ہے۔ گنجان آباد علاقوں میں بمباری، ضروری انفراسٹرکچر کی تباہی اور نقل و حرکت پر پابندیاں ڈرامائی حد تک انسانی بحران پیدا کر رہی ہیں۔ منہدم ہوتے ہسپتال، بجلی، پینے کے صاف پانی اور ادویات کی کمی روزمرہ کی زندگی کو بقا کی جنگ بنا رہی ہے۔\nبین الاقوامی انسانی ہمدردی کی تنظیمیں طاقت کے غیر متناسب استعمال اور بین الاقوامی قانون کی منظم خلاف ورزیوں کی مذمت کرتی ہیں۔ فلسطینی عوام، خاص طور پر خواتین اور بچے، اس تنازعے کی سب سے زیادہ قیمت چکا رہے ہیں۔ جنگ بندی اور انسانی راہداریوں کے کھولنے کی اپیلوں کے باوجود، صورت حال نازک برقرار ہے۔\nتنازعے کی بیانیہ اکثر بکھری ہوئی اور نامکمل نظر آتی ہے، جبکہ میدان عمل میں ایک انسانی المیہ رونما ہو رہا ہے جو مستقل ہونے کے خطرے سے دوچار ہے۔ فلسطین میں جنگ نہ صرف ایک فوجی تنازعہ ہے بلکہ ایک اخلاقی اور سیاسی بحران ہے جو بین الاقوامی برادری سے سوال کرتا ہے۔"
+          "title": "ایریا 51",
+          "excerpt": "خفیہ فوجی اڈہ جو UFO سازشی نظریات کا مرکز ہے۔",
+          "content": "<p>ایریا 51 نیواڈا ٹیسٹ اور ٹریننگ رینج کے اندر ایک انتہائی خفیہ امریکی فضائیہ کی سہولت ہے۔ اڈے کے ارد گرد شدید رازداری نے اسے سازشی نظریات کا اکثر موضوع بنا دیا ہے۔</p>"
+        },
+        "ur-roman": {
+          "title": "Area 51",
+          "excerpt": "Khufiya fouji adda jo UFO sazshi nazriyat ka markaz hai.",
+          "content": "<p>Area 51 Nevada Test aur Training Range ke andar aik intehai khufiya American fouji saholat hai. Adday ke ird gird shadeed raazdari ne isay sazshi nazriyat ka aksar mawzoo bana diya hai.</p>"
         }
       }
     },
     {
-      "id": "trump-greenland",
-      "category": "Current Affairs",
-      "type": "news",
-      "date": "2026-01-31",
-      "images": [
-        "https://images.unsplash.com/photo-1573995975633-faee0123f31f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JvZW5sYW5kaWF8ZW58MHx8MHx8fDA%3D"
-      ],
+      "id": "roswell",
+      "type": "mystery",
+      "category": "UFO",
+      "date": "2025-01-05",
+      "image": "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800",
       "translations": {
         "en": {
-          "title": "After Venezuela, Trump back in the spotlight: new statements on Greenland",
-          "content": "After Venezuela, Donald Trump is back in the spotlight with new statements regarding Greenland, reigniting a geopolitical debate already raised during his presidency. His words sparked immediate reactions from Denmark and the Greenlandic authorities, who reaffirmed their territorial sovereignty.\nInternational analysts interpret these statements as part of a strategic vision linked to the control of Arctic routes and emerging natural resources, increasingly accessible due to melting ice. Greenland is, in fact, considered a key point in future geopolitical balances.\nTrump's statements highlight how the Arctic is becoming a new area of global competition, raising questions about the future of international relations and the tensions that could emerge in the coming years."
-        },
-        "it": {
-          "title": "Dopo il Venezuela, Trump torna a far discutere: nuove dichiarazioni sulla Groenlandia",
-          "content": "Dopo il Venezuela, Donald Trump è tornato a far parlare di sé con nuove dichiarazioni riguardanti la Groenlandia, riaccendendo un dibattito geopolitico già sollevato durante la sua presidenza. Le sue parole hanno suscitato reazioni immediate da parte della Danimarca e delle autorità groenlandesi, che hanno ribadito la propria sovranità territoriale.\nGli analisti internazionali interpretano queste dichiarazioni come parte di una visione strategica legata al controllo delle rotte artiche e delle risorse naturali emergenti, sempre più accessibili a causa dello scioglimento dei ghiacci. La Groenlandia è, infatti, considerata un punto chiave nei futuri equilibri geopolitici.\nLe uscite di Trump evidenziano come l'Artico stia diventando una nuova area di competizione globale, sollevando interrogativi sul futuro delle relazioni internazionali e sulle tensioni che potrebbero emergere nei prossimi anni."
-        },
-        "es": {
-          "title": "Después de Venezuela, Trump vuelve a ser noticia: nuevas declaraciones sobre Groenlandia",
-          "content": "Después de Venezuela, Donald Trump ha vuelto a ser el centro de atención con nuevas declaraciones sobre Groenlandia, reavivando un debate geopolítico ya planteado durante su presidencia. Sus palabras provocaron reacciones inmediatas por parte de Dinamarca y las autoridades groenlandesas, que reafirmaron su soberanía territorial.\nLos analistas internacionales interpretan estas declaraciones como parte de una visión estratégica vinculada al control de las rutas árticas y los recursos naturales emergentes, cada vez más accesibles debido al deshielo. Groenlandia es, de hecho, considerada un punto clave en los futuros equilibrios geopolíticos.\nLas declaraciones de Trump ponen de relieve cómo el Ártico se está convirtiendo en una nueva área de competencia global, planteando interrogantes sobre el futuro de las relaciones internacionales y las tensiones que podrían surgir en los próximos años."
-        },
-        "fr": {
-          "title": "Après le Venezuela, Trump de nouveau sous les projecteurs : nouvelles déclarations sur le Groenland",
-          "content": "Après le Venezuela, Donald Trump est de nouveau sous les projecteurs avec de nouvelles déclarations concernant le Groenland, ravivant un débat géopolitique déjà soulevé durant sa présidence. Ses paroles ont suscité des réactions immédiates de la part du Danemark et des autorités groenlandaises, qui ont réaffirmé leur souveraineté territoriale.\nLes analystes internationaux interprètent ces déclarations comme faisant partie d'une vision stratégique liée au contrôle des routes arctiques et des ressources naturelles émergentes, de plus en plus accessibles en raison de la fonte des glaces. Le Groenland est, en effet, considéré comme un point clé dans les futurs équilibres géopolitiques.\nLes sorties de Trump soulignent comment l'Arctique devient une nouvelle zone de compétition mondiale, soulevant des questions sur l'avenir des relations internationales et les tensions qui pourraient émerger dans les années à venir."
-        },
-        "de": {
-          "title": "Nach Venezuela ist Trump wieder im Rampenlicht: neue Äußerungen zu Grönland",
-          "content": "Nach Venezuela ist Donald Trump mit neuen Äußerungen zu Grönland wieder im Rampenlicht und entfacht eine geopolitische Debatte neu, die bereits während seiner Präsidentschaft aufgekommen war. Seine Worte lösten sofortige Reaktionen Dänemarks und der grönländischen Behörden aus, die ihre territoriale Souveränität bekräftigten.\nInternationale Analysten interpretieren diese Äußerungen als Teil einer strategischen Vision, die mit der Kontrolle der arktischen Routen und der aufstrebenden natürlichen Ressourcen verbunden ist, die aufgrund der Eisschmelze immer zugänglicher werden. Grönland gilt in der Tat als ein Schlüsselpunkt in den künftigen geopolitischen Gleichgewichten.\nTrumps Auftritte unterstreichen, wie die Arktis zu einem neuen Bereich des globalen Wettbewerbs wird, und werfen Fragen über die Zukunft der internationalen Beziehungen und die Spannungen auf, die in den kommenden Jahren entstehen könnten."
-        },
-        "zh": {
-          "title": "继委内瑞拉之后，特朗普再次成为焦点：关于格陵兰岛的新言论",
-          "content": "继委内瑞拉之后，唐纳德·特朗普因关于格陵兰岛的新言论再次成为焦点，重新点燃了他在任期间就已经引发的 geopolitical 辩论。他的言论立即引起丹麦和格陵兰当局的反应，他们重申了自己的领土主权。\n国际分析人士将这些言论解释为与北极航线控制和新兴自然资源相关的战略愿景的一部分，由于冰川融化，这些资源越来越容易获取。事实上，格陵兰岛被认为是未来地缘政治格局中的关键点。\n特朗普的言论凸显了北极如何成为全球竞争的新领域，引发了人们对国际关系未来以及未来几年可能出现紧张局势的疑问。"
-        },
-        "ar": {
-          "title": "بعد فنزويلا، ترامب يعود إلى دائرة الضوء: تصريحات جديدة حول جرينلاند",
-          "content": "بعد فنزويلا، عاد دونالد ترامب إلى دائرة الضوء بتصريحات جديدة بخصوص جرينلاند، مما أعاد إشعال نقاش جيوسياسي أثير بالفعل خلال فترة رئاسته. أثارت كلماته ردود فعل فورية من الدنمارك والسلطات الجرينلاندية، التي أكدت من جديد سيادتها الإقليمية.\nيفسر المحللون الدوليون هذه التصريحات على أنها جزء من رؤية استراتيجية مرتبطة بالسيطرة على الطرق القطبية الشمالية والموارد الطبيعية الناشئة، التي أصبحت في متناول اليد بشكل متزايد بسبب ذوبان الجليد. تعتبر جرينلاند في الواقع نقطة محورية في التوازنات الجيوسياسية المستقبلية.\nتسلط تصريحات ترامب الضوء على كيف أن القطب الشمالي يتحول إلى منطقة جديدة للمنافسة العالمية، مما يثير تساؤلات حول مستقبل العلاقات الدولية والتوترات التي قد تظهر في السنوات المقبلة."
-        },
-        "ru": {
-          "title": "После Венесуэлы Трамп снова в центре внимания: новые заявления о Гренландии",
-          "content": "После Венесуэлы Дональд Трамп снова оказался в центре внимания с новыми заявлениями относительно Гренландии, разжигая геополитическую дискуссию, уже поднятую во время его президентства. Его слова вызвали немедленную реакцию со стороны Дании и гренландских властей, которые подтвердили свой территориальный суверенитет.\nМеждународные аналитики интерпретируют эти заявления как часть стратегического видения, связанного с контролем над арктическими маршрутами и возникающими природными ресурсами, которые становятся все более доступными из-за таяния льдов. Гренландия, по сути, считается ключевым пунктом в будущих геополитических балансах.\nЗаявления Трампа подчеркивают, как Арктика становится новой зоной глобальной конкуренции, поднимая вопросы о будущем международных отношений и напряженности, которая может возникнуть в ближайшие годы."
+          "title": "Roswell Incident",
+          "excerpt": "The 1947 crash that sparked modern UFO culture.",
+          "content": "<p>The Roswell incident was the recovery of material from a balloon crash in 1947 near Roswell, New Mexico. The U.S. military stated it was a weather balloon, but conspiracy theorists believe it was a crashed extraterrestrial spacecraft.</p>"
         },
         "ur": {
-          "title": "وینزویلا کے بعد، ٹرمپ دوبارہ توجہ کی زد میں: گرین لینڈ پر نئے بیانات",
-          "content": "وینزویلا کے بعد، ڈونلڈ ٹرمپ گرین لینڈ سے متعلق نئے بیانات کے ساتھ دوبارہ توجہ کی زد میں آ گئے ہیں، جس سے ایک جغرافیائی سیاسی بحث کو پھر سے ہوا دی گئی ہے جو ان کی صدارت کے دوران پہلے ہی اٹھ چکی تھی۔ ان کے الفاظ نے ڈنمارک اور گرین لینڈ کے حکام کی جانب سے فوری ردعمل کو جنم دیا، جنہوں نے اپنی علاقائی خودمختاری کا اعادہ کیا۔\nبین الاقوامی تجزیہ کار ان بیانات کو ایک اسٹریٹجک وژن کا حصہ قرار دیتے ہیں جس کا تعلق آرکٹک کے راستوں اور ابھرتے ہوئے قدرتی وسائل پر کنٹرول سے ہے، جو برف پگھلنے کی وجہ سے تیزی سے قابل رسائی ہو رہے ہیں۔ گرین لینڈ درحقیقت مستقبل کے جغرافیائی سیاسی توازن میں ایک اہم نقطہ سمجھا جاتا ہے۔\nٹرمپ کے بیانات اس بات پر روشنی ڈالتے ہیں کہ کس طرح آرکٹک عالمی مسابقت کا ایک نیا علاقہ بنتا جا رہا ہے، جو بین الاقوامی تعلقات کے مستقبل اور آنے والے سالوں میں ابھرنے والے ممکنہ تناؤ کے بارے میں سوالات اٹھاتا ہے۔"
+          "title": "روزویل واقعہ",
+          "excerpt": "1947 کا حادثہ جس نے جدید UFO ثقافت کو جنم دیا۔",
+          "content": "<p>روزویل واقعہ 1947 میں نیو میکسیکو کے روزویل کے قریب ایک غبارے کے حادثے سے مواد کی بازیافت تھی۔ امریکی فوج نے کہا کہ یہ موسم کا غبارہ تھا، لیکن سازشی نظریہ دانوں کا خیال ہے کہ یہ ایک گرایا ہوا ماورائے ارضی خلائی جہاز تھا۔</p>"
+        },
+        "ur-roman": {
+          "title": "Roswell Waqea",
+          "excerpt": "1947 ka hadsa jis ne jadeed UFO saqafat ko janam diya.",
+          "content": "<p>Roswell waqea 1947 mein New Mexico ke Roswell ke qareeb aik ghumbaray ke hadsay se mawad ki bazyaft thi. American fouji ne kaha ke ye mausam ka ghumbara tha, lekin sazshi nazriya danon ka khayal hai ke ye aik giraya hua mawara-e-ardi khalaee jahaz tha.</p>"
         }
       }
+    }
+  ],
+  "encyclopedia": [
+    { "title": "Great Pyramid of Giza", "description": "The oldest and largest of the three pyramids in the Giza pyramid complex. Built around 2560 BC, it was the tallest man-made structure for over 3,800 years." },
+    { "title": "Vajont Dam", "description": "A dam in Italy that caused a massive landslide and tsunami in 1963, resulting in nearly 2,000 deaths. One of the worst man-made disasters in history." },
+    { "title": "MH370", "description": "Malaysia Airlines Flight 370 disappeared on March 8, 2014, with 239 people on board. The aircraft remains missing to this day." },
+    { "title": "Bermuda Triangle", "description": "A region in the western part of the North Atlantic Ocean where aircraft and ships are said to have disappeared under mysterious circumstances." },
+    { "title": "Area 51", "description": "A highly classified United States Air Force facility in Nevada, often associated with UFO and alien conspiracy theories." },
+    { "title": "Roswell Incident", "description": "The 1947 recovery of metallic and rubber debris from a balloon crash near Roswell, New Mexico, sparking UFO conspiracy theories." },
+    { "title": "Stonehenge", "description": "A prehistoric monument in England consisting of a ring of standing stones. Its construction date is estimated between 3000 BC and 2000 BC." },
+    { "title": "Nazca Lines", "description": "A group of geoglyphs in the Nazca Desert of Peru, created between 500 BC and 500 AD. Their purpose remains unknown." },
+    { "title": "Easter Island Moai", "description": "Monolithic statues carved by the Rapa Nui people on Easter Island between 1250 and 1500 CE." },
+    { "title": "Atlantis", "description": "A legendary island first mentioned by Plato. The story of its disappearance has fascinated historians for centuries." },
+    { "title": "Loch Ness Monster", "description": "A cryptid said to inhabit Loch Ness in Scotland. First reported in 1933, it remains one of the most famous mysteries." },
+    { "title": "Bigfoot", "description": "An ape-like creature said to inhabit forests of North America. Also known as Sasquatch." },
+    { "title": "Yeti", "description": "An ape-like creature said to inhabit the Himalayan mountains of Nepal and Tibet." },
+    { "title": "Chupacabra", "description": "A legendary creature in Latin American folklore that attacks livestock, especially goats." },
+    { "title": "Jersey Devil", "description": "A legendary creature said to inhabit the Pine Barrens of New Jersey, first reported in 1735." },
+    { "title": "Mothman", "description": "A humanoid creature reportedly seen in Point Pleasant, West Virginia, during 1966-1967." },
+    { "title": "Crop Circles", "description": "Patterns created by flattening crops, first widely reported in the 1970s. Their origin remains debated." },
+    { "title": "UFO Sightings", "description": "Reports of unidentified flying objects have been documented throughout history, with increased frequency since 1947." },
+    { "title": "Alien Abductions", "description": "Claims of people being kidnapped by extraterrestrial beings, popularized in the 1960s." },
+    { "title": "Ancient Astronauts", "description": "Theory suggesting that extraterrestrials visited Earth in ancient times and influenced human civilization." },
+    { "title": "Pyramid Power", "description": "Pseudoscientific theory claiming pyramids have supernatural powers and can preserve food, sharpen blades, etc." },
+    { "title": "Crystal Skulls", "description": "Carved skulls made of quartz crystal, claimed to be pre-Columbian Mesoamerican artifacts but mostly proven to be modern creations." },
+    { "title": "Oak Island Money Pit", "description": "A pit on Oak Island, Nova Scotia, that has been excavated since 1795 with claims of hidden treasure." },
+    { "title": "Tunguska Event", "description": "A massive explosion in Siberia in 1908, believed to be caused by an air burst of a meteoroid." },
+    { "title": "Philadelphia Experiment", "description": "An alleged naval experiment in 1943 that supposedly made the USS Eldridge invisible and teleported it." },
+    { "title": "Montauk Project", "description": "Conspiracy theory about secret government experiments at Camp Hero in Montauk, New York." },
+    { "title": "Denver Airport Conspiracy", "description": "Theories about hidden bunkers, underground tunnels, and secret societies at Denver International Airport." },
+    { "title": "Hollow Earth", "description": "The hypothesis that planet Earth is hollow and contains an inner world." },
+    { "title": "Flat Earth Theory", "description": "The belief that Earth is flat, despite overwhelming scientific evidence to the contrary." },
+    { "title": "Chemtrails", "description": "Conspiracy theory claiming that condensation trails left by aircraft are actually chemical or biological agents." },
+    { "title": "New World Order", "description": "Conspiracy theory about a powerful elite group plotting to establish global totalitarian rule." },
+    { "title": "Illuminati", "description": "Secret society first founded in 1776, now central to many conspiracy theories about world control." },
+    { "title": "Freemasons", "description": "Fraternal organization founded in the 14th century, often associated with conspiracy theories." },
+    { "title": "Skull and Bones", "description": "Secret society at Yale University, known for its powerful alumni including two U.S. presidents." },
+    { "title": "Bohemian Grove", "description": "Exclusive retreat for wealthy and powerful men in California, subject of numerous conspiracy theories." }
+  ],
+  "quiz": [
+    {
+      "category": "MH370",
+      "icon": "fa-plane",
+      "questions": [
+        { "question": "What year did Malaysia Airlines Flight MH370 disappear?", "options": ["2012", "2013", "2014", "2015"], "correct": 2, "explanation": "MH370 disappeared on March 8, 2014." },
+        { "question": "How many people were on board MH370?", "options": ["189", "227", "239", "267"], "correct": 2, "explanation": "There were 239 people on board." },
+        { "question": "What type of aircraft was MH370?", "options": ["Airbus A380", "Boeing 737", "Boeing 777", "Airbus A330"], "correct": 2, "explanation": "MH370 was a Boeing 777-200ER." },
+        { "question": "Where was MH370's last known position?", "options": ["South China Sea", "Andaman Sea", "Indian Ocean", "Pacific Ocean"], "correct": 2, "explanation": "Last known position was over the Indian Ocean." },
+        { "question": "What is the most controversial theory about MH370?", "options": ["Mechanical failure", "Pilot suicide", "Hijacking", "Weather"], "correct": 1, "explanation": "The pilot suicide theory is among the most discussed." }
+      ]
+    },
+    {
+      "category": "Pyramids",
+      "icon": "fa-pyramid",
+      "questions": [
+        { "question": "How many pyramids are there in the Giza pyramid complex?", "options": ["1", "2", "3", "4"], "correct": 2, "explanation": "Three main pyramids at Giza." },
+        { "question": "Who built the Great Pyramid of Giza?", "options": ["Ramses II", "Khufu", "Tutankhamun", "Cleopatra"], "correct": 1, "explanation": "Built for Pharaoh Khufu." },
+        { "question": "How long was the Great Pyramid the tallest man-made structure?", "options": ["1,000 years", "2,500 years", "3,800 years", "4,500 years"], "correct": 2, "explanation": "Held record for 3,800 years." },
+        { "question": "What was the original height of the Great Pyramid?", "options": ["120m", "146.6m", "160m", "180m"], "correct": 1, "explanation": "Original height was 146.6 meters." },
+        { "question": "How many blocks were used to build the Great Pyramid?", "options": ["500,000", "1 million", "2.3 million", "5 million"], "correct": 2, "explanation": "Estimated 2.3 million blocks." }
+      ]
+    },
+    {
+      "category": "Vajont",
+      "icon": "fa-mountain",
+      "questions": [
+        { "question": "In what year did the Vajont disaster occur?", "options": ["1960", "1963", "1965", "1968"], "correct": 1, "explanation": "October 9, 1963." },
+        { "question": "How many people died in the Vajont disaster?", "options": ["~500", "~1000", "~2000", "~3000"], "correct": 2, "explanation": "Nearly 2000 victims." },
+        { "question": "What caused the Vajont disaster?", "options": ["Earthquake", "Landslide", "Dam collapse", "Flood"], "correct": 1, "explanation": "A massive landslide." },
+        { "question": "Where is the Vajont Dam located?", "options": ["Switzerland", "France", "Italy", "Austria"], "correct": 2, "explanation": "Northern Italy." },
+        { "question": "How high was the wave generated?", "options": ["150m", "200m", "250m", "300m"], "correct": 2, "explanation": "Approximately 250 meters." }
+      ]
+    },
+    {
+      "category": "Bermuda Triangle",
+      "icon": "fa-water",
+      "questions": [
+        { "question": "Where is the Bermuda Triangle located?", "options": ["Pacific", "Indian", "Atlantic", "Arctic"], "correct": 2, "explanation": "North Atlantic Ocean." },
+        { "question": "What is another name for the Bermuda Triangle?", "options": ["Devil's Triangle", "Death Triangle", "Mystery Triangle", "Lost Triangle"], "correct": 0, "explanation": "Also known as Devil's Triangle." },
+        { "question": "What is the most famous disappearance?", "options": ["Flight 19", "USS Cyclops", "Mary Celeste", "SS Marine Sulphur Queen"], "correct": 0, "explanation": "Flight 19 disappeared in 1945." }
+      ]
+    },
+    {
+      "category": "Area 51",
+      "icon": "fa-military",
+      "questions": [
+        { "question": "Which U.S. state is Area 51 located in?", "options": ["Arizona", "New Mexico", "Nevada", "California"], "correct": 2, "explanation": "Nevada." },
+        { "question": "What is Area 51 primarily associated with?", "options": ["Nuclear weapons", "UFO conspiracies", "Weather control", "Time travel"], "correct": 1, "explanation": "UFO conspiracy theories." },
+        { "question": "In what year was Area 51 declassified?", "options": ["2003", "2008", "2013", "2017"], "correct": 2, "explanation": "CIA declassified in 2013." }
+      ]
+    },
+    {
+      "category": "Roswell",
+      "icon": "fa-star",
+      "questions": [
+        { "question": "In what year did the Roswell incident occur?", "options": ["1945", "1947", "1949", "1952"], "correct": 1, "explanation": "July 1947." },
+        { "question": "Where is Roswell located?", "options": ["Arizona", "Texas", "New Mexico", "Nevada"], "correct": 2, "explanation": "New Mexico." },
+        { "question": "What did the military initially claim was found?", "options": ["Weather balloon", "Flying saucer", "Military aircraft", "Radar"], "correct": 1, "explanation": "Initially claimed a flying saucer." }
+      ]
+    },
+    {
+      "category": "Current Affairs",
+      "icon": "fa-globe",
+      "questions": [
+        { "question": "What country recently appointed a new leader amid conflict?", "options": ["Iran", "Israel", "Syria", "Iraq"], "correct": 0, "explanation": "Iran in March 2026." },
+        { "question": "What is the capital of Ukraine?", "options": ["Lviv", "Odessa", "Kharkiv", "Kyiv"], "correct": 3, "explanation": "Kyiv is the capital." },
+        { "question": "Which country left the EU in 2020?", "options": ["France", "Germany", "Italy", "UK"], "correct": 3, "explanation": "United Kingdom left on Jan 31, 2020." }
+      ]
+    },
+    {
+      "category": "General Mysteries",
+      "icon": "fa-moon",
+      "questions": [
+        { "question": "What is the name of the Loch Ness Monster?", "options": ["Nessie", "Bigfoot", "Yeti", "Chupacabra"], "correct": 0, "explanation": "Nessie is the nickname." },
+        { "question": "What is the famous stone circle in England?", "options": ["Stonehenge", "Avebury", "Callanish", "Carnac"], "correct": 0, "explanation": "Stonehenge in Wiltshire." },
+        { "question": "What are the lines in the Peruvian desert called?", "options": ["Nazca Lines", "Atacama Lines", "Peruvian Geoglyphs", "Desert Drawings"], "correct": 0, "explanation": "Nazca Lines in Peru." }
+      ]
     }
   ]
 }
