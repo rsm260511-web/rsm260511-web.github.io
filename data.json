@@ -5,13 +5,13 @@
     "description": "Multimedia platform exploring mysteries, current events, and untold stories"
   },
   "stats": {
-    "articles": 15,
+    "articles": 7,
     "videos": 3,
-    "news": 15,
-    "mysteries": 15,
+    "news": 7,
+    "mysteries": 8,
     "encyclopedia": 35,
     "quizCategories": 8,
-    "totalQuiz": 56
+    "totalQuiz": 40
   },
   "articles": [
     {
@@ -24,17 +24,17 @@
         "en": {
           "title": "The Pyramids of Egypt: The Engineering Mystery",
           "excerpt": "The pyramids of Egypt represent one of the greatest anomalies in human history...",
-          "content": "<p>The pyramids of Egypt, particularly the Great Pyramid of Giza, represent one of the greatest engineering mysteries of all time. Built over 4500 years ago, these structures continue to amaze modern engineers with their mathematical precision.</p><p>How did ancient Egyptians cut, transport, and place blocks weighing over 80 tons? This remains an unsolved mystery that challenges official history.</p>"
+          "content": "<p>The pyramids of Egypt, particularly the Great Pyramid of Giza, represent one of the greatest engineering mysteries of all time. Built over 4500 years ago during the Fourth Dynasty of the Old Kingdom, these monumental structures continue to amaze modern engineers with their mathematical precision and architectural sophistication.</p><p>The Great Pyramid originally stood at 146.6 meters (481 feet) and was the tallest man-made structure for over 3,800 years. Its base covers 13 acres, and it consists of approximately 2.3 million limestone blocks, each weighing between 2.5 and 80 tons. The precision is staggering: the four sides of the base have an average error of only 58 millimeters in length, and the corners are nearly perfect right angles.</p><p>How did ancient Egyptians cut, transport, and place blocks weighing over 80 tons with such accuracy? The conventional theory suggests they used ramps and thousands of workers, but no definitive evidence of such ramps has been found. Moreover, the alignment of the pyramids with astronomical bodies—the Great Pyramid's sides are aligned almost perfectly with the cardinal points—suggests a level of astronomical knowledge that challenges our understanding of ancient civilizations.</p><p>Some researchers propose that the pyramids were built using advanced technologies that have been lost to history, while others suggest they may have been constructed by an earlier, more advanced civilization. Theories range from the use of sound frequencies to levitate stones, to the idea that the pyramids were not tombs but power plants or astronomical observatories. The mystery remains unsolved, and the pyramids continue to challenge our understanding of what ancient civilizations were capable of achieving.</p>"
         },
         "ur": {
           "title": "مصر کے اہرام: انجینئرنگ کا معمہ",
           "excerpt": "مصر کے اہرام انسانی تاریخ کے سب سے بڑے معمہ ہیں...",
-          "content": "<p>مصر کے اہرام، خاص طور پر جیزہ کا عظیم ہرم، تاریخ کے سب سے بڑے انجینئرنگ معمہ ہیں۔ 4500 سال پہلے تعمیر کیے گئے، یہ ڈھانچے آج بھی جدید انجینئرز کو حیران کرتے ہیں۔</p>"
+          "content": "<p>مصر کے اہرام، خاص طور پر جیزہ کا عظیم ہرم، تاریخ کے سب سے بڑے انجینئرنگ معمہ ہیں۔ 4500 سال پہلے قدیم سلطنت کے چوتھے خاندان کے دوران تعمیر کیے گئے، یہ ڈھانچے آج بھی جدید انجینئرز کو اپنی ریاضیاتی درستگی اور تعمیراتی نفاست سے حیران کرتے ہیں۔</p><p>عظیم ہرم کی اصل اونچائی 146.6 میٹر تھی اور یہ 3,800 سال سے زیادہ عرصے تک انسان کا سب سے اونچا ڈھانچہ رہا۔ اس کی بنیاد 13 ایکڑ پر پھیلی ہوئی ہے اور یہ تقریباً 2.3 ملین چونے کے پتھر کے بلاکس پر مشتمل ہے، جن میں سے ہر ایک کا وزن 2.5 سے 80 ٹن کے درمیان ہے۔ درستگی حیران کن ہے: بنیاد کے چار اطراف کی لمبائی میں اوسطاً صرف 58 ملی میٹر کا فرق ہے، اور کونے تقریباً کامل قائمہ زاویہ ہیں۔</p><p>قدیم مصریوں نے 80 ٹن وزنی پتھروں کو کیسے کاٹا، منتقل کیا اور اتنی درستگی کے ساتھ رکھا؟ روایتی نظریہ بتاتا ہے کہ انہوں نے ڈھلوان اور ہزاروں مزدور استعمال کیے، لیکن ایسی ڈھلوانوں کا کوئی حتمی ثبوت نہیں ملا۔ مزید یہ کہ اہرام کا فلکیاتی اجسام کے ساتھ ہم آہنگی — عظیم ہرم کے اطراف تقریباً مکمل طور پر سمتوں کے ساتھ ہم آہنگ ہیں — ایک ایسی فلکیاتی معلومات کی نشاندہی کرتا ہے جو قدیم تہذیبوں کے بارے میں ہماری سمجھ کو چیلنج کرتی ہے۔</p><p>یہ معمہ آج تک حل نہیں ہوا، اور اہرام قدیم تہذیبوں کی صلاحیتوں کے بارے میں ہماری سمجھ کو چیلنج کرتے رہتے ہیں۔</p>"
         },
         "ur-roman": {
           "title": "Misr ke Ahraam: Engineering ka Mamya",
           "excerpt": "Misr ke ahraam insani tareekh ke sab se baray mamya hain...",
-          "content": "<p>Misr ke ahraam, khas tor par Giza ka azeem haram, tareekh ke sab se baray engineering mamya hain. 4500 saal pehle tameer kiye gaye, ye dhanchay aaj bhi jadeed engineers ko hairan karte hain.</p>"
+          "content": "<p>Misr ke ahraam, khas tor par Giza ka azeem haram, tareekh ke sab se baray engineering mamya hain. 4500 saal pehle qadeem saltanat ke chouthay khandan ke doran tameer kiye gaye, ye dhanchay aaj bhi jadeed engineers ko apni riyaziati drustgi aur taamirati nafasat se hairan karte hain.</p><p>Azeem haram ki asal oonchai 146.6 meter thi aur ye 3,800 saal se zyada arsay tak insaan ka sab se ooncha dhancha raha. Is ki bunyad 13 acre par phaili hui hai aur ye taqreeban 2.3 million choone ke pathar ke blocks par mushtamil hai, jin mein se har ek ka wazan 2.5 se 80 ton ke darmiyan hai. Drustgi hairan kin hai: bunyad ke chaar atraf ki lambai mein average tor par sirf 58 millimeter ka farq hai, aur konay taqreeban mukammal qaima zavia hain.</p><p>Qadeem Misriyon ne 80 ton wazni pathron ko kaise kata, muntaqil kiya aur itni drustgi ke sath rakha? Rewaiti nazriya batata hai ke unhon ne dhalwan aur hazaron mazdoor istemal kiye, lekin aisi dhalwanon ka koi hatmi saboot nahi mila. Mazed yeh ke ahraam ka falkiyati ajsam ke sath hum aahangi — azeem haram ke atraf taqreeban mukammal tor par simton ke sath hum aahang hain — aik aisi falkiyati maloomat ki nishandahi karta hai jo qadeem tahzeebon ke baare mein hamari samajh ko challenge karti hai.</p><p>Ye mamya aaj tak hal nahi hua, aur ahraam qadeem tahzeebon ki salahiyaton ke baare mein hamari samajh ko challenge karte rehte hain.</p>"
         }
       }
     },
@@ -48,17 +48,17 @@
         "en": {
           "title": "Vajont: The Announced Tragedy",
           "excerpt": "On October 9, 1963, a landslide of 260 million cubic meters fell into the Vajont reservoir...",
-          "content": "<p>The Vajont disaster, which occurred on October 9, 1963, is considered one of the greatest preventable tragedies in Italian history. A landslide of 260 million cubic meters fell into the artificial lake, generating a 250-meter wave that destroyed downstream villages, causing nearly 2000 victims.</p>"
+          "content": "<p>The Vajont disaster, which occurred on October 9, 1963, is considered one of the greatest preventable tragedies in Italian history. A massive landslide of 260 million cubic meters of rock and earth fell into the artificial reservoir created by the Vajont Dam, generating a 250-meter-high megatsunami that destroyed the downstream villages of Longarone, Pirago, Rivalta, and Villanova, causing nearly 2,000 deaths.</p><p>The disaster was not a natural event but a man-made catastrophe. Geological studies as early as 1959 had revealed the instability of the Monte Toc slope, with reports warning that a landslide could cause a wave that would overtop the dam. Despite these warnings, the reservoir continued to be filled, and the dam was completed. The incident is now studied worldwide as a cautionary tale of how corporate interests and political negligence can override scientific warnings.</p><p>The wave destroyed everything in its path within minutes. The official death toll stands at 1,917, though the actual number is believed to be higher. The event led to significant changes in Italian legislation regarding dam safety and environmental impact assessments. Today, the dam still stands, and the area serves as a somber memorial to the victims of one of the 20th century's worst engineering failures.</p>"
         },
         "ur": {
           "title": "واجونٹ: اعلان شدہ المیہ",
           "excerpt": "9 اکتوبر 1963 کو 260 ملین کیوبک میٹر مٹی کا تودہ واجونٹ جھیل میں گر گیا...",
-          "content": "<p>واجونٹ تباہی، جو 9 اکتوبر 1963 کو پیش آئی، اطالوی تاریخ کے سب سے بڑے قابلِ روک تھام سانحات میں سے ایک ہے۔ 260 ملین کیوبک میٹر مٹی کا تودہ مصنوعی جھیل میں گر گیا، جس سے 250 میٹر کی لہر بنی جس نے نیچے کی وادیوں کے دیہات تباہ کر دیے، جس سے تقریباً 2000 افراد ہلاک ہوئے۔</p>"
+          "content": "<p>واجونٹ تباہی، جو 9 اکتوبر 1963 کو پیش آئی، اطالوی تاریخ کے سب سے بڑے قابلِ روک تھام سانحات میں سے ایک ہے۔ 260 ملین کیوبک میٹر چٹان اور مٹی کا تودہ واجونٹ ڈیم کے ذریعے بنائی گئی مصنوعی جھیل میں گر گیا، جس سے 250 میٹر اونچی میگا سونامی پیدا ہوئی جس نے نیچے کی وادیوں کے دیہات لونگارون، پیراگو، ریوالٹا اور ولا نووا کو تباہ کر دیا، جس سے تقریباً 2000 افراد ہلاک ہوئے۔</p><p>یہ تباہی کوئی قدرتی واقعہ نہیں بلکہ ایک انسانی ساختہ آفت تھی۔ 1959 کے اوائل میں ہی ارضیاتی مطالعات نے مونٹی ٹوک کی ڈھلوان کے عدم استحکام کو ظاہر کیا تھا، اور رپورٹوں میں خبردار کیا گیا تھا کہ لینڈ سلائیڈ سے ایک لہر پیدا ہو سکتی ہے جو ڈیم سے اوپر جا سکتی ہے۔ انتباہات کے باوجود، ذخائر کو بھرا جاتا رہا اور ڈیم مکمل کیا گیا۔ یہ واقعہ اب دنیا بھر میں ایک انتباہی کہانی کے طور پر پڑھایا جاتا ہے کہ کس طرح کارپوریٹ مفادات اور سیاسی غفلت سائنسی انتباہات کو نظر انداز کر سکتی ہے۔</p><p>لہر نے منٹوں میں اپنے راستے میں آنے والی ہر چیز کو تباہ کر دیا۔ سرکاری اموات کی تعداد 1,917 ہے، اگرچہ اصل تعداد اس سے زیادہ بتائی جاتی ہے۔ اس واقعے کے نتیجے میں ڈیم کی حفاظت اور ماحولیاتی اثرات کے جائزے سے متعلق اطالوی قانون میں اہم تبدیلیاں کی گئیں۔ آج بھی ڈیم کھڑا ہے، اور یہ علاقہ 20ویں صدی کی بدترین انجینئرنگ ناکامیوں میں سے ایک کے متاثرین کی یادگار کے طور پر کام کرتا ہے۔</p>"
         },
         "ur-roman": {
           "title": "Vajont: Elaan Shuda Almiya",
           "excerpt": "9 October 1963 ko 260 million cubic meter mitti ka toda Vajont jheel mein gir gaya...",
-          "content": "<p>Vajont tabahi, jo 9 October 1963 ko pesh aayi, Italian tareekh ke sab se baray qabil-e-rok thaam sanhat mein se ek hai. 260 million cubic meter mitti ka toda masnoi jheel mein gir gaya, jis se 250 meter ki lehar bani jis ne neeche ki wadiyon ke dehaat tabah kar diye, jis se taqreeban 2000 afraad halaak hue.</p>"
+          "content": "<p>Vajont tabahi, jo 9 October 1963 ko pesh aayi, Italian tareekh ke sab se baray qabil-e-rok thaam sanhat mein se ek hai. 260 million cubic meter chattan aur mitti ka toda Vajont dam ke zariye banai gayi masnoi jheel mein gir gaya, jis se 250 meter oonchi mega tsunami paida hui jis ne neeche ki wadiyon ke dehaat Longarone, Pirago, Rivalta aur Villanova ko tabah kar diya, jis se taqreeban 2000 afraad halaak hue.</p><p>Ye tabahi koi qudrati waqea nahi balke aik insani saakhta aafat thi. 1959 ke awal mein hi arziyati mutalaat ne Monte Toc ki dhalwan ke adam istehkaam ko zahir kiya tha, aur reporton mein khabardar kiya gaya tha ke landslide se aik lehar paida ho sakti hai jo dam se ooper ja sakti hai. Intibahaat ke bawajood, zakhaer ko bhara jata raha aur dam mukammal kiya gaya. Ye waqea ab duniya bhar mein aik intibahi kahani ke tor par parhaya jata hai ke kis tarah corporate mafaadat aur siyasi ghaflat scientific intibahaat ko nazar andaaz kar sakti hai.</p><p>Lehar ne mintoun mein apne raastay mein anay wali har cheez ko tabah kar diya. Sarkari amwaat ki tadaad 1,917 hai, agarche asal tadaad is se zyada batayi jati hai. Is waqea ke nateejay mein dam ki hifazat aur mahooli asraat ke jayzay se mutaliq Italian qanoon mein ahem tabdiliyan ki gain. Aaj bhi dam khara hai, aur ye ilaqa 20win sadi ki badtareen engineering nakamiyon mein se ek ke mutasreen ki yadgar ke tor par kaam karta hai.</p>"
         }
       }
     },
@@ -72,79 +72,81 @@
         "en": {
           "title": "MH370: The Unsolved Mystery",
           "excerpt": "On March 8, 2014, Malaysia Airlines flight MH370 disappeared from radar with 239 people on board...",
-          "content": "<p>On March 8, 2014, Malaysia Airlines flight MH370 disappeared from radar with 239 people on board, giving rise to one of the greatest mysteries in modern aviation. The aircraft, a Boeing 777, deviated from its planned route before vanishing completely.</p>"
+          "content": "<p>On March 8, 2014, Malaysia Airlines flight MH370 disappeared from radar with 239 people on board, giving rise to one of the greatest mysteries in modern aviation. The Boeing 777-200ER was en route from Kuala Lumpur to Beijing when it deviated from its planned route, turning back across the Malay Peninsula and heading south into the Indian Ocean. The aircraft's transponder was deliberately turned off, and satellite communications ceased, leaving investigators with limited data.</p><p>The subsequent search operation was the largest and most expensive in aviation history, covering over 120,000 square kilometers of the Indian Ocean. Despite years of searching, only a few pieces of debris have been found, washed ashore on islands in the western Indian Ocean and along the east coast of Africa. The main wreckage and the flight recorders have never been located.</p><p>Numerous theories have emerged to explain the disappearance. The official investigation concluded that the aircraft was likely flown off-course by someone in the cockpit, but no definitive motive or perpetrator has been identified. Alternative theories include mechanical failure, hijacking, or even the possibility of the aircraft being shot down. For the families of the 239 victims, the lack of answers has made closure impossible. The mystery of MH370 remains one of the most haunting questions in modern history, a stark reminder of how technology can fail and how vast and unforgiving our oceans are.</p>"
         },
         "ur": {
           "title": "MH370: حل طلب معمہ",
           "excerpt": "8 مارچ 2014 کو ملائیشیا ایئر لائنز کی پرواز MH370 239 مسافروں کے ساتھ ریڈار سے غائب ہو گئی...",
-          "content": "<p>8 مارچ 2014 کو ملائیشیا ایئر لائنز کی پرواز MH370 239 مسافروں کے ساتھ ریڈار سے غائب ہو گئی، جو جدید ہوا بازی کے سب سے بڑے معمہ بن گئی۔</p>"
+          "content": "<p>8 مارچ 2014 کو ملائیشیا ایئر لائنز کی پرواز MH370 239 مسافروں کے ساتھ ریڈار سے غائب ہو گئی، جو جدید ہوا بازی کے سب سے بڑے معمہ بن گئی۔ بوئنگ 777-200ER کوالالمپور سے بیجنگ جا رہی تھی جب اس نے اپنے منصوبہ بند راستے سے ہٹ کر جزیرہ نما مالے کے پار واپس مڑ کر بحر ہند میں جنوب کی طرف جانا شروع کیا۔ طیارے کا ٹرانسپانڈر جان بوجھ کر بند کر دیا گیا تھا، اور سیٹلائٹ مواصلات بند ہو گئے، جس سے تفتیش کاروں کے پاس محدود ڈیٹا رہ گیا۔</p><p>اس کے بعد کی تلاش کی کارروائی ہوا بازی کی تاریخ کی سب سے بڑی اور مہنگی تھی، جس میں بحر ہند کے 120,000 مربع کلومیٹر سے زیادہ رقبے کا احاطہ کیا گیا۔ برسوں کی تلاش کے باوجود، ملبے کے صرف چند ٹکڑے ملے ہیں، جو مغربی بحر ہند کے جزائر اور افریقہ کے مشرقی ساحل پر ساحل پر پائے گئے۔ مرکزی ملبہ اور فلائٹ ریکارڈرز کبھی نہیں ملے۔</p><p>یہ معمہ آج تک حل نہیں ہوا، اور MH370 کی کہانی جدید تاریخ کے سب سے پُراسرار سوالات میں سے ایک ہے۔</p>"
         },
         "ur-roman": {
           "title": "MH370: Hal Talab Mamya",
           "excerpt": "8 March 2014 ko Malaysia Airlines ki flight MH370 239 musafiron ke sath radar se gayab ho gayi...",
-          "content": "<p>8 March 2014 ko Malaysia Airlines ki flight MH370 239 musafiron ke sath radar se gayab ho gayi, jo jadeed hwa bazi ke sab se baray mamya ban gayi.</p>"
+          "content": "<p>8 March 2014 ko Malaysia Airlines ki flight MH370 239 musafiron ke sath radar se gayab ho gayi, jo jadeed hwa bazi ke sab se baray mamya ban gayi. Boeing 777-200ER Kuala Lumpur se Beijing ja rahi thi jab is ne apne mansooba band raastay se hat kar jazeera nima Malay ke paar wapas mur kar behar hind mein junoob ki taraf jana shuru kiya. Tayyaray ka transponder jaan boojh kar band kar diya gaya tha, aur satellite mawaslat band ho gaye, jis se tafteesh karne walon ke paas mehdood data reh gaya.</p><p>Is ke baad ki talaash ki karwai hwa bazi ki tareekh ki sab se barri aur mehangi thi, jis mein behar hind ke 120,000 square kilometer se zyada raqbay ka ahata kiya gaya. Barson ki talaash ke bawajood, malbay ke sirf chand tukray mile hain, jo maghribi behar hind ke jazair aur Africa ke mashriqi saahil par saahil par paye gaye. Markazi malba aur flight recorders kabhi nahi milay.</p><p>Ye mamya aaj tak hal nahi hua, aur MH370 ki kahani jadeed tareekh ke sab se pur-asrar sawalat mein se aik hai.</p>"
         }
       }
-    },
+    }
+  ],
+  "mysteries": [
     {
       "id": "dyatlov-pass",
-      "type": "article",
-      "category": "Mysteries",
+      "type": "mystery",
+      "category": "Unsolved",
       "date": "2025-02-28",
       "image": "https://media.istockphoto.com/id/1135174618/it/foto/citt%C3%A0-di-bilibino-a-%C4%8Dukukukka-russia.webp?a=1&b=1&s=612x612&w=0&k=20&c=TXbar-DDSE_yXOnGsR6QhK6_SwV93GTDRFGEavkN6pQ=",
       "translations": {
         "en": {
           "title": "Dyatlov Pass: The Unexplained Deaths",
           "excerpt": "In 1959, nine experienced hikers died mysteriously in the Ural Mountains...",
-          "content": "<p>The Dyatlov Pass incident occurred in February 1959 when nine Russian hikers died under mysterious circumstances in the Ural Mountains. Their tent was found torn from the inside, and the bodies showed strange injuries, including a missing tongue and severe internal trauma without external wounds.</p>"
+          "content": "<p>The Dyatlov Pass incident occurred in February 1959 when nine experienced Russian hikers died under mysterious circumstances in the Ural Mountains. Their tent was found torn from the inside, and the bodies showed strange injuries, including a missing tongue and severe internal trauma without external wounds. Decades later, the cause of death remains a mystery, with theories ranging from infrasound to secret military tests.</p>"
         },
         "ur": {
           "title": "ڈیاتلوف پاس: غیر واضح اموات",
           "excerpt": "1959 میں، نو تجربہ کار کوہ پیما یورال پہاڑوں میں پراسرار طور پر مر گئے...",
-          "content": "<p>ڈیاتلوف پاس واقعہ فروری 1959 میں پیش آیا جب نو روسی کوہ پیما یورال پہاڑوں میں پراسرار حالات میں مر گئے۔ ان کا خیمہ اندر سے پھٹا ہوا ملا، اور لاشوں پر عجیب زخم تھے، جن میں زبان کا غائب ہونا شامل تھا۔</p>"
+          "content": "<p>ڈیاتلوف پاس واقعہ فروری 1959 میں پیش آیا جب نو تجربہ کار روسی کوہ پیما یورال پہاڑوں میں پراسرار حالات میں مر گئے۔ ان کا خیمہ اندر سے پھٹا ہوا ملا، اور لاشوں پر عجیب زخم تھے۔ دہائیوں بعد بھی، موت کی وجہ ایک معمہ ہے۔</p>"
         },
         "ur-roman": {
           "title": "Dyatlov Pass: Ghair Wazeh Amwaat",
           "excerpt": "1959 mein, no tajarba kar koh pema Ural paharon mein pur-asrar tor par mar gaye...",
-          "content": "<p>Dyatlov Pass waqea February 1959 mein pesh aaya jab no Russian koh pema Ural paharon mein pur-asrar halat mein mar gaye. Unka kheema andar se phatta hua mila, aur lashon par ajeeb zakham thay.</p>"
+          "content": "<p>Dyatlov Pass waqea February 1959 mein pesh aaya jab no tajarba kar Russian koh pema Ural paharon mein pur-asrar halat mein mar gaye. Unka kheema andar se phatta hua mila, aur lashon par ajeeb zakham thay. Dhaiyon baad bhi, maut ki wajah aik mamya hai.</p>"
         }
       }
     },
     {
       "id": "tunguska",
-      "type": "article",
-      "category": "Mysteries",
+      "type": "mystery",
+      "category": "Unsolved",
       "date": "2025-02-20",
       "image": "https://images.unsplash.com/photo-1580741569354-08feedd159f9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZXhwbG9zaW9ufGVufDB8fDB8fHww",
       "translations": {
         "en": {
           "title": "Tunguska Event: The Siberian Explosion",
           "excerpt": "In 1908, a massive explosion flattened 2,000 square kilometers of forest in Siberia...",
-          "content": "<p>The Tunguska event was a massive explosion that occurred near the Podkamennaya Tunguska River in Siberia, Russia, on June 30, 1908. The blast flattened an estimated 80 million trees over an area of 2,150 square kilometers.</p>"
+          "content": "<p>The Tunguska event was a massive explosion that occurred near the Podkamennaya Tunguska River in Siberia, Russia, on June 30, 1908. The blast flattened an estimated 80 million trees over an area of 2,150 square kilometers. No impact crater was ever found, leading scientists to believe it was an air burst of a meteoroid or comet fragment.</p>"
         },
         "ur": {
           "title": "ٹنگوسکا واقعہ: سائبیریا دھماکہ",
           "excerpt": "1908 میں، ایک بڑے دھماکے نے سائبیریا میں 2,000 مربع کلومیٹر جنگل کو تباہ کر دیا...",
-          "content": "<p>ٹنگوسکا واقعہ 30 جون 1908 کو سائبیریا، روس میں دریائے پوڈکامینایا ٹنگوسکا کے قریب پیش آنے والا ایک بڑا دھماکہ تھا۔ دھماکے نے 2,150 مربع کلومیٹر کے رقبے میں تقریباً 80 ملین درختوں کو گرایا۔</p>"
+          "content": "<p>ٹنگوسکا واقعہ 30 جون 1908 کو سائبیریا، روس میں دریائے پوڈکامینایا ٹنگوسکا کے قریب پیش آنے والا ایک بڑا دھماکہ تھا۔ دھماکے نے 2,150 مربع کلومیٹر کے رقبے میں تقریباً 80 ملین درختوں کو گرایا۔ کوئی گڑھا نہیں ملا، جس کی وجہ سے سائنس دانوں کا خیال ہے کہ یہ میٹیورائڈ کا فضائی دھماکہ تھا۔</p>"
         },
         "ur-roman": {
           "title": "Tunguska Waqea: Siberia Dhamaka",
           "excerpt": "1908 mein, aik baray dhamakay ne Siberia mein 2,000 square kilometer jungle ko tabah kar diya...",
-          "content": "<p>Tunguska waqea 30 June 1908 ko Siberia, Russia mein daryae Podkamennaya Tunguska ke qareeb pesh aanay wala aik bara dhamaka tha. Dhamakay ne 2,150 square kilometer ke raqbay mein taqreeban 80 million darakhton ko giraya.</p>"
+          "content": "<p>Tunguska waqea 30 June 1908 ko Siberia, Russia mein daryae Podkamennaya Tunguska ke qareeb pesh aanay wala aik bara dhamaka tha. Dhamakay ne 2,150 square kilometer ke raqbay mein taqreeban 80 million darakhton ko giraya. Koi garha nahi mila, jis ki wajah se scientists ka khayal hai ke ye meteoroid ka fzai dhamaka tha.</p>"
         }
       }
     },
     {
       "id": "bermuda",
-      "type": "article",
-      "category": "Mysteries",
+      "type": "mystery",
+      "category": "Unsolved",
       "date": "2025-02-15",
       "image": "https://images.unsplash.com/photo-1574267327831-b94b2225476e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmVybXVkYSUyMHRyaWFuZ2xlfGVufDB8fDB8fHww",
       "translations": {
         "en": {
           "title": "Bermuda Triangle: The Devil's Triangle",
           "excerpt": "Ships and planes vanish without a trace in this mysterious region...",
-          "content": "<p>The Bermuda Triangle, also known as the Devil's Triangle, is a loosely defined region in the western part of the North Atlantic Ocean where a number of aircraft and ships are said to have disappeared under mysterious circumstances.</p>"
+          "content": "<p>The Bermuda Triangle, also known as the Devil's Triangle, is a loosely defined region in the western part of the North Atlantic Ocean where a number of aircraft and ships are said to have disappeared under mysterious circumstances. Theories range from magnetic anomalies to methane gas eruptions, but no single explanation has been universally accepted.</p>"
         },
         "ur": {
           "title": "برمودا مثلث: شیطان کا مثلث",
@@ -159,112 +161,16 @@
       }
     },
     {
-      "id": "area51",
-      "type": "article",
-      "category": "Conspiracy",
-      "date": "2025-02-10",
-      "image": "https://images.unsplash.com/photo-1554079744-45c1beb96274?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXJlYSUyMDUxfGVufDB8fDB8fHww",
-      "translations": {
-        "en": {
-          "title": "Area 51: The Secret Base",
-          "excerpt": "The secretive military base at the center of UFO conspiracy theories...",
-          "content": "<p>Area 51 is a highly classified United States Air Force facility within the Nevada Test and Training Range. The intense secrecy surrounding the base has made it the frequent subject of conspiracy theories.</p>"
-        },
-        "ur": {
-          "title": "ایریا 51: خفیہ اڈہ",
-          "excerpt": "خفیہ فوجی اڈہ جو UFO سازشی نظریات کا مرکز ہے...",
-          "content": "<p>ایریا 51 نیواڈا ٹیسٹ اور ٹریننگ رینج کے اندر ایک انتہائی خفیہ امریکی فضائیہ کی سہولت ہے۔ اڈے کے ارد گرد شدید رازداری نے اسے سازشی نظریات کا اکثر موضوع بنا دیا ہے۔</p>"
-        },
-        "ur-roman": {
-          "title": "Area 51: Khufiya Adda",
-          "excerpt": "Khufiya fouji adda jo UFO sazshi nazriyat ka markaz hai...",
-          "content": "<p>Area 51 Nevada Test aur Training Range ke andar aik intehai khufiya American fouji saholat hai. Adday ke ird gird shadeed raazdari ne isay sazshi nazriyat ka aksar mawzoo bana diya hai.</p>"
-        }
-      }
-    },
-    {
-      "id": "roswell",
-      "type": "article",
-      "category": "UFO",
-      "date": "2025-02-05",
-      "image": "https://plus.unsplash.com/premium_photo-1722111091429-dd3dc55979d3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dWZvfGVufDB8fDB8fHww",
-      "translations": {
-        "en": {
-          "title": "Roswell Incident: The UFO Crash",
-          "excerpt": "The 1947 crash that sparked modern UFO culture...",
-          "content": "<p>The Roswell incident was the recovery of material from a balloon crash in 1947 near Roswell, New Mexico. The U.S. military stated it was a weather balloon, but conspiracy theorists believe it was a crashed extraterrestrial spacecraft.</p>"
-        },
-        "ur": {
-          "title": "روزویل واقعہ: UFO حادثہ",
-          "excerpt": "1947 کا حادثہ جس نے جدید UFO ثقافت کو جنم دیا...",
-          "content": "<p>روزویل واقعہ 1947 میں نیو میکسیکو کے روزویل کے قریب ایک غبارے کے حادثے سے مواد کی بازیافت تھی۔ امریکی فوج نے کہا کہ یہ موسم کا غبارہ تھا، لیکن سازشی نظریہ دانوں کا خیال ہے کہ یہ ایک گرایا ہوا ماورائے ارضی خلائی جہاز تھا۔</p>"
-        },
-        "ur-roman": {
-          "title": "Roswell Waqea: UFO Hadsa",
-          "excerpt": "1947 ka hadsa jis ne jadeed UFO saqafat ko janam diya...",
-          "content": "<p>Roswell waqea 1947 mein New Mexico ke Roswell ke qareeb aik ghumbaray ke hadsay se mawad ki bazyaft thi. American fouji ne kaha ke ye mausam ka ghumbara tha, lekin sazshi nazriya danon ka khayal hai ke ye aik giraya hua mawara-e-ardi khalaee jahaz tha.</p>"
-        }
-      }
-    },
-    {
-      "id": "jack-the-ripper",
-      "type": "article",
-      "category": "History",
-      "date": "2025-01-30",
-      "image": "https://images.unsplash.com/photo-1606360735669-eb5981c4cc6d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a2lsbGVyfGVufDB8fDB8fHww",
-      "translations": {
-        "en": {
-          "title": "Jack the Ripper: The Unidentified Killer",
-          "excerpt": "In 1888, a serial killer terrorized the Whitechapel district of London...",
-          "content": "<p>Jack the Ripper was an unidentified serial killer active in the Whitechapel district of London in 1888. The name originated from a letter written by someone claiming to be the murderer. The case remains one of the most famous unsolved mysteries in history.</p>"
-        },
-        "ur": {
-          "title": "جیک دی ریپر: نامعلوم قاتل",
-          "excerpt": "1888 میں، ایک سیریل کلر نے لندن کے وائٹ چیپل ضلع میں دہشت پھیلا دی...",
-          "content": "<p>جیک دی ریپر ایک نامعلوم سیریل کلر تھا جو 1888 میں لندن کے وائٹ چیپل ضلع میں سرگرم تھا۔ یہ نام ایک خط سے شروع ہوا جو کسی نے قاتل ہونے کا دعویٰ کیا تھا۔ یہ کیس تاریخ کے سب سے مشہور حل طلب معمہ میں سے ایک ہے۔</p>"
-        },
-        "ur-roman": {
-          "title": "Jack the Ripper: Namaloom Qatil",
-          "excerpt": "1888 mein, aik serial killer ne London ke Whitechapel zila mein dehshat phaila di...",
-          "content": "<p>Jack the Ripper aik namaloom serial killer tha jo 1888 mein London ke Whitechapel zila mein sargaram tha. Ye naam aik khat se shuru hua jo kisi ne qatil hone ka dawa kiya tha. Ye case tareekh ke sab se mashhoor hal talab mamya mein se aik hai.</p>"
-        }
-      }
-    },
-    {
-      "id": "zodiac-killer",
-      "type": "article",
-      "category": "History",
-      "date": "2025-01-25",
-      "image": "https://images.unsplash.com/photo-1619083382085-9452906b7157?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FsaWZvcm5pYXxlbnwwfHwwfHx8MA%3D%3D",
-      "translations": {
-        "en": {
-          "title": "The Zodiac Killer: The Cipher Mystery",
-          "excerpt": "In the late 1960s, a serial killer terrorized Northern California...",
-          "content": "<p>The Zodiac Killer was a serial killer who operated in Northern California from the late 1960s. He sent taunting letters and ciphers to newspapers, some of which remain unsolved. His identity has never been confirmed.</p>"
-        },
-        "ur": {
-          "title": "زودیاک کلر: خفیہ کوڈ کا معمہ",
-          "excerpt": "1960 کی دہائی کے آخر میں، ایک سیریل کلر نے شمالی کیلیفورنیا میں دہشت پھیلا دی...",
-          "content": "<p>زودیاک کلر ایک سیریل کلر تھا جو 1960 کی دہائی کے آخر میں شمالی کیلیفورنیا میں سرگرم تھا۔ اس نے اخبارات کو طنزیہ خطوط اور خفیہ کوڈ بھیجے، جن میں سے کچھ آج تک حل نہیں ہو سکے۔ اس کی شناخت کبھی تصدیق نہیں ہو سکی۔</p>"
-        },
-        "ur-roman": {
-          "title": "Zodiac Killer: Khufiya Code ka Mamya",
-          "excerpt": "1960 ki dhai ke akhir mein, aik serial killer ne shumali California mein dehshat phaila di...",
-          "content": "<p>Zodiac killer aik serial killer tha jo 1960 ki dhai ke akhir mein shumali California mein sargaram tha. Is ne akhbarat ko tanziya khat aur khufiya code bheje, jin mein se kuch aaj tak hal nahi ho sake. Is ki shanakht kabhi tasdeeq nahi ho saki.</p>"
-        }
-      }
-    },
-    {
       "id": "amelia-earhart",
-      "type": "article",
-      "category": "Mysteries",
+      "type": "mystery",
+      "category": "Unsolved",
       "date": "2025-01-20",
       "image": "https://plus.unsplash.com/premium_photo-1680263818119-0d87a45d08eb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXZpYXRvcnxlbnwwfHwwfHx8MA%3D%3D",
       "translations": {
         "en": {
           "title": "Amelia Earhart: The Disappearance",
           "excerpt": "In 1937, pioneering aviator Amelia Earhart vanished over the Pacific Ocean...",
-          "content": "<p>Amelia Earhart was a pioneering American aviator who disappeared in 1937 while attempting to fly around the world. Her disappearance remains one of the greatest mysteries of the 20th century.</p>"
+          "content": "<p>Amelia Earhart was a pioneering American aviator who disappeared in 1937 while attempting to fly around the world. Her disappearance remains one of the greatest mysteries of the 20th century, with theories ranging from crashing into the ocean to being captured by the Japanese.</p>"
         },
         "ur": {
           "title": "امیلیا ایرہارٹ: گمشدگی",
@@ -280,15 +186,15 @@
     },
     {
       "id": "sodder-children",
-      "type": "article",
-      "category": "Mysteries",
+      "type": "mystery",
+      "category": "Unsolved",
       "date": "2025-01-15",
       "image": "https://plus.unsplash.com/premium_photo-1770494756855-20cdee1eec23?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c29kZGVyJTIwY2hpbGRyZW58ZW58MHx8MHx8fDA%3D",
       "translations": {
         "en": {
           "title": "The Sodder Children: The Christmas Eve Mystery",
           "excerpt": "On Christmas Eve 1945, five children disappeared after a fire destroyed their home...",
-          "content": "<p>The Sodder children disappeared on Christmas Eve 1945 after a fire destroyed their West Virginia home. Despite extensive investigation, no remains were found, leading to theories that they survived and were taken away.</p>"
+          "content": "<p>The Sodder children disappeared on Christmas Eve 1945 after a fire destroyed their West Virginia home. Despite extensive investigation, no remains were found, leading to theories that they survived and were taken away. The case remains one of America's most haunting unsolved mysteries.</p>"
         },
         "ur": {
           "title": "سوڈر بچے: کرسمس کی رات کا معمہ",
@@ -391,17 +297,17 @@
         "en": {
           "title": "Iran Appoints New Leader Amid Escalating Conflict",
           "excerpt": "In recent days, Iran has found itself at the center of a fierce conflict...",
-          "content": "<p>Iran has announced the appointment of a new leader during a critical time of escalating regional conflict. The transition comes as military operations intensify in the region.</p>"
+          "content": "<p>Iran has announced the appointment of a new leader during a critical time of escalating regional conflict. The transition comes as military operations intensify in the region. Analysts suggest this change could have significant implications for the balance of power in the Middle East. The new leader has pledged to continue the country's resistance against foreign pressures while seeking to stabilize the internal situation. International observers are watching closely as the situation develops.</p>"
         },
         "ur": {
           "title": "بڑھتے ہوئے تنازع کے درمیان ایران میں نئے رہنما کا تقرر",
           "excerpt": "پچھلے کچھ دنوں میں ایران ایک شدید تنازع کے مرکز میں ہے...",
-          "content": "<p>ایران نے علاقائی تنازع میں شدت کے نازک وقت میں نئے رہنما کے تقرر کا اعلان کیا ہے۔ یہ تبدیلی اس وقت ہوئی ہے جب خطے میں فوجی کارروائیاں تیز ہو رہی ہیں۔</p>"
+          "content": "<p>ایران نے علاقائی تنازع میں شدت کے نازک وقت میں نئے رہنما کے تقرر کا اعلان کیا ہے۔ یہ تبدیلی اس وقت ہوئی ہے جب خطے میں فوجی کارروائیاں تیز ہو رہی ہیں۔ تجزیہ کاروں کا خیال ہے کہ یہ تبدیلی مشرق وسطیٰ میں طاقت کے توازن پر اہم اثرات مرتب کر سکتی ہے۔ نئے رہنما نے بیرونی دباؤ کے خلاف ملک کی مزاحمت جاری رکھنے کے ساتھ ساتھ اندرونی صورتحال کو مستحکم کرنے کا عہد کیا ہے۔</p>"
         },
         "ur-roman": {
           "title": "Barhtay Hue Tanazay Ke Darmiyan Iran Mein Naye Rehnuma Ka Taqarrur",
           "excerpt": "Pichlay kuch dino mein Iran aik shadeed tanazay ke markaz mein hai...",
-          "content": "<p>Iran ne ilaqai tanazay mein shiddat ke nazuk waqt mein naye rehnuma ke taqarrur ka elaan kiya hai. Ye tabdili us waqt hui hai jab khatay mein fouji karwaiyan tez ho rahi hain.</p>"
+          "content": "<p>Iran ne ilaqai tanazay mein shiddat ke nazuk waqt mein naye rehnuma ke taqarrur ka elaan kiya hai. Ye tabdili us waqt hui hai jab khatay mein fouji karwaiyan tez ho rahi hain. Tajzia kar ka khayal hai ke ye tabdili mashriq wast mein taaqat ke tawazun par ahem asraat murtakab kar sakti hai. Naye rehnuma ne biruni dabaao ke khilaf mulk ki mazahmat jari rakhnay ke sath sath andaroni soorat e haal ko mustahkam karne ka ehad kiya hai.</p>"
         }
       }
     },
@@ -415,137 +321,17 @@
         "en": {
           "title": "Gaza Ceasefire Talks Continue Amid Humanitarian Crisis",
           "excerpt": "International mediators are pushing for a ceasefire as the humanitarian situation worsens...",
-          "content": "<p>International mediators continue efforts to broker a ceasefire in Gaza as the humanitarian crisis deepens. Millions remain displaced with limited access to food and medical supplies.</p>"
+          "content": "<p>International mediators continue efforts to broker a ceasefire in Gaza as the humanitarian crisis deepens. Millions remain displaced with limited access to food and medical supplies. The United Nations has called for an immediate halt to hostilities, warning that the situation is becoming increasingly dire. Relief organizations report that hospitals are overwhelmed and basic necessities are running out. The international community is urging both sides to come to the negotiating table to prevent further loss of civilian life.</p>"
         },
         "ur": {
           "title": "انسانی بحران کے درمیان غزہ میں جنگ بندی کی بات چیت جاری",
           "excerpt": "انسانی صورت حال خراب ہونے کے ساتھ ہی بین الاقوامی ثالث جنگ بندی کے لیے کوشاں ہیں...",
-          "content": "<p>بین الاقوامی ثالث غزہ میں جنگ بندی کے لیے کوششیں جاری رکھے ہوئے ہیں کیونکہ انسانی بحران گہرا ہوتا جا رہا ہے۔ لاکھوں افراد بے گھر ہیں اور خوراک و طبی سہولیات تک محدود رسائی ہے۔</p>"
+          "content": "<p>بین الاقوامی ثالث غزہ میں جنگ بندی کے لیے کوششیں جاری رکھے ہوئے ہیں کیونکہ انسانی بحران گہرا ہوتا جا رہا ہے۔ لاکھوں افراد بے گھر ہیں اور خوراک و طبی سہولیات تک محدود رسائی ہے۔ اقوام متحدہ نے فوری جنگ بندی کا مطالبہ کیا ہے، اور خبردار کیا ہے کہ صورتحال تیزی سے خطرناک ہوتی جا رہی ہے۔</p>"
         },
         "ur-roman": {
           "title": "Insani Bohran Ke Darmiyan Gaza Mein Jung Bandi Ki Baat Cheet Jari",
           "excerpt": "Insani soorat hal kharab hone ke sath hi bein al-aqwami saalis jung bandi ke liye koshain hain...",
-          "content": "<p>Bein al-aqwami saalis Gaza mein jung bandi ke liye koshishen jari rakhe hue hain kyun ke insani bohran gehra hota ja raha hai. Lakhoon afraad be ghar hain aur khoraak o tibi sahuliyat tak mehdood rasai hai.</p>"
-        }
-      }
-    },
-    {
-      "id": "ukraine-war-update",
-      "type": "news",
-      "category": "Current Affairs",
-      "date": "2026-03-15",
-      "image": "https://images.unsplash.com/photo-1565711561500-49678a10a63f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dWtyYWluZXxlbnwwfHwwfHx8MA%3D%3D",
-      "translations": {
-        "en": {
-          "title": "Ukraine Conflict Enters Fourth Year with No End in Sight",
-          "excerpt": "The war in Ukraine continues as both sides dig in for a prolonged conflict...",
-          "content": "<p>The conflict in Ukraine has entered its fourth year with no resolution in sight. Both sides have fortified positions as winter conditions make advances difficult.</p>"
-        },
-        "ur": {
-          "title": "یوکرین تنازع چوتھے سال میں داخل، خاتمے کے امکانات نظر نہیں آتے",
-          "excerpt": "یوکرین میں جنگ جاری ہے جبکہ دونوں فریق طویل تنازع کے لیے تیار ہیں...",
-          "content": "<p>یوکرین میں تنازع چوتھے سال میں داخل ہو گیا ہے اور اس کے خاتمے کے کوئی امکانات نظر نہیں آتے۔ دونوں فریقوں نے اپنی پوزیشنیں مضبوط کر لی ہیں جبکہ سردیوں کے حالات پیش قدمی کو مشکل بنا رہے ہیں۔</p>"
-        },
-        "ur-roman": {
-          "title": "Ukraine Tanaza Chouthay Saal Mein Daakhil, Khatamay Ke Imkanat Nazar Nahi Aate",
-          "excerpt": "Ukraine mein jang jari hai jabke dono fareeq taveel tanazay ke liye tayar hain...",
-          "content": "<p>Ukraine mein tanaza chouthay saal mein daakhil ho gaya hai aur is ke khatamay ke koi imkanat nazar nahi aate. Dono fareeqon ne apni pozishen mazboot kar li hain jabke sardi ke halat paish qadmi ko mushkil bana rahe hain.</p>"
-        }
-      }
-    },
-    {
-      "id": "sudan-crisis",
-      "type": "news",
-      "category": "Current Affairs",
-      "date": "2026-03-12",
-      "image": "https://images.unsplash.com/photo-1663876458229-4a7ac3e4be45?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3VkYW58ZW58MHx8MHx8fDA%3D",
-      "translations": {
-        "en": {
-          "title": "Sudan Conflict Displaces Millions, UN Warns of Famine",
-          "excerpt": "The ongoing conflict in Sudan has created one of the world's worst humanitarian crises...",
-          "content": "<p>The United Nations warns that Sudan is facing one of the worst famines in decades as conflict continues to displace millions. International aid efforts are struggling to reach affected populations.</p>"
-        },
-        "ur": {
-          "title": "سوڈان تنازع نے لاکھوں کو بے گھر کر دیا، اقوام متحدہ نے قحط کی وارننگ دے دی",
-          "excerpt": "سوڈان میں جاری تنازع نے دنیا کے بدترین انسانی بحرانوں میں سے ایک پیدا کر دیا ہے...",
-          "content": "<p>اقوام متحدہ نے خبردار کیا ہے کہ سوڈان دہائیوں کے بدترین قحط کا سامنا کر رہا ہے کیونکہ تنازع جاری ہے جس سے لاکھوں افراد بے گھر ہو چکے ہیں۔ بین الاقوامی امدادی کوششیں متاثرہ آبادیوں تک پہنچنے میں جدوجہد کر رہی ہیں۔</p>"
-        },
-        "ur-roman": {
-          "title": "Sudan Tanaza Ne Lakhoon Ko Be Ghar Kar Diya, Aqwam Muttahida Ne Qaht Ki Warning De Di",
-          "excerpt": "Sudan mein jari tanaza ne duniya ke badtareen insani bohran mein se aik paida kar diya hai...",
-          "content": "<p>Aqwam Muttahida ne khabardar kiya hai ke Sudan dhaiyon ke badtareen qaht ka samna kar raha hai kyun ke tanaza jari hai jis se lakhoon afraad be ghar ho chuke hain. Bein al-aqwami imdadi koshishen mutasira aabadiyon tak pohanchne mein jadojehad kar rahi hain.</p>"
-        }
-      }
-    },
-    {
-      "id": "israel-hezbollah",
-      "type": "news",
-      "category": "Current Affairs",
-      "date": "2026-03-10",
-      "image": "https://images.unsplash.com/photo-1547483029-77784da27709?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXNyYWVsZXxlbnwwfHwwfHx8MA%3D%3D",
-      "translations": {
-        "en": {
-          "title": "Israel-Hezbollah Border Clashes Escalate",
-          "excerpt": "Cross-border fire between Israel and Hezbollah has intensified in recent days...",
-          "content": "<p>Fighting along the Israel-Lebanon border has intensified, raising fears of a broader regional conflict. Both sides have exchanged fire daily for the past week.</p>"
-        },
-        "ur": {
-          "title": "اسرائیل حزب اللہ سرحدی جھڑپیں شدت اختیار کر گئیں",
-          "excerpt": "اسرائیل اور حزب اللہ کے درمیان سرحد پار فائرنگ نے شدت اختیار کر لی ہے...",
-          "content": "<p>اسرائیل لبنان سرحد کے ساتھ لڑائی نے شدت اختیار کر لی ہے، جس سے وسیع تر علاقائی تنازع کے خدشات بڑھ گئے ہیں۔ دونوں فریقوں نے پچھلے ہفتے روزانہ فائرنگ کا تبادلہ کیا ہے۔</p>"
-        },
-        "ur-roman": {
-          "title": "Israel Hezbollah Sarhadi Jharpen Shiddat Ikhtiyar Kar Gain",
-          "excerpt": "Israel aur Hezbollah ke darmiyan sarhad par firing ne shiddat ikhtiyar kar li hai...",
-          "content": "<p>Israel Lebanon sarhad ke sath larai ne shiddat ikhtiyar kar li hai, jis se wasee tar ilaqai tanaza ke khadshaat barh gaye hain. Dono fareeqon ne pichlay hafte rozana firing ka tabadla kiya hai.</p>"
-        }
-      }
-    },
-    {
-      "id": "myanmar-civil-war",
-      "type": "news",
-      "category": "Current Affairs",
-      "date": "2026-03-08",
-      "image": "https://images.unsplash.com/photo-1525711857929-4272fb4a040f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2l2aWwlMjB3YXJ8ZW58MHx8MHx8fDA%3D",
-      "translations": {
-        "en": {
-          "title": "Myanmar Civil War Intensifies as Resistance Gains Ground",
-          "excerpt": "Fighting in Myanmar has escalated as resistance forces make significant advances...",
-          "content": "<p>The civil war in Myanmar has intensified with resistance forces gaining control of several key areas. The military junta is facing its biggest challenge since seizing power.</p>"
-        },
-        "ur": {
-          "title": "میانمار خانہ جنگی شدت اختیار کر گئی، مزاحمتی افواج کو کامیابیاں",
-          "excerpt": "میانمار میں لڑائی اس وقت شدت اختیار کر گئی ہے جب مزاحمتی افواج اہم پیش رفت کر رہی ہیں...",
-          "content": "<p>میانمار میں خانہ جنگی اس وقت شدت اختیار کر گئی ہے جب مزاحمتی افواج نے کئی اہم علاقوں پر کنٹرول حاصل کر لیا ہے۔ فوجی حکومت کو اقتدار سنبھالنے کے بعد سب سے بڑے چیلنج کا سامنا ہے۔</p>"
-        },
-        "ur-roman": {
-          "title": "Myanmar Khana Jungi Shiddat Ikhtiyar Kar Gai, Muzahmati Afwaj Ko Kamiyabian",
-          "excerpt": "Myanmar mein larai us waqt shiddat ikhtiyar kar gai jab muzahmati afwaj ahem paish raft kar rahi hain...",
-          "content": "<p>Myanmar mein khana jungi us waqt shiddat ikhtiyar kar gai jab muzahmati afwaj ne kai ahem ilaqon par control hasil kar liya hai. Fouji hukoomat ko iqtidar sambhalne ke baad sab se baray challenge ka samna hai.</p>"
-        }
-      }
-    },
-    {
-      "id": "ethiopia-tigray",
-      "type": "news",
-      "category": "Current Affairs",
-      "date": "2026-03-05",
-      "image": "https://plus.unsplash.com/premium_photo-1674591173440-e559d2f73dc4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZXRoaW9waWElMjBmbGFnfGVufDB8fDB8fHww",
-      "translations": {
-        "en": {
-          "title": "Ethiopia's Tigray Region Faces Renewed Violence",
-          "excerpt": "Fighting has erupted again in Ethiopia's Tigray region despite peace agreements...",
-          "content": "<p>Renewed violence in Ethiopia's Tigray region threatens to unravel the fragile peace agreement. Humanitarian access remains severely restricted.</p>"
-        },
-        "ur": {
-          "title": "ایتھوپیا کے تیگرے علاقے میں تشدد دوبارہ شروع",
-          "excerpt": "امن معاہدوں کے باوجود ایتھوپیا کے تیگرے علاقے میں دوبارہ لڑائی شروع ہو گئی ہے...",
-          "content": "<p>ایتھوپیا کے تیگرے علاقے میں دوبارہ تشدد شروع ہو گیا ہے جو نازک امن معاہدے کو خطرے میں ڈال سکتا ہے۔ انسانی ہمدردی کی رسائی شدید طور پر محدود ہے۔</p>"
-        },
-        "ur-roman": {
-          "title": "Ethiopia ke Tigray Ilaqay Mein Tashaddod Dobara Shuroo",
-          "excerpt": "Aman moahidon ke bawajood Ethiopia ke Tigray ilaqay mein dobara larai shuroo ho gai hai...",
-          "content": "<p>Ethiopia ke Tigray ilaqay mein dobara tashaddod shuroo ho gaya hai jo nazuk aman moahide ko khatray mein dal sakta hai. Insani hamdardi ki rasai shadeed tor par mehdood hai.</p>"
+          "content": "<p>Bein al-aqwami saalis Gaza mein jung bandi ke liye koshishen jari rakhe hue hain kyun ke insani bohran gehra hota ja raha hai. Lakhoon afraad be ghar hain aur khoraak o tibi sahuliyat tak mehdood rasai hai. Aqwam Muttahida ne fori jung bandi ka mutalba kiya hai, aur khabardar kiya hai ke soorat e haal tezi se khatarnak hoti ja rahi hai.</p>"
         }
       }
     }
@@ -569,7 +355,10 @@
       "translations": { "en": { "category": "MH370" }, "ur": { "category": "MH370" }, "ur-roman": { "category": "MH370" } },
       "questions": [
         { "correct": 2, "translations": { "en": { "question": "What year did Malaysia Airlines Flight MH370 disappear?", "options": ["2012", "2013", "2014", "2015"], "explanation": "MH370 disappeared on March 8, 2014." }, "ur": { "question": "ملائیشیا ایئر لائنز کی پرواز MH370 کس سال غائب ہوئی؟", "options": ["2012", "2013", "2014", "2015"], "explanation": "MH370 8 مارچ 2014 کو غائب ہوئی۔" }, "ur-roman": { "question": "Malaysia Airlines ki flight MH370 kis saal gayab hui?", "options": ["2012", "2013", "2014", "2015"], "explanation": "MH370 8 March 2014 ko gayab hui." } } },
-        { "correct": 2, "translations": { "en": { "question": "How many people were on board MH370?", "options": ["189", "227", "239", "267"], "explanation": "There were 239 people on board." }, "ur": { "question": "MH370 پر کتنے لوگ سوار تھے؟", "options": ["189", "227", "239", "267"], "explanation": "239 افراد سوار تھے۔" }, "ur-roman": { "question": "MH370 par kitnay log sawar thay?", "options": ["189", "227", "239", "267"], "explanation": "239 afraad sawar thay." } } }
+        { "correct": 2, "translations": { "en": { "question": "How many people were on board MH370?", "options": ["189", "227", "239", "267"], "explanation": "There were 239 people on board." }, "ur": { "question": "MH370 پر کتنے لوگ سوار تھے؟", "options": ["189", "227", "239", "267"], "explanation": "239 افراد سوار تھے۔" }, "ur-roman": { "question": "MH370 par kitnay log sawar thay?", "options": ["189", "227", "239", "267"], "explanation": "239 afraad sawar thay." } } },
+        { "correct": 2, "translations": { "en": { "question": "What type of aircraft was MH370?", "options": ["Airbus A380", "Boeing 737", "Boeing 777", "Airbus A330"], "explanation": "MH370 was a Boeing 777-200ER." }, "ur": { "question": "MH370 کس قسم کا طیارہ تھا؟", "options": ["ایئربس A380", "بوئنگ 737", "بوئنگ 777", "ایئربس A330"], "explanation": "MH370 بوئنگ 777-200ER تھا۔" }, "ur-roman": { "question": "MH370 kis qisam ka tayyara tha?", "options": ["Airbus A380", "Boeing 737", "Boeing 777", "Airbus A330"], "explanation": "MH370 Boeing 777-200ER tha." } } },
+        { "correct": 2, "translations": { "en": { "question": "Where was MH370's last known position?", "options": ["South China Sea", "Andaman Sea", "Indian Ocean", "Pacific Ocean"], "explanation": "Last known position was over the Indian Ocean." }, "ur": { "question": "MH370 کی آخری معلوم پوزیشن کہاں تھی؟", "options": ["بحیرہ جنوبی چین", "بحیرہ انڈمان", "بحر ہند", "بحر الکاہل"], "explanation": "آخری معلوم پوزیشن بحر ہند کے اوپر تھی۔" }, "ur-roman": { "question": "MH370 ki aakhri maloom position kahan thi?", "options": ["South China Sea", "Andaman Sea", "Indian Ocean", "Pacific Ocean"], "explanation": "Aakhri maloom position Indian Ocean ke ooper thi." } } },
+        { "correct": 1, "translations": { "en": { "question": "What is the most controversial theory about MH370?", "options": ["Mechanical failure", "Pilot suicide", "Hijacking", "Weather"], "explanation": "The pilot suicide theory is among the most discussed." }, "ur": { "question": "MH370 کے بارے میں سب سے زیادہ متنازع نظریہ کیا ہے؟", "options": ["مکینیکل خرابی", "پائلٹ خودکشی", "ہائی جیکنگ", "موسم"], "explanation": "پائلٹ خودکشی کا نظریہ سب سے زیادہ زیر بحث ہے۔" }, "ur-roman": { "question": "MH370 ke baare mein sab se zyada mutanazay nazriya kya hai?", "options": ["Mechanical failure", "Pilot suicide", "Hijacking", "Weather"], "explanation": "Pilot suicide ka nazriya sab se zyada zair-e-behas hai." } } }
       ]
     },
     {
@@ -578,7 +367,10 @@
       "translations": { "en": { "category": "Pyramids" }, "ur": { "category": "اہرام" }, "ur-roman": { "category": "Ahraam" } },
       "questions": [
         { "correct": 2, "translations": { "en": { "question": "How many pyramids are there in the Giza pyramid complex?", "options": ["1", "2", "3", "4"], "explanation": "Three main pyramids at Giza." }, "ur": { "question": "جیزہ اہرام کمپلیکس میں کتنے اہرام ہیں؟", "options": ["1", "2", "3", "4"], "explanation": "جیزہ میں تین اہرام ہیں۔" }, "ur-roman": { "question": "Giza ahraam complex mein kitnay ahraam hain?", "options": ["1", "2", "3", "4"], "explanation": "Giza mein teen ahraam hain." } } },
-        { "correct": 1, "translations": { "en": { "question": "Who built the Great Pyramid of Giza?", "options": ["Ramses II", "Khufu", "Tutankhamun", "Cleopatra"], "explanation": "Built for Pharaoh Khufu." }, "ur": { "question": "جیزہ کا عظیم ہرم کس نے بنایا؟", "options": ["رامسیس دوم", "خوفو", "توتنخامون", "کلیوپیٹرا"], "explanation": "فرعون خوفو کے لیے بنایا گیا۔" }, "ur-roman": { "question": "Giza ka azeem haram kis ne banaya?", "options": ["Ramses II", "Khufu", "Tutankhamun", "Cleopatra"], "explanation": "Faroon Khufu ke liye banaya gaya." } } }
+        { "correct": 1, "translations": { "en": { "question": "Who built the Great Pyramid of Giza?", "options": ["Ramses II", "Khufu", "Tutankhamun", "Cleopatra"], "explanation": "Built for Pharaoh Khufu." }, "ur": { "question": "جیزہ کا عظیم ہرم کس نے بنایا؟", "options": ["رامسیس دوم", "خوفو", "توتنخامون", "کلیوپیٹرا"], "explanation": "فرعون خوفو کے لیے بنایا گیا۔" }, "ur-roman": { "question": "Giza ka azeem haram kis ne banaya?", "options": ["Ramses II", "Khufu", "Tutankhamun", "Cleopatra"], "explanation": "Faroon Khufu ke liye banaya gaya." } } },
+        { "correct": 2, "translations": { "en": { "question": "How long was the Great Pyramid the tallest man-made structure?", "options": ["1,000 years", "2,500 years", "3,800 years", "4,500 years"], "explanation": "Held record for 3,800 years." }, "ur": { "question": "عظیم ہرم کتنی دیر تک سب سے اونچا انسانی ساختہ ڈھانچہ رہا؟", "options": ["1,000 سال", "2,500 سال", "3,800 سال", "4,500 سال"], "explanation": "3,800 سال تک ریکارڈ رہا۔" }, "ur-roman": { "question": "Azeem haram kitni der tak sab se ooncha insani saakhta dhancha raha?", "options": ["1,000 saal", "2,500 saal", "3,800 saal", "4,500 saal"], "explanation": "3,800 saal tak record raha." } } },
+        { "correct": 1, "translations": { "en": { "question": "What was the original height of the Great Pyramid?", "options": ["120m", "146.6m", "160m", "180m"], "explanation": "Original height was 146.6 meters." }, "ur": { "question": "عظیم ہرم کی اصل اونچائی کیا تھی؟", "options": ["120 میٹر", "146.6 میٹر", "160 میٹر", "180 میٹر"], "explanation": "اصل اونچائی 146.6 میٹر تھی۔" }, "ur-roman": { "question": "Azeem haram ki asal oonchai kya thi?", "options": ["120 meter", "146.6 meter", "160 meter", "180 meter"], "explanation": "Asal oonchai 146.6 meter thi." } } },
+        { "correct": 2, "translations": { "en": { "question": "How many blocks were used to build the Great Pyramid?", "options": ["500,000", "1 million", "2.3 million", "5 million"], "explanation": "Estimated 2.3 million blocks." }, "ur": { "question": "عظیم ہرم کو بنانے میں کتنے پتھر استعمال ہوئے؟", "options": ["500,000", "1 ملین", "2.3 ملین", "5 ملین"], "explanation": "تخمینہ 2.3 ملین پتھر۔" }, "ur-roman": { "question": "Azeem haram ko banane mein kitnay pathar istemal hue?", "options": ["500,000", "1 million", "2.3 million", "5 million"], "explanation": "Takhmeena 2.3 million pathar." } } }
       ]
     },
     {
@@ -586,7 +378,11 @@
       "icon": "fa-mountain",
       "translations": { "en": { "category": "Vajont" }, "ur": { "category": "واجونٹ" }, "ur-roman": { "category": "Vajont" } },
       "questions": [
-        { "correct": 1, "translations": { "en": { "question": "In what year did the Vajont disaster occur?", "options": ["1960", "1963", "1965", "1968"], "explanation": "October 9, 1963." }, "ur": { "question": "واجونٹ تباہی کس سال پیش آئی؟", "options": ["1960", "1963", "1965", "1968"], "explanation": "9 اکتوبر 1963۔" }, "ur-roman": { "question": "Vajont tabahi kis saal pesh aayi?", "options": ["1960", "1963", "1965", "1968"], "explanation": "9 October 1963." } } }
+        { "correct": 1, "translations": { "en": { "question": "In what year did the Vajont disaster occur?", "options": ["1960", "1963", "1965", "1968"], "explanation": "October 9, 1963." }, "ur": { "question": "واجونٹ تباہی کس سال پیش آئی؟", "options": ["1960", "1963", "1965", "1968"], "explanation": "9 اکتوبر 1963۔" }, "ur-roman": { "question": "Vajont tabahi kis saal pesh aayi?", "options": ["1960", "1963", "1965", "1968"], "explanation": "9 October 1963." } } },
+        { "correct": 2, "translations": { "en": { "question": "How many people died in the Vajont disaster?", "options": ["~500", "~1000", "~2000", "~3000"], "explanation": "Nearly 2000 victims." }, "ur": { "question": "واجونٹ تباہی میں کتنے لوگ مارے گئے؟", "options": ["~500", "~1000", "~2000", "~3000"], "explanation": "تقریباً 2000 ہلاکتیں۔" }, "ur-roman": { "question": "Vajont tabahi mein kitnay log maaray gaye?", "options": ["~500", "~1000", "~2000", "~3000"], "explanation": "Taqreeban 2000 halaaktein." } } },
+        { "correct": 1, "translations": { "en": { "question": "What caused the Vajont disaster?", "options": ["Earthquake", "Landslide", "Dam collapse", "Flood"], "explanation": "A massive landslide." }, "ur": { "question": "واجونٹ تباہی کی وجہ کیا تھی؟", "options": ["زلزلہ", "لینڈ سلائیڈ", "ڈیم کا گرنا", "سیلاب"], "explanation": "ایک بہت بڑی لینڈ سلائیڈ۔" }, "ur-roman": { "question": "Vajont tabahi ki wajah kya thi?", "options": ["Earthquake", "Landslide", "Dam collapse", "Flood"], "explanation": "Aik bohat barri landslide." } } },
+        { "correct": 2, "translations": { "en": { "question": "Where is the Vajont Dam located?", "options": ["Switzerland", "France", "Italy", "Austria"], "explanation": "Northern Italy." }, "ur": { "question": "واجونٹ ڈیم کہاں واقع ہے؟", "options": ["سوئٹزرلینڈ", "فرانس", "اٹلی", "آسٹریا"], "explanation": "شمالی اٹلی۔" }, "ur-roman": { "question": "Vajont Dam kahan waqe hai?", "options": ["Switzerland", "France", "Italy", "Austria"], "explanation": "Shumali Italy." } } },
+        { "correct": 2, "translations": { "en": { "question": "How high was the wave generated?", "options": ["150m", "200m", "250m", "300m"], "explanation": "Approximately 250 meters." }, "ur": { "question": "پیدا ہونے والی لہر کتنی اونچی تھی؟", "options": ["150 میٹر", "200 میٹر", "250 میٹر", "300 میٹر"], "explanation": "تقریباً 250 میٹر۔" }, "ur-roman": { "question": "Paida honay wali lehar kitni oonchi thi?", "options": ["150 meter", "200 meter", "250 meter", "300 meter"], "explanation": "Taqreeban 250 meter." } } }
       ]
     },
     {
@@ -594,7 +390,11 @@
       "icon": "fa-water",
       "translations": { "en": { "category": "Bermuda Triangle" }, "ur": { "category": "برمودا مثلث" }, "ur-roman": { "category": "Bermuda Maslas" } },
       "questions": [
-        { "correct": 2, "translations": { "en": { "question": "Where is the Bermuda Triangle located?", "options": ["Pacific", "Indian", "Atlantic", "Arctic"], "explanation": "North Atlantic Ocean." }, "ur": { "question": "برمودا مثلث کہاں واقع ہے؟", "options": ["بحرالکاہل", "بحر ہند", "بحر اوقیانوس", "بحر منجمد شمالی"], "explanation": "شمالی بحر اوقیانوس۔" }, "ur-roman": { "question": "Bermuda maslas kahan waqe hai?", "options": ["Pacific", "Indian", "Atlantic", "Arctic"], "explanation": "Shumali Atlantic Ocean." } } }
+        { "correct": 2, "translations": { "en": { "question": "Where is the Bermuda Triangle located?", "options": ["Pacific", "Indian", "Atlantic", "Arctic"], "explanation": "North Atlantic Ocean." }, "ur": { "question": "برمودا مثلث کہاں واقع ہے؟", "options": ["بحرالکاہل", "بحر ہند", "بحر اوقیانوس", "بحر منجمد شمالی"], "explanation": "شمالی بحر اوقیانوس۔" }, "ur-roman": { "question": "Bermuda maslas kahan waqe hai?", "options": ["Pacific", "Indian", "Atlantic", "Arctic"], "explanation": "Shumali Atlantic Ocean." } } },
+        { "correct": 0, "translations": { "en": { "question": "What is another name for the Bermuda Triangle?", "options": ["Devil's Triangle", "Death Triangle", "Mystery Triangle", "Lost Triangle"], "explanation": "Also known as Devil's Triangle." }, "ur": { "question": "برمودا مثلث کا دوسرا نام کیا ہے؟", "options": ["شیطان کا مثلث", "موت کا مثلث", "معمہ کا مثلث", "کھویا ہوا مثلث"], "explanation": "شیطان کا مثلث بھی کہا جاتا ہے۔" }, "ur-roman": { "question": "Bermuda maslas ka doosra naam kya hai?", "options": ["Devil's Triangle", "Death Triangle", "Mystery Triangle", "Lost Triangle"], "explanation": "Shaitan ka maslas bhi kaha jata hai." } } },
+        { "correct": 0, "translations": { "en": { "question": "What is the most famous disappearance in the Bermuda Triangle?", "options": ["Flight 19", "USS Cyclops", "Mary Celeste", "SS Marine Sulphur Queen"], "explanation": "Flight 19 disappeared in 1945." }, "ur": { "question": "برمودا مثلث میں سب سے مشہور گمشدگی کون سی ہے؟", "options": ["فلائٹ 19", "یو ایس ایس سائکلوپس", "میری سیلستے", "ایس ایس میرین سلفر کوئین"], "explanation": "فلائٹ 19 1945 میں غائب ہوئی۔" }, "ur-roman": { "question": "Bermuda maslas mein sab se mashhoor gumshudgi kaun si hai?", "options": ["Flight 19", "USS Cyclops", "Mary Celeste", "SS Marine Sulphur Queen"], "explanation": "Flight 19 1945 mein gayab hui." } } },
+        { "correct": 2, "translations": { "en": { "question": "Which famous explorer reported strange compass readings in the area?", "options": ["Marco Polo", "Ferdinand Magellan", "Christopher Columbus", "Vasco da Gama"], "explanation": "Christopher Columbus reported anomalies." }, "ur": { "question": "کس مشہور مہم جو نے اس علاقے میں کمپاس کی عجیب ریڈنگز کی اطلاع دی؟", "options": ["مارکو پولو", "فرڈینینڈ میگیلن", "کرسٹوفر کولمبس", "واسکو ڈے گاما"], "explanation": "کرسٹوفر کولمبس نے اس علاقے میں بے ضابطگیوں کی اطلاع دی۔" }, "ur-roman": { "question": "Kis mashhoor muhim jo ne is ilaqay mein compass ki ajeeb readings ki ittila di?", "options": ["Marco Polo", "Ferdinand Magellan", "Christopher Columbus", "Vasco da Gama"], "explanation": "Christopher Columbus ne is ilaqay mein be zabtigion ki ittila di." } } },
+        { "correct": 1, "translations": { "en": { "question": "What is the approximate size of the Bermuda Triangle?", "options": ["500,000 sq km", "1 million sq km", "1.5 million sq km", "2 million sq km"], "explanation": "Covers approximately 500,000 to 1.5 million sq km." }, "ur": { "question": "برمودا مثلث کا تخمینی رقبہ کتنا ہے؟", "options": ["500,000 مربع کلومیٹر", "1 ملین مربع کلومیٹر", "1.5 ملین مربع کلومیٹر", "2 ملین مربع کلومیٹر"], "explanation": "تقریباً 500,000 سے 1.5 ملین مربع کلومیٹر۔" }, "ur-roman": { "question": "Bermuda maslas ka takhmeeni raqba kitna hai?", "options": ["500,000 sq km", "1 million sq km", "1.5 million sq km", "2 million sq km"], "explanation": "Taqreeban 500,000 se 1.5 million sq km." } } }
       ]
     },
     {
@@ -602,7 +402,11 @@
       "icon": "fa-military",
       "translations": { "en": { "category": "Area 51" }, "ur": { "category": "ایریا 51" }, "ur-roman": { "category": "Area 51" } },
       "questions": [
-        { "correct": 2, "translations": { "en": { "question": "Which U.S. state is Area 51 located in?", "options": ["Arizona", "New Mexico", "Nevada", "California"], "explanation": "Nevada." }, "ur": { "question": "ایریا 51 کس امریکی ریاست میں واقع ہے؟", "options": ["ایریزونا", "نیو میکسیکو", "نیواڈا", "کیلیفورنیا"], "explanation": "نیواڈا۔" }, "ur-roman": { "question": "Area 51 kis American riyasat mein waqe hai?", "options": ["Arizona", "New Mexico", "Nevada", "California"], "explanation": "Nevada." } } }
+        { "correct": 2, "translations": { "en": { "question": "Which U.S. state is Area 51 located in?", "options": ["Arizona", "New Mexico", "Nevada", "California"], "explanation": "Nevada." }, "ur": { "question": "ایریا 51 کس امریکی ریاست میں واقع ہے؟", "options": ["ایریزونا", "نیو میکسیکو", "نیواڈا", "کیلیفورنیا"], "explanation": "نیواڈا۔" }, "ur-roman": { "question": "Area 51 kis American riyasat mein waqe hai?", "options": ["Arizona", "New Mexico", "Nevada", "California"], "explanation": "Nevada." } } },
+        { "correct": 1, "translations": { "en": { "question": "What is Area 51 primarily associated with?", "options": ["Nuclear weapons", "UFO conspiracies", "Weather control", "Time travel"], "explanation": "UFO conspiracy theories." }, "ur": { "question": "ایریا 51 بنیادی طور پر کس چیز سے منسلک ہے؟", "options": ["جوہری ہتھیار", "UFO سازشی نظریات", "موسم کنٹرول", "ٹائم ٹریول"], "explanation": "UFO سازشی نظریات۔" }, "ur-roman": { "question": "Area 51 bunyadi tor par kis cheez se mansoob hai?", "options": ["Nuclear weapons", "UFO conspiracies", "Weather control", "Time travel"], "explanation": "UFO sazshi nazriyat." } } },
+        { "correct": 2, "translations": { "en": { "question": "In what year was Area 51 declassified by the CIA?", "options": ["2003", "2008", "2013", "2017"], "explanation": "CIA declassified in 2013." }, "ur": { "question": "سی آئی اے نے ایریا 51 کو کس سال ڈی کلاسیفائی کیا؟", "options": ["2003", "2008", "2013", "2017"], "explanation": "2013 میں ڈی کلاسیفائی کیا گیا۔" }, "ur-roman": { "question": "CIA ne Area 51 ko kis saal declassified kiya?", "options": ["2003", "2008", "2013", "2017"], "explanation": "2013 mein declassified kiya gaya." } } },
+        { "correct": 0, "translations": { "en": { "question": "What was Area 51 originally used for?", "options": ["U-2 spy plane testing", "Nuclear testing", "Missile development", "Radar testing"], "explanation": "Originally used for testing the U-2 spy plane." }, "ur": { "question": "ایریا 51 اصل میں کس لیے استعمال ہوتا تھا؟", "options": ["U-2 جاسوس طیارے کی جانچ", "جوہری تجربات", "میزائل ڈیولپمنٹ", "ریڈار ٹیسٹنگ"], "explanation": "اصل میں U-2 جاسوس طیارے کی جانچ کے لیے استعمال ہوتا تھا۔" }, "ur-roman": { "question": "Area 51 asal mein kis liye istemal hota tha?", "options": ["U-2 spy plane testing", "Nuclear testing", "Missile development", "Radar testing"], "explanation": "Asal mein U-2 spy plane ki jaanch ke liye istemal hota tha." } } },
+        { "correct": 0, "translations": { "en": { "question": "What event in 1989 made Area 51 famous?", "options": ["Bob Lazar interview", "Roswell connection", "UFO sighting", "Government leak"], "explanation": "Bob Lazar's claims about alien technology." }, "ur": { "question": "1989 میں کون سا واقعہ ایریا 51 کو مشہور بنا دیا؟", "options": ["بوب لازار کا انٹرویو", "روزویل کنکشن", "UFO دیکھا", "حکومتی لیک"], "explanation": "بوب لازار کے ایلین ٹیکنالوجی کے دعوے۔" }, "ur-roman": { "question": "1989 mein kaun sa waqea Area 51 ko mashhoor bana diya?", "options": ["Bob Lazar interview", "Roswell connection", "UFO sighting", "Government leak"], "explanation": "Bob Lazar ke alien technology ke daway." } } }
       ]
     },
     {
@@ -610,7 +414,11 @@
       "icon": "fa-star",
       "translations": { "en": { "category": "Roswell" }, "ur": { "category": "روزویل" }, "ur-roman": { "category": "Roswell" } },
       "questions": [
-        { "correct": 1, "translations": { "en": { "question": "In what year did the Roswell incident occur?", "options": ["1945", "1947", "1949", "1952"], "explanation": "July 1947." }, "ur": { "question": "روزویل واقعہ کس سال پیش آیا؟", "options": ["1945", "1947", "1949", "1952"], "explanation": "جولائی 1947۔" }, "ur-roman": { "question": "Roswell waqea kis saal pesh aaya?", "options": ["1945", "1947", "1949", "1952"], "explanation": "July 1947." } } }
+        { "correct": 1, "translations": { "en": { "question": "In what year did the Roswell incident occur?", "options": ["1945", "1947", "1949", "1952"], "explanation": "July 1947." }, "ur": { "question": "روزویل واقعہ کس سال پیش آیا؟", "options": ["1945", "1947", "1949", "1952"], "explanation": "جولائی 1947۔" }, "ur-roman": { "question": "Roswell waqea kis saal pesh aaya?", "options": ["1945", "1947", "1949", "1952"], "explanation": "July 1947." } } },
+        { "correct": 2, "translations": { "en": { "question": "Where is Roswell located?", "options": ["Arizona", "Texas", "New Mexico", "Nevada"], "explanation": "New Mexico." }, "ur": { "question": "روزویل کہاں واقع ہے؟", "options": ["ایریزونا", "ٹیکساس", "نیو میکسیکو", "نیواڈا"], "explanation": "نیو میکسیکو۔" }, "ur-roman": { "question": "Roswell kahan waqe hai?", "options": ["Arizona", "Texas", "New Mexico", "Nevada"], "explanation": "New Mexico." } } },
+        { "correct": 1, "translations": { "en": { "question": "What did the military initially claim was found in Roswell?", "options": ["Weather balloon", "Flying saucer", "Military aircraft", "Radar equipment"], "explanation": "Initially claimed a flying saucer." }, "ur": { "question": "فوج نے ابتدائی طور پر روزویل میں کیا پائے جانے کا دعویٰ کیا؟", "options": ["موسم کا غبارہ", "اڑن طشتری", "فوجی طیارہ", "ریڈار کا سامان"], "explanation": "ابتدائی طور پر اڑن طشتری ہونے کا دعویٰ کیا۔" }, "ur-roman": { "question": "Fouji ne ibtidayi tor par Roswell mein kya paye jane ka dawa kiya?", "options": ["Weather balloon", "Flying saucer", "Military aircraft", "Radar equipment"], "explanation": "Ibtidayi tor par flying saucer hone ka dawa kiya." } } },
+        { "correct": 1, "translations": { "en": { "question": "What did the U.S. military later claim the Roswell debris was?", "options": ["Weather balloon", "Project Mogul balloon", "Military drone", "Experimental aircraft"], "explanation": "Project Mogul balloon." }, "ur": { "question": "امریکی فوج نے بعد میں روزویل کے ملبے کو کیا قرار دیا؟", "options": ["موسم کا غبارہ", "پروجیکٹ موگل غبارہ", "فوجی ڈرون", "تجرباتی طیارہ"], "explanation": "پروجیکٹ موگل غبارہ۔" }, "ur-roman": { "question": "American fouji ne baad mein Roswell ke malbay ko kya qarar diya?", "options": ["Weather balloon", "Project Mogul balloon", "Military drone", "Experimental aircraft"], "explanation": "Project Mogul balloon." } } },
+        { "correct": 1, "translations": { "en": { "question": "What is the main theory about the Roswell incident?", "options": ["Weather experiment", "Alien spacecraft crash", "Military test gone wrong", "Soviet spy device"], "explanation": "Alien spacecraft crash." }, "ur": { "question": "روزویل واقعہ کے بارے میں مرکزی نظریہ کیا ہے؟", "options": ["موسم کا تجربہ", "خلائی مخلوق کا طیارہ گرنا", "فوجی تجربہ ناکام", "سوویت جاسوس آلہ"], "explanation": "خلائی مخلوق کا طیارہ گرنا۔" }, "ur-roman": { "question": "Roswell waqea ke baare mein markazi nazriya kya hai?", "options": ["Weather experiment", "Alien spacecraft crash", "Military test gone wrong", "Soviet spy device"], "explanation": "Alien spacecraft crash." } } }
       ]
     },
     {
@@ -618,7 +426,11 @@
       "icon": "fa-globe",
       "translations": { "en": { "category": "Current Affairs" }, "ur": { "category": "حالیہ واقعات" }, "ur-roman": { "category": "Haliya Waqeat" } },
       "questions": [
-        { "correct": 0, "translations": { "en": { "question": "What country recently appointed a new leader amid conflict?", "options": ["Iran", "Israel", "Syria", "Iraq"], "explanation": "Iran in March 2026." }, "ur": { "question": "کس ملک نے حالیہ تنازع کے دوران نیا رہنما مقرر کیا؟", "options": ["ایران", "اسرائیل", "شام", "عراق"], "explanation": "مارچ 2026 میں ایران۔" }, "ur-roman": { "question": "Kis mulk ne haliya tanazay ke doran naya rehnuma muqarrar kiya?", "options": ["Iran", "Israel", "Syria", "Iraq"], "explanation": "March 2026 mein Iran." } } }
+        { "correct": 0, "translations": { "en": { "question": "What country recently appointed a new leader amid conflict?", "options": ["Iran", "Israel", "Syria", "Iraq"], "explanation": "Iran in March 2026." }, "ur": { "question": "کس ملک نے حالیہ تنازع کے دوران نیا رہنما مقرر کیا؟", "options": ["ایران", "اسرائیل", "شام", "عراق"], "explanation": "مارچ 2026 میں ایران۔" }, "ur-roman": { "question": "Kis mulk ne haliya tanazay ke doran naya rehnuma muqarrar kiya?", "options": ["Iran", "Israel", "Syria", "Iraq"], "explanation": "March 2026 mein Iran." } } },
+        { "correct": 3, "translations": { "en": { "question": "What is the capital of Ukraine?", "options": ["Lviv", "Odessa", "Kharkiv", "Kyiv"], "explanation": "Kyiv is the capital." }, "ur": { "question": "یوکرین کا دارالحکومت کیا ہے؟", "options": ["لیویو", "اوڈیسا", "خارکیو", "کیف"], "explanation": "کیف دارالحکومت ہے۔" }, "ur-roman": { "question": "Ukraine ka dar-ul-hukumat kya hai?", "options": ["Lviv", "Odessa", "Kharkiv", "Kyiv"], "explanation": "Kyiv dar-ul-hukumat hai." } } },
+        { "correct": 3, "translations": { "en": { "question": "Which country left the European Union in 2020?", "options": ["France", "Germany", "Italy", "United Kingdom"], "explanation": "United Kingdom left on Jan 31, 2020." }, "ur": { "question": "2020 میں کون سا ملک یورپی یونین سے الگ ہوا؟", "options": ["فرانس", "جرمنی", "اٹلی", "برطانیہ"], "explanation": "برطانیہ 31 جنوری 2020 کو الگ ہوا۔" }, "ur-roman": { "question": "2020 mein kaun sa mulk European Union se alag hua?", "options": ["France", "Germany", "Italy", "United Kingdom"], "explanation": "United Kingdom 31 January 2020 ko alag hua." } } },
+        { "correct": 3, "translations": { "en": { "question": "What is the largest country by land area?", "options": ["China", "USA", "Canada", "Russia"], "explanation": "Russia is the largest country." }, "ur": { "question": "رقبہ کے لحاظ سے سب سے بڑا ملک کون سا ہے؟", "options": ["چین", "امریکہ", "کینیڈا", "روس"], "explanation": "روس سب سے بڑا ملک ہے۔" }, "ur-roman": { "question": "Raqbay ke lehaz se sab se bara mulk kaun sa hai?", "options": ["China", "USA", "Canada", "Russia"], "explanation": "Russia sab se bara mulk hai." } } },
+        { "correct": 0, "translations": { "en": { "question": "What is the most populous country in the world?", "options": ["India", "China", "USA", "Indonesia"], "explanation": "India became most populous in 2023." }, "ur": { "question": "دنیا کا سب سے زیادہ آبادی والا ملک کون سا ہے؟", "options": ["بھارت", "چین", "امریکہ", "انڈونیشیا"], "explanation": "بھارت 2023 میں سب سے زیادہ آبادی والا ملک بن گیا۔" }, "ur-roman": { "question": "Duniya ka sab se zyada aabadi wala mulk kaun sa hai?", "options": ["India", "China", "USA", "Indonesia"], "explanation": "India 2023 mein sab se zyada aabadi wala mulk ban gaya." } } }
       ]
     },
     {
@@ -626,7 +438,11 @@
       "icon": "fa-moon",
       "translations": { "en": { "category": "General Mysteries" }, "ur": { "category": "عمومی معمہ" }, "ur-roman": { "category": "Amoomi Mamya" } },
       "questions": [
-        { "correct": 0, "translations": { "en": { "question": "What is the name of the Loch Ness Monster?", "options": ["Nessie", "Bigfoot", "Yeti", "Chupacabra"], "explanation": "Nessie is the nickname." }, "ur": { "question": "لوچ نیس مونسٹر کا نام کیا ہے؟", "options": ["نیسی", "بگ فٹ", "یٹی", "چوپاکابرا"], "explanation": "نیسی عرفیت ہے۔" }, "ur-roman": { "question": "Loch Ness Monster ka naam kya hai?", "options": ["Nessie", "Bigfoot", "Yeti", "Chupacabra"], "explanation": "Nessie urfiat hai." } } }
+        { "correct": 0, "translations": { "en": { "question": "What is the name of the Loch Ness Monster?", "options": ["Nessie", "Bigfoot", "Yeti", "Chupacabra"], "explanation": "Nessie is the nickname." }, "ur": { "question": "لوچ نیس مونسٹر کا نام کیا ہے؟", "options": ["نیسی", "بگ فٹ", "یٹی", "چوپاکابرا"], "explanation": "نیسی عرفیت ہے۔" }, "ur-roman": { "question": "Loch Ness Monster ka naam kya hai?", "options": ["Nessie", "Bigfoot", "Yeti", "Chupacabra"], "explanation": "Nessie urfiat hai." } } },
+        { "correct": 0, "translations": { "en": { "question": "What is the famous stone circle in England called?", "options": ["Stonehenge", "Avebury", "Callanish", "Carnac"], "explanation": "Stonehenge in Wiltshire." }, "ur": { "question": "انگلستان میں مشہور پتھر کا دائرہ کس نام سے جانا جاتا ہے؟", "options": ["سٹون ہینج", "ایویری", "کالانش", "کارناک"], "explanation": "سٹون ہینج۔" }, "ur-roman": { "question": "England mein mashhoor pathar ka daira kis naam se jana jata hai?", "options": ["Stonehenge", "Avebury", "Callanish", "Carnac"], "explanation": "Stonehenge." } } },
+        { "correct": 0, "translations": { "en": { "question": "What are the lines in the Peruvian desert called?", "options": ["Nazca Lines", "Atacama Lines", "Peruvian Geoglyphs", "Desert Drawings"], "explanation": "Nazca Lines in Peru." }, "ur": { "question": "پیرو کے صحرا میں بنی لکیروں کو کیا کہا جاتا ہے؟", "options": ["نازکا لائنز", "اتاکامہ لائنز", "پیروین جیوگلیفس", "صحرائی ڈرائنگز"], "explanation": "نازکا لائنز۔" }, "ur-roman": { "question": "Peru ke sehra mein bani lakiron ko kya kaha jata hai?", "options": ["Nazca Lines", "Atacama Lines", "Peruvian Geoglyphs", "Desert Drawings"], "explanation": "Nazca Lines." } } },
+        { "correct": 0, "translations": { "en": { "question": "What is the name of the lost city of Atlantis?", "options": ["Atlantis", "El Dorado", "Shambhala", "Avalon"], "explanation": "Atlantis is the legendary island." }, "ur": { "question": "گمشدہ شہر اٹلانٹس کا نام کیا ہے؟", "options": ["اٹلانٹس", "ایل ڈوراڈو", "شامبھالا", "ایولون"], "explanation": "اٹلانٹس افسانوی جزیرہ ہے۔" }, "ur-roman": { "question": "Gumshuda shehar Atlantis ka naam kya hai?", "options": ["Atlantis", "El Dorado", "Shambhala", "Avalon"], "explanation": "Atlantis afsanwi jazira hai." } } },
+        { "correct": 1, "translations": { "en": { "question": "What is the name of the ape-like creature said to inhabit the Himalayas?", "options": ["Bigfoot", "Yeti", "Sasquatch", "Yowie"], "explanation": "Yeti is said to inhabit the Himalayas." }, "ur": { "question": "ہمالیہ میں پائی جانے والی بندر نما مخلوق کا نام کیا ہے؟", "options": ["بگ فٹ", "یٹی", "ساسکواچ", "یووی"], "explanation": "یٹی ہمالیہ میں پائی جاتی ہے۔" }, "ur-roman": { "question": "Himalaya mein pai jane wali bandar numa makhlooq ka naam kya hai?", "options": ["Bigfoot", "Yeti", "Sasquatch", "Yowie"], "explanation": "Yeti Himalaya mein pai jati hai." } } }
       ]
     }
   ]
