@@ -51,190 +51,83 @@ function updateURLFromLang() {
 // ============ TRANSLATIONS ============
 const translations = {
     en: {
-        latest: "Latest from RSM",
-        articles: "All Articles",
-        videos: "All Videos",
-        news: "Latest News",
-        mysteries: "Unsolved Mysteries",
-        encyclopedia: "Encyclopedia of the Unknown",
-        quiz: "Mystery Quiz",
-        calculator: "Scientific Calculator",
-        ai: "AI Assistant",
+        latest: "Latest from RSM", articles: "All Articles", videos: "All Videos", news: "Latest News",
+        mysteries: "Unsolved Mysteries", encyclopedia: "Encyclopedia of the Unknown", quiz: "Mystery Quiz",
+        calculator: "Scientific Calculator", ai: "AI Assistant",
         aboutTitle: "About RSM",
         aboutText1: "RSM is a multimedia platform dedicated to exploring mysteries, current events, and untold stories from around the world.",
         aboutText2: "Our mission is to inform, intrigue, and stimulate critical thinking about events that often remain on the margins of traditional information.",
         aboutText3: "We believe in the power of curiosity and the importance of looking beyond the surface to uncover the truth.",
-        articlesLabel: "Articles",
-        videosLabel: "Videos",
-        newsLabel: "News",
-        mysteriesLabel: "Mysteries",
-        encyclopediaLabel: "Entries",
-        languagesLabel: "Languages",
-        contactsTitle: "Get in Touch",
-        emailTitle: "Email",
-        emailDesc: "Response within 24 hours",
-        phoneTitle: "Phone",
-        phoneDesc: "Mon-Fri, 9AM-6PM CET",
-        locationTitle: "Location",
-        locationDesc: "Digital headquarters",
-        businessTitle: "Business Inquiries",
-        businessText: "For partnerships, advertising, or media inquiries, please contact us at",
+        articlesLabel: "Articles", videosLabel: "Videos", newsLabel: "News", mysteriesLabel: "Mysteries",
+        encyclopediaLabel: "Entries", languagesLabel: "Languages",
+        contactsTitle: "Get in Touch", emailTitle: "Email", emailDesc: "Response within 24 hours",
+        phoneTitle: "Phone", phoneDesc: "Mon-Fri, 9AM-6PM CET", locationTitle: "Location", locationDesc: "Digital headquarters",
+        businessTitle: "Business Inquiries", businessText: "For partnerships, advertising, or media inquiries, please contact us at",
         aiWelcome: "🤖 Hello! I'm your RSM AI Assistant. Ask me anything! I can search Wikipedia, summarize articles, calculate, and answer questions.",
-        aiPlaceholder: "Ask me anything...",
-        article: "Article",
-        video: "Video",
-        news: "News",
-        mystery: "Mystery",
-        login: "Sign in",
-        logout: "Logout",
-        deleteConfirm: "Delete this conversation?",
-        yes: "Yes",
-        no: "Cancel",
-        typing: "AI is thinking",
-        searchPlaceholder: "Search...",
-        chats: "Conversations",
+        aiPlaceholder: "Ask me anything...", article: "Article", video: "Video", news: "News", mystery: "Mystery",
+        login: "Sign in", logout: "Logout", deleteConfirm: "Delete this conversation?", yes: "Yes", no: "Cancel",
+        typing: "AI is thinking", searchPlaceholder: "Search...", chats: "Conversations",
         stopMessage: "✋ Stopped typing. What else can I help you with?",
         waitMessage: "⏳ Please wait, I'm still writing...",
-        searchEncyclopedia: "Search encyclopedia...",
-        searchBtn: "Search",
-        nextQuestion: "Next Question",
-        selectCategory: "Select a quiz category",
-        quizComplete: "Quiz Complete!",
-        yourScore: "Your score: ",
-        outOf: " out of ",
-        correct: "Correct!",
-        incorrect: "Incorrect. The correct answer was: ",
+        searchEncyclopedia: "Search encyclopedia...", searchBtn: "Search", nextQuestion: "Next Question",
+        selectCategory: "Select a quiz category", quizComplete: "Quiz Complete!",
+        yourScore: "Your score: ", outOf: " out of ", correct: "Correct!", incorrect: "Incorrect. The correct answer was: ",
         voiceNotSupported: "❌ Speech recognition not supported in this browser. Try Chrome, Edge, or Safari.",
-        voiceListening: "🎤 Listening... Speak now",
-        voiceSuccess: "✅ Speech recognized! Check and press send.",
-        voiceNoSpeech: "No speech detected. Please try again.",
-        voiceNoMic: "No microphone found. Please check your microphone.",
-        voiceDenied: "Microphone access denied. Please allow microphone access.",
-        voiceNetwork: "Network error. Please check your connection."
+        voiceListening: "🎤 Listening... Speak now", voiceSuccess: "✅ Speech recognized! Check and press send.",
+        voiceNoSpeech: "No speech detected. Please try again.", voiceNoMic: "No microphone found.",
+        voiceDenied: "Microphone access denied.", voiceNetwork: "Network error. Please check your connection."
     },
     ur: {
-        latest: "آر ایس ایم سے تازہ ترین",
-        articles: "تمام مضامین",
-        videos: "تمام ویڈیوز",
-        news: "تازہ ترین خبریں",
-        mysteries: "حل طلب معمہ",
-        encyclopedia: "نامعلوم کا انسائیکلوپیڈیا",
-        quiz: "معمہ کوئز",
-        calculator: "سائنسی کیلکولیٹر",
-        ai: "اے آئی اسسٹنٹ",
+        latest: "آر ایس ایم سے تازہ ترین", articles: "تمام مضامین", videos: "تمام ویڈیوز", news: "تازہ ترین خبریں",
+        mysteries: "حل طلب معمہ", encyclopedia: "نامعلوم کا انسائیکلوپیڈیا", quiz: "معمہ کوئز",
+        calculator: "سائنسی کیلکولیٹر", ai: "اے آئی اسسٹنٹ",
         aboutTitle: "آر ایس ایم کے بارے میں",
         aboutText1: "آر ایس ایم ایک ملٹی میڈیا پلیٹ فارم ہے جو دنیا بھر سے پراسرار واقعات، حالات اور ان کہی کہانیوں کی تلاش کے لیے وقف ہے۔",
         aboutText2: "ہمارا مشن روایتی معلومات کے کناروں پر رہنے والے واقعات کے بارے میں آگاہی، تجسس اور تنقیدی سوچ کو فروغ دینا ہے۔",
         aboutText3: "ہم تجسس کی طاقت اور حقیقت کو دریافت کرنے کے لیے سطح سے آگے دیکھنے کی اہمیت پر یقین رکھتے ہیں۔",
-        articlesLabel: "مضامین",
-        videosLabel: "ویڈیوز",
-        newsLabel: "خبریں",
-        mysteriesLabel: "معمہ",
-        encyclopediaLabel: "اندراجات",
-        languagesLabel: "زبانیں",
-        contactsTitle: "رابطہ کریں",
-        emailTitle: "ای میل",
-        emailDesc: "24 گھنٹے میں جواب",
-        phoneTitle: "فون",
-        phoneDesc: "پیر تا جمعہ، صبح 9 تا شام 6",
-        locationTitle: "مقام",
-        locationDesc: "ڈیجیٹل ہیڈ کوارٹر",
-        businessTitle: "کاروباری انکوائریز",
-        businessText: "شراکت داری، تشہیر، یا میڈیا انکوائریز کے لیے، براہ کرم ہم سے رابطہ کریں",
+        articlesLabel: "مضامین", videosLabel: "ویڈیوز", newsLabel: "خبریں", mysteriesLabel: "معمہ",
+        encyclopediaLabel: "اندراجات", languagesLabel: "زبانیں",
+        contactsTitle: "رابطہ کریں", emailTitle: "ای میل", emailDesc: "24 گھنٹے میں جواب",
+        phoneTitle: "فون", phoneDesc: "پیر تا جمعہ، صبح 9 تا شام 6", locationTitle: "مقام", locationDesc: "ڈیجیٹل ہیڈ کوارٹر",
+        businessTitle: "کاروباری انکوائریز", businessText: "شراکت داری، تشہیر، یا میڈیا انکوائریز کے لیے، براہ کرم ہم سے رابطہ کریں",
         aiWelcome: "🤖 السلام علیکم! میں آر ایس ایم اے آئی اسسٹنٹ ہوں۔ مجھ سے کچھ بھی پوچھیں!",
-        aiPlaceholder: "مجھ سے کچھ پوچھیں...",
-        article: "مضمون",
-        video: "ویڈیو",
-        news: "خبر",
-        mystery: "معمہ",
-        login: "سائن ان",
-        logout: "لاگ آؤٹ",
-        deleteConfirm: "کیا آپ یہ گفتگو حذف کرنا چاہتے ہیں؟",
-        yes: "ہاں",
-        no: "نہیں",
-        typing: "اے آئی سوچ رہی ہے",
-        searchPlaceholder: "تلاش کریں...",
-        chats: "گفتگو",
+        aiPlaceholder: "مجھ سے کچھ پوچھیں...", article: "مضمون", video: "ویڈیو", news: "خبر", mystery: "معمہ",
+        login: "سائن ان", logout: "لاگ آؤٹ", deleteConfirm: "کیا آپ یہ گفتگو حذف کرنا چاہتے ہیں؟", yes: "ہاں", no: "نہیں",
+        typing: "اے آئی سوچ رہی ہے", searchPlaceholder: "تلاش کریں...", chats: "گفتگو",
         stopMessage: "✋ ٹائپنگ روک دی گئی۔ اور کیا مدد چاہیے؟",
         waitMessage: "⏳ براہ کرم انتظار کریں، میں ابھی لکھ رہا ہوں۔",
-        searchEncyclopedia: "انسائیکلوپیڈیا تلاش کریں...",
-        searchBtn: "تلاش کریں",
-        nextQuestion: "اگلا سوال",
-        selectCategory: "کوئز کیٹیگری منتخب کریں",
-        quizComplete: "کوئز مکمل!",
-        yourScore: "آپ کا اسکور: ",
-        outOf: " میں سے ",
-        correct: "صحیح!",
-        incorrect: "غلط۔ صحیح جواب تھا: ",
-        voiceNotSupported: "❌ اس براؤزر میں اسپیچ ریکگنیشن سپورٹ نہیں ہے۔ کروم، ایج، یا سفاری استعمال کریں۔",
-        voiceListening: "🎤 سن رہا ہوں... اب بولیں",
-        voiceSuccess: "✅ تقریر پہچان لی گئی! چیک کریں اور بھیجیں۔",
-        voiceNoSpeech: "کوئی تقریر نہیں سنی گئی۔ براہ کرم دوبارہ کوشش کریں۔",
-        voiceNoMic: "مائیکروفون نہیں ملا۔ براہ کرم اپنا مائیکروفون چیک کریں۔",
-        voiceDenied: "مائیکروفون تک رسائی سے انکار کر دیا گیا۔ براہ کرم مائیکروفون کی اجازت دیں۔",
-        voiceNetwork: "نیٹ ورک کی خرابی۔ براہ کرم اپنا کنیکشن چیک کریں۔"
+        searchEncyclopedia: "انسائیکلوپیڈیا تلاش کریں...", searchBtn: "تلاش کریں", nextQuestion: "اگلا سوال",
+        selectCategory: "کوئز کیٹیگری منتخب کریں", quizComplete: "کوئز مکمل!",
+        yourScore: "آپ کا اسکور: ", outOf: " میں سے ", correct: "صحیح!", incorrect: "غلط۔ صحیح جواب تھا: ",
+        voiceNotSupported: "❌ اس براؤزر میں اسپیچ ریکگنیشن سپورٹ نہیں ہے۔", voiceListening: "🎤 سن رہا ہوں... اب بولیں",
+        voiceSuccess: "✅ تقریر پہچان لی گئی!", voiceNoSpeech: "کوئی تقریر نہیں سنی گئی۔", voiceNoMic: "مائیکروفون نہیں ملا۔",
+        voiceDenied: "مائیکروفون تک رسائی سے انکار کر دیا گیا۔", voiceNetwork: "نیٹ ورک کی خرابی۔"
     },
     "ur-roman": {
-        latest: "RSM se taaza tareen",
-        articles: "Tamam mazameen",
-        videos: "Tamam videos",
-        news: "Taaza tareen khabrein",
-        mysteries: "Hal talab mamay",
-        encyclopedia: "Namaloom ka encyclopedia",
-        quiz: "Mamya quiz",
-        calculator: "Scientific calculator",
-        ai: "AI Assistant",
+        latest: "RSM se taaza tareen", articles: "Tamam mazameen", videos: "Tamam videos", news: "Taaza tareen khabrein",
+        mysteries: "Hal talab mamay", encyclopedia: "Namaloom ka encyclopedia", quiz: "Mamya quiz",
+        calculator: "Scientific calculator", ai: "AI Assistant",
         aboutTitle: "RSM ke baare mein",
         aboutText1: "RSM aik multimedia platform hai jo duniya bhar se pur-asrar waqiat, halaat aur an kahi kahaniyon ki talaash ke liye waqf hai.",
         aboutText2: "Hamara mission rawaiyati maloomat ke kinaron par rehne wale waqiat ke baare mein aagahi, tajassus aur tanqeedi soch ko farogh dena hai.",
         aboutText3: "Hum tajassus ki taaqat aur haqeeqat ko daryaft karne ke liye satah se aage dekhne ki ahmiyat par yaqeen rakhte hain.",
-        articlesLabel: "Mazameen",
-        videosLabel: "Videos",
-        newsLabel: "Khabrein",
-        mysteriesLabel: "Mamay",
-        encyclopediaLabel: "Andarjaat",
-        languagesLabel: "Zabanien",
-        contactsTitle: "Rabta karein",
-        emailTitle: "Email",
-        emailDesc: "24 ghanton mein jawab",
-        phoneTitle: "Phone",
-        phoneDesc: "Peer se Juma, subah 9 se sham 6",
-        locationTitle: "Maqam",
-        locationDesc: "Digital headquarters",
-        businessTitle: "Karobari inquiries",
-        businessText: "Sharakat dari, tashheer, ya media inquiries ke liye, barah e karam hum se rabta karein",
+        articlesLabel: "Mazameen", videosLabel: "Videos", newsLabel: "Khabrein", mysteriesLabel: "Mamay",
+        encyclopediaLabel: "Andarjaat", languagesLabel: "Zabanien",
+        contactsTitle: "Rabta karein", emailTitle: "Email", emailDesc: "24 ghanton mein jawab",
+        phoneTitle: "Phone", phoneDesc: "Peer se Juma, subah 9 se sham 6", locationTitle: "Maqam", locationDesc: "Digital headquarters",
+        businessTitle: "Karobari inquiries", businessText: "Sharakat dari, tashheer, ya media inquiries ke liye, barah e karam hum se rabta karein",
         aiWelcome: "🤖 Assalam-o-Alaikum! Main RSM AI Assistant hoon. Mujh se kuch bhi poochiye!",
-        aiPlaceholder: "Mujh se kuch poochiye...",
-        article: "Mazmoon",
-        video: "Video",
-        news: "Khabar",
-        mystery: "Mamya",
-        login: "Sign in",
-        logout: "Logout",
-        deleteConfirm: "Kya aap yeh guftagu delete karna chahte hain?",
-        yes: "Haan",
-        no: "Nahi",
-        typing: "AI soch rahi hai",
-        searchPlaceholder: "Talaash karein...",
-        chats: "Guftagu",
+        aiPlaceholder: "Mujh se kuch poochiye...", article: "Mazmoon", video: "Video", news: "Khabar", mystery: "Mamya",
+        login: "Sign in", logout: "Logout", deleteConfirm: "Kya aap yeh guftagu delete karna chahte hain?", yes: "Haan", no: "Nahi",
+        typing: "AI soch rahi hai", searchPlaceholder: "Talaash karein...", chats: "Guftagu",
         stopMessage: "✋ Typing rok di gayi. Aur kya madad chahiye?",
         waitMessage: "⏳ Barah e karam intezar karein, main abhi likh raha hoon.",
-        searchEncyclopedia: "Encyclopedia talaash karein...",
-        searchBtn: "Talaash karein",
-        nextQuestion: "Agla sawal",
-        selectCategory: "Quiz category muntakhib karein",
-        quizComplete: "Quiz mukammal!",
-        yourScore: "Aap ka score: ",
-        outOf: " mein se ",
-        correct: "Sahi!",
-        incorrect: "Ghalat. Sahi jawab tha: ",
-        voiceNotSupported: "❌ Is browser mein speech recognition support nahi hai. Chrome, Edge, ya Safari use karein.",
-        voiceListening: "🎤 Sun raha hoon... Ab boliye",
-        voiceSuccess: "✅ Taqreer pehchan li gayi! Check karein aur bhejein.",
-        voiceNoSpeech: "Koi taqreer nahi suni gayi. Barah e karam dobara koshish karein.",
-        voiceNoMic: "Microphone nahi mila. Barah e karam apna microphone check karein.",
-        voiceDenied: "Microphone tak rasai se inkar kar diya gaya. Barah e karam microphone ki ijazat dein.",
-        voiceNetwork: "Network ki khharabi. Barah e karam apna connection check karein."
+        searchEncyclopedia: "Encyclopedia talaash karein...", searchBtn: "Talaash karein", nextQuestion: "Agla sawal",
+        selectCategory: "Quiz category muntakhib karein", quizComplete: "Quiz mukammal!",
+        yourScore: "Aap ka score: ", outOf: " mein se ", correct: "Sahi!", incorrect: "Ghalat. Sahi jawab tha: ",
+        voiceNotSupported: "❌ Is browser mein speech recognition support nahi hai.", voiceListening: "🎤 Sun raha hoon... Ab boliye",
+        voiceSuccess: "✅ Taqreer pehchan li gayi!", voiceNoSpeech: "Koi taqreer nahi suni gayi.", voiceNoMic: "Microphone nahi mila.",
+        voiceDenied: "Microphone tak rasai se inkar kar diya gaya.", voiceNetwork: "Network ki khharabi."
     }
 };
 
@@ -473,12 +366,7 @@ function renderEncyclopedia() {
     
     container.innerHTML = encyclopediaEntries.map(entry => {
         const trans = entry.translations?.[currentLang] || entry.translations?.en || { title: "Unknown", description: "No description available" };
-        return `
-            <div class="encyclopedia-item">
-                <h3>${trans.title}</h3>
-                <p>${trans.description}</p>
-            </div>
-        `;
+        return `<div class="encyclopedia-item"><h3>${trans.title}</h3><p>${trans.description}</p></div>`;
     }).join('');
 }
 
@@ -489,49 +377,28 @@ function initEncyclopedia() {
     searchBtn?.addEventListener('click', () => {
         const query = searchInput.value.toLowerCase().trim();
         const container = document.getElementById('encyclopediaResults');
-        if (!query) {
-            renderEncyclopedia();
-            return;
-        }
+        if (!query) { renderEncyclopedia(); return; }
         const filtered = encyclopediaEntries.filter(entry => {
             const trans = entry.translations?.[currentLang] || entry.translations?.en || { title: "", description: "" };
             return trans.title.toLowerCase().includes(query) || trans.description.toLowerCase().includes(query);
         });
         container.innerHTML = filtered.map(entry => {
             const trans = entry.translations?.[currentLang] || entry.translations?.en || { title: "Unknown", description: "No description available" };
-            return `
-                <div class="encyclopedia-item">
-                    <h3>${trans.title}</h3>
-                    <p>${trans.description}</p>
-                </div>
-            `;
+            return `<div class="encyclopedia-item"><h3>${trans.title}</h3><p>${trans.description}</p></div>`;
         }).join('');
     });
-    
-    searchInput?.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') searchBtn.click();
-    });
+    searchInput?.addEventListener('keypress', (e) => { if (e.key === 'Enter') searchBtn.click(); });
 }
 
 // ============ QUIZ ============
 function renderQuizCategories() {
     const container = document.getElementById('quizCategories');
     if (!container) return;
-    
-    if (!quizQuestions.length) {
-        container.innerHTML = '<p>Loading quiz categories...</p>';
-        return;
-    }
+    if (!quizQuestions.length) { container.innerHTML = '<p>Loading quiz categories...</p>'; return; }
     
     container.innerHTML = quizQuestions.map(cat => {
         const catTrans = cat.translations?.[currentLang] || { category: cat.category };
-        return `
-            <div class="quiz-category" data-category="${cat.category}">
-                <i class="fas ${cat.icon || 'fa-question-circle'}"></i>
-                <h3>${catTrans.category}</h3>
-                <p>${cat.questions.length} questions</p>
-            </div>
-        `;
+        return `<div class="quiz-category" data-category="${cat.category}"><i class="fas ${cat.icon || 'fa-question-circle'}"></i><h3>${catTrans.category}</h3><p>${cat.questions.length} questions</p></div>`;
     }).join('');
     
     document.querySelectorAll('.quiz-category').forEach(cat => {
@@ -542,38 +409,27 @@ function renderQuizCategories() {
 function startQuiz(categoryName) {
     const category = quizQuestions.find(c => c.category === categoryName);
     if (!category) return;
-    
     currentQuizCategory = categoryName;
     currentQuizIndex = 0;
     quizScore = 0;
     quizActive = true;
-    
     document.getElementById('quizCategories').style.display = 'none';
     document.getElementById('quizArea').style.display = 'block';
-    
     showQuizQuestion();
 }
 
 function showQuizQuestion() {
     const category = quizQuestions.find(c => c.category === currentQuizCategory);
-    if (!category || currentQuizIndex >= category.questions.length) {
-        endQuiz();
-        return;
-    }
+    if (!category || currentQuizIndex >= category.questions.length) { endQuiz(); return; }
     
     const q = category.questions[currentQuizIndex];
     const trans = q.translations?.[currentLang] || q.translations?.en || { question: q.question, options: q.options, explanation: q.explanation };
     const t = translations[currentLang];
     
     document.getElementById('quizQuestion').innerHTML = `<h3>${currentQuizIndex + 1}. ${trans.question}</h3>`;
-    document.getElementById('quizOptions').innerHTML = trans.options.map((opt, idx) => `
-        <div class="quiz-option" data-opt="${idx}">${opt}</div>
-    `).join('');
+    document.getElementById('quizOptions').innerHTML = trans.options.map((opt, idx) => `<div class="quiz-option" data-opt="${idx}">${opt}</div>`).join('');
     document.getElementById('quizResult').innerHTML = '';
-    
-    document.querySelectorAll('.quiz-option').forEach(opt => {
-        opt.onclick = () => checkQuizAnswer(parseInt(opt.dataset.opt));
-    });
+    document.querySelectorAll('.quiz-option').forEach(opt => { opt.onclick = () => checkQuizAnswer(parseInt(opt.dataset.opt)); });
 }
 
 function checkQuizAnswer(selected) {
@@ -592,21 +448,14 @@ function checkQuizAnswer(selected) {
     
     document.querySelectorAll('.quiz-option').forEach(opt => {
         opt.style.pointerEvents = 'none';
-        if (parseInt(opt.dataset.opt) === q.correct) {
-            opt.classList.add('correct');
-        }
-        if (parseInt(opt.dataset.opt) === selected && !isCorrect) {
-            opt.classList.add('wrong');
-        }
+        if (parseInt(opt.dataset.opt) === q.correct) opt.classList.add('correct');
+        if (parseInt(opt.dataset.opt) === selected && !isCorrect) opt.classList.add('wrong');
     });
     
     document.getElementById('nextQuizBtn').onclick = () => {
         currentQuizIndex++;
-        if (currentQuizIndex < category.questions.length) {
-            showQuizQuestion();
-        } else {
-            endQuiz();
-        }
+        if (currentQuizIndex < category.questions.length) showQuizQuestion();
+        else endQuiz();
     };
 }
 
@@ -631,54 +480,17 @@ function endQuiz() {
 function initCalculator() {
     const display = document.getElementById('calcDisplay');
     const buttons = document.querySelectorAll('.calc-btn');
-    
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
             const val = btn.dataset.val;
-            if (val === 'C') {
-                calcExpression = '';
-                display.value = '';
-            } else if (val === '=') {
-                try {
-                    let expr = calcExpression.replace(/×/g, '*').replace(/÷/g, '/');
-                    const result = eval(expr);
-                    display.value = result;
-                    calcExpression = result.toString();
-                } catch(e) {
-                    display.value = 'Error';
-                    calcExpression = '';
-                }
-            } else if (val === 'sqrt') {
-                try {
-                    const num = parseFloat(calcExpression);
-                    const result = Math.sqrt(num);
-                    display.value = result;
-                    calcExpression = result.toString();
-                } catch(e) {
-                    display.value = 'Error';
-                }
-            } else if (val === 'pow') {
-                try {
-                    const num = parseFloat(calcExpression);
-                    const result = num * num;
-                    display.value = result;
-                    calcExpression = result.toString();
-                } catch(e) {
-                    display.value = 'Error';
-                }
-            } else if (val === '%') {
-                try {
-                    const num = parseFloat(calcExpression);
-                    const result = num / 100;
-                    display.value = result;
-                    calcExpression = result.toString();
-                } catch(e) {
-                    display.value = 'Error';
-                }
-            } else {
-                calcExpression += val;
-                display.value = calcExpression;
-            }
+            if (val === 'C') { calcExpression = ''; display.value = ''; }
+            else if (val === '=') {
+                try { let expr = calcExpression.replace(/×/g, '*').replace(/÷/g, '/'); const result = eval(expr); display.value = result; calcExpression = result.toString(); }
+                catch(e) { display.value = 'Error'; calcExpression = ''; }
+            } else if (val === 'sqrt') { try { const num = parseFloat(calcExpression); const result = Math.sqrt(num); display.value = result; calcExpression = result.toString(); } catch(e) { display.value = 'Error'; } }
+            else if (val === 'pow') { try { const num = parseFloat(calcExpression); const result = num * num; display.value = result; calcExpression = result.toString(); } catch(e) { display.value = 'Error'; } }
+            else if (val === '%') { try { const num = parseFloat(calcExpression); const result = num / 100; display.value = result; calcExpression = result.toString(); } catch(e) { display.value = 'Error'; } }
+            else { calcExpression += val; display.value = calcExpression; }
         });
     });
 }
@@ -721,33 +533,17 @@ function loadHash() {
 let voiceStatusDiv = null;
 
 function showVoiceStatus(message, isError = false) {
-    if (voiceStatusDiv) {
-        voiceStatusDiv.remove();
-    }
-    
+    if (voiceStatusDiv) voiceStatusDiv.remove();
     voiceStatusDiv = document.createElement('div');
     voiceStatusDiv.className = 'voice-status';
-    voiceStatusDiv.innerHTML = `
-        <i class="fas ${isError ? 'fa-exclamation-triangle' : 'fa-microphone-alt'}"></i>
-        <span class="status-text">${message}</span>
-    `;
+    voiceStatusDiv.innerHTML = `<i class="fas ${isError ? 'fa-exclamation-triangle' : 'fa-microphone-alt'}"></i><span class="status-text">${message}</span>`;
     document.body.appendChild(voiceStatusDiv);
-    
-    setTimeout(() => {
-        if (voiceStatusDiv) {
-            voiceStatusDiv.remove();
-            voiceStatusDiv = null;
-        }
-    }, 3000);
+    setTimeout(() => { if (voiceStatusDiv) { voiceStatusDiv.remove(); voiceStatusDiv = null; } }, 3000);
 }
 
 function startVoiceRecording() {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    
-    if (!SpeechRecognition) {
-        showVoiceStatus(translations[currentLang].voiceNotSupported, true);
-        return;
-    }
+    if (!SpeechRecognition) { showVoiceStatus(translations[currentLang].voiceNotSupported, true); return; }
     
     const recognition = new SpeechRecognition();
     recognition.lang = currentLang === 'ur' ? 'ur-PK' : 'en-US';
@@ -756,68 +552,42 @@ function startVoiceRecording() {
     
     const voiceBtn = document.getElementById('voiceBtn');
     if (!voiceBtn) return;
-    
     voiceBtn.classList.add('recording');
     voiceBtn.innerHTML = '<i class="fas fa-microphone-slash"></i>';
-    
     const aiInput = document.getElementById('aiInput');
-    if (aiInput) {
-        aiInput.classList.add('voice-active');
-    }
-    
+    if (aiInput) aiInput.classList.add('voice-active');
     showVoiceStatus(translations[currentLang].voiceListening);
     
     recognition.start();
-    
     recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
-        console.log('Transcribed:', transcript);
-        
         voiceBtn.classList.remove('recording');
         voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
         if (aiInput) {
             aiInput.classList.remove('voice-active');
             aiInput.value = transcript;
             aiInput.focus();
-            
             aiInput.style.borderColor = '#4ade80';
-            setTimeout(() => {
-                aiInput.style.borderColor = '';
-            }, 1000);
+            setTimeout(() => { if (aiInput) aiInput.style.borderColor = ''; }, 1000);
         }
-        
         showVoiceStatus(translations[currentLang].voiceSuccess);
     };
-    
     recognition.onerror = (event) => {
-        console.error('Speech recognition error:', event.error);
         voiceBtn.classList.remove('recording');
         voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
-        if (aiInput) {
-            aiInput.classList.remove('voice-active');
-        }
-        
+        if (aiInput) aiInput.classList.remove('voice-active');
         let errorMessage = translations[currentLang].voiceNotSupported;
-        if (event.error === 'no-speech') {
-            errorMessage = translations[currentLang].voiceNoSpeech;
-        } else if (event.error === 'audio-capture') {
-            errorMessage = translations[currentLang].voiceNoMic;
-        } else if (event.error === 'not-allowed') {
-            errorMessage = translations[currentLang].voiceDenied;
-        } else if (event.error === 'network') {
-            errorMessage = translations[currentLang].voiceNetwork;
-        }
-        
+        if (event.error === 'no-speech') errorMessage = translations[currentLang].voiceNoSpeech;
+        else if (event.error === 'audio-capture') errorMessage = translations[currentLang].voiceNoMic;
+        else if (event.error === 'not-allowed') errorMessage = translations[currentLang].voiceDenied;
+        else if (event.error === 'network') errorMessage = translations[currentLang].voiceNetwork;
         showVoiceStatus(errorMessage, true);
     };
-    
     recognition.onend = () => {
         if (voiceBtn.classList.contains('recording')) {
             voiceBtn.classList.remove('recording');
             voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
-            if (aiInput) {
-                aiInput.classList.remove('voice-active');
-            }
+            if (aiInput) aiInput.classList.remove('voice-active');
         }
     };
 }
@@ -825,120 +595,51 @@ function startVoiceRecording() {
 // ============ EVENT LISTENERS ============
 function setupEvents() {
     document.querySelectorAll('.nav-links a, .side-nav a').forEach(link => {
-        link.onclick = (e) => {
-            e.preventDefault();
-            let page = link.dataset.page;
-            if (page) {
-                location.hash = page;
-                showPage(page);
-                closeMenu();
-            }
-        };
+        link.onclick = (e) => { e.preventDefault(); let page = link.dataset.page; if (page) { location.hash = page; showPage(page); closeMenu(); } };
     });
     
     const hamburger = document.getElementById('hamburgerBtn');
     const sideMenu = document.getElementById('sideMenu');
     const closeMenuBtn = document.getElementById('closeMenuBtn');
-    
     hamburger?.addEventListener('click', () => sideMenu.classList.add('open'));
     closeMenuBtn?.addEventListener('click', () => sideMenu.classList.remove('open'));
-    document.addEventListener('click', (e) => {
-        if (!sideMenu?.contains(e.target) && !hamburger?.contains(e.target)) {
-            sideMenu?.classList.remove('open');
-        }
-    });
+    document.addEventListener('click', (e) => { if (!sideMenu?.contains(e.target) && !hamburger?.contains(e.target)) sideMenu?.classList.remove('open'); });
     
-    document.getElementById('backBtn')?.addEventListener('click', () => {
-        location.hash = currentPage;
-        showPage(currentPage);
-    });
+    document.getElementById('backBtn')?.addEventListener('click', () => { location.hash = currentPage; showPage(currentPage); });
     
     document.getElementById('langBtn')?.addEventListener('click', () => document.querySelector('.lang-dropdown')?.classList.toggle('show'));
-    document.querySelectorAll('.lang-dropdown button').forEach(btn => {
-        btn.onclick = () => {
-            changeLang(btn.dataset.lang);
-            document.querySelector('.lang-dropdown').classList.remove('show');
-        };
-    });
+    document.querySelectorAll('.lang-dropdown button').forEach(btn => { btn.onclick = () => { changeLang(btn.dataset.lang); document.querySelector('.lang-dropdown').classList.remove('show'); }; });
     
-    // VOICE BUTTON - IMPORTANT: Make sure this is called
     const voiceBtn = document.getElementById('voiceBtn');
-    if (voiceBtn) {
-        voiceBtn.addEventListener('click', startVoiceRecording);
-        console.log('Voice button initialized');
-    } else {
-        console.error('Voice button not found!');
-    }
+    if (voiceBtn) voiceBtn.addEventListener('click', startVoiceRecording);
     
-    // Search
     const searchInput = document.getElementById('searchInput');
     const searchDropdown = document.getElementById('searchDropdown');
     if (searchInput && searchDropdown) {
         searchInput.addEventListener('input', (e) => {
             let q = e.target.value.toLowerCase().trim();
-            if (!q) {
-                searchDropdown.classList.remove('show');
-                return;
-            }
-            let results = allContents.filter(item => {
-                let title = getText(item, 'title').toLowerCase();
-                return title.includes(q);
-            }).slice(0, 6);
-            
-            if (!results.length) {
-                searchDropdown.classList.remove('show');
-                return;
-            }
-            
-            searchDropdown.innerHTML = results.map(item => `
-                <div class="search-item" data-id="${item.id}">
-                    <div><strong>${getText(item, 'title')}</strong></div>
-                    <small style="color: #e50914">${item.type === 'article' ? '📰 Article' : (item.type === 'video' ? '🎬 Video' : (item.type === 'news' ? '📢 News' : '🌙 Mystery'))}</small>
-                </div>
-            `).join('');
-            
-            searchDropdown.querySelectorAll('.search-item').forEach(el => {
-                el.onclick = () => {
-                    openContent(el.dataset.id);
-                    searchDropdown.classList.remove('show');
-                    searchInput.value = '';
-                };
-            });
+            if (!q) { searchDropdown.classList.remove('show'); return; }
+            let results = allContents.filter(item => { let title = getText(item, 'title').toLowerCase(); return title.includes(q); }).slice(0, 6);
+            if (!results.length) { searchDropdown.classList.remove('show'); return; }
+            searchDropdown.innerHTML = results.map(item => `<div class="search-item" data-id="${item.id}"><div><strong>${getText(item, 'title')}</strong></div><small style="color: #e50914">${item.type === 'article' ? '📰 Article' : (item.type === 'video' ? '🎬 Video' : (item.type === 'news' ? '📢 News' : '🌙 Mystery'))}</small></div>`).join('');
+            searchDropdown.querySelectorAll('.search-item').forEach(el => { el.onclick = () => { openContent(el.dataset.id); searchDropdown.classList.remove('show'); searchInput.value = ''; }; });
             searchDropdown.classList.add('show');
         });
-        
-        document.addEventListener('click', (e) => {
-            if (!searchInput.contains(e.target) && !searchDropdown.contains(e.target)) {
-                searchDropdown.classList.remove('show');
-            }
-        });
+        document.addEventListener('click', (e) => { if (!searchInput.contains(e.target) && !searchDropdown.contains(e.target)) searchDropdown.classList.remove('show'); });
     }
     
     document.getElementById('aiSendBtn')?.addEventListener('click', sendMsg);
     document.getElementById('aiInput')?.addEventListener('keypress', e => { if (e.key === 'Enter') sendMsg(); });
-    document.querySelectorAll('.suggestion').forEach(s => s.onclick = () => {
-        document.getElementById('aiInput').value = s.dataset.query;
-        sendMsg();
-    });
+    document.querySelectorAll('.suggestion').forEach(s => s.onclick = () => { document.getElementById('aiInput').value = s.dataset.query; sendMsg(); });
     document.getElementById('newChatBtn')?.addEventListener('click', newChat);
     document.getElementById('editTitleBtn')?.addEventListener('click', editTitle);
-    
     document.getElementById('loginBtn')?.addEventListener('click', login);
     document.getElementById('sideLoginBtn')?.addEventListener('click', login);
     
     if (window.onAuthStateChanged) {
-        window.onAuthStateChanged(window.auth, (user) => {
-            currentUser = user;
-            updateUserUI(user);
-            if (user) loadUserChats(user.uid);
-            else loadChats();
-        });
+        window.onAuthStateChanged(window.auth, (user) => { currentUser = user; updateUserUI(user); if (user) loadUserChats(user.uid); else loadChats(); });
     }
-    
-    document.querySelector('.scroll-hint')?.addEventListener('click', () => {
-        window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-    });
-    
+    document.querySelector('.scroll-hint')?.addEventListener('click', () => { window.scrollTo({ top: window.innerHeight, behavior: 'smooth' }); });
     initEncyclopedia();
 }
 
@@ -960,79 +661,40 @@ function changeLang(lang) {
 
 function applyLang(lang) {
     let t = translations[lang];
-    const langBtn = document.getElementById('langBtn');
-    if (langBtn) {
-        langBtn.innerHTML = `🌐 ${lang === 'ur' ? 'اردو' : (lang === 'ur-roman' ? 'UR' : 'EN')} <i class="fas fa-chevron-down"></i>`;
-    }
-    const aiInput = document.getElementById('aiInput');
-    if (aiInput) aiInput.placeholder = t.aiPlaceholder;
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) searchInput.placeholder = t.searchPlaceholder;
-    const encSearch = document.getElementById('encyclopediaSearch');
-    if (encSearch) encSearch.setAttribute('placeholder', t.searchEncyclopedia);
-    const encBtn = document.getElementById('encyclopediaSearchBtn');
-    if (encBtn) encBtn.innerHTML = `<i class="fas fa-search"></i> ${t.searchBtn}`;
-    const nextBtn = document.getElementById('nextQuizBtn');
-    if (nextBtn) nextBtn.innerHTML = t.nextQuestion;
+    document.getElementById('langBtn').innerHTML = `🌐 ${lang === 'ur' ? 'اردو' : (lang === 'ur-roman' ? 'UR' : 'EN')} <i class="fas fa-chevron-down"></i>`;
+    document.getElementById('aiInput').placeholder = t.aiPlaceholder;
+    document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+    document.getElementById('encyclopediaSearch')?.setAttribute('placeholder', t.searchEncyclopedia);
+    document.getElementById('encyclopediaSearchBtn').innerHTML = `<i class="fas fa-search"></i> ${t.searchBtn}`;
+    document.getElementById('nextQuizBtn').innerHTML = t.nextQuestion;
     
-    const homeHeader = document.querySelector('#home .section-header h2');
-    if (homeHeader) homeHeader.innerHTML = t.latest;
-    const articlesHeader = document.querySelector('#articles .section-header h2');
-    if (articlesHeader) articlesHeader.innerHTML = t.articles;
-    const videosHeader = document.querySelector('#videos .section-header h2');
-    if (videosHeader) videosHeader.innerHTML = t.videos;
-    const newsHeader = document.querySelector('#news .section-header h2');
-    if (newsHeader) newsHeader.innerHTML = t.news;
-    const mysteriesHeader = document.querySelector('#mysteries .section-header h2');
-    if (mysteriesHeader) mysteriesHeader.innerHTML = t.mysteries;
-    const encHeader = document.querySelector('#encyclopedia .section-header h2');
-    if (encHeader) encHeader.innerHTML = t.encyclopedia;
-    const quizHeader = document.querySelector('#quiz .quiz-header h2');
-    if (quizHeader) quizHeader.innerHTML = t.quiz;
-    const calcHeader = document.querySelector('#calculator .calculator-container h2');
-    if (calcHeader) calcHeader.innerHTML = t.calculator;
-    const aiSidebarHeader = document.querySelector('#ai .ai-sidebar-header span');
-    if (aiSidebarHeader) aiSidebarHeader.innerHTML = `<i class="fas fa-comments"></i> ${t.chats}`;
+    document.querySelector('#home .section-header h2').innerHTML = t.latest;
+    document.querySelector('#articles .section-header h2').innerHTML = t.articles;
+    document.querySelector('#videos .section-header h2').innerHTML = t.videos;
+    document.querySelector('#news .section-header h2').innerHTML = t.news;
+    document.querySelector('#mysteries .section-header h2').innerHTML = t.mysteries;
+    document.querySelector('#encyclopedia .section-header h2').innerHTML = t.encyclopedia;
+    document.querySelector('#quiz .quiz-header h2').innerHTML = t.quiz;
+    document.querySelector('#calculator .calculator-container h2').innerHTML = t.calculator;
+    document.querySelector('#ai .ai-sidebar-header span').innerHTML = `<i class="fas fa-comments"></i> ${t.chats}`;
     
     const aboutCard = document.querySelector('.about-card');
     if (aboutCard) {
-        const aboutH2 = aboutCard.querySelector('h2');
-        if (aboutH2) aboutH2.textContent = t.aboutTitle;
+        aboutCard.querySelector('h2').textContent = t.aboutTitle;
         const ps = aboutCard.querySelectorAll('p');
         if (ps[0]) ps[0].textContent = t.aboutText1;
         if (ps[1]) ps[1].textContent = t.aboutText2;
         if (ps[2]) ps[2].textContent = t.aboutText3;
     }
     
-    const contactsH2 = document.querySelector('#contacts h2');
-    if (contactsH2) contactsH2.textContent = t.contactsTitle;
+    document.querySelector('#contacts h2').textContent = t.contactsTitle;
     const contactCards = document.querySelectorAll('.contact-card');
-    if (contactCards[0]) {
-        const h3 = contactCards[0].querySelector('h3');
-        if (h3) h3.textContent = t.emailTitle;
-        const p = contactCards[0].querySelector('p');
-        if (p) p.textContent = t.emailDesc;
-    }
-    if (contactCards[1]) {
-        const h3 = contactCards[1].querySelector('h3');
-        if (h3) h3.textContent = t.phoneTitle;
-        const p = contactCards[1].querySelector('p');
-        if (p) p.textContent = t.phoneDesc;
-    }
-    if (contactCards[2]) {
-        const h3 = contactCards[2].querySelector('h3');
-        if (h3) h3.textContent = t.locationTitle;
-        const ps = contactCards[2].querySelectorAll('p');
-        if (ps[1]) ps[1].textContent = t.locationDesc;
-    }
+    if (contactCards[0]) { contactCards[0].querySelector('h3').textContent = t.emailTitle; contactCards[0].querySelector('p').textContent = t.emailDesc; }
+    if (contactCards[1]) { contactCards[1].querySelector('h3').textContent = t.phoneTitle; contactCards[1].querySelector('p').textContent = t.phoneDesc; }
+    if (contactCards[2]) { contactCards[2].querySelector('h3').textContent = t.locationTitle; const ps = contactCards[2].querySelectorAll('p'); if (ps[1]) ps[1].textContent = t.locationDesc; }
     
     const businessCard = document.querySelector('.business-card');
-    if (businessCard) {
-        const h3 = businessCard.querySelector('h3');
-        if (h3) h3.textContent = t.businessTitle;
-        const p = businessCard.querySelector('p');
-        if (p) p.innerHTML = `${t.businessText} <strong>rsm260511@gmail.com</strong>`;
-    }
+    if (businessCard) { businessCard.querySelector('h3').textContent = t.businessTitle; businessCard.querySelector('p').innerHTML = `${t.businessText} <strong>rsm260511@gmail.com</strong>`; }
     
     const loginBtn = document.getElementById('loginBtn');
     const sideLoginBtn = document.getElementById('sideLoginBtn');
@@ -1042,32 +704,16 @@ function applyLang(lang) {
 
 // ============ LOGIN ============
 async function login() {
-    if (currentUser) {
-        if (window.signOutUser) await window.signOutUser();
-        return;
-    }
-    if (window.signInWithGoogle) {
-        let user = await window.signInWithGoogle();
-        if (user) {
-            currentUser = user;
-            updateUserUI(user);
-            loadUserChats(user.uid);
-            if (currentPage === 'ai') refreshChat();
-        }
-    }
+    if (currentUser) { if (window.signOutUser) await window.signOutUser(); return; }
+    if (window.signInWithGoogle) { let user = await window.signInWithGoogle(); if (user) { currentUser = user; updateUserUI(user); loadUserChats(user.uid); if (currentPage === 'ai') refreshChat(); } }
 }
 
 function updateUserUI(user) {
     let t = translations[currentLang];
-    document.querySelectorAll('#userName, #sideUserName').forEach(el => {
-        el.textContent = user ? (user.displayName || user.email?.split('@')[0] || 'User') : 'Guest';
-    });
+    document.querySelectorAll('#userName, #sideUserName').forEach(el => { el.textContent = user ? (user.displayName || user.email?.split('@')[0] || 'User') : 'Guest'; });
     document.querySelectorAll('#loginBtn, #sideLoginBtn').forEach(btn => {
-        if (user) {
-            btn.innerHTML = `<i class="fas fa-sign-out-alt"></i> ${t.logout}`;
-        } else {
-            btn.innerHTML = `<i class="fab fa-google"></i> ${t.login}`;
-        }
+        if (user) { btn.innerHTML = `<i class="fas fa-sign-out-alt"></i> ${t.logout}`; }
+        else { btn.innerHTML = `<i class="fab fa-google"></i> ${t.login}`; }
         btn.onclick = login;
     });
     if (currentPage === 'ai') refreshChat();
@@ -1085,21 +731,12 @@ function loadChats() {
 }
 
 function loadUserChats(uid) { loadChats(); }
-
-function saveChats() {
-    let key = currentUser ? `rsm_user_${currentUser.uid}` : 'rsm_conversations';
-    localStorage.setItem(key, JSON.stringify({ conversations, chatHistory }));
-}
+function saveChats() { let key = currentUser ? `rsm_user_${currentUser.uid}` : 'rsm_conversations'; localStorage.setItem(key, JSON.stringify({ conversations, chatHistory })); }
 
 function renderChatList() {
     let container = document.getElementById('chatList');
     if (!container) return;
-    container.innerHTML = Object.entries(conversations).map(([id, conv]) => `
-        <div class="chat-item ${id === currentChat ? 'active' : ''}" data-id="${id}">
-            <span>${conv.title}</span>
-            <button class="chat-delete" data-id="${id}"><i class="fas fa-trash"></i></button>
-        </div>
-    `).join('');
+    container.innerHTML = Object.entries(conversations).map(([id, conv]) => `<div class="chat-item ${id === currentChat ? 'active' : ''}" data-id="${id}"><span>${conv.title}</span><button class="chat-delete" data-id="${id}"><i class="fas fa-trash"></i></button></div>`).join('');
     container.querySelectorAll('.chat-item').forEach(el => {
         el.onclick = (e) => { if (!e.target.classList.contains('chat-delete')) switchChat(el.dataset.id); };
         let del = el.querySelector('.chat-delete');
@@ -1108,7 +745,6 @@ function renderChatList() {
 }
 
 function switchChat(id) { currentChat = id; renderChatList(); loadMessages(id); document.getElementById('chatTitle').innerText = conversations[id]?.title || 'Chat'; }
-
 function loadMessages(chatId) {
     let msgs = chatHistory[chatId] || [];
     let container = document.getElementById('aiMessages');
@@ -1117,16 +753,12 @@ function loadMessages(chatId) {
     if (msgs.length === 0) addWelcomeMessage();
     else msgs.forEach(m => addMsg(m.sender, m.text, m.time));
 }
-
 function addWelcomeMessage() {
     let userName = currentUser ? (currentUser.displayName || currentUser.email?.split('@')[0] || 'User') : null;
     let welcomeText = translations[currentLang].aiWelcome;
-    if (userName) {
-        welcomeText = `🤖 Hello **${userName}**! I'm your RSM AI Assistant. Ask me anything!`;
-    }
+    if (userName) welcomeText = `🤖 Hello **${userName}**! I'm your RSM AI Assistant. Ask me anything!`;
     addMsg('bot', welcomeText, getTime());
 }
-
 function addMsg(sender, text, time = getTime()) {
     let container = document.getElementById('aiMessages');
     if (!container) return;
@@ -1136,12 +768,7 @@ function addMsg(sender, text, time = getTime()) {
     container.appendChild(div);
     container.scrollTop = container.scrollHeight;
 }
-
-function refreshChat() { 
-    loadMessages(currentChat); 
-    document.getElementById('chatTitle').innerText = conversations[currentChat]?.title || 'Chat';
-}
-
+function refreshChat() { loadMessages(currentChat); document.getElementById('chatTitle').innerText = conversations[currentChat]?.title || 'Chat'; }
 function newChat() {
     let id = 'chat_' + Date.now();
     conversations[id] = { title: `New Chat ${new Date().toLocaleTimeString().slice(0,5)}` };
@@ -1152,43 +779,25 @@ function newChat() {
     loadMessages(id);
     document.getElementById('chatTitle').innerText = conversations[id].title;
 }
-
 function deleteChat(id) {
-    if (!id || !conversations[id]) {
-        closeModal();
-        pendingDelete = null;
-        return;
-    }
-
+    if (id === 'default') return;
     delete conversations[id];
     delete chatHistory[id];
     saveChats();
-
     if (currentChat === id) {
         let first = Object.keys(conversations)[0];
-        if (first) {
-            currentChat = first;
-            loadMessages(first);
-            document.getElementById('chatTitle').innerText = conversations[first]?.title || 'Chat';
-        } else {
-            newChat();
-        }
+        if (first) { currentChat = first; loadMessages(first); document.getElementById('chatTitle').innerText = conversations[first].title; }
+        else newChat();
     }
-
     renderChatList();
-    pendingDelete = null;
     closeModal();
 }
-
 function editTitle() {
     if (!currentUser) { alert("Login to edit titles"); return; }
     let newTitle = prompt("New title:", conversations[currentChat]?.title);
     if (newTitle) { conversations[currentChat].title = newTitle.slice(0, 40); saveChats(); renderChatList(); document.getElementById('chatTitle').innerText = newTitle; }
 }
-
-function getTime() {
-    return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-}
+function getTime() { return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); }
 
 // ============ MODAL ============
 function createModal() {
@@ -1197,17 +806,9 @@ function createModal() {
     modal.className = 'modal';
     modal.innerHTML = `<div class="modal-content"><p id="modalMsg"></p><div class="modal-buttons"><button id="modalYes" class="confirm-yes">Yes</button><button id="modalNo" class="confirm-no">Cancel</button></div></div>`;
     document.body.appendChild(modal);
-    document.getElementById('modalYes').onclick = () => {
-        if (pendingDelete) {
-            deleteChat(pendingDelete);
-        } else {
-            closeModal();
-        }
-        pendingDelete = null;
-    };
+    document.getElementById('modalYes').onclick = () => { if (pendingDelete) deleteChat(pendingDelete); closeModal(); };
     document.getElementById('modalNo').onclick = () => { closeModal(); pendingDelete = null; };
 }
-
 function showModal(msg) { let m = document.getElementById('confirmModal'); document.getElementById('modalMsg').innerText = msg; m.classList.add('show'); }
 function closeModal() { document.getElementById('confirmModal').classList.remove('show'); pendingDelete = null; }
 
@@ -1216,24 +817,19 @@ async function sendMsg() {
     const input = document.getElementById('aiInput');
     const msg = input.value.trim();
     if (!msg) return;
-    
     const time = getTime();
     addMsg('user', msg, time);
     input.value = '';
-    
     if (!chatHistory[currentChat]) chatHistory[currentChat] = [];
     chatHistory[currentChat].push({ sender: 'user', text: msg, time });
     saveChats();
-    
     const sendBtn = document.getElementById('aiSendBtn');
     sendBtn.innerHTML = '<i class="fas fa-stop"></i>';
     sendBtn.classList.add('stop-btn');
     sendBtn.onclick = stopTyping;
-    
     try {
         const response = await getAI(msg);
         const resTime = getTime();
-        
         await typewriterEffect(response, (partial) => {
             const lastPartial = document.querySelector('#aiMessages .message.bot[data-typing="true"]');
             if (lastPartial) lastPartial.remove();
@@ -1244,63 +840,39 @@ async function sendMsg() {
             document.getElementById('aiMessages').appendChild(tempDiv);
             document.getElementById('aiMessages').scrollTop = document.getElementById('aiMessages').scrollHeight;
         });
-        
         const lastPartial = document.querySelector('#aiMessages .message.bot[data-typing="true"]');
         if (lastPartial) lastPartial.remove();
         addMsg('bot', response, resTime);
-        
         chatHistory[currentChat].push({ sender: 'bot', text: response, time: resTime });
         saveChats();
         updateTitleFromMsg();
-        
-    } catch (e) {
-        console.error(e);
-        addMsg('bot', 'Sorry, an error occurred.', getTime());
-    } finally {
-        sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i>';
-        sendBtn.classList.remove('stop-btn');
-        sendBtn.onclick = sendMsg;
-        isTypingAI = false;
-    }
+    } catch (e) { console.error(e); addMsg('bot', 'Sorry, an error occurred.', getTime()); }
+    finally { sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i>'; sendBtn.classList.remove('stop-btn'); sendBtn.onclick = sendMsg; isTypingAI = false; }
 }
-
 function stopTyping() {
     if (isTypingAI) {
         isTypingAI = false;
         const typingMsg = document.querySelector('#aiMessages .message.bot[data-typing="true"]');
         if (typingMsg) typingMsg.remove();
-        
         const sendBtn = document.getElementById('aiSendBtn');
         sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i>';
         sendBtn.classList.remove('stop-btn');
         sendBtn.onclick = sendMsg;
-        
         addMsg('bot', translations[currentLang].stopMessage, getTime());
     }
 }
-
 function typewriterEffect(text, callback) {
     return new Promise((resolve) => {
         let i = 0;
         isTypingAI = true;
         const type = () => {
-            if (!isTypingAI) {
-                resolve();
-                return;
-            }
-            if (i <= text.length) {
-                callback(text.substring(0, i));
-                i++;
-                setTimeout(type, 20 + Math.random() * 15);
-            } else {
-                isTypingAI = false;
-                resolve();
-            }
+            if (!isTypingAI) { resolve(); return; }
+            if (i <= text.length) { callback(text.substring(0, i)); i++; setTimeout(type, 20 + Math.random() * 15); }
+            else { isTypingAI = false; resolve(); }
         };
         type();
     });
 }
-
 function updateTitleFromMsg() {
     const firstUser = chatHistory[currentChat]?.find(m => m.sender === 'user');
     if (firstUser && (conversations[currentChat]?.title?.startsWith('New Chat') || conversations[currentChat]?.title?.startsWith('New'))) {
@@ -1316,13 +888,11 @@ function updateTitleFromMsg() {
 // ============ AI RESPONSE ============
 async function getAI(msg) {
     const lower = msg.toLowerCase().trim();
-    
     if (lower.includes('search') || lower.includes('find') || lower.includes('look up') || lower.includes('tell me about') || lower.includes('what is')) {
         let query = msg.replace(/search|find|look up|tell me about|what is/gi, '').trim();
         if (!query) query = msg;
         return await wikiSearch(query);
     }
-    
     if (lower.includes('summarize') || lower.includes('summary') || lower.includes('sum up')) {
         if (currentItem) {
             const content = getText(currentItem, 'content');
@@ -1334,7 +904,6 @@ async function getAI(msg) {
         }
         return "📄 Open an article or video first, then ask me to summarize it!";
     }
-    
     if (lower.includes('fact') || lower.includes('fun fact') || lower.includes('tell me a fact')) {
         const facts = [
             "🐝 **Bees** can recognize human faces! They remember you like a friend.",
@@ -1348,26 +917,20 @@ async function getAI(msg) {
         ];
         return facts[Math.floor(Math.random() * facts.length)];
     }
-    
     if (lower.includes('calculate') || lower.includes('calc') || lower.includes('+') || lower.includes('-') || lower.includes('*') || lower.includes('/') || lower.includes('×') || lower.includes('÷')) {
         try {
             let expr = msg.replace(/calculate|calc/gi, '').replace(/×/g, '*').replace(/÷/g, '/');
             const result = eval(expr);
             return `🧮 **Result:** ${result}`;
-        } catch(e) {
-            return "❌ I couldn't calculate that. Please use numbers and operators (+, -, *, /).";
-        }
+        } catch(e) { return "❌ I couldn't calculate that. Please use numbers and operators (+, -, *, /)."; }
     }
-    
     if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey')) {
         const name = currentUser ? currentUser.displayName?.split(' ')[0] || 'friend' : 'friend';
         return `👋 Hello ${name}! How can I help you today?\n\nYou can:\n• Ask me to search Wikipedia\n• Tell me a fun fact\n• Summarize articles\n• Calculate numbers\n• Click the **🎤 microphone** to speak!\n• Ask any question!`;
     }
-    
     if (lower.includes('help') || lower.includes('what can you do')) {
         return `🤖 **I can help you with:**\n\n🔍 **Search Wikipedia** - "Search for pyramids"\n📝 **Summarize content** - Open an article and say "Summarize this"\n✨ **Fun facts** - "Tell me a fun fact"\n🧮 **Calculate** - "Calculate 25 * 4"\n🎤 **Voice input** - Click the microphone button to speak!\n💬 **Answer questions** - Ask me anything!\n🌍 **3 languages** - English, Urdu, Roman Urdu\n\nWhat would you like to know?`;
     }
-    
     return `🤖 I'm here to help!\n\n**Try these:**\n• "Search Wikipedia for pyramids"\n• "Tell me a fun fact"\n• "Calculate 15 * 8"\n• "What is artificial intelligence?"\n• "Summarize this article" (open one first)\n• Click the **🎤 microphone** to speak!\n\nOr ask me anything!`;
 }
 
@@ -1376,31 +939,22 @@ async function wikiSearch(q) {
     try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000);
-        
         const url = `https://${lang}.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(q)}&format=json&origin=*&srlimit=1`;
         const res = await fetch(url, { signal: controller.signal });
         clearTimeout(timeoutId);
-        
         const data = await res.json();
-        if (!data.query?.search?.length) {
-            return `🔍 No results found for "${q}". Try a different search term.`;
-        }
-        
+        if (!data.query?.search?.length) return `🔍 No results found for "${q}". Try a different search term.`;
         const title = data.query.search[0].title;
         const contentUrl = `https://${lang}.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&titles=${encodeURIComponent(title)}&format=json&origin=*`;
         const cRes = await fetch(contentUrl, { signal: controller.signal });
         const cData = await cRes.json();
-        
         const pages = cData.query.pages;
         const page = Object.values(pages)[0];
         const extract = page.extract || '';
         const wikiUrl = `https://${lang}.wikipedia.org/wiki/${encodeURIComponent(title.replace(/ /g, '_'))}`;
-        
         return `📚 **${title}**\n\n${extract.substring(0, 700)}...\n\n🔗 [Read more on Wikipedia](${wikiUrl})`;
     } catch(e) {
-        if (e.name === 'AbortError') {
-            return "⏰ Search timed out. Please try again.";
-        }
+        if (e.name === 'AbortError') return "⏰ Search timed out. Please try again.";
         return "⚠️ Wikipedia search failed. Please check your internet connection.";
     }
 }
