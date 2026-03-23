@@ -103,7 +103,14 @@ const translations = {
         yourScore: "Your score: ",
         outOf: " out of ",
         correct: "Correct!",
-        incorrect: "Incorrect. The correct answer was: "
+        incorrect: "Incorrect. The correct answer was: ",
+        voiceNotSupported: "❌ Speech recognition not supported in this browser. Try Chrome, Edge, or Safari.",
+        voiceListening: "🎤 Listening... Speak now",
+        voiceSuccess: "✅ Speech recognized! Check and press send.",
+        voiceNoSpeech: "No speech detected. Please try again.",
+        voiceNoMic: "No microphone found. Please check your microphone.",
+        voiceDenied: "Microphone access denied. Please allow microphone access.",
+        voiceNetwork: "Network error. Please check your connection."
     },
     ur: {
         latest: "آر ایس ایم سے تازہ ترین",
@@ -134,7 +141,7 @@ const translations = {
         locationDesc: "ڈیجیٹل ہیڈ کوارٹر",
         businessTitle: "کاروباری انکوائریز",
         businessText: "شراکت داری، تشہیر، یا میڈیا انکوائریز کے لیے، براہ کرم ہم سے رابطہ کریں",
-        aiWelcome: "🤖 السلام علیکم! میں آر ایس ایم اے آئی اسسٹنٹ ہوں۔",
+        aiWelcome: "🤖 السلام علیکم! میں آر ایس ایم اے آئی اسسٹنٹ ہوں۔ مجھ سے کچھ بھی پوچھیں!",
         aiPlaceholder: "مجھ سے کچھ پوچھیں...",
         article: "مضمون",
         video: "ویڈیو",
@@ -158,7 +165,14 @@ const translations = {
         yourScore: "آپ کا اسکور: ",
         outOf: " میں سے ",
         correct: "صحیح!",
-        incorrect: "غلط۔ صحیح جواب تھا: "
+        incorrect: "غلط۔ صحیح جواب تھا: ",
+        voiceNotSupported: "❌ اس براؤزر میں اسپیچ ریکگنیشن سپورٹ نہیں ہے۔ کروم، ایج، یا سفاری استعمال کریں۔",
+        voiceListening: "🎤 سن رہا ہوں... اب بولیں",
+        voiceSuccess: "✅ تقریر پہچان لی گئی! چیک کریں اور بھیجیں۔",
+        voiceNoSpeech: "کوئی تقریر نہیں سنی گئی۔ براہ کرم دوبارہ کوشش کریں۔",
+        voiceNoMic: "مائیکروفون نہیں ملا۔ براہ کرم اپنا مائیکروفون چیک کریں۔",
+        voiceDenied: "مائیکروفون تک رسائی سے انکار کر دیا گیا۔ براہ کرم مائیکروفون کی اجازت دیں۔",
+        voiceNetwork: "نیٹ ورک کی خرابی۔ براہ کرم اپنا کنیکشن چیک کریں۔"
     },
     "ur-roman": {
         latest: "RSM se taaza tareen",
@@ -189,7 +203,7 @@ const translations = {
         locationDesc: "Digital headquarters",
         businessTitle: "Karobari inquiries",
         businessText: "Sharakat dari, tashheer, ya media inquiries ke liye, barah e karam hum se rabta karein",
-        aiWelcome: "🤖 Assalam-o-Alaikum! Main RSM AI Assistant hoon.",
+        aiWelcome: "🤖 Assalam-o-Alaikum! Main RSM AI Assistant hoon. Mujh se kuch bhi poochiye!",
         aiPlaceholder: "Mujh se kuch poochiye...",
         article: "Mazmoon",
         video: "Video",
@@ -213,7 +227,14 @@ const translations = {
         yourScore: "Aap ka score: ",
         outOf: " mein se ",
         correct: "Sahi!",
-        incorrect: "Ghalat. Sahi jawab tha: "
+        incorrect: "Ghalat. Sahi jawab tha: ",
+        voiceNotSupported: "❌ Is browser mein speech recognition support nahi hai. Chrome, Edge, ya Safari use karein.",
+        voiceListening: "🎤 Sun raha hoon... Ab boliye",
+        voiceSuccess: "✅ Taqreer pehchan li gayi! Check karein aur bhejein.",
+        voiceNoSpeech: "Koi taqreer nahi suni gayi. Barah e karam dobara koshish karein.",
+        voiceNoMic: "Microphone nahi mila. Barah e karam apna microphone check karein.",
+        voiceDenied: "Microphone tak rasai se inkar kar diya gaya. Barah e karam microphone ki ijazat dein.",
+        voiceNetwork: "Network ki khharabi. Barah e karam apna connection check karein."
     }
 };
 
@@ -696,6 +717,102 @@ function loadHash() {
     else showPage('home');
 }
 
+// ============ VOICE RECOGNITION ============
+let voiceStatusDiv = null;
+
+function showVoiceStatus(message, isError = false) {
+    if (voiceStatusDiv) {
+        voiceStatusDiv.remove();
+    }
+    
+    voiceStatusDiv = document.createElement('div');
+    voiceStatusDiv.className = 'voice-status';
+    voiceStatusDiv.innerHTML = `
+        <i class="fas ${isError ? 'fa-exclamation-triangle' : 'fa-microphone-alt'}"></i>
+        <span class="status-text">${message}</span>
+    `;
+    document.body.appendChild(voiceStatusDiv);
+    
+    setTimeout(() => {
+        if (voiceStatusDiv) {
+            voiceStatusDiv.remove();
+            voiceStatusDiv = null;
+        }
+    }, 3000);
+}
+
+function startVoiceRecording() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    
+    if (!SpeechRecognition) {
+        showVoiceStatus(translations[currentLang].voiceNotSupported, true);
+        return;
+    }
+    
+    const recognition = new SpeechRecognition();
+    recognition.lang = currentLang === 'ur' ? 'ur-PK' : 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+    
+    const voiceBtn = document.getElementById('voiceBtn');
+    voiceBtn.classList.add('recording');
+    voiceBtn.innerHTML = '<i class="fas fa-microphone-slash"></i>';
+    
+    const aiInput = document.getElementById('aiInput');
+    aiInput.classList.add('voice-active');
+    
+    showVoiceStatus(translations[currentLang].voiceListening);
+    
+    recognition.start();
+    
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        console.log('Transcribed:', transcript);
+        
+        voiceBtn.classList.remove('recording');
+        voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+        aiInput.classList.remove('voice-active');
+        
+        aiInput.value = transcript;
+        aiInput.focus();
+        
+        aiInput.style.borderColor = '#4ade80';
+        setTimeout(() => {
+            aiInput.style.borderColor = '';
+        }, 1000);
+        
+        showVoiceStatus(translations[currentLang].voiceSuccess);
+    };
+    
+    recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        voiceBtn.classList.remove('recording');
+        voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+        aiInput.classList.remove('voice-active');
+        
+        let errorMessage = translations[currentLang].voiceNotSupported;
+        if (event.error === 'no-speech') {
+            errorMessage = translations[currentLang].voiceNoSpeech;
+        } else if (event.error === 'audio-capture') {
+            errorMessage = translations[currentLang].voiceNoMic;
+        } else if (event.error === 'not-allowed') {
+            errorMessage = translations[currentLang].voiceDenied;
+        } else if (event.error === 'network') {
+            errorMessage = translations[currentLang].voiceNetwork;
+        }
+        
+        showVoiceStatus(errorMessage, true);
+    };
+    
+    recognition.onend = () => {
+        if (voiceBtn.classList.contains('recording')) {
+            voiceBtn.classList.remove('recording');
+            voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+            aiInput.classList.remove('voice-active');
+        }
+    };
+}
+
 // ============ EVENT LISTENERS ============
 function setupEvents() {
     document.querySelectorAll('.nav-links a, .side-nav a').forEach(link => {
@@ -734,6 +851,9 @@ function setupEvents() {
             document.querySelector('.lang-dropdown').classList.remove('show');
         };
     });
+    
+    // Voice button event listener
+    document.getElementById('voiceBtn')?.addEventListener('click', startVoiceRecording);
     
     // Search
     const searchInput = document.getElementById('searchInput');
@@ -1204,10 +1324,10 @@ async function getAI(msg) {
     }
     
     if (lower.includes('help') || lower.includes('what can you do')) {
-        return `🤖 **I can help you with:**\n\n🔍 **Search Wikipedia** - "Search for pyramids"\n📝 **Summarize content** - Open an article and say "Summarize this"\n✨ **Fun facts** - "Tell me a fun fact"\n🧮 **Calculate** - "Calculate 25 * 4"\n💬 **Answer questions** - Ask me anything!\n🌍 **3 languages** - English, Urdu, Roman Urdu\n\nWhat would you like to know?`;
+        return `🤖 **I can help you with:**\n\n🔍 **Search Wikipedia** - "Search for pyramids"\n📝 **Summarize content** - Open an article and say "Summarize this"\n✨ **Fun facts** - "Tell me a fun fact"\n🧮 **Calculate** - "Calculate 25 * 4"\n💬 **Answer questions** - Ask me anything!\n🌍 **3 languages** - English, Urdu, Roman Urdu\n🎤 **Voice input** - Click the microphone button to speak!\n\nWhat would you like to know?`;
     }
     
-    return `🤖 I'm here to help!\n\n**Try these:**\n• "Search Wikipedia for pyramids"\n• "Tell me a fun fact"\n• "Calculate 15 * 8"\n• "What is artificial intelligence?"\n• "Summarize this article" (open one first)\n\nOr ask me anything!`;
+    return `🤖 I'm here to help!\n\n**Try these:**\n• "Search Wikipedia for pyramids"\n• "Tell me a fun fact"\n• "Calculate 15 * 8"\n• "What is artificial intelligence?"\n• "Summarize this article" (open one first)\n• Click the **🎤 microphone** to speak!\n\nOr ask me anything!`;
 }
 
 async function wikiSearch(q) {
