@@ -755,11 +755,15 @@ function startVoiceRecording() {
     recognition.maxAlternatives = 1;
     
     const voiceBtn = document.getElementById('voiceBtn');
+    if (!voiceBtn) return;
+    
     voiceBtn.classList.add('recording');
     voiceBtn.innerHTML = '<i class="fas fa-microphone-slash"></i>';
     
     const aiInput = document.getElementById('aiInput');
-    aiInput.classList.add('voice-active');
+    if (aiInput) {
+        aiInput.classList.add('voice-active');
+    }
     
     showVoiceStatus(translations[currentLang].voiceListening);
     
@@ -771,15 +775,16 @@ function startVoiceRecording() {
         
         voiceBtn.classList.remove('recording');
         voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
-        aiInput.classList.remove('voice-active');
-        
-        aiInput.value = transcript;
-        aiInput.focus();
-        
-        aiInput.style.borderColor = '#4ade80';
-        setTimeout(() => {
-            aiInput.style.borderColor = '';
-        }, 1000);
+        if (aiInput) {
+            aiInput.classList.remove('voice-active');
+            aiInput.value = transcript;
+            aiInput.focus();
+            
+            aiInput.style.borderColor = '#4ade80';
+            setTimeout(() => {
+                aiInput.style.borderColor = '';
+            }, 1000);
+        }
         
         showVoiceStatus(translations[currentLang].voiceSuccess);
     };
@@ -788,7 +793,9 @@ function startVoiceRecording() {
         console.error('Speech recognition error:', event.error);
         voiceBtn.classList.remove('recording');
         voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
-        aiInput.classList.remove('voice-active');
+        if (aiInput) {
+            aiInput.classList.remove('voice-active');
+        }
         
         let errorMessage = translations[currentLang].voiceNotSupported;
         if (event.error === 'no-speech') {
@@ -808,7 +815,9 @@ function startVoiceRecording() {
         if (voiceBtn.classList.contains('recording')) {
             voiceBtn.classList.remove('recording');
             voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
-            aiInput.classList.remove('voice-active');
+            if (aiInput) {
+                aiInput.classList.remove('voice-active');
+            }
         }
     };
 }
@@ -852,8 +861,14 @@ function setupEvents() {
         };
     });
     
-    // Voice button event listener
-    document.getElementById('voiceBtn')?.addEventListener('click', startVoiceRecording);
+    // VOICE BUTTON - IMPORTANT: Make sure this is called
+    const voiceBtn = document.getElementById('voiceBtn');
+    if (voiceBtn) {
+        voiceBtn.addEventListener('click', startVoiceRecording);
+        console.log('Voice button initialized');
+    } else {
+        console.error('Voice button not found!');
+    }
     
     // Search
     const searchInput = document.getElementById('searchInput');
@@ -945,52 +960,78 @@ function changeLang(lang) {
 
 function applyLang(lang) {
     let t = translations[lang];
-    document.getElementById('langBtn').innerHTML = `🌐 ${lang === 'ur' ? 'اردو' : (lang === 'ur-roman' ? 'UR' : 'EN')} <i class="fas fa-chevron-down"></i>`;
-    document.getElementById('aiInput').placeholder = t.aiPlaceholder;
-    document.getElementById('searchInput').placeholder = t.searchPlaceholder;
-    document.getElementById('encyclopediaSearch')?.setAttribute('placeholder', t.searchEncyclopedia);
-    document.getElementById('encyclopediaSearchBtn').innerHTML = `<i class="fas fa-search"></i> ${t.searchBtn}`;
-    document.getElementById('nextQuizBtn').innerHTML = t.nextQuestion;
+    const langBtn = document.getElementById('langBtn');
+    if (langBtn) {
+        langBtn.innerHTML = `🌐 ${lang === 'ur' ? 'اردو' : (lang === 'ur-roman' ? 'UR' : 'EN')} <i class="fas fa-chevron-down"></i>`;
+    }
+    const aiInput = document.getElementById('aiInput');
+    if (aiInput) aiInput.placeholder = t.aiPlaceholder;
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) searchInput.placeholder = t.searchPlaceholder;
+    const encSearch = document.getElementById('encyclopediaSearch');
+    if (encSearch) encSearch.setAttribute('placeholder', t.searchEncyclopedia);
+    const encBtn = document.getElementById('encyclopediaSearchBtn');
+    if (encBtn) encBtn.innerHTML = `<i class="fas fa-search"></i> ${t.searchBtn}`;
+    const nextBtn = document.getElementById('nextQuizBtn');
+    if (nextBtn) nextBtn.innerHTML = t.nextQuestion;
     
-    document.querySelector('#home .section-header h2').innerHTML = t.latest;
-    document.querySelector('#articles .section-header h2').innerHTML = t.articles;
-    document.querySelector('#videos .section-header h2').innerHTML = t.videos;
-    document.querySelector('#news .section-header h2').innerHTML = t.news;
-    document.querySelector('#mysteries .section-header h2').innerHTML = t.mysteries;
-    document.querySelector('#encyclopedia .section-header h2').innerHTML = t.encyclopedia;
-    document.querySelector('#quiz .quiz-header h2').innerHTML = t.quiz;
-    document.querySelector('#calculator .calculator-container h2').innerHTML = t.calculator;
-    document.querySelector('#ai .ai-sidebar-header span').innerHTML = `<i class="fas fa-comments"></i> ${t.chats}`;
+    const homeHeader = document.querySelector('#home .section-header h2');
+    if (homeHeader) homeHeader.innerHTML = t.latest;
+    const articlesHeader = document.querySelector('#articles .section-header h2');
+    if (articlesHeader) articlesHeader.innerHTML = t.articles;
+    const videosHeader = document.querySelector('#videos .section-header h2');
+    if (videosHeader) videosHeader.innerHTML = t.videos;
+    const newsHeader = document.querySelector('#news .section-header h2');
+    if (newsHeader) newsHeader.innerHTML = t.news;
+    const mysteriesHeader = document.querySelector('#mysteries .section-header h2');
+    if (mysteriesHeader) mysteriesHeader.innerHTML = t.mysteries;
+    const encHeader = document.querySelector('#encyclopedia .section-header h2');
+    if (encHeader) encHeader.innerHTML = t.encyclopedia;
+    const quizHeader = document.querySelector('#quiz .quiz-header h2');
+    if (quizHeader) quizHeader.innerHTML = t.quiz;
+    const calcHeader = document.querySelector('#calculator .calculator-container h2');
+    if (calcHeader) calcHeader.innerHTML = t.calculator;
+    const aiSidebarHeader = document.querySelector('#ai .ai-sidebar-header span');
+    if (aiSidebarHeader) aiSidebarHeader.innerHTML = `<i class="fas fa-comments"></i> ${t.chats}`;
     
     const aboutCard = document.querySelector('.about-card');
     if (aboutCard) {
-        aboutCard.querySelector('h2').textContent = t.aboutTitle;
+        const aboutH2 = aboutCard.querySelector('h2');
+        if (aboutH2) aboutH2.textContent = t.aboutTitle;
         const ps = aboutCard.querySelectorAll('p');
         if (ps[0]) ps[0].textContent = t.aboutText1;
         if (ps[1]) ps[1].textContent = t.aboutText2;
         if (ps[2]) ps[2].textContent = t.aboutText3;
     }
     
-    document.querySelector('#contacts h2').textContent = t.contactsTitle;
+    const contactsH2 = document.querySelector('#contacts h2');
+    if (contactsH2) contactsH2.textContent = t.contactsTitle;
     const contactCards = document.querySelectorAll('.contact-card');
     if (contactCards[0]) {
-        contactCards[0].querySelector('h3').textContent = t.emailTitle;
-        contactCards[0].querySelector('p').textContent = t.emailDesc;
+        const h3 = contactCards[0].querySelector('h3');
+        if (h3) h3.textContent = t.emailTitle;
+        const p = contactCards[0].querySelector('p');
+        if (p) p.textContent = t.emailDesc;
     }
     if (contactCards[1]) {
-        contactCards[1].querySelector('h3').textContent = t.phoneTitle;
-        contactCards[1].querySelector('p').textContent = t.phoneDesc;
+        const h3 = contactCards[1].querySelector('h3');
+        if (h3) h3.textContent = t.phoneTitle;
+        const p = contactCards[1].querySelector('p');
+        if (p) p.textContent = t.phoneDesc;
     }
     if (contactCards[2]) {
-        contactCards[2].querySelector('h3').textContent = t.locationTitle;
+        const h3 = contactCards[2].querySelector('h3');
+        if (h3) h3.textContent = t.locationTitle;
         const ps = contactCards[2].querySelectorAll('p');
         if (ps[1]) ps[1].textContent = t.locationDesc;
     }
     
     const businessCard = document.querySelector('.business-card');
     if (businessCard) {
-        businessCard.querySelector('h3').textContent = t.businessTitle;
-        businessCard.querySelector('p').innerHTML = `${t.businessText} <strong>rsm260511@gmail.com</strong>`;
+        const h3 = businessCard.querySelector('h3');
+        if (h3) h3.textContent = t.businessTitle;
+        const p = businessCard.querySelector('p');
+        if (p) p.innerHTML = `${t.businessText} <strong>rsm260511@gmail.com</strong>`;
     }
     
     const loginBtn = document.getElementById('loginBtn');
@@ -1320,11 +1361,11 @@ async function getAI(msg) {
     
     if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey')) {
         const name = currentUser ? currentUser.displayName?.split(' ')[0] || 'friend' : 'friend';
-        return `👋 Hello ${name}! How can I help you today?\n\nYou can:\n• Ask me to search Wikipedia\n• Tell me a fun fact\n• Summarize articles\n• Calculate numbers\n• Ask any question!`;
+        return `👋 Hello ${name}! How can I help you today?\n\nYou can:\n• Ask me to search Wikipedia\n• Tell me a fun fact\n• Summarize articles\n• Calculate numbers\n• Click the **🎤 microphone** to speak!\n• Ask any question!`;
     }
     
     if (lower.includes('help') || lower.includes('what can you do')) {
-        return `🤖 **I can help you with:**\n\n🔍 **Search Wikipedia** - "Search for pyramids"\n📝 **Summarize content** - Open an article and say "Summarize this"\n✨ **Fun facts** - "Tell me a fun fact"\n🧮 **Calculate** - "Calculate 25 * 4"\n💬 **Answer questions** - Ask me anything!\n🌍 **3 languages** - English, Urdu, Roman Urdu\n🎤 **Voice input** - Click the microphone button to speak!\n\nWhat would you like to know?`;
+        return `🤖 **I can help you with:**\n\n🔍 **Search Wikipedia** - "Search for pyramids"\n📝 **Summarize content** - Open an article and say "Summarize this"\n✨ **Fun facts** - "Tell me a fun fact"\n🧮 **Calculate** - "Calculate 25 * 4"\n🎤 **Voice input** - Click the microphone button to speak!\n💬 **Answer questions** - Ask me anything!\n🌍 **3 languages** - English, Urdu, Roman Urdu\n\nWhat would you like to know?`;
     }
     
     return `🤖 I'm here to help!\n\n**Try these:**\n• "Search Wikipedia for pyramids"\n• "Tell me a fun fact"\n• "Calculate 15 * 8"\n• "What is artificial intelligence?"\n• "Summarize this article" (open one first)\n• Click the **🎤 microphone** to speak!\n\nOr ask me anything!`;
